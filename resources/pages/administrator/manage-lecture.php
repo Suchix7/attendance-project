@@ -1,4 +1,4 @@
-<?php
+nt<?php
 
 if (isset($_POST["addLecture"])) {
     // Securely handle input

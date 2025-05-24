@@ -18,15 +18,48 @@ if (isset($_POST['addStudent'])) {
         mkdir($folderPath, 0777, true);
     }
 
-    for ($i = 1; $i <= 5; $i++) {
+    for ($i = 1; $i <= 10; $i++) {
         if (isset($_POST["capturedImage$i"])) {
             $base64Data = explode(',', $_POST["capturedImage$i"])[1];
             $imageData = base64_decode($base64Data);
             $fileName = "{$registrationNumber}_image{$i}.png";
-            $labelName = "{$i}.png";
+            $labelName = "face_{$i}.jpg";  // Changed to match the expected format in train_model.py
+
+            // Save in students directory for face recognition
+            $studentDir = "students/{$registrationNumber}";
+            if (!file_exists($studentDir)) {
+                mkdir($studentDir, 0777, true);
+            }
+            file_put_contents("{$studentDir}/{$labelName}", $imageData);
+
+            // Also save in resources/labels for display
             file_put_contents("{$folderPath}{$labelName}", $imageData);
             $imageFileNames[] = $fileName;
         }
+    }
+
+    // Create student info.json file required by face recognition
+    $studentInfo = [
+        'id' => $registrationNumber,
+        'name' => $firstName . ' ' . $lastName,
+        'email' => $email,
+        'course' => $courseCode,
+        'faculty' => $faculty
+    ];
+    file_put_contents("students/{$registrationNumber}/info.json", json_encode($studentInfo));
+
+    // Train the face recognition model
+    $output = [];
+    $returnVar = 0;
+    exec("python python/train_model.py " . escapeshellarg($registrationNumber), $output, $returnVar);
+
+    $trainingResult = json_decode($output[0], true);
+    if (!$trainingResult['success']) {
+        $_SESSION['message'] = "Error training face recognition: " . $trainingResult['message'];
+        // Clean up the uploaded files
+        array_map('unlink', glob("students/{$registrationNumber}/*.*"));
+        rmdir("students/{$registrationNumber}");
+        return;
     }
 
     // Convert image file names to JSON
@@ -149,8 +182,10 @@ if (isset($_POST['addStudent'])) {
                             <input type="text" name="firstName" placeholder="First Name">
                             <input type="text" name="lastName" " placeholder=" Last Name">
                             <input type="email" name="email" placeholder="Email Address">
-                            <input type="text" required id="registrationNumber" name="registrationNumber" placeholder="Registration Number"> <br>
-                            <p id="error" style="color: red; display: none;">Invalid characters in registration number.</p> 
+                            <input type="text" required id="registrationNumber" name="registrationNumber"
+                                placeholder="Registration Number"> <br>
+                            <p id="error" style="color: red; display: none;">Invalid characters in registration number.
+                            </p>
                             <select required name="faculty">
                                 <option value="" selected>Select Faculty</option>
                                 <?php
@@ -219,7 +254,7 @@ if (isset($_POST['addStudent'])) {
                 errorMessage.style.display = 'none';
             }
 
-            registrationNumberInput.value = sanitizedValue; 
+            registrationNumberInput.value = sanitizedValue;
         });
     </script>
 </body>

@@ -71,88 +71,73 @@ if (!empty($unitCode)) {
                 </select>
             </form>
 
-            <button class="add" onclick="exportTableToExcel('attendaceTable', '<?php echo $unitCode ?>_on_<?php echo date('Y-m-d'); ?>','<?php echo $coursename ?>', '<?php echo $unitname ?>')">Export Attendance As Excel</button>
+            <button class="add"
+                onclick="exportTableToExcel('attendaceTable', '<?php echo $unitCode ?>_on_<?php echo date('Y-m-d'); ?>','<?php echo $coursename ?>', '<?php echo $unitname ?>')">Export
+                Attendance As Excel</button>
 
             <div class="table-container">
                 <div class="title">
-                    <h2 class="section--title">Attendance Preview</h2>
+                    <h2 class="section--title">Mark Attendance</h2>
+                    <div class="attendance-controls">
+                        <button class="add" id="startCamera"><i class="ri-camera-line"></i>Start Camera</button>
+                        <button class="add" id="markManual"><i class="ri-edit-line"></i>Mark Manually</button>
+                    </div>
                 </div>
-                <div class="table attendance-table" id="attendaceTable">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Registration No</th>
-                                <?php
-                                // Fetch distinct dates for the selected course and unit
-                                $distinctDatesQuery = "SELECT DISTINCT dateMarked FROM tblattendance WHERE course = :courseCode AND unit = :unitCode";
-                                $stmtDates = $pdo->prepare($distinctDatesQuery);
-                                $stmtDates->execute([
-                                    ':courseCode' => $courseCode,
-                                    ':unitCode' => $unitCode,
-                                ]);
-                                $distinctDatesResult = $stmtDates->fetchAll(PDO::FETCH_ASSOC);
 
-                                // Display each distinct date as a column header
-                                if ($distinctDatesResult) {
-                                    foreach ($distinctDatesResult as $dateRow) {
-                                        echo "<th>" . $dateRow['dateMarked'] . "</th>";
+                <!-- Face Recognition Camera Interface -->
+                <div id="cameraInterface" style="display: none; text-align: center; margin: 20px;">
+                    <video id="video" width="640" height="480" autoplay style="border: 2px solid #ccc;"></video>
+                    <canvas id="canvas" width="640" height="480" style="display: none;"></canvas>
+                    <div style="margin-top: 10px;">
+                        <button class="btn-submit" id="captureBtn">Capture</button>
+                        <button class="btn-cancel" id="stopCamera">Stop Camera</button>
+                    </div>
+                    <div id="recognitionResult" style="margin-top: 10px; padding: 10px;"></div>
+                </div>
+
+                <!-- Manual Attendance Table -->
+                <div id="manualAttendance">
+                    <div class="table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Registration No</th>
+                                    <th>Name</th>
+                                    <th>Course</th>
+                                    <th>Unit</th>
+                                    <th>Status</th>
+                                    <th>Confidence</th>
+                                    <th>Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                $sql = "SELECT a.*, s.firstName, s.lastName 
+                                       FROM tblattendance a 
+                                       JOIN tblstudents s ON a.studentRegistrationNumber = s.registrationNumber 
+                                       ORDER BY a.dateMarked DESC";
+                                $result = fetch($sql);
+                                if ($result) {
+                                    foreach ($result as $row) {
+                                        echo "<tr>";
+                                        echo "<td>" . $row["studentRegistrationNumber"] . "</td>";
+                                        echo "<td>" . $row["firstName"] . " " . $row["lastName"] . "</td>";
+                                        echo "<td>" . $row["course"] . "</td>";
+                                        echo "<td>" . $row["unit"] . "</td>";
+                                        echo "<td>" . $row["attendanceStatus"] . "</td>";
+                                        echo "<td>" . (isset($row["confidence"]) ? number_format($row["confidence"], 1) . "%" : "Manual") . "</td>";
+                                        echo "<td>" . $row["dateMarked"] . "</td>";
+                                        echo "</tr>";
                                     }
+                                } else {
+                                    echo "<tr><td colspan='7'>No records found</td></tr>";
                                 }
                                 ?>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                            // Fetch all unique students for the given course and unit
-                            $studentsQuery = "SELECT DISTINCT studentRegistrationNumber FROM tblattendance WHERE course = :courseCode AND unit = :unitCode";
-                            $stmtStudents = $pdo->prepare($studentsQuery);
-                            $stmtStudents->execute([
-                                ':courseCode' => $courseCode,
-                                ':unitCode' => $unitCode,
-                            ]);
-                            $studentRows = $stmtStudents->fetchAll(PDO::FETCH_ASSOC);
-
-                            // Display each student's attendance row
-                            foreach ($studentRows as $row) {
-                                echo "<tr>";
-                                echo "<td>" . $row['studentRegistrationNumber'] . "</td>";
-
-                                // Loop through each date and fetch the attendance status for the student
-                                foreach ($distinctDatesResult as $dateRow) {
-                                    $date = $dateRow['dateMarked'];
-
-                                    // Fetch attendance for the current student and date
-                                    $attendanceQuery = "SELECT attendanceStatus FROM tblattendance 
-                                    WHERE studentRegistrationNumber = :studentRegistrationNumber 
-                                    AND dateMarked = :date 
-                                    AND course = :courseCode 
-                                    AND unit = :unitCode";
-                                    $stmtAttendance = $pdo->prepare($attendanceQuery);
-                                    $stmtAttendance->execute([
-                                        ':studentRegistrationNumber' => $row['studentRegistrationNumber'],
-                                        ':date' => $date,
-                                        ':courseCode' => $courseCode,
-                                        ':unitCode' => $unitCode,
-                                    ]);
-                                    $attendanceResult = $stmtAttendance->fetch(PDO::FETCH_ASSOC);
-
-                                    // Display attendance status or default to "Absent"
-                                    if ($attendanceResult) {
-                                        echo "<td>" . $attendanceResult['attendanceStatus'] . "</td>";
-                                    } else {
-                                        echo "<td>Absent</td>";
-                                    }
-                                }
-
-                                echo "</tr>";
-                            }
-                            ?>
-                        </tbody>
-                    </table>
-
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
-
         </div>
         </div>
     </section>
@@ -213,6 +198,155 @@ if (!empty($unitCode)) {
         for (var i = 0; i < s.length; i++) view[i] = s.charCodeAt(i) & 0xFF;
         return buf;
     }
+
+    let mediaStream = null;
+
+    document.getElementById('startCamera').addEventListener('click', async () => {
+        try {
+            const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+            mediaStream = stream;
+            const video = document.getElementById('video');
+            video.srcObject = stream;
+            document.getElementById('cameraInterface').style.display = 'block';
+            document.getElementById('manualAttendance').style.display = 'none';
+        } catch (err) {
+            console.error('Error accessing camera:', err);
+            alert('Could not access camera. Please check permissions.');
+        }
+    });
+
+    document.getElementById('stopCamera').addEventListener('click', () => {
+        if (mediaStream) {
+            mediaStream.getTracks().forEach(track => track.stop());
+            document.getElementById('video').srcObject = null;
+            document.getElementById('cameraInterface').style.display = 'none';
+            document.getElementById('manualAttendance').style.display = 'block';
+        }
+    });
+
+    document.getElementById('markManual').addEventListener('click', () => {
+        document.getElementById('cameraInterface').style.display = 'none';
+        document.getElementById('manualAttendance').style.display = 'block';
+        if (mediaStream) {
+            mediaStream.getTracks().forEach(track => track.stop());
+            document.getElementById('video').srcObject = null;
+        }
+    });
+
+    document.getElementById('captureBtn').addEventListener('click', () => {
+        const video = document.getElementById('video');
+        const canvas = document.getElementById('canvas');
+        const context = canvas.getContext('2d');
+        const resultDiv = document.getElementById('recognitionResult');
+
+        // Get current course and unit
+        const courseSelect = document.querySelector('select[name="course"]');
+        const unitSelect = document.querySelector('select[name="unit"]');
+
+        if (!courseSelect.value || !unitSelect.value) {
+            resultDiv.innerHTML = '<div class="error">Please select a course and unit first</div>';
+            return;
+        }
+
+        // Show processing message
+        resultDiv.innerHTML = '<div class="info">Processing face recognition...</div>';
+
+        // Draw video frame to canvas
+        context.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+        // Get image data
+        canvas.toBlob((blob) => {
+            const formData = new FormData();
+            formData.append('image', blob);
+            formData.append('course', courseSelect.value);
+            formData.append('unit', unitSelect.value);
+
+            // Send to server for face recognition
+            fetch('handle_attendance.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    resultDiv.innerHTML = `
+                    <div class="success">
+                        <p>${data.message}</p>
+                        <p>Student ID: ${data.student_id}</p>
+                        <p>Name: ${data.name}</p>
+                        <p>Confidence: ${data.confidence.toFixed(1)}%</p>
+                    </div>`;
+                    // Refresh attendance table after 2 seconds
+                    setTimeout(() => {
+                        location.reload();
+                    }, 2000);
+                } else {
+                    resultDiv.innerHTML = `<div class="error">${data.message}</div>`;
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                resultDiv.innerHTML = '<div class="error">Error processing face recognition</div>';
+            });
+        }, 'image/jpeg', 0.8);
+    });
 </script>
+
+<style>
+    .attendance-controls {
+        display: flex;
+        gap: 10px;
+    }
+
+    .info {
+        color: #2196F3;
+        background: #E3F2FD;
+        padding: 10px;
+        border-radius: 4px;
+        margin: 10px 0;
+    }
+
+    .success {
+        color: green;
+        background: #e8f5e9;
+        padding: 10px;
+        border-radius: 4px;
+        margin: 10px 0;
+    }
+
+    .error {
+        color: red;
+        background: #ffebee;
+        padding: 10px;
+        border-radius: 4px;
+        margin: 10px 0;
+    }
+
+    #cameraInterface {
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-submit,
+    .btn-cancel {
+        padding: 8px 16px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin: 0 5px;
+    }
+
+    .btn-submit {
+        background: #4CAF50;
+        color: white;
+    }
+
+    .btn-cancel {
+        background: #f44336;
+        color: white;
+    }
+</style>
 
 </html>

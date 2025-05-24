@@ -1,0 +1,80 @@
+2025-05-24 18:07:28,238 - INFO - Processing image: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/uploads/detect_6831ba03b4ddb.jpg
+2025-05-24 18:07:28,238 - INFO - Starting face detection on image: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/uploads/detect_6831ba03b4ddb.jpg
+2025-05-24 18:07:28,238 - INFO - Cascade path: C:\xampp\htdocs\new\Face-Recognition-Attendance-System\assets\haarcascade_frontalface_default.xml
+2025-05-24 18:07:28,270 - INFO - Reading image file
+2025-05-24 18:07:28,279 - INFO - Image shape: (720, 1280, 3)
+2025-05-24 18:07:28,284 - INFO - Attempting detection with params: {'scaleFactor': 1.3, 'minNeighbors': 3, 'minSize': (20, 20), 'maxSize': None}
+2025-05-24 18:07:28,643 - INFO - Found 1 faces with params: {'scaleFactor': 1.3, 'minNeighbors': 3, 'minSize': (20, 20), 'maxSize': None}
+2025-05-24 18:07:28,644 - INFO - Returning 1 faces
+2025-05-24 18:07:30,298 - INFO - Processing image: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/uploads/detect_6831ba05b65cb.jpg
+2025-05-24 18:07:30,298 - INFO - Starting face detection on image: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/uploads/detect_6831ba05b65cb.jpg
+2025-05-24 18:07:30,298 - INFO - Cascade path: C:\xampp\htdocs\new\Face-Recognition-Attendance-System\assets\haarcascade_frontalface_default.xml
+2025-05-24 18:07:30,319 - INFO - Reading image file
+2025-05-24 18:07:30,325 - INFO - Image shape: (720, 1280, 3)
+2025-05-24 18:07:30,329 - INFO - Attempting detection with params: {'scaleFactor': 1.3, 'minNeighbors': 3, 'minSize': (20, 20), 'maxSize': None}
+2025-05-24 18:07:30,593 - INFO - Found 1 faces with params: {'scaleFactor': 1.3, 'minNeighbors': 3, 'minSize': (20, 20), 'maxSize': None}
+2025-05-24 18:07:30,594 - INFO - Returning 1 faces
+2025-05-24 18:07:32,168 - INFO - Processing image: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/uploads/detect_6831ba079f24d.jpg
+2025-05-24 18:07:32,168 - INFO - Starting face detection on image: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/uploads/detect_6831ba079f24d.jpg
+2025-05-24 18:07:32,168 - INFO - Cascade path: C:\xampp\htdocs\new\Face-Recognition-Attendance-System\assets\haarcascade_frontalface_default.xml
+2025-05-24 18:07:32,191 - INFO - Reading image file
+2025-05-24 18:07:32,196 - INFO - Image shape: (720, 1280, 3)
+2025-05-24 18:07:32,200 - INFO - Attempting detection with params: {'scaleFactor': 1.3, 'minNeighbors': 3, 'minSize': (20, 20), 'maxSize': None}
+2025-05-24 18:07:32,465 - INFO - Found 1 faces with params: {'scaleFactor': 1.3, 'minNeighbors': 3, 'minSize': (20, 20), 'maxSize': None}
+2025-05-24 18:07:32,465 - INFO - Returning 1 faces
+2025-05-24 18:07:33,960 - INFO - Processing image: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/uploads/detect_6831ba09733ee.jpg
+2025-05-24 18:07:33,960 - INFO - Starting face detection on image: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/uploads/detect_6831ba09733ee.jpg
+2025-05-24 18:07:33,960 - INFO - Cascade path: C:\xampp\htdocs\new\Face-Recognition-Attendance-System\assets\haarcascade_frontalface_default.xml
+2025-05-24 18:07:33,982 - INFO - Reading image file
+2025-05-24 18:07:33,989 - INFO - Image shape: (720, 1280, 3)
+2025-05-24 18:07:33,992 - INFO - Attempting detection with params: {'scaleFactor': 1.3, 'minNeighbors': 3, 'minSize': (20, 20), 'maxSize': None}
+2025-05-24 18:07:34,215 - INFO - Found 1 faces with params: {'scaleFactor': 1.3, 'minNeighbors': 3, 'minSize': (20, 20), 'maxSize': None}
+2025-05-24 18:07:34,216 - INFO - Returning 1 faces
+2025-05-24 18:07:35,765 - INFO - Processing image: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/uploads/detect_6831ba0b4613f.jpg
+2025-05-24 18:07:35,765 - INFO - Starting face detection on image: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/uploads/detect_6831ba0b4613f.jpg
+2025-05-24 18:07:35,765 - INFO - Cascade path: C:\xampp\htdocs\new\Face-Recognition-Attendance-System\assets\haarcascade_frontalface_default.xml
+2025-05-24 18:07:35,792 - INFO - Reading image file
+2025-05-24 18:07:35,798 - INFO - Image shape: (720, 1280, 3)
+2025-05-24 18:07:35,804 - INFO - Attempting detection with params: {'scaleFactor': 1.3, 'minNeighbors': 3, 'minSize': (20, 20), 'maxSize': None}
+2025-05-24 18:07:36,014 - INFO - Found 1 faces with params: {'scaleFactor': 1.3, 'minNeighbors': 3, 'minSize': (20, 20), 'maxSize': None}
+2025-05-24 18:07:36,014 - INFO - Returning 1 faces
+2025-05-24 18:07:37,582 - INFO - Processing image: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/uploads/detect_6831ba0d16082.jpg
+2025-05-24 18:07:37,583 - INFO - Starting face detection on image: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/uploads/detect_6831ba0d16082.jpg
+2025-05-24 18:07:37,583 - INFO - Cascade path: C:\xampp\htdocs\new\Face-Recognition-Attendance-System\assets\haarcascade_frontalface_default.xml
+2025-05-24 18:07:37,605 - INFO - Reading image file
+2025-05-24 18:07:37,611 - INFO - Image shape: (720, 1280, 3)
+2025-05-24 18:07:37,615 - INFO - Attempting detection with params: {'scaleFactor': 1.3, 'minNeighbors': 3, 'minSize': (20, 20), 'maxSize': None}
+2025-05-24 18:07:37,818 - INFO - Found 1 faces with params: {'scaleFactor': 1.3, 'minNeighbors': 3, 'minSize': (20, 20), 'maxSize': None}
+2025-05-24 18:07:37,818 - INFO - Returning 1 faces
+2025-05-24 18:07:39,364 - INFO - Processing image: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/uploads/detect_6831ba0ed11b2.jpg
+2025-05-24 18:07:39,364 - INFO - Starting face detection on image: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/uploads/detect_6831ba0ed11b2.jpg
+2025-05-24 18:07:39,365 - INFO - Cascade path: C:\xampp\htdocs\new\Face-Recognition-Attendance-System\assets\haarcascade_frontalface_default.xml
+2025-05-24 18:07:39,388 - INFO - Reading image file
+2025-05-24 18:07:39,393 - INFO - Image shape: (720, 1280, 3)
+2025-05-24 18:07:39,398 - INFO - Attempting detection with params: {'scaleFactor': 1.3, 'minNeighbors': 3, 'minSize': (20, 20), 'maxSize': None}
+2025-05-24 18:07:39,641 - INFO - Found 1 faces with params: {'scaleFactor': 1.3, 'minNeighbors': 3, 'minSize': (20, 20), 'maxSize': None}
+2025-05-24 18:07:39,641 - INFO - Returning 1 faces
+2025-05-24 18:07:41,254 - INFO - Processing image: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/uploads/detect_6831ba10b12ed.jpg
+2025-05-24 18:07:41,254 - INFO - Starting face detection on image: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/uploads/detect_6831ba10b12ed.jpg
+2025-05-24 18:07:41,254 - INFO - Cascade path: C:\xampp\htdocs\new\Face-Recognition-Attendance-System\assets\haarcascade_frontalface_default.xml
+2025-05-24 18:07:41,275 - INFO - Reading image file
+2025-05-24 18:07:41,282 - INFO - Image shape: (720, 1280, 3)
+2025-05-24 18:07:41,285 - INFO - Attempting detection with params: {'scaleFactor': 1.3, 'minNeighbors': 3, 'minSize': (20, 20), 'maxSize': None}
+2025-05-24 18:07:41,496 - INFO - Found 1 faces with params: {'scaleFactor': 1.3, 'minNeighbors': 3, 'minSize': (20, 20), 'maxSize': None}
+2025-05-24 18:07:41,496 - INFO - Returning 1 faces
+2025-05-24 18:07:43,087 - INFO - Processing image: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/uploads/detect_6831ba1289855.jpg
+2025-05-24 18:07:43,087 - INFO - Starting face detection on image: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/uploads/detect_6831ba1289855.jpg
+2025-05-24 18:07:43,087 - INFO - Cascade path: C:\xampp\htdocs\new\Face-Recognition-Attendance-System\assets\haarcascade_frontalface_default.xml
+2025-05-24 18:07:43,108 - INFO - Reading image file
+2025-05-24 18:07:43,113 - INFO - Image shape: (720, 1280, 3)
+2025-05-24 18:07:43,117 - INFO - Attempting detection with params: {'scaleFactor': 1.3, 'minNeighbors': 3, 'minSize': (20, 20), 'maxSize': None}
+2025-05-24 18:07:43,354 - INFO - Found 1 faces with params: {'scaleFactor': 1.3, 'minNeighbors': 3, 'minSize': (20, 20), 'maxSize': None}
+2025-05-24 18:07:43,354 - INFO - Returning 1 faces
+2025-05-24 18:07:44,929 - INFO - Processing image: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/uploads/detect_6831ba146e7b8.jpg
+2025-05-24 18:07:44,929 - INFO - Starting face detection on image: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/uploads/detect_6831ba146e7b8.jpg
+2025-05-24 18:07:44,929 - INFO - Cascade path: C:\xampp\htdocs\new\Face-Recognition-Attendance-System\assets\haarcascade_frontalface_default.xml
+2025-05-24 18:07:44,955 - INFO - Reading image file
+2025-05-24 18:07:44,961 - INFO - Image shape: (720, 1280, 3)
+2025-05-24 18:07:44,967 - INFO - Attempting detection with params: {'scaleFactor': 1.3, 'minNeighbors': 3, 'minSize': (20, 20), 'maxSize': None}
+2025-05-24 18:07:45,178 - INFO - Found 2 faces with params: {'scaleFactor': 1.3, 'minNeighbors': 3, 'minSize': (20, 20), 'maxSize': None}
+2025-05-24 18:07:45,178 - INFO - Returning 2 faces

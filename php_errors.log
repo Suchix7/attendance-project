@@ -1,0 +1,1095 @@
+[22-May-2025 07:19:52 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:19:52 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:19:53 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:19:53 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:19:53 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:19:53 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:19:54 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 314, "y": 32, "width": 52, "height": 52, "center_x": 340, "center_y": 58, "size_ratio": 0.008802083333333334}]}
+
+[22-May-2025 07:19:54 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891193.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:19:54 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:19:54 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:19:54 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:19:54 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:19:54 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:19:55 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:19:55 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:19:55 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:19:55 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:19:56 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:19:56 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:19:56 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 311, "y": 32, "width": 54, "height": 54, "center_x": 338, "center_y": 59, "size_ratio": 0.0094921875}]}
+
+[22-May-2025 07:19:56 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891196.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:19:56 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:19:56 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:19:56 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:19:57 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:19:57 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:19:57 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 310, "y": 32, "width": 55, "height": 55, "center_x": 337, "center_y": 59, "size_ratio": 0.009847005208333334}]}
+
+[22-May-2025 07:19:57 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891197.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:19:57 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:19:57 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:19:57 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:19:58 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:19:58 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:19:58 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:19:58 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:19:58 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 311, "y": 32, "width": 54, "height": 54, "center_x": 338, "center_y": 59, "size_ratio": 0.0094921875}]}
+
+[22-May-2025 07:19:58 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891198.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:19:58 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:19:58 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:19:58 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:19:59 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:19:59 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:19:59 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:19:59 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:20:00 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:20:00 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:20:00 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:20:00 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:20:01 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:20:01 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:20:01 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:20:01 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:20:02 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:20:02 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:20:02 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:20:02 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:20:03 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:20:03 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:20:03 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:20:03 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:20:04 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:20:04 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:20:04 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:20:04 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:20:05 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:20:05 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:20:05 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:20:05 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:20:05 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:20:05 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:20:06 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:20:06 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:20:06 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:20:06 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:20:07 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:20:07 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:20:07 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:20:07 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:20:08 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:20:08 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:20:08 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:20:08 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:20:09 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:20:09 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:20:09 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:20:09 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:20:10 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:20:10 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:20:10 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:20:10 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:20:11 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:20:11 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:20:11 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:20:11 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:20:11 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:20:11 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:20:12 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:20:12 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:20:12 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:20:12 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:20:13 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:20:13 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:20:13 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:20:13 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:20:14 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:20:14 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:20:14 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:20:14 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:20:15 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:20:15 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:20:15 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:20:15 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:20:16 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:20:16 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:20:16 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:20:16 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:20:17 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:20:17 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:20:17 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:20:17 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:20:17 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:20:17 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:20:18 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:20:18 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:20:18 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:20:18 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:20:19 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:20:19 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:20:19 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:20:19 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:20:20 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:20:20 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:20:20 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:20:20 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:20:21 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 312, "y": 33, "width": 53, "height": 53, "center_x": 338, "center_y": 59, "size_ratio": 0.009143880208333333}]}
+
+[22-May-2025 07:20:21 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891220.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:20:21 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:21 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:21 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:20:21 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 311, "y": 33, "width": 54, "height": 54, "center_x": 338, "center_y": 60, "size_ratio": 0.0094921875}]}
+
+[22-May-2025 07:20:21 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891221.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:20:21 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:21 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:21 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:20:22 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 314, "y": 34, "width": 52, "height": 52, "center_x": 340, "center_y": 60, "size_ratio": 0.008802083333333334}, {"x": 157, "y": 165, "width": 162, "height": 162, "center_x": 238, "center_y": 246, "size_ratio": 0.0854296875}]}
+
+[22-May-2025 07:20:22 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891221.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:20:22 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:22 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:22 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:20:22 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 312, "y": 33, "width": 53, "height": 53, "center_x": 338, "center_y": 59, "size_ratio": 0.009143880208333333}, {"x": 189, "y": 172, "width": 150, "height": 150, "center_x": 264, "center_y": 247, "size_ratio": 0.0732421875}]}
+
+[22-May-2025 07:20:22 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891222.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:20:22 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:22 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:22 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:20:25 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 311, "y": 31, "width": 55, "height": 55, "center_x": 338, "center_y": 58, "size_ratio": 0.009847005208333334}, {"x": 208, "y": 181, "width": 183, "height": 183, "center_x": 299, "center_y": 272, "size_ratio": 0.109013671875}]}
+
+[22-May-2025 07:20:25 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891225.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:20:25 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:25 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:25 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:20:26 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 312, "y": 33, "width": 52, "height": 52, "center_x": 338, "center_y": 59, "size_ratio": 0.008802083333333334}, {"x": 209, "y": 181, "width": 182, "height": 182, "center_x": 300, "center_y": 272, "size_ratio": 0.10782552083333333}]}
+
+[22-May-2025 07:20:26 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891225.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:20:26 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:26 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:26 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:20:26 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 311, "y": 32, "width": 54, "height": 54, "center_x": 338, "center_y": 59, "size_ratio": 0.0094921875}, {"x": 209, "y": 182, "width": 180, "height": 180, "center_x": 299, "center_y": 272, "size_ratio": 0.10546875}]}
+
+[22-May-2025 07:20:26 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891226.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:20:26 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:26 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:26 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:20:26 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 312, "y": 32, "width": 53, "height": 53, "center_x": 338, "center_y": 58, "size_ratio": 0.009143880208333333}, {"x": 208, "y": 182, "width": 182, "height": 182, "center_x": 299, "center_y": 273, "size_ratio": 0.10782552083333333}]}
+
+[22-May-2025 07:20:26 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891226.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:20:26 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:26 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:26 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:20:27 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 312, "y": 32, "width": 54, "height": 54, "center_x": 339, "center_y": 59, "size_ratio": 0.0094921875}, {"x": 222, "y": 200, "width": 71, "height": 71, "center_x": 257, "center_y": 235, "size_ratio": 0.016409505208333335}, {"x": 207, "y": 181, "width": 182, "height": 182, "center_x": 298, "center_y": 272, "size_ratio": 0.10782552083333333}]}
+
+[22-May-2025 07:20:27 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891226.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:20:27 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:27 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:27 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:20:27 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 312, "y": 33, "width": 54, "height": 54, "center_x": 339, "center_y": 60, "size_ratio": 0.0094921875}]}
+
+[22-May-2025 07:20:27 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891227.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:20:27 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:27 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:27 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:20:28 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 312, "y": 34, "width": 52, "height": 52, "center_x": 338, "center_y": 60, "size_ratio": 0.008802083333333334}]}
+
+[22-May-2025 07:20:28 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891227.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:20:28 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:28 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:28 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:20:28 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 313, "y": 33, "width": 52, "height": 52, "center_x": 339, "center_y": 59, "size_ratio": 0.008802083333333334}, {"x": 187, "y": 162, "width": 162, "height": 162, "center_x": 268, "center_y": 243, "size_ratio": 0.0854296875}]}
+
+[22-May-2025 07:20:28 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891228.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:20:28 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:28 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:28 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:20:29 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 312, "y": 34, "width": 52, "height": 52, "center_x": 338, "center_y": 60, "size_ratio": 0.008802083333333334}, {"x": 187, "y": 166, "width": 152, "height": 152, "center_x": 263, "center_y": 242, "size_ratio": 0.07520833333333334}]}
+
+[22-May-2025 07:20:29 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891228.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:20:29 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:29 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:29 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:20:29 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 312, "y": 33, "width": 53, "height": 53, "center_x": 338, "center_y": 59, "size_ratio": 0.009143880208333333}, {"x": 153, "y": 172, "width": 154, "height": 154, "center_x": 230, "center_y": 249, "size_ratio": 0.07720052083333333}]}
+
+[22-May-2025 07:20:29 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891229.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:20:29 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:29 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:29 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:20:30 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:20:30 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:20:30 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 311, "y": 33, "width": 55, "height": 55, "center_x": 338, "center_y": 60, "size_ratio": 0.009847005208333334}]}
+
+[22-May-2025 07:20:30 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891230.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:20:30 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:30 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:30 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:20:31 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 311, "y": 33, "width": 54, "height": 54, "center_x": 338, "center_y": 60, "size_ratio": 0.0094921875}, {"x": 168, "y": 175, "width": 144, "height": 144, "center_x": 240, "center_y": 247, "size_ratio": 0.0675}]}
+
+[22-May-2025 07:20:31 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891230.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:20:31 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:31 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:31 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:20:31 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 311, "y": 33, "width": 54, "height": 54, "center_x": 338, "center_y": 60, "size_ratio": 0.0094921875}, {"x": 171, "y": 169, "width": 148, "height": 148, "center_x": 245, "center_y": 243, "size_ratio": 0.07130208333333334}]}
+
+[22-May-2025 07:20:31 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891231.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:20:31 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:31 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:31 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:20:31 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 172, "y": 157, "width": 179, "height": 179, "center_x": 261, "center_y": 246, "size_ratio": 0.10430013020833333}]}
+
+[22-May-2025 07:20:31 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891231.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:20:31 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:31 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:31 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:20:32 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 26, "y": 138, "width": 56, "height": 56, "center_x": 54, "center_y": 166, "size_ratio": 0.010208333333333333}]}
+
+[22-May-2025 07:20:32 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891231.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:20:32 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:32 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:32 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:20:32 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 27, "y": 140, "width": 53, "height": 53, "center_x": 53, "center_y": 166, "size_ratio": 0.009143880208333333}]}
+
+[22-May-2025 07:20:32 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891232.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:20:32 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:32 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:32 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:20:33 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 197, "y": 153, "width": 167, "height": 167, "center_x": 280, "center_y": 236, "size_ratio": 0.09078450520833334}]}
+
+[22-May-2025 07:20:33 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891232.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:20:33 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:33 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:33 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:20:33 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 216, "y": 141, "width": 173, "height": 173, "center_x": 302, "center_y": 227, "size_ratio": 0.09742513020833334}]}
+
+[22-May-2025 07:20:33 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891233.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:20:33 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:33 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:33 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:20:34 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 217, "y": 139, "width": 181, "height": 181, "center_x": 307, "center_y": 229, "size_ratio": 0.10664388020833333}]}
+
+[22-May-2025 07:20:34 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891233.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:20:34 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:34 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:34 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:20:34 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 216, "y": 141, "width": 179, "height": 179, "center_x": 305, "center_y": 230, "size_ratio": 0.10430013020833333}]}
+
+[22-May-2025 07:20:34 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891234.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:20:34 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:34 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:34 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:20:35 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 219, "y": 140, "width": 180, "height": 180, "center_x": 309, "center_y": 230, "size_ratio": 0.10546875}]}
+
+[22-May-2025 07:20:35 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891234.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:20:35 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:35 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:35 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:20:35 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 224, "y": 141, "width": 177, "height": 177, "center_x": 312, "center_y": 229, "size_ratio": 0.101982421875}]}
+
+[22-May-2025 07:20:35 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891235.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:20:35 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:35 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:35 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:20:36 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 199, "y": 138, "width": 181, "height": 181, "center_x": 289, "center_y": 228, "size_ratio": 0.10664388020833333}]}
+
+[22-May-2025 07:20:36 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891235.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:20:36 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:36 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:36 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:20:36 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 216, "y": 148, "width": 173, "height": 173, "center_x": 302, "center_y": 234, "size_ratio": 0.09742513020833334}]}
+
+[22-May-2025 07:20:36 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891236.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:20:36 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:36 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:36 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:20:37 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 193, "y": 152, "width": 176, "height": 176, "center_x": 281, "center_y": 240, "size_ratio": 0.10083333333333333}]}
+
+[22-May-2025 07:20:37 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891236.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:20:37 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:37 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:37 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:20:37 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 209, "y": 147, "width": 165, "height": 165, "center_x": 291, "center_y": 229, "size_ratio": 0.088623046875}]}
+
+[22-May-2025 07:20:37 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891237.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:20:37 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:37 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:37 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:20:38 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 161, "y": 141, "width": 172, "height": 172, "center_x": 247, "center_y": 227, "size_ratio": 0.09630208333333333}]}
+
+[22-May-2025 07:20:38 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891237.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:20:38 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:38 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:38 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:20:38 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:20:38 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:20:39 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:20:39 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:20:39 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:20:39 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:20:39 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:20:39 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:20:40 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:20:40 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:20:40 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 81, "y": 184, "width": 68, "height": 68, "center_x": 115, "center_y": 218, "size_ratio": 0.015052083333333334}]}
+
+[22-May-2025 07:20:40 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891240.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:20:40 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:40 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:40 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:20:41 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 75, "y": 176, "width": 71, "height": 71, "center_x": 110, "center_y": 211, "size_ratio": 0.016409505208333335}]}
+
+[22-May-2025 07:20:41 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891240.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:20:41 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:41 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:41 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:20:41 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 312, "y": 32, "width": 54, "height": 54, "center_x": 339, "center_y": 59, "size_ratio": 0.0094921875}]}
+
+[22-May-2025 07:20:41 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891241.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:20:41 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:41 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:41 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:20:42 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 313, "y": 33, "width": 53, "height": 53, "center_x": 339, "center_y": 59, "size_ratio": 0.009143880208333333}]}
+
+[22-May-2025 07:20:42 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891241.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:20:42 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:42 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:42 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:20:42 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 312, "y": 33, "width": 54, "height": 54, "center_x": 339, "center_y": 60, "size_ratio": 0.0094921875}]}
+
+[22-May-2025 07:20:42 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891242.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:20:42 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:42 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:42 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:20:43 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 313, "y": 33, "width": 53, "height": 53, "center_x": 339, "center_y": 59, "size_ratio": 0.009143880208333333}]}
+
+[22-May-2025 07:20:43 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891242.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:20:43 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:43 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:43 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:20:43 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 313, "y": 33, "width": 53, "height": 53, "center_x": 339, "center_y": 59, "size_ratio": 0.009143880208333333}]}
+
+[22-May-2025 07:20:43 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891243.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:20:43 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:43 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:43 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:20:44 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 312, "y": 33, "width": 53, "height": 53, "center_x": 338, "center_y": 59, "size_ratio": 0.009143880208333333}]}
+
+[22-May-2025 07:20:44 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891243.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:20:44 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:44 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:44 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:20:44 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 313, "y": 33, "width": 53, "height": 53, "center_x": 339, "center_y": 59, "size_ratio": 0.009143880208333333}]}
+
+[22-May-2025 07:20:44 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891244.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:20:44 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:44 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:44 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:20:44 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 311, "y": 31, "width": 55, "height": 55, "center_x": 338, "center_y": 58, "size_ratio": 0.009847005208333334}]}
+
+[22-May-2025 07:20:44 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891244.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:20:44 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:44 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:44 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:20:45 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:20:45 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:20:45 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 313, "y": 32, "width": 52, "height": 52, "center_x": 339, "center_y": 58, "size_ratio": 0.008802083333333334}]}
+
+[22-May-2025 07:20:45 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891245.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:20:45 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:45 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:45 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:20:46 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 312, "y": 32, "width": 53, "height": 53, "center_x": 338, "center_y": 58, "size_ratio": 0.009143880208333333}]}
+
+[22-May-2025 07:20:46 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891245.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:20:46 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:46 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:46 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:20:46 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 314, "y": 32, "width": 52, "height": 52, "center_x": 340, "center_y": 58, "size_ratio": 0.008802083333333334}]}
+
+[22-May-2025 07:20:46 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891246.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:20:46 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:46 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:46 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:20:47 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 312, "y": 31, "width": 53, "height": 53, "center_x": 338, "center_y": 57, "size_ratio": 0.009143880208333333}]}
+
+[22-May-2025 07:20:47 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891246.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:20:47 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:47 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:47 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:20:47 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 312, "y": 31, "width": 54, "height": 54, "center_x": 339, "center_y": 58, "size_ratio": 0.0094921875}]}
+
+[22-May-2025 07:20:47 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891247.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:20:47 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:47 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:47 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:20:48 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 311, "y": 31, "width": 55, "height": 55, "center_x": 338, "center_y": 58, "size_ratio": 0.009847005208333334}]}
+
+[22-May-2025 07:20:48 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891247.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:20:48 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:48 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:48 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:20:48 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 311, "y": 31, "width": 55, "height": 55, "center_x": 338, "center_y": 58, "size_ratio": 0.009847005208333334}]}
+
+[22-May-2025 07:20:48 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891248.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:20:48 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:48 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:48 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:20:48 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 312, "y": 31, "width": 54, "height": 54, "center_x": 339, "center_y": 58, "size_ratio": 0.0094921875}]}
+
+[22-May-2025 07:20:48 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891248.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:20:48 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:48 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:48 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:20:49 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 311, "y": 31, "width": 55, "height": 55, "center_x": 338, "center_y": 58, "size_ratio": 0.009847005208333334}]}
+
+[22-May-2025 07:20:49 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891249.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:20:49 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:49 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:49 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:20:49 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:20:49 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:20:50 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 312, "y": 31, "width": 55, "height": 55, "center_x": 339, "center_y": 58, "size_ratio": 0.009847005208333334}]}
+
+[22-May-2025 07:20:50 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891249.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:20:50 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:50 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:50 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:20:50 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 312, "y": 32, "width": 53, "height": 53, "center_x": 338, "center_y": 58, "size_ratio": 0.009143880208333333}]}
+
+[22-May-2025 07:20:50 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891250.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:20:50 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:50 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:50 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:20:51 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 311, "y": 31, "width": 54, "height": 54, "center_x": 338, "center_y": 58, "size_ratio": 0.0094921875}]}
+
+[22-May-2025 07:20:51 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891250.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:20:51 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:51 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:51 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:20:51 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 311, "y": 30, "width": 55, "height": 55, "center_x": 338, "center_y": 57, "size_ratio": 0.009847005208333334}]}
+
+[22-May-2025 07:20:51 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891251.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:20:51 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:51 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:51 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:20:52 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 311, "y": 31, "width": 55, "height": 55, "center_x": 338, "center_y": 58, "size_ratio": 0.009847005208333334}]}
+
+[22-May-2025 07:20:52 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891251.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:20:52 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:52 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:52 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:20:52 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 311, "y": 31, "width": 54, "height": 54, "center_x": 338, "center_y": 58, "size_ratio": 0.0094921875}]}
+
+[22-May-2025 07:20:52 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891252.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:20:52 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:52 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:52 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:20:53 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 311, "y": 31, "width": 54, "height": 54, "center_x": 338, "center_y": 58, "size_ratio": 0.0094921875}]}
+
+[22-May-2025 07:20:53 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891252.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:20:53 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:53 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:53 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:20:53 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 314, "y": 33, "width": 50, "height": 50, "center_x": 339, "center_y": 58, "size_ratio": 0.008138020833333334}]}
+
+[22-May-2025 07:20:53 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891253.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:20:53 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:53 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:53 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:20:54 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 312, "y": 32, "width": 53, "height": 53, "center_x": 338, "center_y": 58, "size_ratio": 0.009143880208333333}]}
+
+[22-May-2025 07:20:54 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891253.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:20:54 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:54 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:54 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:20:54 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 312, "y": 32, "width": 53, "height": 53, "center_x": 338, "center_y": 58}]}
+
+[22-May-2025 07:20:54 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891254.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:20:54 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:54 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:20:54 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:20:54 Europe/Berlin] Python script output: {"success": true, "faces": []}
+
+[22-May-2025 07:20:54 Europe/Berlin] No faces detected in image
+[22-May-2025 07:21:00 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:21:00 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:21:01 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:21:01 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:21:01 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:21:01 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:21:02 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:21:02 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:21:02 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:21:02 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:21:03 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:21:03 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:21:03 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:21:03 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:21:04 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:21:04 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:21:04 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:21:04 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:21:05 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:21:05 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:21:05 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:21:05 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:21:05 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:21:05 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:21:06 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:21:06 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:21:06 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 312, "y": 31, "width": 55, "height": 55, "center_x": 339, "center_y": 58, "size_ratio": 0.009847005208333334}]}
+
+[22-May-2025 07:21:06 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891266.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:21:06 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:21:06 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:21:06 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:21:07 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 313, "y": 32, "width": 53, "height": 53, "center_x": 339, "center_y": 58, "size_ratio": 0.009143880208333333}]}
+
+[22-May-2025 07:21:07 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891266.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:21:07 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:21:07 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:21:07 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:21:07 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 312, "y": 31, "width": 54, "height": 54, "center_x": 339, "center_y": 58, "size_ratio": 0.0094921875}]}
+
+[22-May-2025 07:21:07 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891267.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:21:07 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:21:07 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:21:07 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:21:08 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 313, "y": 32, "width": 53, "height": 53, "center_x": 339, "center_y": 58, "size_ratio": 0.009143880208333333}]}
+
+[22-May-2025 07:21:08 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891267.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:21:08 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:21:08 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:21:08 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:21:08 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 314, "y": 32, "width": 53, "height": 53, "center_x": 340, "center_y": 58, "size_ratio": 0.009143880208333333}]}
+
+[22-May-2025 07:21:08 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891268.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:21:08 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:21:08 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:21:08 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:21:09 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 314, "y": 33, "width": 50, "height": 50, "center_x": 339, "center_y": 58, "size_ratio": 0.008138020833333334}]}
+
+[22-May-2025 07:21:09 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891268.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:21:09 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:21:09 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:21:09 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:21:09 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 312, "y": 31, "width": 54, "height": 54, "center_x": 339, "center_y": 58, "size_ratio": 0.0094921875}]}
+
+[22-May-2025 07:21:09 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891269.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:21:09 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:21:09 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:21:09 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:21:09 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 312, "y": 31, "width": 54, "height": 54, "center_x": 339, "center_y": 58, "size_ratio": 0.0094921875}]}
+
+[22-May-2025 07:21:09 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891269.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:21:09 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:21:09 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:21:09 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:21:10 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:21:10 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:21:10 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 313, "y": 32, "width": 53, "height": 53, "center_x": 339, "center_y": 58, "size_ratio": 0.009143880208333333}]}
+
+[22-May-2025 07:21:10 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891270.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:21:10 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:21:10 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:21:10 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:21:11 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 311, "y": 31, "width": 55, "height": 55, "center_x": 338, "center_y": 58, "size_ratio": 0.009847005208333334}]}
+
+[22-May-2025 07:21:11 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891270.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:21:11 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:21:11 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:21:11 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:21:11 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 312, "y": 31, "width": 55, "height": 55, "center_x": 339, "center_y": 58, "size_ratio": 0.009847005208333334}]}
+
+[22-May-2025 07:21:11 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891271.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:21:11 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:21:11 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:21:11 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:21:12 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 312, "y": 32, "width": 54, "height": 54, "center_x": 339, "center_y": 59, "size_ratio": 0.0094921875}]}
+
+[22-May-2025 07:21:12 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891271.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:21:12 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:21:12 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:21:12 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:21:12 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 310, "y": 30, "width": 56, "height": 56, "center_x": 338, "center_y": 58, "size_ratio": 0.010208333333333333}]}
+
+[22-May-2025 07:21:12 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891272.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:21:12 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:21:12 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:21:12 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:21:13 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 312, "y": 31, "width": 54, "height": 54, "center_x": 339, "center_y": 58, "size_ratio": 0.0094921875}]}
+
+[22-May-2025 07:21:13 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891272.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:21:13 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:21:13 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:21:13 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:21:13 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 312, "y": 31, "width": 54, "height": 54, "center_x": 339, "center_y": 58, "size_ratio": 0.0094921875}]}
+
+[22-May-2025 07:21:13 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891273.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:21:13 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:21:13 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:21:13 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:21:14 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 312, "y": 32, "width": 54, "height": 54, "center_x": 339, "center_y": 59, "size_ratio": 0.0094921875}]}
+
+[22-May-2025 07:21:14 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891273.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:21:14 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:21:14 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:21:14 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:21:14 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 314, "y": 33, "width": 51, "height": 51, "center_x": 339, "center_y": 58, "size_ratio": 0.008466796875}]}
+
+[22-May-2025 07:21:14 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891274.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:21:14 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:21:14 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:21:14 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:21:15 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 313, "y": 32, "width": 52, "height": 52, "center_x": 339, "center_y": 58, "size_ratio": 0.008802083333333334}]}
+
+[22-May-2025 07:21:15 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891274.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:21:15 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:21:15 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:21:15 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:21:15 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 312, "y": 31, "width": 55, "height": 55, "center_x": 339, "center_y": 58, "size_ratio": 0.009847005208333334}]}
+
+[22-May-2025 07:21:15 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891275.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:21:15 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:21:15 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:21:15 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:21:15 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 311, "y": 30, "width": 55, "height": 55, "center_x": 338, "center_y": 57, "size_ratio": 0.009847005208333334}]}
+
+[22-May-2025 07:21:15 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891275.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:21:15 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:21:15 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:21:15 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:21:16 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:21:16 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:21:16 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:21:16 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:21:17 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 312, "y": 31, "width": 55, "height": 55, "center_x": 339, "center_y": 58, "size_ratio": 0.009847005208333334}]}
+
+[22-May-2025 07:21:17 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891276.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:21:17 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:21:17 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:21:17 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:21:17 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 313, "y": 32, "width": 53, "height": 53, "center_x": 339, "center_y": 58, "size_ratio": 0.009143880208333333}]}
+
+[22-May-2025 07:21:17 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891277.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:21:17 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:21:17 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:21:17 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:21:18 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 311, "y": 31, "width": 54, "height": 54, "center_x": 338, "center_y": 58, "size_ratio": 0.0094921875}]}
+
+[22-May-2025 07:21:18 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891277.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:21:18 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:21:18 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:21:18 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:21:18 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:21:18 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:21:19 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 313, "y": 32, "width": 53, "height": 53, "center_x": 339, "center_y": 58, "size_ratio": 0.009143880208333333}]}
+
+[22-May-2025 07:21:19 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891278.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:21:19 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:21:19 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:21:19 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:21:19 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 312, "y": 31, "width": 54, "height": 54, "center_x": 339, "center_y": 58, "size_ratio": 0.0094921875}]}
+
+[22-May-2025 07:21:19 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891279.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:21:19 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:21:19 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:21:19 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:21:20 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:21:20 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:21:20 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 313, "y": 31, "width": 53, "height": 53, "center_x": 339, "center_y": 57, "size_ratio": 0.009143880208333333}]}
+
+[22-May-2025 07:21:20 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891280.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:21:20 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:21:20 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:21:20 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:21:20 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 312, "y": 31, "width": 54, "height": 54, "center_x": 339, "center_y": 58, "size_ratio": 0.0094921875}]}
+
+[22-May-2025 07:21:20 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891280.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:21:20 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:21:20 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:21:20 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:21:21 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 314, "y": 33, "width": 50, "height": 50, "center_x": 339, "center_y": 58, "size_ratio": 0.008138020833333334}]}
+
+[22-May-2025 07:21:21 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891280.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:21:21 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:21:21 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:21:21 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:21:21 Europe/Berlin] Python script output: {"success": true, "faces": [{"x": 312, "y": 31, "width": 54, "height": 54, "center_x": 339, "center_y": 58, "size_ratio": 0.0094921875}]}
+
+[22-May-2025 07:21:21 Europe/Berlin] PHP Warning:  getimagesize(uploads/detect_1747891281.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\face attendance project\detect_face.php on line 112
+[22-May-2025 07:21:21 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:21:21 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\face attendance project\detect_face.php on line 113
+[22-May-2025 07:21:21 Europe/Berlin] PHP Fatal error:  Uncaught DivisionByZeroError: Division by zero in C:\xampp\htdocs\face attendance project\detect_face.php:114
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\face attendance project\detect_face.php on line 114
+[22-May-2025 07:21:22 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:21:22 Europe/Berlin] Face detection failed: No face detected
+[22-May-2025 07:21:22 Europe/Berlin] Python script output: {"success": false, "message": "No face detected"}
+
+[22-May-2025 07:21:22 Europe/Berlin] Face detection failed: No face detected

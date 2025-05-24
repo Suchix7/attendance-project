@@ -1,6 +1,19 @@
 var labels = [];
 let detectedFaces = [];
 let sendingData = false;
+let lastErrorTime = 0; // Track when the last error message was shown
+
+// Face recognition script using LBPH
+let videoStream = null;
+let isProcessing = false;
+let recognitionInterval = null;
+const video = document.getElementById("video");
+const videoContainer = document.querySelector(".video-container");
+const startButton = document.getElementById("startButton");
+let webcamStarted = false;
+const canvas = document.getElementById("canvas");
+const overlay = document.getElementById("overlay");
+const statusDiv = document.getElementById("recognitionStatus");
 
 function updateTable() {
   var selectedCourseID = document.getElementById("courseSelect").value;
@@ -14,15 +27,15 @@ function updateTable() {
     if (xhr.readyState === 4 && xhr.status === 200) {
       var response = JSON.parse(xhr.responseText);
       if (response.status === "success") {
-        labels = response.data;
-
-        if (selectedCourseID && selectedUnitCode && selectedVenue) {
-          updateOtherElements();
-        }
         document.getElementById("studentTableContainer").innerHTML =
           response.html;
+        // Start face recognition if video is already running
+        if (videoStream) {
+          startFaceRecognition();
+        }
       } else {
         console.error("Error:", response.message);
+        showMessage("Error updating table: " + response.message, "error");
       }
     }
   };
@@ -36,137 +49,207 @@ function updateTable() {
   );
 }
 
-function markAttendance(detectedFaces) {
+function markAttendance(studentId, name, confidence) {
   document.querySelectorAll("#studentTableContainer tr").forEach((row) => {
-    const registrationNumber = row.cells[0].innerText.trim();
-    if (detectedFaces.includes(registrationNumber)) {
+    const registrationNumber = row.cells[0]?.innerText?.trim();
+    if (registrationNumber === studentId) {
       row.cells[5].innerText = "present";
+      showMessage(
+        `Marked attendance for ${name} (${confidence.toFixed(1)}% confidence)`
+      );
     }
   });
 }
 
-function updateOtherElements() {
-  const video = document.getElementById("video");
-  const videoContainer = document.querySelector(".video-container");
-  const startButton = document.getElementById("startButton");
-  let webcamStarted = false;
-  let modelsLoaded = false;
+function showMessage(message, type = "info") {
+  var messageDiv = document.getElementById("messageDiv");
+  if (!messageDiv) {
+    messageDiv = document.createElement("div");
+    messageDiv.id = "messageDiv";
+    messageDiv.style.position = "fixed";
+    messageDiv.style.top = "20px";
+    messageDiv.style.right = "20px";
+    messageDiv.style.padding = "15px 20px";
+    messageDiv.style.borderRadius = "5px";
+    messageDiv.style.transition = "opacity 0.5s";
+    messageDiv.style.zIndex = "9999";
+    document.body.appendChild(messageDiv);
+  }
 
-  Promise.all([
-    faceapi.nets.ssdMobilenetv1.loadFromUri("models"),
-    faceapi.nets.faceRecognitionNet.loadFromUri("models"),
-    faceapi.nets.faceLandmark68Net.loadFromUri("models"),
-  ])
-    .then(() => {
-      modelsLoaded = true;
-      console.log("models loaded successfully");
-    })
-    .catch(() => {
-      alert("models not loaded, please check your model folder location");
+  // Set styles based on message type
+  switch (type) {
+    case "success":
+      messageDiv.style.backgroundColor = "#4CAF50";
+      messageDiv.style.color = "white";
+      break;
+    case "error":
+      messageDiv.style.backgroundColor = "#f44336";
+      messageDiv.style.color = "white";
+      break;
+    default: // info
+      messageDiv.style.backgroundColor = "#2196F3";
+      messageDiv.style.color = "white";
+  }
+
+  messageDiv.style.display = "block";
+  messageDiv.innerHTML = message;
+  messageDiv.style.opacity = 1;
+
+  setTimeout(function () {
+    messageDiv.style.opacity = 0;
+    setTimeout(() => (messageDiv.style.display = "none"), 500);
+  }, 3000);
+}
+
+// Initialize face recognition when start button is clicked
+startButton.addEventListener("click", async () => {
+  const courseSelect = document.getElementById("courseSelect");
+  const unitSelect = document.getElementById("unitSelect");
+  const venueSelect = document.getElementById("venueSelect");
+
+  if (!courseSelect.value || !unitSelect.value || !venueSelect.value) {
+    showMessage("Please select course, unit, and venue first", "error");
+    return;
+  }
+
+  try {
+    const stream = await navigator.mediaDevices.getUserMedia({
+      video: {
+        width: { ideal: 640 },
+        height: { ideal: 480 },
+        facingMode: "user",
+      },
     });
-  startButton.addEventListener("click", async () => {
-    videoContainer.style.display = "flex";
-    if (!webcamStarted && modelsLoaded) {
-      startWebcam();
-      webcamStarted = true;
-    }
-  });
 
-  function startWebcam() {
-    navigator.mediaDevices
-      .getUserMedia({
-        video: true,
-        audio: false,
-      })
-      .then((stream) => {
-        video.srcObject = stream;
-        videoStream = stream;
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    videoStream = stream;
+    video.srcObject = stream;
+    video.onloadedmetadata = () => {
+      videoContainer.style.display = "flex";
+      canvas.width = video.videoWidth;
+      canvas.height = video.videoHeight;
+      overlay.width = video.videoWidth;
+      overlay.height = video.videoHeight;
+      startFaceRecognition();
+    };
+  } catch (err) {
+    console.error("Error accessing camera:", err);
+    showMessage("Could not access camera. Please check permissions.", "error");
   }
-  async function getLabeledFaceDescriptions() {
-    const labeledDescriptors = [];
+});
 
-    for (const label of labels) {
-      const descriptions = [];
-
-      for (let i = 1; i <= 5; i++) {
-        try {
-          const img = await faceapi.fetchImage(
-            `resources/labels/${label}/${i}.png`
-          );
-          const detections = await faceapi
-            .detectSingleFace(img)
-            .withFaceLandmarks()
-            .withFaceDescriptor();
-
-          if (detections) {
-            descriptions.push(detections.descriptor);
-          } else {
-            console.log(`No face detected in ${label}/${i}.png`);
-          }
-        } catch (error) {
-          console.error(`Error processing ${label}/${i}.png:`, error);
-        }
-      }
-
-      if (descriptions.length > 0) {
-        detectedFaces.push(label);
-        labeledDescriptors.push(
-          new faceapi.LabeledFaceDescriptors(label, descriptions)
-        );
-      }
-    }
-
-    return labeledDescriptors;
+async function startFaceRecognition() {
+  if (recognitionInterval) {
+    clearInterval(recognitionInterval);
   }
 
-  video.addEventListener("play", async () => {
-    const labeledFaceDescriptors = await getLabeledFaceDescriptions();
-    const faceMatcher = new faceapi.FaceMatcher(labeledFaceDescriptors);
+  const context = canvas.getContext("2d");
+  const overlayCtx = overlay.getContext("2d");
 
-    const canvas = faceapi.createCanvasFromMedia(video);
-    videoContainer.appendChild(canvas);
+  recognitionInterval = setInterval(async () => {
+    if (isProcessing || !videoStream) return;
+    isProcessing = true;
 
-    const displaySize = { width: video.width, height: video.height };
-    faceapi.matchDimensions(canvas, displaySize);
+    try {
+      // Clear previous drawings
+      overlayCtx.clearRect(0, 0, overlay.width, overlay.height);
 
-    setInterval(async () => {
-      const detections = await faceapi
-        .detectAllFaces(video)
-        .withFaceLandmarks()
-        .withFaceDescriptors();
+      // Draw current frame to canvas
+      context.drawImage(video, 0, 0, canvas.width, canvas.height);
 
-      const resizedDetections = faceapi.resizeResults(detections, displaySize);
+      // Convert canvas to blob
+      const blob = await new Promise((resolve) =>
+        canvas.toBlob(resolve, "image/jpeg", 0.95)
+      );
 
-      canvas.getContext("2d").clearRect(0, 0, canvas.width, canvas.height);
+      // Create form data
+      const formData = new FormData();
+      formData.append("image", blob);
+      formData.append("detect_only", "true");
 
-      const results = resizedDetections.map((d) => {
-        return faceMatcher.findBestMatch(d.descriptor);
+      // Send frame for face detection
+      const response = await fetch("detect_face.php", {
+        method: "POST",
+        body: formData,
       });
-      detectedFaces = results.map((result) => result.label);
-      markAttendance(detectedFaces);
 
-      results.forEach((result, i) => {
-        const box = resizedDetections[i].detection.box;
-        const drawBox = new faceapi.draw.DrawBox(box, {
-          label: result,
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      // Get the response text
+      const responseText = await response.text();
+      console.log("Server response:", responseText);
+
+      // Try to parse as JSON
+      let result;
+      try {
+        result = JSON.parse(responseText);
+      } catch (e) {
+        console.error("Error parsing response:", e);
+        throw new Error("Failed to parse server response");
+      }
+
+      // Clear previous drawings
+      overlayCtx.clearRect(0, 0, overlay.width, overlay.height);
+
+      if (result.success && result.faces && result.faces.length > 0) {
+        // Draw face rectangles for all detected faces
+        result.faces.forEach((face) => {
+          // Draw green rectangle
+          overlayCtx.strokeStyle = "#00ff00";
+          overlayCtx.lineWidth = 2;
+          overlayCtx.strokeRect(face.x, face.y, face.width, face.height);
+
+          // Draw label above the face
+          overlayCtx.fillStyle = "#00ff00";
+          overlayCtx.font = "16px Arial";
+          overlayCtx.fillText("Face detected", face.x, face.y - 5);
         });
-        drawBox.draw(canvas);
-      });
-    }, 100);
-  });
+
+        // Show success message
+        statusDiv.innerHTML =
+          '<div class="success">Face detected! Looking good.</div>';
+      } else {
+        // Show guidance message
+        statusDiv.innerHTML =
+          '<div class="info">No face detected. Please look directly at the camera.</div>';
+      }
+    } catch (error) {
+      console.error("Error processing frame:", error);
+      const now = Date.now();
+      if (now - lastErrorTime > 5000) {
+        // Only show error every 5 seconds
+        showMessage("Error processing video frame: " + error.message, "error");
+        lastErrorTime = now;
+      }
+      statusDiv.innerHTML =
+        '<div class="error">Error processing video frame. Please try again.</div>';
+    }
+
+    isProcessing = false;
+  }, 100);
 }
 
-function sendAttendanceDataToServer() {
-  const attendanceData = [];
+document.getElementById("endAttendance").addEventListener("click", function () {
+  // Stop video stream and recognition
+  if (videoStream) {
+    videoStream.getTracks().forEach((track) => track.stop());
+    videoStream = null;
+  }
+  if (recognitionInterval) {
+    clearInterval(recognitionInterval);
+    recognitionInterval = null;
+  }
 
+  // Hide video container
+  document.querySelector(".video-container").style.display = "none";
+
+  // Collect attendance data
+  const attendanceData = [];
   document
     .querySelectorAll("#studentTableContainer tr")
     .forEach((row, index) => {
-      if (index === 0) return;
+      if (index === 0) return; // Skip header row
       const studentID = row.cells[0].innerText.trim();
       const course = row.cells[2].innerText.trim();
       const unit = row.cells[3].innerText.trim();
@@ -175,67 +258,37 @@ function sendAttendanceDataToServer() {
       attendanceData.push({ studentID, course, unit, attendanceStatus });
     });
 
-  const xhr = new XMLHttpRequest();
-  xhr.open("POST", "handle_attendance", true);
-  xhr.setRequestHeader("Content-Type", "application/json");
-
-  xhr.onreadystatechange = function () {
-    if (xhr.readyState === 4) {
-      if (xhr.status === 200) {
-        try {
-          const response = JSON.parse(xhr.responseText);
-
-          if (response.status === "success") {
-            showMessage(
-              response.message || "Attendance recorded successfully."
-            );
-          } else {
-            showMessage(
-              response.message ||
-                "An error occurred while recording attendance."
-            );
-          }
-        } catch (e) {
-          showMessage("Error: Failed to parse the response from the server.");
-          console.error(e);
-        }
+  // Send attendance data to server
+  fetch("resources/pages/lecture/handle_attendance.php", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(attendanceData),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.success) {
+        showMessage("Attendance recorded successfully", "success");
+        setTimeout(() => {
+          location.reload();
+        }, 2000);
       } else {
-        showMessage(
-          "Error: Unable to record attendance. HTTP Status: " + xhr.status
-        );
-        console.error("HTTP Error", xhr.status, xhr.statusText);
+        showMessage("Error recording attendance: " + data.message, "error");
       }
-    }
-  };
-
-  xhr.send(JSON.stringify(attendanceData));
-}
-function showMessage(message) {
-  var messageDiv = document.getElementById("messageDiv");
-  messageDiv.style.display = "block";
-  messageDiv.innerHTML = message;
-  console.log(message);
-  messageDiv.style.opacity = 1;
-  setTimeout(function () {
-    messageDiv.style.opacity = 0;
-  }, 5000);
-}
-function stopWebcam() {
-  if (videoStream) {
-    const tracks = videoStream.getTracks();
-
-    tracks.forEach((track) => {
-      track.stop();
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+      showMessage("Error recording attendance: " + error.message, "error");
     });
+});
 
-    video.srcObject = null;
-    videoStream = null;
+// Clean up when page is unloaded
+window.addEventListener("beforeunload", () => {
+  if (videoStream) {
+    videoStream.getTracks().forEach((track) => track.stop());
   }
-}
-
-document.getElementById("endAttendance").addEventListener("click", function () {
-  sendAttendanceDataToServer();
-  const videoContainer = document.querySelector(".video-container");
-  videoContainer.style.display = "none";
-  stopWebcam();
+  if (recognitionInterval) {
+    clearInterval(recognitionInterval);
+  }
 });

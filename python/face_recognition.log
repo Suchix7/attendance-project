@@ -1,0 +1,6 @@
+INFO:root:Starting training for student 1234
+ERROR:root:Student info not found for 1234
+INFO:root:Starting training for student 123
+ERROR:root:Student info not found for 123
+INFO:root:Starting training for student 990
+ERROR:root:Student info not found for 990

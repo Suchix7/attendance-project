@@ -54,7 +54,8 @@ CREATE TABLE `tblattendance` (
   `course` varchar(100) NOT NULL,
   `attendanceStatus` varchar(100) NOT NULL,
   `dateMarked` date NOT NULL,
-  `unit` varchar(100) NOT NULL
+  `unit` varchar(100) NOT NULL,
+  `confidence` float DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
