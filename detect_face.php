@@ -1,6 +1,14 @@
 <?php
 header('Content-Type: application/json');
 
+if ($_SERVER['REQUEST_METHOD'] !== 'POST' || empty($_FILES['image'])) {
+    echo json_encode([
+        'success' => false,
+        'message' => 'Invalid request. Please send an image file.'
+    ]);
+    exit;
+}
+
 // Enable error logging
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
@@ -14,63 +22,27 @@ function logMessage($message)
 }
 
 try {
-    // Check if image was uploaded
-    if (!isset($_FILES['image'])) {
-        throw new Exception('No image uploaded');
-    }
+    // Save the uploaded image temporarily
+    $tmpImage = $_FILES['image']['tmp_name'];
 
-    // Create uploads directory if it doesn't exist
-    $uploadsDir = __DIR__ . '/uploads';
-    if (!file_exists($uploadsDir)) {
-        if (!mkdir($uploadsDir, 0777, true)) {
-            throw new Exception('Failed to create uploads directory');
-        }
-    }
-
-    // Save the uploaded image
-    $uploadedFile = $_FILES['image']['tmp_name'];
-    $imagePath = $uploadsDir . '/detect_' . uniqid() . '.jpg';
-
-    if (!move_uploaded_file($uploadedFile, $imagePath)) {
-        throw new Exception('Failed to save uploaded image');
-    }
-
-    // Log the saved image path
-    logMessage("Image saved to: " . $imagePath);
-
-    // Use Python script for face detection
-    $pythonScript = __DIR__ . '/python/detect_face.py';
-    if (!file_exists($pythonScript)) {
-        throw new Exception('Python script not found at: ' . $pythonScript);
-    }
-
-    $command = "python \"" . $pythonScript . "\" \"" . $imagePath . "\"";
-    logMessage("Executing command: " . $command);
-
+    // Execute the Python script for face detection
+    $command = escapeshellcmd("python python/detect_face.py " . escapeshellarg($tmpImage));
     $output = shell_exec($command);
-    logMessage("Python script output: " . $output);
 
-    // Clean up the temporary image
-    if (file_exists($imagePath)) {
-        unlink($imagePath);
-    }
-
-    if ($output === null) {
-        throw new Exception('Face detection script failed to execute');
-    }
-
+    // Parse the JSON output from Python script
     $result = json_decode($output, true);
+
     if ($result === null) {
-        throw new Exception('Failed to parse Python script output: ' . json_last_error_msg());
+        throw new Exception('Failed to parse Python script output');
     }
 
-    // Return the result directly
+    // Return the result
     echo json_encode($result);
 
 } catch (Exception $e) {
     logMessage("Error: " . $e->getMessage());
     echo json_encode([
         'success' => false,
-        'message' => $e->getMessage()
+        'message' => 'Error: ' . $e->getMessage()
     ]);
 }

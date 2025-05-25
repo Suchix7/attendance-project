@@ -195,6 +195,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <canvas id="canvas" width="640" height="480" style="position: absolute; opacity: 0;"></canvas>
                 <canvas id="overlay" width="640" height="480"></canvas>
                 <div id="recognitionStatus"></div>
+                <div id="captureProgress"></div>
             </div>
 
             <div class="table-container">
@@ -204,6 +205,297 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </section>
 
     <?php js_asset(["active_link", 'face_logics/script']) ?>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const video = document.getElementById("video");
+            const canvas = document.getElementById("canvas");
+            const overlay = document.getElementById("overlay");
+            const startButton = document.getElementById("startButton");
+            const endButton = document.getElementById("endAttendance");
+            const videoContainer = document.querySelector(".video-container");
+            const recognitionStatus = document.getElementById("recognitionStatus");
+            const captureProgress = document.getElementById("captureProgress");
+            const courseSelect = document.getElementById("courseSelect");
+            const unitSelect = document.getElementById("unitSelect");
+            const venueSelect = document.getElementById("venueSelect");
+
+            let stream = null;
+            let isProcessing = false;
+            let recognitionInterval = null;
+            let lastRecognitionTime = 0;
+            let lastRecognizedStudent = null;
+            const RECOGNITION_COOLDOWN = 5000; // 5 seconds between recognition attempts
+            const CONFIDENCE_THRESHOLD = 50; // Minimum confidence threshold for recognition
+
+            // Helper function for logging with timestamp
+            function logWithTime(message, type = 'info') {
+                const timestamp = new Date().toLocaleTimeString();
+                const logMessage = `[${timestamp}] ${message}`;
+                console[type](logMessage);
+
+                // Also update the UI status
+                if (type === 'error') {
+                    recognitionStatus.innerHTML = `<div class="error">${message}</div>`;
+                }
+            }
+
+            // Start camera and face recognition
+            startButton.addEventListener("click", async () => {
+                // Check if course, unit, and venue are selected
+                if (!courseSelect.value || !unitSelect.value || !venueSelect.value) {
+                    logWithTime("Missing required selections: course, unit, or venue", "error");
+                    showMessage("Please select course, unit, and venue first", "error");
+                    return;
+                }
+
+                try {
+                    logWithTime("Starting camera...");
+                    stream = await navigator.mediaDevices.getUserMedia({
+                        video: {
+                            width: { ideal: 640 },
+                            height: { ideal: 480 },
+                            frameRate: { ideal: 30 }
+                        }
+                    });
+                    video.srcObject = stream;
+                    await video.play();
+
+                    logWithTime("Camera started successfully");
+                    videoContainer.style.display = "block";
+                    startButton.disabled = true;
+                    startFaceRecognition();
+                    showMessage("Face recognition started", "success");
+                } catch (err) {
+                    logWithTime("Camera error: " + err.message, "error");
+                    showMessage("Error accessing camera: " + err.message, "error");
+                }
+            });
+
+            // End attendance taking
+            endButton.addEventListener("click", () => {
+                logWithTime("Ending attendance session...");
+                try {
+                    if (stream) {
+                        stream.getTracks().forEach(track => {
+                            track.stop();
+                            logWithTime("Camera stream stopped");
+                        });
+                        stream = null;
+                    }
+                    if (recognitionInterval) {
+                        clearInterval(recognitionInterval);
+                        recognitionInterval = null;
+                        logWithTime("Recognition interval cleared");
+                    }
+                    videoContainer.style.display = "none";
+                    startButton.disabled = false;
+                    recognitionStatus.innerHTML = "";
+                    captureProgress.innerHTML = "";
+                    showMessage("Attendance taking ended", "info");
+                    logWithTime("Attendance session ended successfully");
+
+                    // Clear the canvas and overlay
+                    const context = canvas.getContext("2d");
+                    const overlayCtx = overlay.getContext("2d");
+                    context.clearRect(0, 0, canvas.width, canvas.height);
+                    overlayCtx.clearRect(0, 0, overlay.width, overlay.height);
+
+                    // Reset recognition state
+                    lastRecognizedStudent = null;
+                    lastRecognitionTime = 0;
+                    isProcessing = false; // Reset processing flag
+                } catch (error) {
+                    logWithTime("Error ending attendance session: " + error.message, "error");
+                    // Don't show error message for clean-up operations
+                    console.error(error);
+                }
+            });
+
+            async function updateAttendanceStatus(studentId, course, unit) {
+                try {
+                    const response = await fetch('update_attendance.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            studentID: studentId,
+                            course: course,
+                            unit: unit,
+                            attendanceStatus: 'Present',
+                            date: new Date().toISOString().split('T')[0]
+                        })
+                    });
+
+                    if (!response.ok) {
+                        throw new Error('Failed to update attendance');
+                    }
+
+                    const result = await response.json();
+                    if (result.success) {
+                        logWithTime(`Attendance updated for Student ${studentId}: Present`);
+                        // Update the table row if it exists
+                        const row = document.querySelector(`tr[data-student-id="${studentId}"]`);
+                        if (row) {
+                            const statusCell = row.querySelector('.attendance-status');
+                            if (statusCell) {
+                                statusCell.textContent = 'Present';
+                                statusCell.className = 'attendance-status present';
+                            }
+                        }
+                        return true;
+                    } else {
+                        throw new Error(result.message || 'Failed to update attendance');
+                    }
+                } catch (error) {
+                    logWithTime(`Error updating attendance: ${error.message}`, 'error');
+                    return false;
+                }
+            }
+
+            async function processFrame() {
+                if (isProcessing || !stream) return false;
+
+                const now = Date.now();
+                if (now - lastRecognitionTime < RECOGNITION_COOLDOWN) return false;
+
+                isProcessing = true;
+                const context = canvas.getContext("2d");
+                const overlayCtx = overlay.getContext("2d");
+
+                try {
+                    // Clear previous drawings
+                    overlayCtx.clearRect(0, 0, overlay.width, overlay.height);
+
+                    // Draw current frame to canvas
+                    context.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+                    // Convert canvas to blob
+                    const blob = await new Promise(resolve => canvas.toBlob(resolve, "image/jpeg", 0.95));
+                    logWithTime("Frame captured, size: " + Math.round(blob.size / 1024) + "KB");
+
+                    // Create form data
+                    const formData = new FormData();
+                    formData.append("image", blob);
+
+                    // Send frame for face recognition
+                    logWithTime("Sending frame for recognition...");
+                    const response = await fetch("recognize_face.php", {
+                        method: "POST",
+                        body: formData
+                    });
+
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+
+                    // Check if stream is still active before processing response
+                    if (!stream) {
+                        return false;
+                    }
+
+                    const result = await response.json();
+                    logWithTime("Recognition result: " + JSON.stringify(result));
+
+                    // Check again if stream is active before drawing
+                    if (!stream) {
+                        return false;
+                    }
+
+                    // Clear previous drawings
+                    overlayCtx.clearRect(0, 0, overlay.width, overlay.height);
+
+                    if (result.success) {
+                        const face = result.face_location;
+                        const isRecognized = result.predicted_student_id !== "Unknown" && result.confidence >= CONFIDENCE_THRESHOLD;
+                        const color = isRecognized ? "#00ff00" : "#ff0000";
+
+                        // Draw face rectangle
+                        overlayCtx.strokeStyle = color;
+                        overlayCtx.lineWidth = 2;
+                        overlayCtx.strokeRect(face.x, face.y, face.width, face.height);
+
+                        // Draw recognition result
+                        overlayCtx.fillStyle = color;
+                        overlayCtx.font = "16px Arial";
+                        overlayCtx.fillText(
+                            `${result.predicted_student_id} (${result.confidence.toFixed(1)}%)`,
+                            face.x,
+                            face.y - 10
+                        );
+
+                        // Update recognition status
+                        const statusMessage = isRecognized ?
+                            `Student ${result.predicted_student_id} recognized with ${result.confidence.toFixed(1)}% confidence` :
+                            `Unknown face detected (${result.confidence.toFixed(1)}% confidence)`;
+                        logWithTime(statusMessage);
+                        recognitionStatus.innerHTML = `<div class="${isRecognized ? "success" : "info"}">${statusMessage}</div>`;
+
+                        // If face was recognized with good confidence and it's a different student
+                        if (isRecognized && lastRecognizedStudent !== result.predicted_student_id) {
+                            lastRecognitionTime = now;
+                            lastRecognizedStudent = result.predicted_student_id;
+                            logWithTime(`Updating attendance for Student ${result.predicted_student_id}`);
+
+                            // Update attendance status
+                            const success = await updateAttendanceStatus(
+                                result.predicted_student_id,
+                                courseSelect.value,
+                                unitSelect.value
+                            );
+
+                            if (success) {
+                                showMessage(`Attendance marked for Student ${result.predicted_student_id}!`, "success");
+                            }
+                        }
+                    } else if (result.message !== "No face detected") { // Don't show error for no face detected
+                        logWithTime("Recognition failed: " + result.message, "warn");
+                        recognitionStatus.innerHTML = `<div class="info">${result.message}</div>`;
+                    }
+
+                    return true;
+                } catch (error) {
+                    // Only log errors if the stream is still active
+                    if (stream) {
+                        logWithTime("Error processing frame: " + error.message, "error");
+                        // Don't show error in status for clean-up related errors
+                        if (error.message !== "Failed to fetch" && error.name !== "AbortError") {
+                            recognitionStatus.innerHTML = `<div class="error">Error processing video frame: ${error.message}</div>`;
+                        }
+                    }
+                    return false;
+                } finally {
+                    isProcessing = false;
+                }
+            }
+
+            async function startFaceRecognition() {
+                logWithTime("Starting face recognition...");
+                if (recognitionInterval) {
+                    clearInterval(recognitionInterval);
+                }
+
+                recognitionInterval = setInterval(async () => {
+                    await processFrame();
+                }, 500); // Process every 500ms
+            }
+
+            // Helper function to show messages
+            function showMessage(message, type) {
+                logWithTime(message, type === "error" ? "error" : "info");
+                const messageDiv = document.getElementById("messageDiv");
+                messageDiv.className = type;
+                messageDiv.textContent = message;
+                messageDiv.style.display = "block";
+
+                // Hide message after 3 seconds
+                setTimeout(() => {
+                    messageDiv.style.display = "none";
+                }, 3000);
+            }
+        });
+    </script>
 
 
 

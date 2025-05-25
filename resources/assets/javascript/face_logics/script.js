@@ -144,6 +144,9 @@ async function startFaceRecognition() {
 
   const context = canvas.getContext("2d");
   const overlayCtx = overlay.getContext("2d");
+  let lastRecognizedStudent = null;
+  let lastRecognitionTime = 0;
+  const RECOGNITION_COOLDOWN = 5000; // 5 seconds between recognitions for the same student
 
   recognitionInterval = setInterval(async () => {
     if (isProcessing || !videoStream) return;
@@ -164,10 +167,9 @@ async function startFaceRecognition() {
       // Create form data
       const formData = new FormData();
       formData.append("image", blob);
-      formData.append("detect_only", "true");
 
-      // Send frame for face detection
-      const response = await fetch("detect_face.php", {
+      // Send frame for face recognition
+      const response = await fetch("recognize_face.php", {
         method: "POST",
         body: formData,
       });
@@ -176,39 +178,109 @@ async function startFaceRecognition() {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
 
-      // Get the response text
-      const responseText = await response.text();
-      console.log("Server response:", responseText);
-
-      // Try to parse as JSON
-      let result;
-      try {
-        result = JSON.parse(responseText);
-      } catch (e) {
-        console.error("Error parsing response:", e);
-        throw new Error("Failed to parse server response");
-      }
+      const result = await response.json();
+      console.log("Recognition result:", JSON.stringify(result));
 
       // Clear previous drawings
       overlayCtx.clearRect(0, 0, overlay.width, overlay.height);
 
-      if (result.success && result.faces && result.faces.length > 0) {
-        // Draw face rectangles for all detected faces
-        result.faces.forEach((face) => {
-          // Draw green rectangle
-          overlayCtx.strokeStyle = "#00ff00";
-          overlayCtx.lineWidth = 2;
-          overlayCtx.strokeRect(face.x, face.y, face.width, face.height);
+      if (result.success) {
+        const face = result.face_location;
+        const isRecognized =
+          result.predicted_student_id !== "Unknown" && result.confidence > 30; // Adjust threshold as needed
+        const color = isRecognized ? "#00ff00" : "#ff0000";
 
-          // Draw label above the face
-          overlayCtx.fillStyle = "#00ff00";
-          overlayCtx.font = "16px Arial";
-          overlayCtx.fillText("Face detected", face.x, face.y - 5);
-        });
+        // Draw face rectangle
+        overlayCtx.strokeStyle = color;
+        overlayCtx.lineWidth = 2;
+        overlayCtx.strokeRect(face.x, face.y, face.width, face.height);
 
-        // Show success message
-        statusDiv.innerHTML =
-          '<div class="success">Face detected! Looking good.</div>';
+        // Draw recognition result
+        overlayCtx.fillStyle = color;
+        overlayCtx.font = "16px Arial";
+        overlayCtx.fillText(
+          `${result.predicted_student_id} (${result.confidence.toFixed(1)}%)`,
+          face.x,
+          face.y - 10
+        );
+
+        if (isRecognized) {
+          const now = Date.now();
+          // Only update attendance if it's a different student or enough time has passed
+          if (
+            lastRecognizedStudent !== result.predicted_student_id ||
+            now - lastRecognitionTime > RECOGNITION_COOLDOWN
+          ) {
+            lastRecognizedStudent = result.predicted_student_id;
+            lastRecognitionTime = now;
+
+            // Find the student row using the data attribute
+            const studentRow = document.querySelector(
+              `tr[data-student-id="${result.predicted_student_id}"]`
+            );
+            if (studentRow) {
+              const statusCell = studentRow.querySelector(".attendance-status");
+
+              if (
+                statusCell &&
+                statusCell.textContent.trim().toLowerCase() !== "present"
+              ) {
+                // Get course and unit from select elements
+                const courseCode =
+                  document.getElementById("courseSelect").value;
+                const unitCode = document.getElementById("unitSelect").value;
+
+                // Update backend
+                fetch('update_attendance.php', {
+                  method: 'POST',
+                  headers: {
+                    'Content-Type': 'application/json',
+                  },
+                  body: JSON.stringify({
+                    studentID: result.predicted_student_id,
+                    course: courseCode,
+                    unit: unitCode,
+                    attendanceStatus: 'Present'
+                  })
+                })
+                .then(response => {
+                  if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                  }
+                  return response.json();
+                })
+                .then(data => {
+                  if (data.success) {
+                    // Update UI
+                    statusCell.textContent = 'Present';
+                    statusCell.className = 'attendance-status present';
+                    showMessage(`Marked attendance for Student ${result.predicted_student_id} (${result.confidence.toFixed(1)}% confidence)`, "success");
+                    statusDiv.innerHTML = '<div class="success">Attendance marked successfully!</div>';
+                  } else {
+                    throw new Error(data.message || 'Failed to update attendance');
+                  }
+                })
+                .catch(error => {
+                  console.error('Error updating attendance:', error);
+                  showMessage("Error updating attendance: " + error.message, "error");
+                });
+              } else {
+                console.log("Student already marked present");
+              }
+            } else {
+              console.log(
+                "Student not found in table:",
+                result.predicted_student_id
+              );
+            }
+          }
+        }
+
+        // Show status message
+        if (!isRecognized) {
+          statusDiv.innerHTML =
+            '<div class="info">Face detected but not recognized. Please try again.</div>';
+        }
       } else {
         // Show guidance message
         statusDiv.innerHTML =
@@ -227,60 +299,44 @@ async function startFaceRecognition() {
     }
 
     isProcessing = false;
-  }, 100);
+  }, 500); // Reduced from 100ms to 500ms to prevent too frequent updates
 }
 
-document.getElementById("endAttendance").addEventListener("click", function () {
-  // Stop video stream and recognition
-  if (videoStream) {
-    videoStream.getTracks().forEach((track) => track.stop());
-    videoStream = null;
+// End attendance button functionality
+document.getElementById("endAttendance").addEventListener("click", async () => {
+  try {
+    // Stop video stream
+    if (videoStream) {
+      videoStream.getTracks().forEach((track) => track.stop());
+      videoStream = null;
+    }
+
+    // Clear recognition interval
+    if (recognitionInterval) {
+      clearInterval(recognitionInterval);
+      recognitionInterval = null;
+    }
+
+    // Reset UI elements
+    videoContainer.style.display = "none";
+    startButton.disabled = false;
+    if (statusDiv) statusDiv.innerHTML = "";
+
+    // Clear canvases
+    const context = canvas.getContext("2d");
+    const overlayCtx = overlay.getContext("2d");
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    overlayCtx.clearRect(0, 0, overlay.width, overlay.height);
+
+    // Reset processing flags
+    isProcessing = false;
+    webcamStarted = false;
+
+    showMessage("Attendance taking ended", "info");
+  } catch (error) {
+    console.error("Error ending attendance:", error);
+    // Don't show error message to user, just log it
   }
-  if (recognitionInterval) {
-    clearInterval(recognitionInterval);
-    recognitionInterval = null;
-  }
-
-  // Hide video container
-  document.querySelector(".video-container").style.display = "none";
-
-  // Collect attendance data
-  const attendanceData = [];
-  document
-    .querySelectorAll("#studentTableContainer tr")
-    .forEach((row, index) => {
-      if (index === 0) return; // Skip header row
-      const studentID = row.cells[0].innerText.trim();
-      const course = row.cells[2].innerText.trim();
-      const unit = row.cells[3].innerText.trim();
-      const attendanceStatus = row.cells[5].innerText.trim();
-
-      attendanceData.push({ studentID, course, unit, attendanceStatus });
-    });
-
-  // Send attendance data to server
-  fetch("resources/pages/lecture/handle_attendance.php", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(attendanceData),
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      if (data.success) {
-        showMessage("Attendance recorded successfully", "success");
-        setTimeout(() => {
-          location.reload();
-        }, 2000);
-      } else {
-        showMessage("Error recording attendance: " + data.message, "error");
-      }
-    })
-    .catch((error) => {
-      console.error("Error:", error);
-      showMessage("Error recording attendance: " + error.message, "error");
-    });
 });
 
 // Clean up when page is unloaded

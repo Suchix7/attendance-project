@@ -1,85 +1,188 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+function debug_log($message)
+{
+    error_log(date('Y-m-d H:i:s') . " - " . $message . "\n", 3, __DIR__ . '/debug.log');
+}
 
 if (isset($_POST['addStudent'])) {
+    try {
+        debug_log("Starting student registration process");
 
-    $firstName = $_POST['firstName'];
-    $lastName = $_POST['lastName'];
-    $email = $_POST['email'];
-    $registrationNumber = $_POST['registrationNumber'];
-    $courseCode = $_POST['course'];
-    $faculty = $_POST['faculty'];
-    $dateRegistered = date("Y-m-d");
+        $firstName = $_POST['firstName'];
+        $lastName = $_POST['lastName'];
+        $email = $_POST['email'];
+        $registrationNumber = $_POST['registrationNumber'];
+        $courseCode = $_POST['course'];
+        $faculty = $_POST['faculty'];
+        $dateRegistered = date("Y-m-d");
 
-    $imageFileNames = []; // Array to hold image file names
+        debug_log("Student details: " . json_encode([
+            'name' => "$firstName $lastName",
+            'reg' => $registrationNumber
+        ]));
 
-    // Process and save images
-    $folderPath = "resources/labels/{$registrationNumber}/";
-    if (!file_exists($folderPath)) {
-        mkdir($folderPath, 0777, true);
-    }
+        // Get base directory and required paths
+        $baseDir = realpath(__DIR__ . '/../../..');
+        $pythonScript = $baseDir . '/python/realtime_recognition.py';
+        $modelsDir = $baseDir . '/models';
+        $assetsDir = $baseDir . '/assets';
+        $validatedFacesDir = $baseDir . '/validated_faces';
+        $studentsDir = $baseDir . '/students';
 
-    for ($i = 1; $i <= 10; $i++) {
-        if (isset($_POST["capturedImage$i"])) {
-            $base64Data = explode(',', $_POST["capturedImage$i"])[1];
-            $imageData = base64_decode($base64Data);
-            $fileName = "{$registrationNumber}_image{$i}.png";
-            $labelName = "face_{$i}.jpg";  // Changed to match the expected format in train_model.py
+        debug_log("Base directory: $baseDir");
+        debug_log("Python script path: $pythonScript");
 
-            // Save in students directory for face recognition
-            $studentDir = "students/{$registrationNumber}";
-            if (!file_exists($studentDir)) {
-                mkdir($studentDir, 0777, true);
+        // Ensure all required directories exist
+        foreach ([$modelsDir, $assetsDir, $validatedFacesDir, $studentsDir] as $dir) {
+            if (!file_exists($dir)) {
+                debug_log("Creating directory: $dir");
+                if (!mkdir($dir, 0777, true)) {
+                    throw new Exception("Failed to create directory: $dir");
+                }
+                chmod($dir, 0777);
             }
-            file_put_contents("{$studentDir}/{$labelName}", $imageData);
-
-            // Also save in resources/labels for display
-            file_put_contents("{$folderPath}{$labelName}", $imageData);
-            $imageFileNames[] = $fileName;
         }
-    }
 
-    // Create student info.json file required by face recognition
-    $studentInfo = [
-        'id' => $registrationNumber,
-        'name' => $firstName . ' ' . $lastName,
-        'email' => $email,
-        'course' => $courseCode,
-        'faculty' => $faculty
-    ];
-    file_put_contents("students/{$registrationNumber}/info.json", json_encode($studentInfo));
+        // Create student directories
+        $studentDir = "{$studentsDir}/{$registrationNumber}";
+        $validatedDir = "{$validatedFacesDir}/student{$registrationNumber}";
+        $labelDir = "resources/labels/{$registrationNumber}";
 
-    // Train the face recognition model
-    $output = [];
-    $returnVar = 0;
-    exec("python python/train_model.py " . escapeshellarg($registrationNumber), $output, $returnVar);
+        foreach ([$studentDir, $validatedDir, $labelDir] as $dir) {
+            if (!file_exists($dir)) {
+                debug_log("Creating student directory: $dir");
+                if (!mkdir($dir, 0777, true)) {
+                    throw new Exception("Failed to create directory: $dir");
+                }
+                chmod($dir, 0777);
+            }
+        }
 
-    $trainingResult = json_decode($output[0], true);
-    if (!$trainingResult['success']) {
-        $_SESSION['message'] = "Error training face recognition: " . $trainingResult['message'];
-        // Clean up the uploaded files
-        array_map('unlink', glob("students/{$registrationNumber}/*.*"));
-        rmdir("students/{$registrationNumber}");
-        return;
-    }
+        $imageFileNames = []; // Array to hold image file names
+        $imageCount = 0;
 
-    // Convert image file names to JSON
-    $imagesJson = json_encode($imageFileNames);
+        // Process and save images
+        for ($i = 1; $i <= 10; $i++) {
+            if (isset($_POST["capturedImage$i"])) {
+                debug_log("Processing image $i for student $registrationNumber");
 
-    // Check for duplicate registration number
-    $checkQuery = $pdo->prepare("SELECT COUNT(*) FROM tblstudents WHERE registrationNumber = :registrationNumber");
-    $checkQuery->execute([':registrationNumber' => $registrationNumber]);
-    $count = $checkQuery->fetchColumn();
+                $base64Data = $_POST["capturedImage$i"];
+                if (strpos($base64Data, 'base64,') !== false) {
+                    $base64Data = explode(',', $base64Data)[1];
+                }
 
-    if ($count > 0) {
-        $_SESSION['message'] = "Student with the given Registration No: $registrationNumber already exists!";
-    } else {
-        // Insert new student with images stored as JSON
+                $imageData = base64_decode($base64Data);
+                if (!$imageData) {
+                    debug_log("Failed to decode image $i");
+                    continue;
+                }
+
+                $fileName = "face_{$i}.jpg";
+
+                // Save in students directory (original system)
+                $studentPath = "{$studentDir}/{$fileName}";
+                if (file_put_contents($studentPath, $imageData) === false) {
+                    throw new Exception("Failed to save image to: $studentPath");
+                }
+                debug_log("Saved image to: $studentPath");
+
+                // Save in validated_faces directory (new system)
+                $validatedPath = "{$validatedDir}/{$fileName}";
+                if (file_put_contents($validatedPath, $imageData) === false) {
+                    throw new Exception("Failed to save image to: $validatedPath");
+                }
+                debug_log("Saved image to: $validatedPath");
+
+                // Save in labels directory (for display)
+                $labelPath = "{$labelDir}/{$fileName}";
+                if (file_put_contents($labelPath, $imageData) === false) {
+                    throw new Exception("Failed to save image to: $labelPath");
+                }
+                debug_log("Saved image to: $labelPath");
+
+                $imageFileNames[] = $fileName;
+                $imageCount++;
+            }
+        }
+
+        if ($imageCount === 0) {
+            throw new Exception("No valid images were captured");
+        }
+
+        // Create student info.json file
+        $studentInfo = [
+            'id' => $registrationNumber,
+            'name' => $firstName . ' ' . $lastName,
+            'email' => $email,
+            'course' => $courseCode,
+            'faculty' => $faculty
+        ];
+
+        // Save info.json in both locations
+        $infoJson = json_encode($studentInfo);
+        $studentInfoPath = "{$studentDir}/info.json";
+        $validatedInfoPath = "{$validatedDir}/info.json";
+
+        if (file_put_contents($studentInfoPath, $infoJson) === false) {
+            throw new Exception("Failed to save student info to: $studentInfoPath");
+        }
+        if (file_put_contents($validatedInfoPath, $infoJson) === false) {
+            throw new Exception("Failed to save student info to: $validatedInfoPath");
+        }
+        debug_log("Saved student info files");
+
+        // Check for cascade file
+        $cascadeFile = $assetsDir . '/haarcascade_frontalface_default.xml';
+        if (!file_exists($cascadeFile)) {
+            // Download cascade file if it doesn't exist
+            $cascadeUrl = 'https://raw.githubusercontent.com/opencv/opencv/master/data/haarcascades/haarcascade_frontalface_default.xml';
+            $cascadeContent = file_get_contents($cascadeUrl);
+            if ($cascadeContent === false) {
+                throw new Exception("Failed to download cascade file");
+            }
+            if (file_put_contents($cascadeFile, $cascadeContent) === false) {
+                throw new Exception("Failed to save cascade file");
+            }
+            debug_log("Downloaded cascade file to: $cascadeFile");
+        }
+
+        if (!file_exists($pythonScript)) {
+            throw new Exception("Python script not found at: $pythonScript");
+        }
+
+        // Call the script with the train argument
+        $command = "python \"{$pythonScript}\" --train";
+        debug_log("Executing command: $command");
+
+        $output = [];
+        $returnVar = 0;
+        exec($command . " 2>&1", $output, $returnVar);
+        debug_log("Command output: " . print_r($output, true));
+        debug_log("Return code: $returnVar");
+
+        if ($returnVar !== 0) {
+            throw new Exception("Face recognition training failed. Output: " . implode("\n", $output));
+        }
+
+        // Check for duplicate registration number
+        $checkQuery = $pdo->prepare("SELECT COUNT(*) FROM tblstudents WHERE registrationNumber = :registrationNumber");
+        $checkQuery->execute([':registrationNumber' => $registrationNumber]);
+        $count = $checkQuery->fetchColumn();
+
+        if ($count > 0) {
+            throw new Exception("Student with the given Registration No: $registrationNumber already exists!");
+        }
+
+        // Insert new student
         $insertQuery = $pdo->prepare("
-        INSERT INTO tblstudents 
-        (firstName, lastName, email, registrationNumber, faculty, courseCode, studentImage, dateRegistered) 
-        VALUES 
-        (:firstName, :lastName, :email, :registrationNumber, :faculty, :courseCode, :studentImage, :dateRegistered)
-    ");
+            INSERT INTO tblstudents 
+            (firstName, lastName, email, registrationNumber, faculty, courseCode, studentImage, dateRegistered) 
+            VALUES 
+            (:firstName, :lastName, :email, :registrationNumber, :faculty, :courseCode, :studentImage, :dateRegistered)
+        ");
 
         $insertQuery->execute([
             ':firstName' => $firstName,
@@ -88,15 +191,24 @@ if (isset($_POST['addStudent'])) {
             ':registrationNumber' => $registrationNumber,
             ':faculty' => $faculty,
             ':courseCode' => $courseCode,
-            ':studentImage' => $imagesJson, // Store JSON array of image file names
+            ':studentImage' => json_encode($imageFileNames),
             ':dateRegistered' => $dateRegistered
         ]);
 
         $_SESSION['message'] = "Student: $registrationNumber added successfully!";
+        debug_log("Student registration completed successfully");
+
+    } catch (Exception $e) {
+        debug_log("Error: " . $e->getMessage());
+        $_SESSION['message'] = "Error: " . $e->getMessage();
+
+        // Clean up files if there was an error
+        if (isset($validatedDir) && file_exists($validatedDir)) {
+            array_map('unlink', glob("{$validatedDir}/*.*"));
+            rmdir($validatedDir);
+        }
     }
 }
-
-
 
 ?>
 <!DOCTYPE html>

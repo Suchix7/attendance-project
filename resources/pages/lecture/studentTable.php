@@ -1,5 +1,3 @@
-
-
 <div class="table">
     <table>
         <thead>
@@ -13,7 +11,7 @@
                 <th>Settings</th>
             </tr>
         </thead>
-        <tbody id="studentTableContainer">
+        <tbody id="studentTableBody">
             <?php
             if (isset($_POST['courseID']) && isset($_POST['unitID']) && isset($_POST['venueID'])) {
 
@@ -26,20 +24,19 @@
 
                 if ($result) {
                     foreach ($result as $row) {
-                        echo "<tr>";
                         $registrationNumber = $row["registrationNumber"];
-                        echo "<td>" . $registrationNumber . "</td>";
-                        echo "<td>" . $row["firstName"] . $row["lastName"] . "</td>";
+                        echo "<tr data-student-id='{$registrationNumber}'>";
+                        echo "<td class='student-id'>" . $registrationNumber . "</td>";
+                        echo "<td>" . $row["firstName"] . " " . $row["lastName"] . "</td>";
                         echo "<td>" . $courseID . "</td>";
                         echo "<td>" . $unitID . "</td>";
                         echo "<td>" . $venueID . "</td>";
-                        echo "<td>Absent</td>"; 
+                        echo "<td class='attendance-status'>Absent</td>";
                         echo "<td><span><i class='ri-edit-line edit'></i><i class='ri-delete-bin-line delete'></i></span></td>";
                         echo "</tr>";
                     }
-
                 } else {
-                    echo "<tr><td colspan='6'>No records found</td></tr>";
+                    echo "<tr><td colspan='7'>No records found</td></tr>";
                 }
             }
             ?>

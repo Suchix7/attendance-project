@@ -1,0 +1,1578 @@
+2025-05-24 18:26:11 - Starting student registration process
+2025-05-24 18:26:11 - Student details: {"name":"Sujal Chitrakar","reg":"1"}
+2025-05-24 18:26:11 - Creating directory: resources/labels/1/
+2025-05-24 18:26:11 - Creating directory: validated_faces/student1
+2025-05-24 18:26:11 - Processing image 1
+2025-05-24 18:26:11 - Failed to decode image 1
+2025-05-24 18:26:11 - Processing image 2
+2025-05-24 18:26:11 - Failed to decode image 2
+2025-05-24 18:26:11 - Processing image 3
+2025-05-24 18:26:11 - Failed to decode image 3
+2025-05-24 18:26:11 - Processing image 4
+2025-05-24 18:26:11 - Failed to decode image 4
+2025-05-24 18:26:11 - Processing image 5
+2025-05-24 18:26:11 - Failed to decode image 5
+2025-05-24 18:26:11 - Processing image 6
+2025-05-24 18:26:11 - Failed to decode image 6
+2025-05-24 18:26:11 - Processing image 7
+2025-05-24 18:26:11 - Failed to decode image 7
+2025-05-24 18:26:11 - Processing image 8
+2025-05-24 18:26:11 - Failed to decode image 8
+2025-05-24 18:26:11 - Processing image 9
+2025-05-24 18:26:11 - Failed to decode image 9
+2025-05-24 18:26:11 - Processing image 10
+2025-05-24 18:26:11 - Failed to decode image 10
+2025-05-24 18:26:11 - Processed 0 images
+2025-05-24 18:26:11 - Error: No valid images were processed
+2025-05-24 18:26:36 - Starting student registration process
+2025-05-24 18:26:36 - Student details: {"name":"Abishek Shrestha","reg":"123"}
+2025-05-24 18:26:36 - Creating directory: resources/labels/123/
+2025-05-24 18:26:36 - Creating directory: validated_faces/student123
+2025-05-24 18:26:36 - Processing image 1
+2025-05-24 18:26:36 - Saved image to: validated_faces/student123/face_1.jpg
+2025-05-24 18:26:36 - Saved image to: resources/labels/123/face_1.jpg
+2025-05-24 18:26:36 - Processing image 2
+2025-05-24 18:26:36 - Saved image to: validated_faces/student123/face_2.jpg
+2025-05-24 18:26:36 - Saved image to: resources/labels/123/face_2.jpg
+2025-05-24 18:26:36 - Processing image 3
+2025-05-24 18:26:36 - Saved image to: validated_faces/student123/face_3.jpg
+2025-05-24 18:26:36 - Saved image to: resources/labels/123/face_3.jpg
+2025-05-24 18:26:36 - Processing image 4
+2025-05-24 18:26:36 - Saved image to: validated_faces/student123/face_4.jpg
+2025-05-24 18:26:36 - Saved image to: resources/labels/123/face_4.jpg
+2025-05-24 18:26:36 - Processing image 5
+2025-05-24 18:26:36 - Saved image to: validated_faces/student123/face_5.jpg
+2025-05-24 18:26:36 - Saved image to: resources/labels/123/face_5.jpg
+2025-05-24 18:26:36 - Processing image 6
+2025-05-24 18:26:36 - Saved image to: validated_faces/student123/face_6.jpg
+2025-05-24 18:26:36 - Saved image to: resources/labels/123/face_6.jpg
+2025-05-24 18:26:36 - Processing image 7
+2025-05-24 18:26:36 - Saved image to: validated_faces/student123/face_7.jpg
+2025-05-24 18:26:36 - Saved image to: resources/labels/123/face_7.jpg
+2025-05-24 18:26:36 - Processing image 8
+2025-05-24 18:26:36 - Saved image to: validated_faces/student123/face_8.jpg
+2025-05-24 18:26:36 - Saved image to: resources/labels/123/face_8.jpg
+2025-05-24 18:26:36 - Processing image 9
+2025-05-24 18:26:36 - Saved image to: validated_faces/student123/face_9.jpg
+2025-05-24 18:26:36 - Saved image to: resources/labels/123/face_9.jpg
+2025-05-24 18:26:36 - Processing image 10
+2025-05-24 18:26:36 - Saved image to: validated_faces/student123/face_10.jpg
+2025-05-24 18:26:36 - Saved image to: resources/labels/123/face_10.jpg
+2025-05-24 18:26:36 - Processed 10 images
+2025-05-24 18:26:36 - Saved student info to: validated_faces/student123/info.json
+2025-05-24 18:26:36 - Python script path: 
+2025-05-24 18:26:36 - Error: Python script not found at: 
+2025-05-24 18:28:02 - Starting student registration process
+2025-05-24 18:28:02 - Student details: {"name":"Abishek Shrestha","reg":"123"}
+2025-05-24 18:28:02 - Creating directory: validated_faces/student123
+2025-05-24 18:28:02 - Processing image 1
+2025-05-24 18:28:02 - Saved image to: validated_faces/student123/face_1.jpg
+2025-05-24 18:28:02 - Saved image to: resources/labels/123/face_1.jpg
+2025-05-24 18:28:02 - Processing image 2
+2025-05-24 18:28:02 - Saved image to: validated_faces/student123/face_2.jpg
+2025-05-24 18:28:02 - Saved image to: resources/labels/123/face_2.jpg
+2025-05-24 18:28:02 - Processing image 3
+2025-05-24 18:28:02 - Saved image to: validated_faces/student123/face_3.jpg
+2025-05-24 18:28:02 - Saved image to: resources/labels/123/face_3.jpg
+2025-05-24 18:28:02 - Processing image 4
+2025-05-24 18:28:02 - Saved image to: validated_faces/student123/face_4.jpg
+2025-05-24 18:28:02 - Saved image to: resources/labels/123/face_4.jpg
+2025-05-24 18:28:02 - Processing image 5
+2025-05-24 18:28:02 - Saved image to: validated_faces/student123/face_5.jpg
+2025-05-24 18:28:02 - Saved image to: resources/labels/123/face_5.jpg
+2025-05-24 18:28:02 - Processing image 6
+2025-05-24 18:28:02 - Saved image to: validated_faces/student123/face_6.jpg
+2025-05-24 18:28:02 - Saved image to: resources/labels/123/face_6.jpg
+2025-05-24 18:28:02 - Processing image 7
+2025-05-24 18:28:02 - Saved image to: validated_faces/student123/face_7.jpg
+2025-05-24 18:28:02 - Saved image to: resources/labels/123/face_7.jpg
+2025-05-24 18:28:02 - Processing image 8
+2025-05-24 18:28:02 - Saved image to: validated_faces/student123/face_8.jpg
+2025-05-24 18:28:02 - Saved image to: resources/labels/123/face_8.jpg
+2025-05-24 18:28:02 - Processing image 9
+2025-05-24 18:28:02 - Saved image to: validated_faces/student123/face_9.jpg
+2025-05-24 18:28:02 - Saved image to: resources/labels/123/face_9.jpg
+2025-05-24 18:28:02 - Processing image 10
+2025-05-24 18:28:02 - Saved image to: validated_faces/student123/face_10.jpg
+2025-05-24 18:28:02 - Saved image to: resources/labels/123/face_10.jpg
+2025-05-24 18:28:02 - Processed 10 images
+2025-05-24 18:28:02 - Saved student info to: validated_faces/student123/info.json
+2025-05-24 18:28:02 - Python script path: 
+2025-05-24 18:28:02 - Error: Python script not found at: 
+2025-05-24 18:30:36 - Starting student registration process
+2025-05-24 18:30:36 - Student details: {"name":"Abishek Shrestha","reg":"123"}
+2025-05-24 18:30:36 - Creating directory: validated_faces/student123
+2025-05-24 18:30:36 - Processing image 1
+2025-05-24 18:30:36 - Saved image to: validated_faces/student123/face_1.jpg
+2025-05-24 18:30:36 - Saved image to: resources/labels/123/face_1.jpg
+2025-05-24 18:30:36 - Processing image 2
+2025-05-24 18:30:36 - Saved image to: validated_faces/student123/face_2.jpg
+2025-05-24 18:30:36 - Saved image to: resources/labels/123/face_2.jpg
+2025-05-24 18:30:36 - Processing image 3
+2025-05-24 18:30:36 - Saved image to: validated_faces/student123/face_3.jpg
+2025-05-24 18:30:36 - Saved image to: resources/labels/123/face_3.jpg
+2025-05-24 18:30:36 - Processing image 4
+2025-05-24 18:30:36 - Saved image to: validated_faces/student123/face_4.jpg
+2025-05-24 18:30:36 - Saved image to: resources/labels/123/face_4.jpg
+2025-05-24 18:30:36 - Processing image 5
+2025-05-24 18:30:36 - Saved image to: validated_faces/student123/face_5.jpg
+2025-05-24 18:30:36 - Saved image to: resources/labels/123/face_5.jpg
+2025-05-24 18:30:36 - Processing image 6
+2025-05-24 18:30:36 - Saved image to: validated_faces/student123/face_6.jpg
+2025-05-24 18:30:36 - Saved image to: resources/labels/123/face_6.jpg
+2025-05-24 18:30:36 - Processing image 7
+2025-05-24 18:30:36 - Saved image to: validated_faces/student123/face_7.jpg
+2025-05-24 18:30:36 - Saved image to: resources/labels/123/face_7.jpg
+2025-05-24 18:30:36 - Processing image 8
+2025-05-24 18:30:36 - Saved image to: validated_faces/student123/face_8.jpg
+2025-05-24 18:30:36 - Saved image to: resources/labels/123/face_8.jpg
+2025-05-24 18:30:36 - Processing image 9
+2025-05-24 18:30:36 - Saved image to: validated_faces/student123/face_9.jpg
+2025-05-24 18:30:36 - Saved image to: resources/labels/123/face_9.jpg
+2025-05-24 18:30:36 - Processing image 10
+2025-05-24 18:30:36 - Saved image to: validated_faces/student123/face_10.jpg
+2025-05-24 18:30:36 - Saved image to: resources/labels/123/face_10.jpg
+2025-05-24 18:30:36 - Processed 10 images
+2025-05-24 18:30:36 - Saved student info to: validated_faces/student123/info.json
+2025-05-24 18:30:36 - Base directory: C:\xampp\htdocs\trys\attendance-project
+2025-05-24 18:30:36 - Python script path: C:\xampp\htdocs\trys\attendance-project/python/realtime_recognition.py
+2025-05-24 18:30:36 - Executing command: python "C:\xampp\htdocs\trys\attendance-project/python/realtime_recognition.py" --train
+2025-05-24 18:30:38 - Command output: Array
+(
+    [0] => 2025-05-24 22:15:37,050 - INFO - Processing student 45 with label 0
+    [1] => 2025-05-24 22:15:37,050 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\45\face_1.jpg
+    [2] => 2025-05-24 22:15:37,259 - INFO - Successfully processed face from face_1.jpg
+    [3] => 2025-05-24 22:15:37,259 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\45\face_10.jpg
+    [4] => 2025-05-24 22:15:37,295 - INFO - Successfully processed face from face_10.jpg
+    [5] => 2025-05-24 22:15:37,295 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\45\face_4.jpg
+    [6] => 2025-05-24 22:15:37,332 - INFO - Successfully processed face from face_4.jpg
+    [7] => 2025-05-24 22:15:37,332 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\45\face_5.jpg
+    [8] => 2025-05-24 22:15:37,366 - INFO - Successfully processed face from face_5.jpg
+    [9] => 2025-05-24 22:15:37,366 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\45\face_6.jpg
+    [10] => 2025-05-24 22:15:37,398 - INFO - Successfully processed face from face_6.jpg
+    [11] => 2025-05-24 22:15:37,398 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\45\face_7.jpg
+    [12] => 2025-05-24 22:15:37,430 - INFO - Successfully processed face from face_7.jpg
+    [13] => 2025-05-24 22:15:37,430 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\45\face_8.jpg
+    [14] => 2025-05-24 22:15:37,462 - INFO - Successfully processed face from face_8.jpg
+    [15] => 2025-05-24 22:15:37,462 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\45\face_9.jpg
+    [16] => 2025-05-24 22:15:37,494 - INFO - Successfully processed face from face_9.jpg
+    [17] => 2025-05-24 22:15:37,494 - INFO - Processed 8 faces for student 45
+    [18] => 2025-05-24 22:15:37,494 - INFO - Processing student 99 with label 1
+    [19] => 2025-05-24 22:15:37,495 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\99\face_1.jpg
+    [20] => 2025-05-24 22:15:37,529 - INFO - Successfully processed face from face_1.jpg
+    [21] => 2025-05-24 22:15:37,530 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\99\face_10.jpg
+    [22] => 2025-05-24 22:15:37,563 - INFO - Successfully processed face from face_10.jpg
+    [23] => 2025-05-24 22:15:37,563 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\99\face_2.jpg
+    [24] => 2025-05-24 22:15:37,595 - INFO - Successfully processed face from face_2.jpg
+    [25] => 2025-05-24 22:15:37,596 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\99\face_3.jpg
+    [26] => 2025-05-24 22:15:37,627 - INFO - Successfully processed face from face_3.jpg
+    [27] => 2025-05-24 22:15:37,627 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\99\face_4.jpg
+    [28] => 2025-05-24 22:15:37,664 - INFO - Successfully processed face from face_4.jpg
+    [29] => 2025-05-24 22:15:37,664 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\99\face_5.jpg
+    [30] => 2025-05-24 22:15:37,696 - INFO - Successfully processed face from face_5.jpg
+    [31] => 2025-05-24 22:15:37,696 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\99\face_6.jpg
+    [32] => 2025-05-24 22:15:37,731 - INFO - Successfully processed face from face_6.jpg
+    [33] => 2025-05-24 22:15:37,731 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\99\face_8.jpg
+    [34] => 2025-05-24 22:15:37,764 - INFO - Successfully processed face from face_8.jpg
+    [35] => 2025-05-24 22:15:37,764 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\99\face_9.jpg
+    [36] => 2025-05-24 22:15:37,796 - INFO - Successfully processed face from face_9.jpg
+    [37] => 2025-05-24 22:15:37,796 - INFO - Processed 9 faces for student 99
+    [38] => 2025-05-24 22:15:37,796 - INFO - Processing student 123 with label 2
+    [39] => 2025-05-24 22:15:37,797 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student123\face_1.jpg
+    [40] => 2025-05-24 22:15:37,828 - INFO - Successfully processed face from face_1.jpg
+    [41] => 2025-05-24 22:15:37,828 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student123\face_10.jpg
+    [42] => 2025-05-24 22:15:37,865 - INFO - Successfully processed face from face_10.jpg
+    [43] => 2025-05-24 22:15:37,865 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student123\face_2.jpg
+    [44] => 2025-05-24 22:15:37,898 - INFO - Successfully processed face from face_2.jpg
+    [45] => 2025-05-24 22:15:37,898 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student123\face_3.jpg
+    [46] => 2025-05-24 22:15:37,927 - WARNING - Found 2 faces in face_3.jpg - skipping
+    [47] => 2025-05-24 22:15:37,927 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student123\face_4.jpg
+    [48] => 2025-05-24 22:15:37,960 - INFO - Successfully processed face from face_4.jpg
+    [49] => 2025-05-24 22:15:37,960 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student123\face_5.jpg
+    [50] => 2025-05-24 22:15:37,992 - WARNING - Found 2 faces in face_5.jpg - skipping
+    [51] => 2025-05-24 22:15:37,992 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student123\face_6.jpg
+    [52] => 2025-05-24 22:15:38,027 - INFO - Successfully processed face from face_6.jpg
+    [53] => 2025-05-24 22:15:38,028 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student123\face_7.jpg
+    [54] => 2025-05-24 22:15:38,061 - INFO - Successfully processed face from face_7.jpg
+    [55] => 2025-05-24 22:15:38,061 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student123\face_8.jpg
+    [56] => 2025-05-24 22:15:38,093 - INFO - Successfully processed face from face_8.jpg
+    [57] => 2025-05-24 22:15:38,093 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student123\face_9.jpg
+    [58] => 2025-05-24 22:15:38,125 - INFO - Successfully processed face from face_9.jpg
+    [59] => 2025-05-24 22:15:38,125 - INFO - Processed 8 faces for student 123
+    [60] => 2025-05-24 22:15:38,125 - INFO - Training model with 150 faces...
+    [61] => 2025-05-24 22:15:38,724 - INFO - Training successful: Model trained with 150 faces from 3 students
+)
+
+2025-05-24 18:30:38 - Return code: 0
+2025-05-24 18:30:38 - Student registration completed successfully
+2025-05-24 18:34:50 - Starting student registration process
+2025-05-24 18:34:50 - Student details: {"name":"Sujal Chitrakar","reg":"8"}
+2025-05-24 18:34:50 - Base directory: C:\xampp\htdocs\trys\attendance-project
+2025-05-24 18:34:50 - Python script path: C:\xampp\htdocs\trys\attendance-project/python/realtime_recognition.py
+2025-05-24 18:34:50 - Creating student directory: C:\xampp\htdocs\trys\attendance-project/students/8
+2025-05-24 18:34:50 - Creating student directory: C:\xampp\htdocs\trys\attendance-project/validated_faces/student8
+2025-05-24 18:34:50 - Creating student directory: resources/labels/8
+2025-05-24 18:34:50 - Processing image 1 for student 8
+2025-05-24 18:34:50 - Saved image to: C:\xampp\htdocs\trys\attendance-project/students/8/face_1.jpg
+2025-05-24 18:34:50 - Saved image to: C:\xampp\htdocs\trys\attendance-project/validated_faces/student8/face_1.jpg
+2025-05-24 18:34:50 - Saved image to: resources/labels/8/face_1.jpg
+2025-05-24 18:34:50 - Processing image 2 for student 8
+2025-05-24 18:34:50 - Saved image to: C:\xampp\htdocs\trys\attendance-project/students/8/face_2.jpg
+2025-05-24 18:34:50 - Saved image to: C:\xampp\htdocs\trys\attendance-project/validated_faces/student8/face_2.jpg
+2025-05-24 18:34:50 - Saved image to: resources/labels/8/face_2.jpg
+2025-05-24 18:34:50 - Processing image 3 for student 8
+2025-05-24 18:34:50 - Saved image to: C:\xampp\htdocs\trys\attendance-project/students/8/face_3.jpg
+2025-05-24 18:34:50 - Saved image to: C:\xampp\htdocs\trys\attendance-project/validated_faces/student8/face_3.jpg
+2025-05-24 18:34:50 - Saved image to: resources/labels/8/face_3.jpg
+2025-05-24 18:34:50 - Processing image 4 for student 8
+2025-05-24 18:34:50 - Saved image to: C:\xampp\htdocs\trys\attendance-project/students/8/face_4.jpg
+2025-05-24 18:34:50 - Saved image to: C:\xampp\htdocs\trys\attendance-project/validated_faces/student8/face_4.jpg
+2025-05-24 18:34:50 - Saved image to: resources/labels/8/face_4.jpg
+2025-05-24 18:34:50 - Processing image 5 for student 8
+2025-05-24 18:34:50 - Saved image to: C:\xampp\htdocs\trys\attendance-project/students/8/face_5.jpg
+2025-05-24 18:34:50 - Saved image to: C:\xampp\htdocs\trys\attendance-project/validated_faces/student8/face_5.jpg
+2025-05-24 18:34:50 - Saved image to: resources/labels/8/face_5.jpg
+2025-05-24 18:34:50 - Processing image 6 for student 8
+2025-05-24 18:34:50 - Saved image to: C:\xampp\htdocs\trys\attendance-project/students/8/face_6.jpg
+2025-05-24 18:34:50 - Saved image to: C:\xampp\htdocs\trys\attendance-project/validated_faces/student8/face_6.jpg
+2025-05-24 18:34:50 - Saved image to: resources/labels/8/face_6.jpg
+2025-05-24 18:34:50 - Processing image 7 for student 8
+2025-05-24 18:34:50 - Saved image to: C:\xampp\htdocs\trys\attendance-project/students/8/face_7.jpg
+2025-05-24 18:34:50 - Saved image to: C:\xampp\htdocs\trys\attendance-project/validated_faces/student8/face_7.jpg
+2025-05-24 18:34:50 - Saved image to: resources/labels/8/face_7.jpg
+2025-05-24 18:34:50 - Processing image 8 for student 8
+2025-05-24 18:34:50 - Saved image to: C:\xampp\htdocs\trys\attendance-project/students/8/face_8.jpg
+2025-05-24 18:34:50 - Saved image to: C:\xampp\htdocs\trys\attendance-project/validated_faces/student8/face_8.jpg
+2025-05-24 18:34:50 - Saved image to: resources/labels/8/face_8.jpg
+2025-05-24 18:34:50 - Processing image 9 for student 8
+2025-05-24 18:34:50 - Saved image to: C:\xampp\htdocs\trys\attendance-project/students/8/face_9.jpg
+2025-05-24 18:34:50 - Saved image to: C:\xampp\htdocs\trys\attendance-project/validated_faces/student8/face_9.jpg
+2025-05-24 18:34:50 - Saved image to: resources/labels/8/face_9.jpg
+2025-05-24 18:34:50 - Processing image 10 for student 8
+2025-05-24 18:34:50 - Saved image to: C:\xampp\htdocs\trys\attendance-project/students/8/face_10.jpg
+2025-05-24 18:34:50 - Saved image to: C:\xampp\htdocs\trys\attendance-project/validated_faces/student8/face_10.jpg
+2025-05-24 18:34:50 - Saved image to: resources/labels/8/face_10.jpg
+2025-05-24 18:34:50 - Saved student info files
+2025-05-24 18:34:50 - Executing command: python "C:\xampp\htdocs\trys\attendance-project/python/realtime_recognition.py" --train
+2025-05-24 18:34:52 - Command output: Array
+(
+    [0] => 2025-05-24 22:19:50,546 - INFO - Processing student 45 with label 0
+    [1] => 2025-05-24 22:19:50,546 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\45\face_1.jpg
+    [2] => 2025-05-24 22:19:50,780 - INFO - Successfully processed face from face_1.jpg
+    [3] => 2025-05-24 22:19:50,781 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\45\face_10.jpg
+    [4] => 2025-05-24 22:19:50,815 - INFO - Successfully processed face from face_10.jpg
+    [5] => 2025-05-24 22:19:50,815 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\45\face_4.jpg
+    [6] => 2025-05-24 22:19:50,849 - INFO - Successfully processed face from face_4.jpg
+    [7] => 2025-05-24 22:19:50,849 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\45\face_5.jpg
+    [8] => 2025-05-24 22:19:50,881 - INFO - Successfully processed face from face_5.jpg
+    [9] => 2025-05-24 22:19:50,881 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\45\face_6.jpg
+    [10] => 2025-05-24 22:19:50,914 - INFO - Successfully processed face from face_6.jpg
+    [11] => 2025-05-24 22:19:50,914 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\45\face_7.jpg
+    [12] => 2025-05-24 22:19:50,943 - INFO - Successfully processed face from face_7.jpg
+    [13] => 2025-05-24 22:19:50,943 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\45\face_8.jpg
+    [14] => 2025-05-24 22:19:50,975 - INFO - Successfully processed face from face_8.jpg
+    [15] => 2025-05-24 22:19:50,975 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\45\face_9.jpg
+    [16] => 2025-05-24 22:19:51,008 - INFO - Successfully processed face from face_9.jpg
+    [17] => 2025-05-24 22:19:51,008 - INFO - Processed 8 faces for student 45
+    [18] => 2025-05-24 22:19:51,008 - INFO - Processing student 99 with label 1
+    [19] => 2025-05-24 22:19:51,008 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\99\face_1.jpg
+    [20] => 2025-05-24 22:19:51,039 - INFO - Successfully processed face from face_1.jpg
+    [21] => 2025-05-24 22:19:51,039 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\99\face_10.jpg
+    [22] => 2025-05-24 22:19:51,072 - INFO - Successfully processed face from face_10.jpg
+    [23] => 2025-05-24 22:19:51,072 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\99\face_2.jpg
+    [24] => 2025-05-24 22:19:51,102 - INFO - Successfully processed face from face_2.jpg
+    [25] => 2025-05-24 22:19:51,102 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\99\face_3.jpg
+    [26] => 2025-05-24 22:19:51,138 - INFO - Successfully processed face from face_3.jpg
+    [27] => 2025-05-24 22:19:51,138 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\99\face_4.jpg
+    [28] => 2025-05-24 22:19:51,170 - INFO - Successfully processed face from face_4.jpg
+    [29] => 2025-05-24 22:19:51,171 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\99\face_5.jpg
+    [30] => 2025-05-24 22:19:51,202 - INFO - Successfully processed face from face_5.jpg
+    [31] => 2025-05-24 22:19:51,203 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\99\face_6.jpg
+    [32] => 2025-05-24 22:19:51,236 - INFO - Successfully processed face from face_6.jpg
+    [33] => 2025-05-24 22:19:51,236 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\99\face_8.jpg
+    [34] => 2025-05-24 22:19:51,269 - INFO - Successfully processed face from face_8.jpg
+    [35] => 2025-05-24 22:19:51,269 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\99\face_9.jpg
+    [36] => 2025-05-24 22:19:51,302 - INFO - Successfully processed face from face_9.jpg
+    [37] => 2025-05-24 22:19:51,302 - INFO - Processed 9 faces for student 99
+    [38] => 2025-05-24 22:19:51,302 - INFO - Processing student 123 with label 2
+    [39] => 2025-05-24 22:19:51,302 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student123\face_1.jpg
+    [40] => 2025-05-24 22:19:51,335 - INFO - Successfully processed face from face_1.jpg
+    [41] => 2025-05-24 22:19:51,335 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student123\face_10.jpg
+    [42] => 2025-05-24 22:19:51,367 - INFO - Successfully processed face from face_10.jpg
+    [43] => 2025-05-24 22:19:51,367 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student123\face_2.jpg
+    [44] => 2025-05-24 22:19:51,398 - INFO - Successfully processed face from face_2.jpg
+    [45] => 2025-05-24 22:19:51,398 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student123\face_3.jpg
+    [46] => 2025-05-24 22:19:51,428 - WARNING - Found 2 faces in face_3.jpg - skipping
+    [47] => 2025-05-24 22:19:51,428 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student123\face_4.jpg
+    [48] => 2025-05-24 22:19:51,459 - INFO - Successfully processed face from face_4.jpg
+    [49] => 2025-05-24 22:19:51,459 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student123\face_5.jpg
+    [50] => 2025-05-24 22:19:51,488 - WARNING - Found 2 faces in face_5.jpg - skipping
+    [51] => 2025-05-24 22:19:51,488 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student123\face_6.jpg
+    [52] => 2025-05-24 22:19:51,521 - INFO - Successfully processed face from face_6.jpg
+    [53] => 2025-05-24 22:19:51,521 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student123\face_7.jpg
+    [54] => 2025-05-24 22:19:51,552 - INFO - Successfully processed face from face_7.jpg
+    [55] => 2025-05-24 22:19:51,552 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student123\face_8.jpg
+    [56] => 2025-05-24 22:19:51,586 - INFO - Successfully processed face from face_8.jpg
+    [57] => 2025-05-24 22:19:51,586 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student123\face_9.jpg
+    [58] => 2025-05-24 22:19:51,618 - INFO - Successfully processed face from face_9.jpg
+    [59] => 2025-05-24 22:19:51,618 - INFO - Processed 8 faces for student 123
+    [60] => 2025-05-24 22:19:51,619 - INFO - Processing student 8 with label 3
+    [61] => 2025-05-24 22:19:51,619 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student8\face_1.jpg
+    [62] => 2025-05-24 22:19:51,649 - INFO - Successfully processed face from face_1.jpg
+    [63] => 2025-05-24 22:19:51,650 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student8\face_10.jpg
+    [64] => 2025-05-24 22:19:51,684 - INFO - Successfully processed face from face_10.jpg
+    [65] => 2025-05-24 22:19:51,684 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student8\face_2.jpg
+    [66] => 2025-05-24 22:19:51,717 - INFO - Successfully processed face from face_2.jpg
+    [67] => 2025-05-24 22:19:51,717 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student8\face_3.jpg
+    [68] => 2025-05-24 22:19:51,750 - INFO - Successfully processed face from face_3.jpg
+    [69] => 2025-05-24 22:19:51,750 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student8\face_4.jpg
+    [70] => 2025-05-24 22:19:51,784 - INFO - Successfully processed face from face_4.jpg
+    [71] => 2025-05-24 22:19:51,785 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student8\face_5.jpg
+    [72] => 2025-05-24 22:19:51,817 - INFO - Successfully processed face from face_5.jpg
+    [73] => 2025-05-24 22:19:51,817 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student8\face_6.jpg
+    [74] => 2025-05-24 22:19:51,849 - INFO - Successfully processed face from face_6.jpg
+    [75] => 2025-05-24 22:19:51,849 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student8\face_7.jpg
+    [76] => 2025-05-24 22:19:51,881 - INFO - Successfully processed face from face_7.jpg
+    [77] => 2025-05-24 22:19:51,881 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student8\face_8.jpg
+    [78] => 2025-05-24 22:19:51,914 - INFO - Successfully processed face from face_8.jpg
+    [79] => 2025-05-24 22:19:51,914 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student8\face_9.jpg
+    [80] => 2025-05-24 22:19:51,951 - INFO - Successfully processed face from face_9.jpg
+    [81] => 2025-05-24 22:19:51,951 - INFO - Processed 10 faces for student 8
+    [82] => 2025-05-24 22:19:51,951 - INFO - Training model with 210 faces...
+    [83] => 2025-05-24 22:19:52,811 - INFO - Training successful: Model trained with 210 faces from 4 students
+)
+
+2025-05-24 18:34:52 - Return code: 0
+2025-05-24 18:34:52 - Student registration completed successfully
+2025-05-24 18:41:11 - Starting student registration process
+2025-05-24 18:41:11 - Student details: {"name":"Sujal Chitrakar","reg":"2"}
+2025-05-24 18:41:11 - Base directory: C:\xampp\htdocs\trys\attendance-project
+2025-05-24 18:41:11 - Python script path: C:\xampp\htdocs\trys\attendance-project/python/realtime_recognition.py
+2025-05-24 18:41:11 - Creating student directory: C:\xampp\htdocs\trys\attendance-project/students/2
+2025-05-24 18:41:11 - Creating student directory: C:\xampp\htdocs\trys\attendance-project/validated_faces/student2
+2025-05-24 18:41:11 - Creating student directory: resources/labels/2
+2025-05-24 18:41:11 - Processing image 1 for student 2
+2025-05-24 18:41:11 - Saved image to: C:\xampp\htdocs\trys\attendance-project/students/2/face_1.jpg
+2025-05-24 18:41:11 - Saved image to: C:\xampp\htdocs\trys\attendance-project/validated_faces/student2/face_1.jpg
+2025-05-24 18:41:11 - Saved image to: resources/labels/2/face_1.jpg
+2025-05-24 18:41:11 - Processing image 2 for student 2
+2025-05-24 18:41:11 - Saved image to: C:\xampp\htdocs\trys\attendance-project/students/2/face_2.jpg
+2025-05-24 18:41:11 - Saved image to: C:\xampp\htdocs\trys\attendance-project/validated_faces/student2/face_2.jpg
+2025-05-24 18:41:11 - Saved image to: resources/labels/2/face_2.jpg
+2025-05-24 18:41:11 - Processing image 3 for student 2
+2025-05-24 18:41:11 - Saved image to: C:\xampp\htdocs\trys\attendance-project/students/2/face_3.jpg
+2025-05-24 18:41:11 - Saved image to: C:\xampp\htdocs\trys\attendance-project/validated_faces/student2/face_3.jpg
+2025-05-24 18:41:11 - Saved image to: resources/labels/2/face_3.jpg
+2025-05-24 18:41:11 - Processing image 4 for student 2
+2025-05-24 18:41:11 - Saved image to: C:\xampp\htdocs\trys\attendance-project/students/2/face_4.jpg
+2025-05-24 18:41:11 - Saved image to: C:\xampp\htdocs\trys\attendance-project/validated_faces/student2/face_4.jpg
+2025-05-24 18:41:11 - Saved image to: resources/labels/2/face_4.jpg
+2025-05-24 18:41:11 - Processing image 5 for student 2
+2025-05-24 18:41:11 - Saved image to: C:\xampp\htdocs\trys\attendance-project/students/2/face_5.jpg
+2025-05-24 18:41:11 - Saved image to: C:\xampp\htdocs\trys\attendance-project/validated_faces/student2/face_5.jpg
+2025-05-24 18:41:11 - Saved image to: resources/labels/2/face_5.jpg
+2025-05-24 18:41:11 - Processing image 6 for student 2
+2025-05-24 18:41:11 - Saved image to: C:\xampp\htdocs\trys\attendance-project/students/2/face_6.jpg
+2025-05-24 18:41:11 - Saved image to: C:\xampp\htdocs\trys\attendance-project/validated_faces/student2/face_6.jpg
+2025-05-24 18:41:11 - Saved image to: resources/labels/2/face_6.jpg
+2025-05-24 18:41:11 - Processing image 7 for student 2
+2025-05-24 18:41:11 - Saved image to: C:\xampp\htdocs\trys\attendance-project/students/2/face_7.jpg
+2025-05-24 18:41:11 - Saved image to: C:\xampp\htdocs\trys\attendance-project/validated_faces/student2/face_7.jpg
+2025-05-24 18:41:11 - Saved image to: resources/labels/2/face_7.jpg
+2025-05-24 18:41:11 - Processing image 8 for student 2
+2025-05-24 18:41:11 - Saved image to: C:\xampp\htdocs\trys\attendance-project/students/2/face_8.jpg
+2025-05-24 18:41:11 - Saved image to: C:\xampp\htdocs\trys\attendance-project/validated_faces/student2/face_8.jpg
+2025-05-24 18:41:11 - Saved image to: resources/labels/2/face_8.jpg
+2025-05-24 18:41:11 - Processing image 9 for student 2
+2025-05-24 18:41:11 - Saved image to: C:\xampp\htdocs\trys\attendance-project/students/2/face_9.jpg
+2025-05-24 18:41:11 - Saved image to: C:\xampp\htdocs\trys\attendance-project/validated_faces/student2/face_9.jpg
+2025-05-24 18:41:11 - Saved image to: resources/labels/2/face_9.jpg
+2025-05-24 18:41:11 - Processing image 10 for student 2
+2025-05-24 18:41:11 - Saved image to: C:\xampp\htdocs\trys\attendance-project/students/2/face_10.jpg
+2025-05-24 18:41:11 - Saved image to: C:\xampp\htdocs\trys\attendance-project/validated_faces/student2/face_10.jpg
+2025-05-24 18:41:11 - Saved image to: resources/labels/2/face_10.jpg
+2025-05-24 18:41:11 - Saved student info files
+2025-05-24 18:41:11 - Error: Python script not found at: C:\xampp\htdocs\trys\attendance-project/python/realtime_recognition.py
+2025-05-24 18:44:16 - Starting student registration process
+2025-05-24 18:44:16 - Student details: {"name":"Sujal Chitrakar","reg":"2"}
+2025-05-24 18:44:16 - Base directory: C:\xampp\htdocs\trys\attendance-project
+2025-05-24 18:44:16 - Python script path: C:\xampp\htdocs\trys\attendance-project/python/realtime_recognition.py
+2025-05-24 18:44:16 - Creating student directory: C:\xampp\htdocs\trys\attendance-project/validated_faces/student2
+2025-05-24 18:44:16 - Processing image 1 for student 2
+2025-05-24 18:44:16 - Saved image to: C:\xampp\htdocs\trys\attendance-project/students/2/face_1.jpg
+2025-05-24 18:44:16 - Saved image to: C:\xampp\htdocs\trys\attendance-project/validated_faces/student2/face_1.jpg
+2025-05-24 18:44:16 - Saved image to: resources/labels/2/face_1.jpg
+2025-05-24 18:44:16 - Processing image 2 for student 2
+2025-05-24 18:44:16 - Saved image to: C:\xampp\htdocs\trys\attendance-project/students/2/face_2.jpg
+2025-05-24 18:44:16 - Saved image to: C:\xampp\htdocs\trys\attendance-project/validated_faces/student2/face_2.jpg
+2025-05-24 18:44:16 - Saved image to: resources/labels/2/face_2.jpg
+2025-05-24 18:44:16 - Processing image 3 for student 2
+2025-05-24 18:44:16 - Saved image to: C:\xampp\htdocs\trys\attendance-project/students/2/face_3.jpg
+2025-05-24 18:44:16 - Saved image to: C:\xampp\htdocs\trys\attendance-project/validated_faces/student2/face_3.jpg
+2025-05-24 18:44:16 - Saved image to: resources/labels/2/face_3.jpg
+2025-05-24 18:44:16 - Processing image 4 for student 2
+2025-05-24 18:44:16 - Saved image to: C:\xampp\htdocs\trys\attendance-project/students/2/face_4.jpg
+2025-05-24 18:44:16 - Saved image to: C:\xampp\htdocs\trys\attendance-project/validated_faces/student2/face_4.jpg
+2025-05-24 18:44:16 - Saved image to: resources/labels/2/face_4.jpg
+2025-05-24 18:44:16 - Processing image 5 for student 2
+2025-05-24 18:44:16 - Saved image to: C:\xampp\htdocs\trys\attendance-project/students/2/face_5.jpg
+2025-05-24 18:44:16 - Saved image to: C:\xampp\htdocs\trys\attendance-project/validated_faces/student2/face_5.jpg
+2025-05-24 18:44:16 - Saved image to: resources/labels/2/face_5.jpg
+2025-05-24 18:44:16 - Processing image 6 for student 2
+2025-05-24 18:44:16 - Saved image to: C:\xampp\htdocs\trys\attendance-project/students/2/face_6.jpg
+2025-05-24 18:44:16 - Saved image to: C:\xampp\htdocs\trys\attendance-project/validated_faces/student2/face_6.jpg
+2025-05-24 18:44:16 - Saved image to: resources/labels/2/face_6.jpg
+2025-05-24 18:44:16 - Processing image 7 for student 2
+2025-05-24 18:44:16 - Saved image to: C:\xampp\htdocs\trys\attendance-project/students/2/face_7.jpg
+2025-05-24 18:44:16 - Saved image to: C:\xampp\htdocs\trys\attendance-project/validated_faces/student2/face_7.jpg
+2025-05-24 18:44:16 - Saved image to: resources/labels/2/face_7.jpg
+2025-05-24 18:44:16 - Processing image 8 for student 2
+2025-05-24 18:44:16 - Saved image to: C:\xampp\htdocs\trys\attendance-project/students/2/face_8.jpg
+2025-05-24 18:44:16 - Saved image to: C:\xampp\htdocs\trys\attendance-project/validated_faces/student2/face_8.jpg
+2025-05-24 18:44:16 - Saved image to: resources/labels/2/face_8.jpg
+2025-05-24 18:44:16 - Processing image 9 for student 2
+2025-05-24 18:44:16 - Saved image to: C:\xampp\htdocs\trys\attendance-project/students/2/face_9.jpg
+2025-05-24 18:44:16 - Saved image to: C:\xampp\htdocs\trys\attendance-project/validated_faces/student2/face_9.jpg
+2025-05-24 18:44:16 - Saved image to: resources/labels/2/face_9.jpg
+2025-05-24 18:44:16 - Processing image 10 for student 2
+2025-05-24 18:44:16 - Saved image to: C:\xampp\htdocs\trys\attendance-project/students/2/face_10.jpg
+2025-05-24 18:44:16 - Saved image to: C:\xampp\htdocs\trys\attendance-project/validated_faces/student2/face_10.jpg
+2025-05-24 18:44:16 - Saved image to: resources/labels/2/face_10.jpg
+2025-05-24 18:44:16 - Saved student info files
+2025-05-24 18:44:16 - Executing command: python "C:\xampp\htdocs\trys\attendance-project/python/realtime_recognition.py" --train
+2025-05-24 18:44:19 - Command output: Array
+(
+    [0] => 2025-05-24 22:29:16,334 - INFO - Processing student 45 with label 0
+    [1] => 2025-05-24 22:29:16,335 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\45\face_1.jpg
+    [2] => 2025-05-24 22:29:16,600 - INFO - Successfully processed face from face_1.jpg
+    [3] => 2025-05-24 22:29:16,600 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\45\face_10.jpg
+    [4] => 2025-05-24 22:29:16,637 - INFO - Successfully processed face from face_10.jpg
+    [5] => 2025-05-24 22:29:16,637 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\45\face_4.jpg
+    [6] => 2025-05-24 22:29:16,673 - INFO - Successfully processed face from face_4.jpg
+    [7] => 2025-05-24 22:29:16,673 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\45\face_5.jpg
+    [8] => 2025-05-24 22:29:16,708 - INFO - Successfully processed face from face_5.jpg
+    [9] => 2025-05-24 22:29:16,708 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\45\face_6.jpg
+    [10] => 2025-05-24 22:29:16,740 - INFO - Successfully processed face from face_6.jpg
+    [11] => 2025-05-24 22:29:16,740 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\45\face_7.jpg
+    [12] => 2025-05-24 22:29:16,773 - INFO - Successfully processed face from face_7.jpg
+    [13] => 2025-05-24 22:29:16,773 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\45\face_8.jpg
+    [14] => 2025-05-24 22:29:16,804 - INFO - Successfully processed face from face_8.jpg
+    [15] => 2025-05-24 22:29:16,804 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\45\face_9.jpg
+    [16] => 2025-05-24 22:29:16,835 - INFO - Successfully processed face from face_9.jpg
+    [17] => 2025-05-24 22:29:16,835 - INFO - Processed 8 faces for student 45
+    [18] => 2025-05-24 22:29:16,835 - INFO - Processing student 99 with label 1
+    [19] => 2025-05-24 22:29:16,836 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\99\face_1.jpg
+    [20] => 2025-05-24 22:29:16,869 - INFO - Successfully processed face from face_1.jpg
+    [21] => 2025-05-24 22:29:16,869 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\99\face_10.jpg
+    [22] => 2025-05-24 22:29:16,902 - INFO - Successfully processed face from face_10.jpg
+    [23] => 2025-05-24 22:29:16,902 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\99\face_2.jpg
+    [24] => 2025-05-24 22:29:16,934 - INFO - Successfully processed face from face_2.jpg
+    [25] => 2025-05-24 22:29:16,934 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\99\face_3.jpg
+    [26] => 2025-05-24 22:29:16,968 - INFO - Successfully processed face from face_3.jpg
+    [27] => 2025-05-24 22:29:16,969 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\99\face_4.jpg
+    [28] => 2025-05-24 22:29:17,002 - INFO - Successfully processed face from face_4.jpg
+    [29] => 2025-05-24 22:29:17,002 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\99\face_5.jpg
+    [30] => 2025-05-24 22:29:17,036 - INFO - Successfully processed face from face_5.jpg
+    [31] => 2025-05-24 22:29:17,037 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\99\face_6.jpg
+    [32] => 2025-05-24 22:29:17,070 - INFO - Successfully processed face from face_6.jpg
+    [33] => 2025-05-24 22:29:17,070 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\99\face_8.jpg
+    [34] => 2025-05-24 22:29:17,102 - INFO - Successfully processed face from face_8.jpg
+    [35] => 2025-05-24 22:29:17,102 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\99\face_9.jpg
+    [36] => 2025-05-24 22:29:17,134 - INFO - Successfully processed face from face_9.jpg
+    [37] => 2025-05-24 22:29:17,134 - INFO - Processed 9 faces for student 99
+    [38] => 2025-05-24 22:29:17,134 - INFO - Processing student 123 with label 2
+    [39] => 2025-05-24 22:29:17,134 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student123\face_1.jpg
+    [40] => 2025-05-24 22:29:17,166 - INFO - Successfully processed face from face_1.jpg
+    [41] => 2025-05-24 22:29:17,166 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student123\face_10.jpg
+    [42] => 2025-05-24 22:29:17,198 - INFO - Successfully processed face from face_10.jpg
+    [43] => 2025-05-24 22:29:17,198 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student123\face_2.jpg
+    [44] => 2025-05-24 22:29:17,228 - INFO - Successfully processed face from face_2.jpg
+    [45] => 2025-05-24 22:29:17,228 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student123\face_3.jpg
+    [46] => 2025-05-24 22:29:17,257 - WARNING - Found 2 faces in face_3.jpg - skipping
+    [47] => 2025-05-24 22:29:17,257 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student123\face_4.jpg
+    [48] => 2025-05-24 22:29:17,291 - INFO - Successfully processed face from face_4.jpg
+    [49] => 2025-05-24 22:29:17,291 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student123\face_5.jpg
+    [50] => 2025-05-24 22:29:17,324 - WARNING - Found 2 faces in face_5.jpg - skipping
+    [51] => 2025-05-24 22:29:17,324 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student123\face_6.jpg
+    [52] => 2025-05-24 22:29:17,355 - INFO - Successfully processed face from face_6.jpg
+    [53] => 2025-05-24 22:29:17,355 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student123\face_7.jpg
+    [54] => 2025-05-24 22:29:17,386 - INFO - Successfully processed face from face_7.jpg
+    [55] => 2025-05-24 22:29:17,386 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student123\face_8.jpg
+    [56] => 2025-05-24 22:29:17,418 - INFO - Successfully processed face from face_8.jpg
+    [57] => 2025-05-24 22:29:17,418 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student123\face_9.jpg
+    [58] => 2025-05-24 22:29:17,452 - INFO - Successfully processed face from face_9.jpg
+    [59] => 2025-05-24 22:29:17,452 - INFO - Processed 8 faces for student 123
+    [60] => 2025-05-24 22:29:17,452 - INFO - Processing student 2 with label 3
+    [61] => 2025-05-24 22:29:17,452 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student2\face_1.jpg
+    [62] => 2025-05-24 22:29:17,483 - INFO - Successfully processed face from face_1.jpg
+    [63] => 2025-05-24 22:29:17,483 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student2\face_10.jpg
+    [64] => 2025-05-24 22:29:17,513 - INFO - Successfully processed face from face_10.jpg
+    [65] => 2025-05-24 22:29:17,513 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student2\face_2.jpg
+    [66] => 2025-05-24 22:29:17,545 - INFO - Successfully processed face from face_2.jpg
+    [67] => 2025-05-24 22:29:17,545 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student2\face_3.jpg
+    [68] => 2025-05-24 22:29:17,575 - INFO - Successfully processed face from face_3.jpg
+    [69] => 2025-05-24 22:29:17,575 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student2\face_4.jpg
+    [70] => 2025-05-24 22:29:17,607 - INFO - Successfully processed face from face_4.jpg
+    [71] => 2025-05-24 22:29:17,608 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student2\face_5.jpg
+    [72] => 2025-05-24 22:29:17,641 - INFO - Successfully processed face from face_5.jpg
+    [73] => 2025-05-24 22:29:17,641 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student2\face_6.jpg
+    [74] => 2025-05-24 22:29:17,670 - INFO - Successfully processed face from face_6.jpg
+    [75] => 2025-05-24 22:29:17,671 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student2\face_7.jpg
+    [76] => 2025-05-24 22:29:17,707 - INFO - Successfully processed face from face_7.jpg
+    [77] => 2025-05-24 22:29:17,708 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student2\face_8.jpg
+    [78] => 2025-05-24 22:29:17,740 - INFO - Successfully processed face from face_8.jpg
+    [79] => 2025-05-24 22:29:17,740 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student2\face_9.jpg
+    [80] => 2025-05-24 22:29:17,770 - INFO - Successfully processed face from face_9.jpg
+    [81] => 2025-05-24 22:29:17,770 - INFO - Processed 10 faces for student 2
+    [82] => 2025-05-24 22:29:17,771 - INFO - Processing student 8 with label 4
+    [83] => 2025-05-24 22:29:17,771 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student8\face_1.jpg
+    [84] => 2025-05-24 22:29:17,804 - INFO - Successfully processed face from face_1.jpg
+    [85] => 2025-05-24 22:29:17,804 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student8\face_10.jpg
+    [86] => 2025-05-24 22:29:17,843 - INFO - Successfully processed face from face_10.jpg
+    [87] => 2025-05-24 22:29:17,844 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student8\face_2.jpg
+    [88] => 2025-05-24 22:29:17,877 - INFO - Successfully processed face from face_2.jpg
+    [89] => 2025-05-24 22:29:17,877 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student8\face_3.jpg
+    [90] => 2025-05-24 22:29:17,913 - INFO - Successfully processed face from face_3.jpg
+    [91] => 2025-05-24 22:29:17,913 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student8\face_4.jpg
+    [92] => 2025-05-24 22:29:17,944 - INFO - Successfully processed face from face_4.jpg
+    [93] => 2025-05-24 22:29:17,944 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student8\face_5.jpg
+    [94] => 2025-05-24 22:29:17,977 - INFO - Successfully processed face from face_5.jpg
+    [95] => 2025-05-24 22:29:17,978 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student8\face_6.jpg
+    [96] => 2025-05-24 22:29:18,012 - INFO - Successfully processed face from face_6.jpg
+    [97] => 2025-05-24 22:29:18,012 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student8\face_7.jpg
+    [98] => 2025-05-24 22:29:18,045 - INFO - Successfully processed face from face_7.jpg
+    [99] => 2025-05-24 22:29:18,045 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student8\face_8.jpg
+    [100] => 2025-05-24 22:29:18,089 - INFO - Successfully processed face from face_8.jpg
+    [101] => 2025-05-24 22:29:18,089 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student8\face_9.jpg
+    [102] => 2025-05-24 22:29:18,122 - INFO - Successfully processed face from face_9.jpg
+    [103] => 2025-05-24 22:29:18,122 - INFO - Processed 10 faces for student 8
+    [104] => 2025-05-24 22:29:18,122 - INFO - Training model with 270 faces...
+    [105] => 2025-05-24 22:29:19,234 - INFO - Training successful: Model trained with 270 faces from 5 students
+)
+
+2025-05-24 18:44:19 - Return code: 0
+2025-05-24 18:44:19 - Student registration completed successfully
+2025-05-24 18:45:28 - Starting student registration process
+2025-05-24 18:45:28 - Student details: {"name":"Sujal Chitrakar","reg":"2"}
+2025-05-24 18:45:28 - Base directory: C:\xampp\htdocs\trys\attendance-project
+2025-05-24 18:45:28 - Python script path: C:\xampp\htdocs\trys\attendance-project/python/realtime_recognition.py
+2025-05-24 18:45:28 - Creating student directory: C:\xampp\htdocs\trys\attendance-project/students/2
+2025-05-24 18:45:28 - Creating student directory: resources/labels/2
+2025-05-24 18:45:28 - Processing image 1 for student 2
+2025-05-24 18:45:28 - Saved image to: C:\xampp\htdocs\trys\attendance-project/students/2/face_1.jpg
+2025-05-24 18:45:28 - Saved image to: C:\xampp\htdocs\trys\attendance-project/validated_faces/student2/face_1.jpg
+2025-05-24 18:45:28 - Saved image to: resources/labels/2/face_1.jpg
+2025-05-24 18:45:28 - Processing image 2 for student 2
+2025-05-24 18:45:28 - Saved image to: C:\xampp\htdocs\trys\attendance-project/students/2/face_2.jpg
+2025-05-24 18:45:28 - Saved image to: C:\xampp\htdocs\trys\attendance-project/validated_faces/student2/face_2.jpg
+2025-05-24 18:45:28 - Saved image to: resources/labels/2/face_2.jpg
+2025-05-24 18:45:28 - Processing image 3 for student 2
+2025-05-24 18:45:28 - Saved image to: C:\xampp\htdocs\trys\attendance-project/students/2/face_3.jpg
+2025-05-24 18:45:28 - Saved image to: C:\xampp\htdocs\trys\attendance-project/validated_faces/student2/face_3.jpg
+2025-05-24 18:45:28 - Saved image to: resources/labels/2/face_3.jpg
+2025-05-24 18:45:28 - Processing image 4 for student 2
+2025-05-24 18:45:28 - Saved image to: C:\xampp\htdocs\trys\attendance-project/students/2/face_4.jpg
+2025-05-24 18:45:28 - Saved image to: C:\xampp\htdocs\trys\attendance-project/validated_faces/student2/face_4.jpg
+2025-05-24 18:45:28 - Saved image to: resources/labels/2/face_4.jpg
+2025-05-24 18:45:28 - Processing image 5 for student 2
+2025-05-24 18:45:28 - Saved image to: C:\xampp\htdocs\trys\attendance-project/students/2/face_5.jpg
+2025-05-24 18:45:28 - Saved image to: C:\xampp\htdocs\trys\attendance-project/validated_faces/student2/face_5.jpg
+2025-05-24 18:45:28 - Saved image to: resources/labels/2/face_5.jpg
+2025-05-24 18:45:28 - Processing image 6 for student 2
+2025-05-24 18:45:28 - Saved image to: C:\xampp\htdocs\trys\attendance-project/students/2/face_6.jpg
+2025-05-24 18:45:28 - Saved image to: C:\xampp\htdocs\trys\attendance-project/validated_faces/student2/face_6.jpg
+2025-05-24 18:45:28 - Saved image to: resources/labels/2/face_6.jpg
+2025-05-24 18:45:28 - Processing image 7 for student 2
+2025-05-24 18:45:28 - Saved image to: C:\xampp\htdocs\trys\attendance-project/students/2/face_7.jpg
+2025-05-24 18:45:28 - Saved image to: C:\xampp\htdocs\trys\attendance-project/validated_faces/student2/face_7.jpg
+2025-05-24 18:45:28 - Saved image to: resources/labels/2/face_7.jpg
+2025-05-24 18:45:28 - Processing image 8 for student 2
+2025-05-24 18:45:28 - Saved image to: C:\xampp\htdocs\trys\attendance-project/students/2/face_8.jpg
+2025-05-24 18:45:28 - Saved image to: C:\xampp\htdocs\trys\attendance-project/validated_faces/student2/face_8.jpg
+2025-05-24 18:45:28 - Saved image to: resources/labels/2/face_8.jpg
+2025-05-24 18:45:28 - Processing image 9 for student 2
+2025-05-24 18:45:28 - Saved image to: C:\xampp\htdocs\trys\attendance-project/students/2/face_9.jpg
+2025-05-24 18:45:28 - Saved image to: C:\xampp\htdocs\trys\attendance-project/validated_faces/student2/face_9.jpg
+2025-05-24 18:45:28 - Saved image to: resources/labels/2/face_9.jpg
+2025-05-24 18:45:28 - Processing image 10 for student 2
+2025-05-24 18:45:28 - Saved image to: C:\xampp\htdocs\trys\attendance-project/students/2/face_10.jpg
+2025-05-24 18:45:28 - Saved image to: C:\xampp\htdocs\trys\attendance-project/validated_faces/student2/face_10.jpg
+2025-05-24 18:45:28 - Saved image to: resources/labels/2/face_10.jpg
+2025-05-24 18:45:28 - Saved student info files
+2025-05-24 18:45:28 - Executing command: python "C:\xampp\htdocs\trys\attendance-project/python/realtime_recognition.py" --train
+2025-05-24 18:45:31 - Command output: Array
+(
+    [0] => 2025-05-24 22:30:28,600 - INFO - Processing student 45 with label 0
+    [1] => 2025-05-24 22:30:28,600 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\45\face_1.jpg
+    [2] => 2025-05-24 22:30:28,817 - INFO - Successfully processed face from face_1.jpg
+    [3] => 2025-05-24 22:30:28,817 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\45\face_10.jpg
+    [4] => 2025-05-24 22:30:28,850 - INFO - Successfully processed face from face_10.jpg
+    [5] => 2025-05-24 22:30:28,850 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\45\face_4.jpg
+    [6] => 2025-05-24 22:30:28,885 - INFO - Successfully processed face from face_4.jpg
+    [7] => 2025-05-24 22:30:28,885 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\45\face_5.jpg
+    [8] => 2025-05-24 22:30:28,916 - INFO - Successfully processed face from face_5.jpg
+    [9] => 2025-05-24 22:30:28,916 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\45\face_6.jpg
+    [10] => 2025-05-24 22:30:28,948 - INFO - Successfully processed face from face_6.jpg
+    [11] => 2025-05-24 22:30:28,948 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\45\face_7.jpg
+    [12] => 2025-05-24 22:30:28,979 - INFO - Successfully processed face from face_7.jpg
+    [13] => 2025-05-24 22:30:28,979 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\45\face_8.jpg
+    [14] => 2025-05-24 22:30:29,012 - INFO - Successfully processed face from face_8.jpg
+    [15] => 2025-05-24 22:30:29,012 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\45\face_9.jpg
+    [16] => 2025-05-24 22:30:29,046 - INFO - Successfully processed face from face_9.jpg
+    [17] => 2025-05-24 22:30:29,046 - INFO - Processed 8 faces for student 45
+    [18] => 2025-05-24 22:30:29,046 - INFO - Processing student 99 with label 1
+    [19] => 2025-05-24 22:30:29,046 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\99\face_1.jpg
+    [20] => 2025-05-24 22:30:29,077 - INFO - Successfully processed face from face_1.jpg
+    [21] => 2025-05-24 22:30:29,077 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\99\face_10.jpg
+    [22] => 2025-05-24 22:30:29,112 - INFO - Successfully processed face from face_10.jpg
+    [23] => 2025-05-24 22:30:29,113 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\99\face_2.jpg
+    [24] => 2025-05-24 22:30:29,142 - INFO - Successfully processed face from face_2.jpg
+    [25] => 2025-05-24 22:30:29,142 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\99\face_3.jpg
+    [26] => 2025-05-24 22:30:29,176 - INFO - Successfully processed face from face_3.jpg
+    [27] => 2025-05-24 22:30:29,177 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\99\face_4.jpg
+    [28] => 2025-05-24 22:30:29,207 - INFO - Successfully processed face from face_4.jpg
+    [29] => 2025-05-24 22:30:29,207 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\99\face_5.jpg
+    [30] => 2025-05-24 22:30:29,239 - INFO - Successfully processed face from face_5.jpg
+    [31] => 2025-05-24 22:30:29,239 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\99\face_6.jpg
+    [32] => 2025-05-24 22:30:29,271 - INFO - Successfully processed face from face_6.jpg
+    [33] => 2025-05-24 22:30:29,271 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\99\face_8.jpg
+    [34] => 2025-05-24 22:30:29,310 - INFO - Successfully processed face from face_8.jpg
+    [35] => 2025-05-24 22:30:29,310 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\99\face_9.jpg
+    [36] => 2025-05-24 22:30:29,353 - INFO - Successfully processed face from face_9.jpg
+    [37] => 2025-05-24 22:30:29,353 - INFO - Processed 9 faces for student 99
+    [38] => 2025-05-24 22:30:29,353 - INFO - Processing student 123 with label 2
+    [39] => 2025-05-24 22:30:29,353 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student123\face_1.jpg
+    [40] => 2025-05-24 22:30:29,387 - INFO - Successfully processed face from face_1.jpg
+    [41] => 2025-05-24 22:30:29,387 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student123\face_10.jpg
+    [42] => 2025-05-24 22:30:29,421 - INFO - Successfully processed face from face_10.jpg
+    [43] => 2025-05-24 22:30:29,421 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student123\face_2.jpg
+    [44] => 2025-05-24 22:30:29,452 - INFO - Successfully processed face from face_2.jpg
+    [45] => 2025-05-24 22:30:29,452 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student123\face_3.jpg
+    [46] => 2025-05-24 22:30:29,489 - WARNING - Found 2 faces in face_3.jpg - skipping
+    [47] => 2025-05-24 22:30:29,489 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student123\face_4.jpg
+    [48] => 2025-05-24 22:30:29,524 - INFO - Successfully processed face from face_4.jpg
+    [49] => 2025-05-24 22:30:29,524 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student123\face_5.jpg
+    [50] => 2025-05-24 22:30:29,554 - WARNING - Found 2 faces in face_5.jpg - skipping
+    [51] => 2025-05-24 22:30:29,554 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student123\face_6.jpg
+    [52] => 2025-05-24 22:30:29,587 - INFO - Successfully processed face from face_6.jpg
+    [53] => 2025-05-24 22:30:29,588 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student123\face_7.jpg
+    [54] => 2025-05-24 22:30:29,625 - INFO - Successfully processed face from face_7.jpg
+    [55] => 2025-05-24 22:30:29,625 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student123\face_8.jpg
+    [56] => 2025-05-24 22:30:29,663 - INFO - Successfully processed face from face_8.jpg
+    [57] => 2025-05-24 22:30:29,663 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student123\face_9.jpg
+    [58] => 2025-05-24 22:30:29,696 - INFO - Successfully processed face from face_9.jpg
+    [59] => 2025-05-24 22:30:29,696 - INFO - Processed 8 faces for student 123
+    [60] => 2025-05-24 22:30:29,696 - INFO - Processing student 2 with label 3
+    [61] => 2025-05-24 22:30:29,697 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student2\face_1.jpg
+    [62] => 2025-05-24 22:30:29,725 - INFO - Successfully processed face from face_1.jpg
+    [63] => 2025-05-24 22:30:29,725 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student2\face_10.jpg
+    [64] => 2025-05-24 22:30:29,759 - INFO - Successfully processed face from face_10.jpg
+    [65] => 2025-05-24 22:30:29,759 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student2\face_2.jpg
+    [66] => 2025-05-24 22:30:29,789 - INFO - Successfully processed face from face_2.jpg
+    [67] => 2025-05-24 22:30:29,789 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student2\face_3.jpg
+    [68] => 2025-05-24 22:30:29,825 - INFO - Successfully processed face from face_3.jpg
+    [69] => 2025-05-24 22:30:29,825 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student2\face_4.jpg
+    [70] => 2025-05-24 22:30:29,861 - INFO - Successfully processed face from face_4.jpg
+    [71] => 2025-05-24 22:30:29,861 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student2\face_5.jpg
+    [72] => 2025-05-24 22:30:29,891 - INFO - Successfully processed face from face_5.jpg
+    [73] => 2025-05-24 22:30:29,892 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student2\face_6.jpg
+    [74] => 2025-05-24 22:30:29,922 - INFO - Successfully processed face from face_6.jpg
+    [75] => 2025-05-24 22:30:29,922 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student2\face_7.jpg
+    [76] => 2025-05-24 22:30:29,954 - INFO - Successfully processed face from face_7.jpg
+    [77] => 2025-05-24 22:30:29,954 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student2\face_8.jpg
+    [78] => 2025-05-24 22:30:29,987 - INFO - Successfully processed face from face_8.jpg
+    [79] => 2025-05-24 22:30:29,987 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student2\face_9.jpg
+    [80] => 2025-05-24 22:30:30,022 - INFO - Successfully processed face from face_9.jpg
+    [81] => 2025-05-24 22:30:30,022 - INFO - Processed 10 faces for student 2
+    [82] => 2025-05-24 22:30:30,022 - INFO - Processing student 8 with label 4
+    [83] => 2025-05-24 22:30:30,022 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student8\face_1.jpg
+    [84] => 2025-05-24 22:30:30,053 - INFO - Successfully processed face from face_1.jpg
+    [85] => 2025-05-24 22:30:30,053 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student8\face_10.jpg
+    [86] => 2025-05-24 22:30:30,083 - INFO - Successfully processed face from face_10.jpg
+    [87] => 2025-05-24 22:30:30,084 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student8\face_2.jpg
+    [88] => 2025-05-24 22:30:30,116 - INFO - Successfully processed face from face_2.jpg
+    [89] => 2025-05-24 22:30:30,116 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student8\face_3.jpg
+    [90] => 2025-05-24 22:30:30,147 - INFO - Successfully processed face from face_3.jpg
+    [91] => 2025-05-24 22:30:30,147 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student8\face_4.jpg
+    [92] => 2025-05-24 22:30:30,178 - INFO - Successfully processed face from face_4.jpg
+    [93] => 2025-05-24 22:30:30,178 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student8\face_5.jpg
+    [94] => 2025-05-24 22:30:30,210 - INFO - Successfully processed face from face_5.jpg
+    [95] => 2025-05-24 22:30:30,210 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student8\face_6.jpg
+    [96] => 2025-05-24 22:30:30,250 - INFO - Successfully processed face from face_6.jpg
+    [97] => 2025-05-24 22:30:30,250 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student8\face_7.jpg
+    [98] => 2025-05-24 22:30:30,283 - INFO - Successfully processed face from face_7.jpg
+    [99] => 2025-05-24 22:30:30,283 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student8\face_8.jpg
+    [100] => 2025-05-24 22:30:30,315 - INFO - Successfully processed face from face_8.jpg
+    [101] => 2025-05-24 22:30:30,315 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student8\face_9.jpg
+    [102] => 2025-05-24 22:30:30,347 - INFO - Successfully processed face from face_9.jpg
+    [103] => 2025-05-24 22:30:30,347 - INFO - Processed 10 faces for student 8
+    [104] => 2025-05-24 22:30:30,347 - INFO - Training model with 270 faces...
+    [105] => 2025-05-24 22:30:31,496 - INFO - Training successful: Model trained with 270 faces from 5 students
+)
+
+2025-05-24 18:45:31 - Return code: 0
+2025-05-24 18:45:31 - Student registration completed successfully
+2025-05-24 18:47:56 - Starting student registration process
+2025-05-24 18:47:56 - Student details: {"name":"Yi Man","reg":"3"}
+2025-05-24 18:47:56 - Base directory: C:\xampp\htdocs\trys\attendance-project
+2025-05-24 18:47:56 - Python script path: C:\xampp\htdocs\trys\attendance-project/python/realtime_recognition.py
+2025-05-24 18:47:56 - Creating student directory: C:\xampp\htdocs\trys\attendance-project/students/3
+2025-05-24 18:47:56 - Creating student directory: C:\xampp\htdocs\trys\attendance-project/validated_faces/student3
+2025-05-24 18:47:56 - Creating student directory: resources/labels/3
+2025-05-24 18:47:56 - Processing image 1 for student 3
+2025-05-24 18:47:56 - Saved image to: C:\xampp\htdocs\trys\attendance-project/students/3/face_1.jpg
+2025-05-24 18:47:56 - Saved image to: C:\xampp\htdocs\trys\attendance-project/validated_faces/student3/face_1.jpg
+2025-05-24 18:47:56 - Saved image to: resources/labels/3/face_1.jpg
+2025-05-24 18:47:56 - Processing image 2 for student 3
+2025-05-24 18:47:56 - Saved image to: C:\xampp\htdocs\trys\attendance-project/students/3/face_2.jpg
+2025-05-24 18:47:56 - Saved image to: C:\xampp\htdocs\trys\attendance-project/validated_faces/student3/face_2.jpg
+2025-05-24 18:47:56 - Saved image to: resources/labels/3/face_2.jpg
+2025-05-24 18:47:56 - Processing image 3 for student 3
+2025-05-24 18:47:57 - Saved image to: C:\xampp\htdocs\trys\attendance-project/students/3/face_3.jpg
+2025-05-24 18:47:57 - Saved image to: C:\xampp\htdocs\trys\attendance-project/validated_faces/student3/face_3.jpg
+2025-05-24 18:47:57 - Saved image to: resources/labels/3/face_3.jpg
+2025-05-24 18:47:57 - Processing image 4 for student 3
+2025-05-24 18:47:57 - Saved image to: C:\xampp\htdocs\trys\attendance-project/students/3/face_4.jpg
+2025-05-24 18:47:57 - Saved image to: C:\xampp\htdocs\trys\attendance-project/validated_faces/student3/face_4.jpg
+2025-05-24 18:47:57 - Saved image to: resources/labels/3/face_4.jpg
+2025-05-24 18:47:57 - Processing image 5 for student 3
+2025-05-24 18:47:57 - Saved image to: C:\xampp\htdocs\trys\attendance-project/students/3/face_5.jpg
+2025-05-24 18:47:57 - Saved image to: C:\xampp\htdocs\trys\attendance-project/validated_faces/student3/face_5.jpg
+2025-05-24 18:47:57 - Saved image to: resources/labels/3/face_5.jpg
+2025-05-24 18:47:57 - Processing image 6 for student 3
+2025-05-24 18:47:57 - Saved image to: C:\xampp\htdocs\trys\attendance-project/students/3/face_6.jpg
+2025-05-24 18:47:57 - Saved image to: C:\xampp\htdocs\trys\attendance-project/validated_faces/student3/face_6.jpg
+2025-05-24 18:47:57 - Saved image to: resources/labels/3/face_6.jpg
+2025-05-24 18:47:57 - Processing image 7 for student 3
+2025-05-24 18:47:57 - Saved image to: C:\xampp\htdocs\trys\attendance-project/students/3/face_7.jpg
+2025-05-24 18:47:57 - Saved image to: C:\xampp\htdocs\trys\attendance-project/validated_faces/student3/face_7.jpg
+2025-05-24 18:47:57 - Saved image to: resources/labels/3/face_7.jpg
+2025-05-24 18:47:57 - Processing image 8 for student 3
+2025-05-24 18:47:57 - Saved image to: C:\xampp\htdocs\trys\attendance-project/students/3/face_8.jpg
+2025-05-24 18:47:57 - Saved image to: C:\xampp\htdocs\trys\attendance-project/validated_faces/student3/face_8.jpg
+2025-05-24 18:47:57 - Saved image to: resources/labels/3/face_8.jpg
+2025-05-24 18:47:57 - Processing image 9 for student 3
+2025-05-24 18:47:57 - Saved image to: C:\xampp\htdocs\trys\attendance-project/students/3/face_9.jpg
+2025-05-24 18:47:57 - Saved image to: C:\xampp\htdocs\trys\attendance-project/validated_faces/student3/face_9.jpg
+2025-05-24 18:47:57 - Saved image to: resources/labels/3/face_9.jpg
+2025-05-24 18:47:57 - Processing image 10 for student 3
+2025-05-24 18:47:57 - Saved image to: C:\xampp\htdocs\trys\attendance-project/students/3/face_10.jpg
+2025-05-24 18:47:57 - Saved image to: C:\xampp\htdocs\trys\attendance-project/validated_faces/student3/face_10.jpg
+2025-05-24 18:47:57 - Saved image to: resources/labels/3/face_10.jpg
+2025-05-24 18:47:57 - Saved student info files
+2025-05-24 18:47:57 - Executing command: python "C:\xampp\htdocs\trys\attendance-project/python/realtime_recognition.py" --train
+2025-05-24 18:48:00 - Command output: Array
+(
+    [0] => 2025-05-24 22:32:57,294 - INFO - Processing student 45 with label 0
+    [1] => 2025-05-24 22:32:57,295 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\45\face_1.jpg
+    [2] => 2025-05-24 22:32:57,501 - INFO - Successfully processed face from face_1.jpg
+    [3] => 2025-05-24 22:32:57,502 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\45\face_10.jpg
+    [4] => 2025-05-24 22:32:57,534 - INFO - Successfully processed face from face_10.jpg
+    [5] => 2025-05-24 22:32:57,534 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\45\face_4.jpg
+    [6] => 2025-05-24 22:32:57,569 - INFO - Successfully processed face from face_4.jpg
+    [7] => 2025-05-24 22:32:57,569 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\45\face_5.jpg
+    [8] => 2025-05-24 22:32:57,602 - INFO - Successfully processed face from face_5.jpg
+    [9] => 2025-05-24 22:32:57,602 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\45\face_6.jpg
+    [10] => 2025-05-24 22:32:57,633 - INFO - Successfully processed face from face_6.jpg
+    [11] => 2025-05-24 22:32:57,634 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\45\face_7.jpg
+    [12] => 2025-05-24 22:32:57,665 - INFO - Successfully processed face from face_7.jpg
+    [13] => 2025-05-24 22:32:57,665 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\45\face_8.jpg
+    [14] => 2025-05-24 22:32:57,703 - INFO - Successfully processed face from face_8.jpg
+    [15] => 2025-05-24 22:32:57,703 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\45\face_9.jpg
+    [16] => 2025-05-24 22:32:57,735 - INFO - Successfully processed face from face_9.jpg
+    [17] => 2025-05-24 22:32:57,735 - INFO - Processed 8 faces for student 45
+    [18] => 2025-05-24 22:32:57,735 - INFO - Processing student 99 with label 1
+    [19] => 2025-05-24 22:32:57,735 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\99\face_1.jpg
+    [20] => 2025-05-24 22:32:57,768 - INFO - Successfully processed face from face_1.jpg
+    [21] => 2025-05-24 22:32:57,768 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\99\face_10.jpg
+    [22] => 2025-05-24 22:32:57,801 - INFO - Successfully processed face from face_10.jpg
+    [23] => 2025-05-24 22:32:57,801 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\99\face_2.jpg
+    [24] => 2025-05-24 22:32:57,832 - INFO - Successfully processed face from face_2.jpg
+    [25] => 2025-05-24 22:32:57,832 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\99\face_3.jpg
+    [26] => 2025-05-24 22:32:57,862 - INFO - Successfully processed face from face_3.jpg
+    [27] => 2025-05-24 22:32:57,862 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\99\face_4.jpg
+    [28] => 2025-05-24 22:32:57,893 - INFO - Successfully processed face from face_4.jpg
+    [29] => 2025-05-24 22:32:57,893 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\99\face_5.jpg
+    [30] => 2025-05-24 22:32:57,924 - INFO - Successfully processed face from face_5.jpg
+    [31] => 2025-05-24 22:32:57,924 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\99\face_6.jpg
+    [32] => 2025-05-24 22:32:57,954 - INFO - Successfully processed face from face_6.jpg
+    [33] => 2025-05-24 22:32:57,954 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\99\face_8.jpg
+    [34] => 2025-05-24 22:32:57,985 - INFO - Successfully processed face from face_8.jpg
+    [35] => 2025-05-24 22:32:57,985 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\99\face_9.jpg
+    [36] => 2025-05-24 22:32:58,016 - INFO - Successfully processed face from face_9.jpg
+    [37] => 2025-05-24 22:32:58,016 - INFO - Processed 9 faces for student 99
+    [38] => 2025-05-24 22:32:58,016 - INFO - Processing student 123 with label 2
+    [39] => 2025-05-24 22:32:58,016 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student123\face_1.jpg
+    [40] => 2025-05-24 22:32:58,048 - INFO - Successfully processed face from face_1.jpg
+    [41] => 2025-05-24 22:32:58,049 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student123\face_10.jpg
+    [42] => 2025-05-24 22:32:58,079 - INFO - Successfully processed face from face_10.jpg
+    [43] => 2025-05-24 22:32:58,079 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student123\face_2.jpg
+    [44] => 2025-05-24 22:32:58,108 - INFO - Successfully processed face from face_2.jpg
+    [45] => 2025-05-24 22:32:58,108 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student123\face_3.jpg
+    [46] => 2025-05-24 22:32:58,138 - WARNING - Found 2 faces in face_3.jpg - skipping
+    [47] => 2025-05-24 22:32:58,138 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student123\face_4.jpg
+    [48] => 2025-05-24 22:32:58,171 - INFO - Successfully processed face from face_4.jpg
+    [49] => 2025-05-24 22:32:58,171 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student123\face_5.jpg
+    [50] => 2025-05-24 22:32:58,199 - WARNING - Found 2 faces in face_5.jpg - skipping
+    [51] => 2025-05-24 22:32:58,199 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student123\face_6.jpg
+    [52] => 2025-05-24 22:32:58,231 - INFO - Successfully processed face from face_6.jpg
+    [53] => 2025-05-24 22:32:58,232 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student123\face_7.jpg
+    [54] => 2025-05-24 22:32:58,262 - INFO - Successfully processed face from face_7.jpg
+    [55] => 2025-05-24 22:32:58,263 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student123\face_8.jpg
+    [56] => 2025-05-24 22:32:58,297 - INFO - Successfully processed face from face_8.jpg
+    [57] => 2025-05-24 22:32:58,297 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student123\face_9.jpg
+    [58] => 2025-05-24 22:32:58,330 - INFO - Successfully processed face from face_9.jpg
+    [59] => 2025-05-24 22:32:58,330 - INFO - Processed 8 faces for student 123
+    [60] => 2025-05-24 22:32:58,330 - INFO - Processing student 2 with label 3
+    [61] => 2025-05-24 22:32:58,330 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student2\face_1.jpg
+    [62] => 2025-05-24 22:32:58,364 - INFO - Successfully processed face from face_1.jpg
+    [63] => 2025-05-24 22:32:58,364 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student2\face_10.jpg
+    [64] => 2025-05-24 22:32:58,398 - INFO - Successfully processed face from face_10.jpg
+    [65] => 2025-05-24 22:32:58,398 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student2\face_2.jpg
+    [66] => 2025-05-24 22:32:58,427 - INFO - Successfully processed face from face_2.jpg
+    [67] => 2025-05-24 22:32:58,429 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student2\face_3.jpg
+    [68] => 2025-05-24 22:32:58,459 - INFO - Successfully processed face from face_3.jpg
+    [69] => 2025-05-24 22:32:58,459 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student2\face_4.jpg
+    [70] => 2025-05-24 22:32:58,490 - INFO - Successfully processed face from face_4.jpg
+    [71] => 2025-05-24 22:32:58,490 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student2\face_5.jpg
+    [72] => 2025-05-24 22:32:58,519 - INFO - Successfully processed face from face_5.jpg
+    [73] => 2025-05-24 22:32:58,519 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student2\face_6.jpg
+    [74] => 2025-05-24 22:32:58,551 - INFO - Successfully processed face from face_6.jpg
+    [75] => 2025-05-24 22:32:58,551 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student2\face_7.jpg
+    [76] => 2025-05-24 22:32:58,583 - INFO - Successfully processed face from face_7.jpg
+    [77] => 2025-05-24 22:32:58,583 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student2\face_8.jpg
+    [78] => 2025-05-24 22:32:58,618 - INFO - Successfully processed face from face_8.jpg
+    [79] => 2025-05-24 22:32:58,618 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student2\face_9.jpg
+    [80] => 2025-05-24 22:32:58,653 - INFO - Successfully processed face from face_9.jpg
+    [81] => 2025-05-24 22:32:58,653 - INFO - Processed 10 faces for student 2
+    [82] => 2025-05-24 22:32:58,653 - INFO - Processing student 3 with label 4
+    [83] => 2025-05-24 22:32:58,653 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student3\face_1.jpg
+    [84] => 2025-05-24 22:32:58,683 - WARNING - Found 2 faces in face_1.jpg - skipping
+    [85] => 2025-05-24 22:32:58,683 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student3\face_10.jpg
+    [86] => 2025-05-24 22:32:58,715 - INFO - Successfully processed face from face_10.jpg
+    [87] => 2025-05-24 22:32:58,715 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student3\face_2.jpg
+    [88] => 2025-05-24 22:32:58,750 - INFO - Successfully processed face from face_2.jpg
+    [89] => 2025-05-24 22:32:58,750 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student3\face_3.jpg
+    [90] => 2025-05-24 22:32:58,782 - INFO - Successfully processed face from face_3.jpg
+    [91] => 2025-05-24 22:32:58,783 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student3\face_4.jpg
+    [92] => 2025-05-24 22:32:58,816 - INFO - Successfully processed face from face_4.jpg
+    [93] => 2025-05-24 22:32:58,816 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student3\face_5.jpg
+    [94] => 2025-05-24 22:32:58,845 - WARNING - Found 0 faces in face_5.jpg - skipping
+    [95] => 2025-05-24 22:32:58,845 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student3\face_6.jpg
+    [96] => 2025-05-24 22:32:58,884 - INFO - Successfully processed face from face_6.jpg
+    [97] => 2025-05-24 22:32:58,884 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student3\face_7.jpg
+    [98] => 2025-05-24 22:32:58,918 - INFO - Successfully processed face from face_7.jpg
+    [99] => 2025-05-24 22:32:58,918 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student3\face_8.jpg
+    [100] => 2025-05-24 22:32:58,954 - INFO - Successfully processed face from face_8.jpg
+    [101] => 2025-05-24 22:32:58,954 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student3\face_9.jpg
+    [102] => 2025-05-24 22:32:58,986 - INFO - Successfully processed face from face_9.jpg
+    [103] => 2025-05-24 22:32:58,987 - INFO - Processed 8 faces for student 3
+    [104] => 2025-05-24 22:32:58,987 - INFO - Processing student 8 with label 5
+    [105] => 2025-05-24 22:32:58,987 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student8\face_1.jpg
+    [106] => 2025-05-24 22:32:59,017 - INFO - Successfully processed face from face_1.jpg
+    [107] => 2025-05-24 22:32:59,017 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student8\face_10.jpg
+    [108] => 2025-05-24 22:32:59,050 - INFO - Successfully processed face from face_10.jpg
+    [109] => 2025-05-24 22:32:59,050 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student8\face_2.jpg
+    [110] => 2025-05-24 22:32:59,085 - INFO - Successfully processed face from face_2.jpg
+    [111] => 2025-05-24 22:32:59,085 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student8\face_3.jpg
+    [112] => 2025-05-24 22:32:59,117 - INFO - Successfully processed face from face_3.jpg
+    [113] => 2025-05-24 22:32:59,117 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student8\face_4.jpg
+    [114] => 2025-05-24 22:32:59,150 - INFO - Successfully processed face from face_4.jpg
+    [115] => 2025-05-24 22:32:59,150 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student8\face_5.jpg
+    [116] => 2025-05-24 22:32:59,182 - INFO - Successfully processed face from face_5.jpg
+    [117] => 2025-05-24 22:32:59,183 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student8\face_6.jpg
+    [118] => 2025-05-24 22:32:59,213 - INFO - Successfully processed face from face_6.jpg
+    [119] => 2025-05-24 22:32:59,213 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student8\face_7.jpg
+    [120] => 2025-05-24 22:32:59,246 - INFO - Successfully processed face from face_7.jpg
+    [121] => 2025-05-24 22:32:59,246 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student8\face_8.jpg
+    [122] => 2025-05-24 22:32:59,276 - INFO - Successfully processed face from face_8.jpg
+    [123] => 2025-05-24 22:32:59,276 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student8\face_9.jpg
+    [124] => 2025-05-24 22:32:59,310 - INFO - Successfully processed face from face_9.jpg
+    [125] => 2025-05-24 22:32:59,310 - INFO - Processed 10 faces for student 8
+    [126] => 2025-05-24 22:32:59,310 - INFO - Training model with 318 faces...
+    [127] => 2025-05-24 22:33:00,537 - INFO - Training successful: Model trained with 318 faces from 6 students
+)
+
+2025-05-24 18:48:00 - Return code: 0
+2025-05-24 18:48:00 - Student registration completed successfully
+2025-05-24 19:15:33 - Starting student registration process
+2025-05-24 19:15:33 - Student details: {"name":"Arnold Man","reg":"4"}
+2025-05-24 19:15:33 - Base directory: C:\xampp\htdocs\trys\attendance-project
+2025-05-24 19:15:33 - Python script path: C:\xampp\htdocs\trys\attendance-project/python/realtime_recognition.py
+2025-05-24 19:15:33 - Creating student directory: C:\xampp\htdocs\trys\attendance-project/students/4
+2025-05-24 19:15:33 - Creating student directory: C:\xampp\htdocs\trys\attendance-project/validated_faces/student4
+2025-05-24 19:15:33 - Creating student directory: resources/labels/4
+2025-05-24 19:15:33 - Processing image 1 for student 4
+2025-05-24 19:15:33 - Saved image to: C:\xampp\htdocs\trys\attendance-project/students/4/face_1.jpg
+2025-05-24 19:15:33 - Saved image to: C:\xampp\htdocs\trys\attendance-project/validated_faces/student4/face_1.jpg
+2025-05-24 19:15:33 - Saved image to: resources/labels/4/face_1.jpg
+2025-05-24 19:15:33 - Processing image 2 for student 4
+2025-05-24 19:15:33 - Saved image to: C:\xampp\htdocs\trys\attendance-project/students/4/face_2.jpg
+2025-05-24 19:15:33 - Saved image to: C:\xampp\htdocs\trys\attendance-project/validated_faces/student4/face_2.jpg
+2025-05-24 19:15:33 - Saved image to: resources/labels/4/face_2.jpg
+2025-05-24 19:15:33 - Processing image 3 for student 4
+2025-05-24 19:15:33 - Saved image to: C:\xampp\htdocs\trys\attendance-project/students/4/face_3.jpg
+2025-05-24 19:15:33 - Saved image to: C:\xampp\htdocs\trys\attendance-project/validated_faces/student4/face_3.jpg
+2025-05-24 19:15:33 - Saved image to: resources/labels/4/face_3.jpg
+2025-05-24 19:15:33 - Processing image 4 for student 4
+2025-05-24 19:15:33 - Saved image to: C:\xampp\htdocs\trys\attendance-project/students/4/face_4.jpg
+2025-05-24 19:15:33 - Saved image to: C:\xampp\htdocs\trys\attendance-project/validated_faces/student4/face_4.jpg
+2025-05-24 19:15:33 - Saved image to: resources/labels/4/face_4.jpg
+2025-05-24 19:15:33 - Processing image 5 for student 4
+2025-05-24 19:15:33 - Saved image to: C:\xampp\htdocs\trys\attendance-project/students/4/face_5.jpg
+2025-05-24 19:15:33 - Saved image to: C:\xampp\htdocs\trys\attendance-project/validated_faces/student4/face_5.jpg
+2025-05-24 19:15:33 - Saved image to: resources/labels/4/face_5.jpg
+2025-05-24 19:15:33 - Processing image 6 for student 4
+2025-05-24 19:15:33 - Saved image to: C:\xampp\htdocs\trys\attendance-project/students/4/face_6.jpg
+2025-05-24 19:15:33 - Saved image to: C:\xampp\htdocs\trys\attendance-project/validated_faces/student4/face_6.jpg
+2025-05-24 19:15:33 - Saved image to: resources/labels/4/face_6.jpg
+2025-05-24 19:15:33 - Processing image 7 for student 4
+2025-05-24 19:15:33 - Saved image to: C:\xampp\htdocs\trys\attendance-project/students/4/face_7.jpg
+2025-05-24 19:15:33 - Saved image to: C:\xampp\htdocs\trys\attendance-project/validated_faces/student4/face_7.jpg
+2025-05-24 19:15:33 - Saved image to: resources/labels/4/face_7.jpg
+2025-05-24 19:15:33 - Processing image 8 for student 4
+2025-05-24 19:15:33 - Saved image to: C:\xampp\htdocs\trys\attendance-project/students/4/face_8.jpg
+2025-05-24 19:15:33 - Saved image to: C:\xampp\htdocs\trys\attendance-project/validated_faces/student4/face_8.jpg
+2025-05-24 19:15:33 - Saved image to: resources/labels/4/face_8.jpg
+2025-05-24 19:15:33 - Processing image 9 for student 4
+2025-05-24 19:15:33 - Saved image to: C:\xampp\htdocs\trys\attendance-project/students/4/face_9.jpg
+2025-05-24 19:15:33 - Saved image to: C:\xampp\htdocs\trys\attendance-project/validated_faces/student4/face_9.jpg
+2025-05-24 19:15:33 - Saved image to: resources/labels/4/face_9.jpg
+2025-05-24 19:15:33 - Processing image 10 for student 4
+2025-05-24 19:15:33 - Saved image to: C:\xampp\htdocs\trys\attendance-project/students/4/face_10.jpg
+2025-05-24 19:15:33 - Saved image to: C:\xampp\htdocs\trys\attendance-project/validated_faces/student4/face_10.jpg
+2025-05-24 19:15:33 - Saved image to: resources/labels/4/face_10.jpg
+2025-05-24 19:15:33 - Saved student info files
+2025-05-24 19:15:33 - Executing command: python "C:\xampp\htdocs\trys\attendance-project/python/realtime_recognition.py" --train
+2025-05-24 19:15:37 - Command output: Array
+(
+    [0] => 2025-05-24 23:00:33,906 - INFO - Processing student 45 with label 0
+    [1] => 2025-05-24 23:00:33,906 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\45\face_1.jpg
+    [2] => 2025-05-24 23:00:34,133 - INFO - Successfully processed face from face_1.jpg
+    [3] => 2025-05-24 23:00:34,133 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\45\face_10.jpg
+    [4] => 2025-05-24 23:00:34,169 - INFO - Successfully processed face from face_10.jpg
+    [5] => 2025-05-24 23:00:34,169 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\45\face_4.jpg
+    [6] => 2025-05-24 23:00:34,206 - INFO - Successfully processed face from face_4.jpg
+    [7] => 2025-05-24 23:00:34,206 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\45\face_5.jpg
+    [8] => 2025-05-24 23:00:34,239 - INFO - Successfully processed face from face_5.jpg
+    [9] => 2025-05-24 23:00:34,239 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\45\face_6.jpg
+    [10] => 2025-05-24 23:00:34,270 - INFO - Successfully processed face from face_6.jpg
+    [11] => 2025-05-24 23:00:34,270 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\45\face_7.jpg
+    [12] => 2025-05-24 23:00:34,304 - INFO - Successfully processed face from face_7.jpg
+    [13] => 2025-05-24 23:00:34,304 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\45\face_8.jpg
+    [14] => 2025-05-24 23:00:34,341 - INFO - Successfully processed face from face_8.jpg
+    [15] => 2025-05-24 23:00:34,341 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\45\face_9.jpg
+    [16] => 2025-05-24 23:00:34,373 - INFO - Successfully processed face from face_9.jpg
+    [17] => 2025-05-24 23:00:34,373 - INFO - Processed 8 faces for student 45
+    [18] => 2025-05-24 23:00:34,373 - INFO - Processing student 99 with label 1
+    [19] => 2025-05-24 23:00:34,373 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\99\face_1.jpg
+    [20] => 2025-05-24 23:00:34,407 - INFO - Successfully processed face from face_1.jpg
+    [21] => 2025-05-24 23:00:34,409 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\99\face_10.jpg
+    [22] => 2025-05-24 23:00:34,444 - INFO - Successfully processed face from face_10.jpg
+    [23] => 2025-05-24 23:00:34,444 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\99\face_2.jpg
+    [24] => 2025-05-24 23:00:34,483 - INFO - Successfully processed face from face_2.jpg
+    [25] => 2025-05-24 23:00:34,483 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\99\face_3.jpg
+    [26] => 2025-05-24 23:00:34,515 - INFO - Successfully processed face from face_3.jpg
+    [27] => 2025-05-24 23:00:34,515 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\99\face_4.jpg
+    [28] => 2025-05-24 23:00:34,551 - INFO - Successfully processed face from face_4.jpg
+    [29] => 2025-05-24 23:00:34,551 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\99\face_5.jpg
+    [30] => 2025-05-24 23:00:34,584 - INFO - Successfully processed face from face_5.jpg
+    [31] => 2025-05-24 23:00:34,584 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\99\face_6.jpg
+    [32] => 2025-05-24 23:00:34,619 - INFO - Successfully processed face from face_6.jpg
+    [33] => 2025-05-24 23:00:34,619 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\99\face_8.jpg
+    [34] => 2025-05-24 23:00:34,653 - INFO - Successfully processed face from face_8.jpg
+    [35] => 2025-05-24 23:00:34,653 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\99\face_9.jpg
+    [36] => 2025-05-24 23:00:34,686 - INFO - Successfully processed face from face_9.jpg
+    [37] => 2025-05-24 23:00:34,686 - INFO - Processed 9 faces for student 99
+    [38] => 2025-05-24 23:00:34,686 - INFO - Processing student 123 with label 2
+    [39] => 2025-05-24 23:00:34,686 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student123\face_1.jpg
+    [40] => 2025-05-24 23:00:34,719 - INFO - Successfully processed face from face_1.jpg
+    [41] => 2025-05-24 23:00:34,719 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student123\face_10.jpg
+    [42] => 2025-05-24 23:00:34,753 - INFO - Successfully processed face from face_10.jpg
+    [43] => 2025-05-24 23:00:34,754 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student123\face_2.jpg
+    [44] => 2025-05-24 23:00:34,787 - INFO - Successfully processed face from face_2.jpg
+    [45] => 2025-05-24 23:00:34,787 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student123\face_3.jpg
+    [46] => 2025-05-24 23:00:34,818 - WARNING - Found 2 faces in face_3.jpg - skipping
+    [47] => 2025-05-24 23:00:34,818 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student123\face_4.jpg
+    [48] => 2025-05-24 23:00:34,853 - INFO - Successfully processed face from face_4.jpg
+    [49] => 2025-05-24 23:00:34,853 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student123\face_5.jpg
+    [50] => 2025-05-24 23:00:34,883 - WARNING - Found 2 faces in face_5.jpg - skipping
+    [51] => 2025-05-24 23:00:34,883 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student123\face_6.jpg
+    [52] => 2025-05-24 23:00:34,917 - INFO - Successfully processed face from face_6.jpg
+    [53] => 2025-05-24 23:00:34,918 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student123\face_7.jpg
+    [54] => 2025-05-24 23:00:34,951 - INFO - Successfully processed face from face_7.jpg
+    [55] => 2025-05-24 23:00:34,951 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student123\face_8.jpg
+    [56] => 2025-05-24 23:00:34,982 - INFO - Successfully processed face from face_8.jpg
+    [57] => 2025-05-24 23:00:34,982 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student123\face_9.jpg
+    [58] => 2025-05-24 23:00:35,016 - INFO - Successfully processed face from face_9.jpg
+    [59] => 2025-05-24 23:00:35,016 - INFO - Processed 8 faces for student 123
+    [60] => 2025-05-24 23:00:35,016 - INFO - Processing student 2 with label 3
+    [61] => 2025-05-24 23:00:35,016 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student2\face_1.jpg
+    [62] => 2025-05-24 23:00:35,050 - INFO - Successfully processed face from face_1.jpg
+    [63] => 2025-05-24 23:00:35,050 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student2\face_10.jpg
+    [64] => 2025-05-24 23:00:35,083 - INFO - Successfully processed face from face_10.jpg
+    [65] => 2025-05-24 23:00:35,083 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student2\face_2.jpg
+    [66] => 2025-05-24 23:00:35,114 - INFO - Successfully processed face from face_2.jpg
+    [67] => 2025-05-24 23:00:35,114 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student2\face_3.jpg
+    [68] => 2025-05-24 23:00:35,148 - INFO - Successfully processed face from face_3.jpg
+    [69] => 2025-05-24 23:00:35,148 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student2\face_4.jpg
+    [70] => 2025-05-24 23:00:35,182 - INFO - Successfully processed face from face_4.jpg
+    [71] => 2025-05-24 23:00:35,182 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student2\face_5.jpg
+    [72] => 2025-05-24 23:00:35,214 - INFO - Successfully processed face from face_5.jpg
+    [73] => 2025-05-24 23:00:35,214 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student2\face_6.jpg
+    [74] => 2025-05-24 23:00:35,247 - INFO - Successfully processed face from face_6.jpg
+    [75] => 2025-05-24 23:00:35,248 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student2\face_7.jpg
+    [76] => 2025-05-24 23:00:35,279 - INFO - Successfully processed face from face_7.jpg
+    [77] => 2025-05-24 23:00:35,279 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student2\face_8.jpg
+    [78] => 2025-05-24 23:00:35,310 - INFO - Successfully processed face from face_8.jpg
+    [79] => 2025-05-24 23:00:35,310 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student2\face_9.jpg
+    [80] => 2025-05-24 23:00:35,341 - INFO - Successfully processed face from face_9.jpg
+    [81] => 2025-05-24 23:00:35,341 - INFO - Processed 10 faces for student 2
+    [82] => 2025-05-24 23:00:35,341 - INFO - Processing student 3 with label 4
+    [83] => 2025-05-24 23:00:35,341 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student3\face_1.jpg
+    [84] => 2025-05-24 23:00:35,373 - WARNING - Found 2 faces in face_1.jpg - skipping
+    [85] => 2025-05-24 23:00:35,373 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student3\face_10.jpg
+    [86] => 2025-05-24 23:00:35,406 - INFO - Successfully processed face from face_10.jpg
+    [87] => 2025-05-24 23:00:35,406 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student3\face_2.jpg
+    [88] => 2025-05-24 23:00:35,437 - INFO - Successfully processed face from face_2.jpg
+    [89] => 2025-05-24 23:00:35,437 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student3\face_3.jpg
+    [90] => 2025-05-24 23:00:35,469 - INFO - Successfully processed face from face_3.jpg
+    [91] => 2025-05-24 23:00:35,469 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student3\face_4.jpg
+    [92] => 2025-05-24 23:00:35,505 - INFO - Successfully processed face from face_4.jpg
+    [93] => 2025-05-24 23:00:35,505 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student3\face_5.jpg
+    [94] => 2025-05-24 23:00:35,533 - WARNING - Found 0 faces in face_5.jpg - skipping
+    [95] => 2025-05-24 23:00:35,533 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student3\face_6.jpg
+    [96] => 2025-05-24 23:00:35,567 - INFO - Successfully processed face from face_6.jpg
+    [97] => 2025-05-24 23:00:35,567 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student3\face_7.jpg
+    [98] => 2025-05-24 23:00:35,603 - INFO - Successfully processed face from face_7.jpg
+    [99] => 2025-05-24 23:00:35,603 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student3\face_8.jpg
+    [100] => 2025-05-24 23:00:35,639 - INFO - Successfully processed face from face_8.jpg
+    [101] => 2025-05-24 23:00:35,639 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student3\face_9.jpg
+    [102] => 2025-05-24 23:00:35,673 - INFO - Successfully processed face from face_9.jpg
+    [103] => 2025-05-24 23:00:35,673 - INFO - Processed 8 faces for student 3
+    [104] => 2025-05-24 23:00:35,673 - INFO - Processing student 4 with label 5
+    [105] => 2025-05-24 23:00:35,673 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student4\face_1.jpg
+    [106] => 2025-05-24 23:00:35,697 - INFO - Successfully processed face from face_1.jpg
+    [107] => 2025-05-24 23:00:35,697 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student4\face_10.jpg
+    [108] => 2025-05-24 23:00:35,723 - INFO - Successfully processed face from face_10.jpg
+    [109] => 2025-05-24 23:00:35,723 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student4\face_2.jpg
+    [110] => 2025-05-24 23:00:35,749 - INFO - Successfully processed face from face_2.jpg
+    [111] => 2025-05-24 23:00:35,749 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student4\face_3.jpg
+    [112] => 2025-05-24 23:00:35,772 - INFO - Successfully processed face from face_3.jpg
+    [113] => 2025-05-24 23:00:35,772 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student4\face_4.jpg
+    [114] => 2025-05-24 23:00:35,796 - INFO - Successfully processed face from face_4.jpg
+    [115] => 2025-05-24 23:00:35,796 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student4\face_5.jpg
+    [116] => 2025-05-24 23:00:35,820 - INFO - Successfully processed face from face_5.jpg
+    [117] => 2025-05-24 23:00:35,820 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student4\face_6.jpg
+    [118] => 2025-05-24 23:00:35,844 - INFO - Successfully processed face from face_6.jpg
+    [119] => 2025-05-24 23:00:35,844 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student4\face_7.jpg
+    [120] => 2025-05-24 23:00:35,867 - INFO - Successfully processed face from face_7.jpg
+    [121] => 2025-05-24 23:00:35,867 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student4\face_8.jpg
+    [122] => 2025-05-24 23:00:35,892 - INFO - Successfully processed face from face_8.jpg
+    [123] => 2025-05-24 23:00:35,892 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student4\face_9.jpg
+    [124] => 2025-05-24 23:00:35,916 - INFO - Successfully processed face from face_9.jpg
+    [125] => 2025-05-24 23:00:35,916 - INFO - Processed 10 faces for student 4
+    [126] => 2025-05-24 23:00:35,916 - INFO - Processing student 8 with label 6
+    [127] => 2025-05-24 23:00:35,917 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student8\face_1.jpg
+    [128] => 2025-05-24 23:00:35,949 - INFO - Successfully processed face from face_1.jpg
+    [129] => 2025-05-24 23:00:35,949 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student8\face_10.jpg
+    [130] => 2025-05-24 23:00:35,981 - INFO - Successfully processed face from face_10.jpg
+    [131] => 2025-05-24 23:00:35,982 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student8\face_2.jpg
+    [132] => 2025-05-24 23:00:36,019 - INFO - Successfully processed face from face_2.jpg
+    [133] => 2025-05-24 23:00:36,019 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student8\face_3.jpg
+    [134] => 2025-05-24 23:00:36,053 - INFO - Successfully processed face from face_3.jpg
+    [135] => 2025-05-24 23:00:36,053 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student8\face_4.jpg
+    [136] => 2025-05-24 23:00:36,085 - INFO - Successfully processed face from face_4.jpg
+    [137] => 2025-05-24 23:00:36,085 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student8\face_5.jpg
+    [138] => 2025-05-24 23:00:36,117 - INFO - Successfully processed face from face_5.jpg
+    [139] => 2025-05-24 23:00:36,117 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student8\face_6.jpg
+    [140] => 2025-05-24 23:00:36,149 - INFO - Successfully processed face from face_6.jpg
+    [141] => 2025-05-24 23:00:36,149 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student8\face_7.jpg
+    [142] => 2025-05-24 23:00:36,180 - INFO - Successfully processed face from face_7.jpg
+    [143] => 2025-05-24 23:00:36,181 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student8\face_8.jpg
+    [144] => 2025-05-24 23:00:36,214 - INFO - Successfully processed face from face_8.jpg
+    [145] => 2025-05-24 23:00:36,214 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student8\face_9.jpg
+    [146] => 2025-05-24 23:00:36,253 - INFO - Successfully processed face from face_9.jpg
+    [147] => 2025-05-24 23:00:36,253 - INFO - Processed 10 faces for student 8
+    [148] => 2025-05-24 23:00:36,253 - INFO - Training model with 378 faces...
+    [149] => 2025-05-24 23:00:37,784 - INFO - Training successful: Model trained with 378 faces from 7 students
+)
+
+2025-05-24 19:15:37 - Return code: 0
+2025-05-24 19:15:37 - Student registration completed successfully
+2025-05-25 05:31:02 - Starting student registration process
+2025-05-25 05:31:02 - Student details: {"name":"Dristi Tuladhar","reg":"5"}
+2025-05-25 05:31:02 - Base directory: C:\xampp\htdocs\trys\attendance-project
+2025-05-25 05:31:02 - Python script path: C:\xampp\htdocs\trys\attendance-project/python/realtime_recognition.py
+2025-05-25 05:31:02 - Creating student directory: C:\xampp\htdocs\trys\attendance-project/students/5
+2025-05-25 05:31:02 - Creating student directory: C:\xampp\htdocs\trys\attendance-project/validated_faces/student5
+2025-05-25 05:31:02 - Creating student directory: resources/labels/5
+2025-05-25 05:31:02 - Processing image 1 for student 5
+2025-05-25 05:31:02 - Saved image to: C:\xampp\htdocs\trys\attendance-project/students/5/face_1.jpg
+2025-05-25 05:31:02 - Saved image to: C:\xampp\htdocs\trys\attendance-project/validated_faces/student5/face_1.jpg
+2025-05-25 05:31:02 - Saved image to: resources/labels/5/face_1.jpg
+2025-05-25 05:31:02 - Processing image 2 for student 5
+2025-05-25 05:31:02 - Saved image to: C:\xampp\htdocs\trys\attendance-project/students/5/face_2.jpg
+2025-05-25 05:31:02 - Saved image to: C:\xampp\htdocs\trys\attendance-project/validated_faces/student5/face_2.jpg
+2025-05-25 05:31:02 - Saved image to: resources/labels/5/face_2.jpg
+2025-05-25 05:31:02 - Processing image 3 for student 5
+2025-05-25 05:31:02 - Saved image to: C:\xampp\htdocs\trys\attendance-project/students/5/face_3.jpg
+2025-05-25 05:31:02 - Saved image to: C:\xampp\htdocs\trys\attendance-project/validated_faces/student5/face_3.jpg
+2025-05-25 05:31:02 - Saved image to: resources/labels/5/face_3.jpg
+2025-05-25 05:31:02 - Processing image 4 for student 5
+2025-05-25 05:31:03 - Saved image to: C:\xampp\htdocs\trys\attendance-project/students/5/face_4.jpg
+2025-05-25 05:31:03 - Saved image to: C:\xampp\htdocs\trys\attendance-project/validated_faces/student5/face_4.jpg
+2025-05-25 05:31:03 - Saved image to: resources/labels/5/face_4.jpg
+2025-05-25 05:31:03 - Processing image 5 for student 5
+2025-05-25 05:31:03 - Saved image to: C:\xampp\htdocs\trys\attendance-project/students/5/face_5.jpg
+2025-05-25 05:31:03 - Saved image to: C:\xampp\htdocs\trys\attendance-project/validated_faces/student5/face_5.jpg
+2025-05-25 05:31:03 - Saved image to: resources/labels/5/face_5.jpg
+2025-05-25 05:31:03 - Processing image 6 for student 5
+2025-05-25 05:31:03 - Saved image to: C:\xampp\htdocs\trys\attendance-project/students/5/face_6.jpg
+2025-05-25 05:31:03 - Saved image to: C:\xampp\htdocs\trys\attendance-project/validated_faces/student5/face_6.jpg
+2025-05-25 05:31:03 - Saved image to: resources/labels/5/face_6.jpg
+2025-05-25 05:31:03 - Processing image 7 for student 5
+2025-05-25 05:31:03 - Saved image to: C:\xampp\htdocs\trys\attendance-project/students/5/face_7.jpg
+2025-05-25 05:31:03 - Saved image to: C:\xampp\htdocs\trys\attendance-project/validated_faces/student5/face_7.jpg
+2025-05-25 05:31:03 - Saved image to: resources/labels/5/face_7.jpg
+2025-05-25 05:31:03 - Processing image 8 for student 5
+2025-05-25 05:31:03 - Saved image to: C:\xampp\htdocs\trys\attendance-project/students/5/face_8.jpg
+2025-05-25 05:31:03 - Saved image to: C:\xampp\htdocs\trys\attendance-project/validated_faces/student5/face_8.jpg
+2025-05-25 05:31:03 - Saved image to: resources/labels/5/face_8.jpg
+2025-05-25 05:31:03 - Processing image 9 for student 5
+2025-05-25 05:31:03 - Saved image to: C:\xampp\htdocs\trys\attendance-project/students/5/face_9.jpg
+2025-05-25 05:31:03 - Saved image to: C:\xampp\htdocs\trys\attendance-project/validated_faces/student5/face_9.jpg
+2025-05-25 05:31:03 - Saved image to: resources/labels/5/face_9.jpg
+2025-05-25 05:31:03 - Processing image 10 for student 5
+2025-05-25 05:31:03 - Saved image to: C:\xampp\htdocs\trys\attendance-project/students/5/face_10.jpg
+2025-05-25 05:31:03 - Saved image to: C:\xampp\htdocs\trys\attendance-project/validated_faces/student5/face_10.jpg
+2025-05-25 05:31:03 - Saved image to: resources/labels/5/face_10.jpg
+2025-05-25 05:31:03 - Saved student info files
+2025-05-25 05:31:03 - Executing command: python "C:\xampp\htdocs\trys\attendance-project/python/realtime_recognition.py" --train
+2025-05-25 05:31:09 - Command output: Array
+(
+    [0] => 2025-05-25 09:16:03,495 - INFO - Processing student 45 with label 0
+    [1] => 2025-05-25 09:16:03,496 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\45\face_1.jpg
+    [2] => 2025-05-25 09:16:03,765 - INFO - Successfully processed face from face_1.jpg
+    [3] => 2025-05-25 09:16:03,765 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\45\face_10.jpg
+    [4] => 2025-05-25 09:16:03,814 - INFO - Successfully processed face from face_10.jpg
+    [5] => 2025-05-25 09:16:03,814 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\45\face_4.jpg
+    [6] => 2025-05-25 09:16:03,855 - INFO - Successfully processed face from face_4.jpg
+    [7] => 2025-05-25 09:16:03,855 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\45\face_5.jpg
+    [8] => 2025-05-25 09:16:03,895 - INFO - Successfully processed face from face_5.jpg
+    [9] => 2025-05-25 09:16:03,895 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\45\face_6.jpg
+    [10] => 2025-05-25 09:16:03,935 - INFO - Successfully processed face from face_6.jpg
+    [11] => 2025-05-25 09:16:03,935 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\45\face_7.jpg
+    [12] => 2025-05-25 09:16:03,972 - INFO - Successfully processed face from face_7.jpg
+    [13] => 2025-05-25 09:16:03,972 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\45\face_8.jpg
+    [14] => 2025-05-25 09:16:04,014 - INFO - Successfully processed face from face_8.jpg
+    [15] => 2025-05-25 09:16:04,014 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\45\face_9.jpg
+    [16] => 2025-05-25 09:16:04,055 - INFO - Successfully processed face from face_9.jpg
+    [17] => 2025-05-25 09:16:04,055 - INFO - Processed 8 faces for student 45
+    [18] => 2025-05-25 09:16:04,056 - INFO - Processing student 99 with label 1
+    [19] => 2025-05-25 09:16:04,056 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\99\face_1.jpg
+    [20] => 2025-05-25 09:16:04,096 - INFO - Successfully processed face from face_1.jpg
+    [21] => 2025-05-25 09:16:04,096 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\99\face_10.jpg
+    [22] => 2025-05-25 09:16:04,141 - INFO - Successfully processed face from face_10.jpg
+    [23] => 2025-05-25 09:16:04,141 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\99\face_2.jpg
+    [24] => 2025-05-25 09:16:04,180 - INFO - Successfully processed face from face_2.jpg
+    [25] => 2025-05-25 09:16:04,181 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\99\face_3.jpg
+    [26] => 2025-05-25 09:16:04,221 - INFO - Successfully processed face from face_3.jpg
+    [27] => 2025-05-25 09:16:04,222 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\99\face_4.jpg
+    [28] => 2025-05-25 09:16:04,263 - INFO - Successfully processed face from face_4.jpg
+    [29] => 2025-05-25 09:16:04,263 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\99\face_5.jpg
+    [30] => 2025-05-25 09:16:04,306 - INFO - Successfully processed face from face_5.jpg
+    [31] => 2025-05-25 09:16:04,306 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\99\face_6.jpg
+    [32] => 2025-05-25 09:16:04,347 - INFO - Successfully processed face from face_6.jpg
+    [33] => 2025-05-25 09:16:04,347 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\99\face_8.jpg
+    [34] => 2025-05-25 09:16:04,387 - INFO - Successfully processed face from face_8.jpg
+    [35] => 2025-05-25 09:16:04,387 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\99\face_9.jpg
+    [36] => 2025-05-25 09:16:04,428 - INFO - Successfully processed face from face_9.jpg
+    [37] => 2025-05-25 09:16:04,428 - INFO - Processed 9 faces for student 99
+    [38] => 2025-05-25 09:16:04,429 - INFO - Processing student 123 with label 2
+    [39] => 2025-05-25 09:16:04,429 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student123\face_1.jpg
+    [40] => 2025-05-25 09:16:04,483 - INFO - Successfully processed face from face_1.jpg
+    [41] => 2025-05-25 09:16:04,483 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student123\face_10.jpg
+    [42] => 2025-05-25 09:16:04,529 - INFO - Successfully processed face from face_10.jpg
+    [43] => 2025-05-25 09:16:04,529 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student123\face_2.jpg
+    [44] => 2025-05-25 09:16:04,581 - INFO - Successfully processed face from face_2.jpg
+    [45] => 2025-05-25 09:16:04,581 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student123\face_3.jpg
+    [46] => 2025-05-25 09:16:04,627 - WARNING - Found 2 faces in face_3.jpg - skipping
+    [47] => 2025-05-25 09:16:04,627 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student123\face_4.jpg
+    [48] => 2025-05-25 09:16:04,683 - INFO - Successfully processed face from face_4.jpg
+    [49] => 2025-05-25 09:16:04,683 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student123\face_5.jpg
+    [50] => 2025-05-25 09:16:04,734 - WARNING - Found 2 faces in face_5.jpg - skipping
+    [51] => 2025-05-25 09:16:04,734 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student123\face_6.jpg
+    [52] => 2025-05-25 09:16:04,788 - INFO - Successfully processed face from face_6.jpg
+    [53] => 2025-05-25 09:16:04,788 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student123\face_7.jpg
+    [54] => 2025-05-25 09:16:04,845 - INFO - Successfully processed face from face_7.jpg
+    [55] => 2025-05-25 09:16:04,845 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student123\face_8.jpg
+    [56] => 2025-05-25 09:16:04,899 - INFO - Successfully processed face from face_8.jpg
+    [57] => 2025-05-25 09:16:04,899 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student123\face_9.jpg
+    [58] => 2025-05-25 09:16:04,957 - INFO - Successfully processed face from face_9.jpg
+    [59] => 2025-05-25 09:16:04,957 - INFO - Processed 8 faces for student 123
+    [60] => 2025-05-25 09:16:04,957 - INFO - Processing student 2 with label 3
+    [61] => 2025-05-25 09:16:04,958 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student2\face_1.jpg
+    [62] => 2025-05-25 09:16:05,003 - INFO - Successfully processed face from face_1.jpg
+    [63] => 2025-05-25 09:16:05,003 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student2\face_10.jpg
+    [64] => 2025-05-25 09:16:05,063 - INFO - Successfully processed face from face_10.jpg
+    [65] => 2025-05-25 09:16:05,064 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student2\face_2.jpg
+    [66] => 2025-05-25 09:16:05,119 - INFO - Successfully processed face from face_2.jpg
+    [67] => 2025-05-25 09:16:05,119 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student2\face_3.jpg
+    [68] => 2025-05-25 09:16:05,174 - INFO - Successfully processed face from face_3.jpg
+    [69] => 2025-05-25 09:16:05,174 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student2\face_4.jpg
+    [70] => 2025-05-25 09:16:05,233 - INFO - Successfully processed face from face_4.jpg
+    [71] => 2025-05-25 09:16:05,234 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student2\face_5.jpg
+    [72] => 2025-05-25 09:16:05,282 - INFO - Successfully processed face from face_5.jpg
+    [73] => 2025-05-25 09:16:05,282 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student2\face_6.jpg
+    [74] => 2025-05-25 09:16:05,333 - INFO - Successfully processed face from face_6.jpg
+    [75] => 2025-05-25 09:16:05,334 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student2\face_7.jpg
+    [76] => 2025-05-25 09:16:05,380 - INFO - Successfully processed face from face_7.jpg
+    [77] => 2025-05-25 09:16:05,380 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student2\face_8.jpg
+    [78] => 2025-05-25 09:16:05,427 - INFO - Successfully processed face from face_8.jpg
+    [79] => 2025-05-25 09:16:05,427 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student2\face_9.jpg
+    [80] => 2025-05-25 09:16:05,480 - INFO - Successfully processed face from face_9.jpg
+    [81] => 2025-05-25 09:16:05,480 - INFO - Processed 10 faces for student 2
+    [82] => 2025-05-25 09:16:05,480 - INFO - Processing student 3 with label 4
+    [83] => 2025-05-25 09:16:05,481 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student3\face_1.jpg
+    [84] => 2025-05-25 09:16:05,529 - WARNING - Found 2 faces in face_1.jpg - skipping
+    [85] => 2025-05-25 09:16:05,529 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student3\face_10.jpg
+    [86] => 2025-05-25 09:16:05,581 - INFO - Successfully processed face from face_10.jpg
+    [87] => 2025-05-25 09:16:05,581 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student3\face_2.jpg
+    [88] => 2025-05-25 09:16:05,630 - INFO - Successfully processed face from face_2.jpg
+    [89] => 2025-05-25 09:16:05,630 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student3\face_3.jpg
+    [90] => 2025-05-25 09:16:05,689 - INFO - Successfully processed face from face_3.jpg
+    [91] => 2025-05-25 09:16:05,689 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student3\face_4.jpg
+    [92] => 2025-05-25 09:16:05,749 - INFO - Successfully processed face from face_4.jpg
+    [93] => 2025-05-25 09:16:05,749 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student3\face_5.jpg
+    [94] => 2025-05-25 09:16:05,808 - WARNING - Found 0 faces in face_5.jpg - skipping
+    [95] => 2025-05-25 09:16:05,809 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student3\face_6.jpg
+    [96] => 2025-05-25 09:16:05,869 - INFO - Successfully processed face from face_6.jpg
+    [97] => 2025-05-25 09:16:05,870 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student3\face_7.jpg
+    [98] => 2025-05-25 09:16:05,936 - INFO - Successfully processed face from face_7.jpg
+    [99] => 2025-05-25 09:16:05,936 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student3\face_8.jpg
+    [100] => 2025-05-25 09:16:06,001 - INFO - Successfully processed face from face_8.jpg
+    [101] => 2025-05-25 09:16:06,001 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student3\face_9.jpg
+    [102] => 2025-05-25 09:16:06,053 - INFO - Successfully processed face from face_9.jpg
+    [103] => 2025-05-25 09:16:06,053 - INFO - Processed 8 faces for student 3
+    [104] => 2025-05-25 09:16:06,054 - INFO - Processing student 4 with label 5
+    [105] => 2025-05-25 09:16:06,054 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student4\face_1.jpg
+    [106] => 2025-05-25 09:16:06,099 - INFO - Successfully processed face from face_1.jpg
+    [107] => 2025-05-25 09:16:06,099 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student4\face_10.jpg
+    [108] => 2025-05-25 09:16:06,147 - INFO - Successfully processed face from face_10.jpg
+    [109] => 2025-05-25 09:16:06,147 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student4\face_2.jpg
+    [110] => 2025-05-25 09:16:06,190 - INFO - Successfully processed face from face_2.jpg
+    [111] => 2025-05-25 09:16:06,191 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student4\face_3.jpg
+    [112] => 2025-05-25 09:16:06,237 - INFO - Successfully processed face from face_3.jpg
+    [113] => 2025-05-25 09:16:06,237 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student4\face_4.jpg
+    [114] => 2025-05-25 09:16:06,289 - INFO - Successfully processed face from face_4.jpg
+    [115] => 2025-05-25 09:16:06,289 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student4\face_5.jpg
+    [116] => 2025-05-25 09:16:06,351 - INFO - Successfully processed face from face_5.jpg
+    [117] => 2025-05-25 09:16:06,351 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student4\face_6.jpg
+    [118] => 2025-05-25 09:16:06,411 - INFO - Successfully processed face from face_6.jpg
+    [119] => 2025-05-25 09:16:06,411 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student4\face_7.jpg
+    [120] => 2025-05-25 09:16:06,473 - INFO - Successfully processed face from face_7.jpg
+    [121] => 2025-05-25 09:16:06,473 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student4\face_8.jpg
+    [122] => 2025-05-25 09:16:06,530 - INFO - Successfully processed face from face_8.jpg
+    [123] => 2025-05-25 09:16:06,530 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student4\face_9.jpg
+    [124] => 2025-05-25 09:16:06,588 - INFO - Successfully processed face from face_9.jpg
+    [125] => 2025-05-25 09:16:06,588 - INFO - Processed 10 faces for student 4
+    [126] => 2025-05-25 09:16:06,588 - INFO - Processing student 5 with label 6
+    [127] => 2025-05-25 09:16:06,589 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student5\face_1.jpg
+    [128] => 2025-05-25 09:16:06,627 - INFO - Successfully processed face from face_1.jpg
+    [129] => 2025-05-25 09:16:06,628 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student5\face_10.jpg
+    [130] => 2025-05-25 09:16:06,661 - INFO - Successfully processed face from face_10.jpg
+    [131] => 2025-05-25 09:16:06,661 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student5\face_2.jpg
+    [132] => 2025-05-25 09:16:06,696 - INFO - Successfully processed face from face_2.jpg
+    [133] => 2025-05-25 09:16:06,696 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student5\face_3.jpg
+    [134] => 2025-05-25 09:16:06,732 - INFO - Successfully processed face from face_3.jpg
+    [135] => 2025-05-25 09:16:06,732 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student5\face_4.jpg
+    [136] => 2025-05-25 09:16:06,777 - INFO - Successfully processed face from face_4.jpg
+    [137] => 2025-05-25 09:16:06,777 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student5\face_5.jpg
+    [138] => 2025-05-25 09:16:06,819 - INFO - Successfully processed face from face_5.jpg
+    [139] => 2025-05-25 09:16:06,819 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student5\face_6.jpg
+    [140] => 2025-05-25 09:16:06,857 - INFO - Successfully processed face from face_6.jpg
+    [141] => 2025-05-25 09:16:06,857 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student5\face_7.jpg
+    [142] => 2025-05-25 09:16:06,890 - INFO - Successfully processed face from face_7.jpg
+    [143] => 2025-05-25 09:16:06,890 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student5\face_8.jpg
+    [144] => 2025-05-25 09:16:06,921 - INFO - Successfully processed face from face_8.jpg
+    [145] => 2025-05-25 09:16:06,922 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student5\face_9.jpg
+    [146] => 2025-05-25 09:16:06,950 - INFO - Successfully processed face from face_9.jpg
+    [147] => 2025-05-25 09:16:06,950 - INFO - Processed 10 faces for student 5
+    [148] => 2025-05-25 09:16:06,951 - INFO - Processing student 8 with label 7
+    [149] => 2025-05-25 09:16:06,956 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student8\face_1.jpg
+    [150] => 2025-05-25 09:16:07,015 - INFO - Successfully processed face from face_1.jpg
+    [151] => 2025-05-25 09:16:07,015 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student8\face_10.jpg
+    [152] => 2025-05-25 09:16:07,084 - INFO - Successfully processed face from face_10.jpg
+    [153] => 2025-05-25 09:16:07,085 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student8\face_2.jpg
+    [154] => 2025-05-25 09:16:07,152 - INFO - Successfully processed face from face_2.jpg
+    [155] => 2025-05-25 09:16:07,152 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student8\face_3.jpg
+    [156] => 2025-05-25 09:16:07,225 - INFO - Successfully processed face from face_3.jpg
+    [157] => 2025-05-25 09:16:07,225 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student8\face_4.jpg
+    [158] => 2025-05-25 09:16:07,285 - INFO - Successfully processed face from face_4.jpg
+    [159] => 2025-05-25 09:16:07,285 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student8\face_5.jpg
+    [160] => 2025-05-25 09:16:07,342 - INFO - Successfully processed face from face_5.jpg
+    [161] => 2025-05-25 09:16:07,342 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student8\face_6.jpg
+    [162] => 2025-05-25 09:16:07,401 - INFO - Successfully processed face from face_6.jpg
+    [163] => 2025-05-25 09:16:07,401 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student8\face_7.jpg
+    [164] => 2025-05-25 09:16:07,455 - INFO - Successfully processed face from face_7.jpg
+    [165] => 2025-05-25 09:16:07,456 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student8\face_8.jpg
+    [166] => 2025-05-25 09:16:07,524 - INFO - Successfully processed face from face_8.jpg
+    [167] => 2025-05-25 09:16:07,524 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student8\face_9.jpg
+    [168] => 2025-05-25 09:16:07,597 - INFO - Successfully processed face from face_9.jpg
+    [169] => 2025-05-25 09:16:07,597 - INFO - Processed 10 faces for student 8
+    [170] => 2025-05-25 09:16:07,597 - INFO - Training model with 438 faces...
+    [171] => 2025-05-25 09:16:09,868 - INFO - Training successful: Model trained with 438 faces from 8 students
+)
+
+2025-05-25 05:31:09 - Return code: 0
+2025-05-25 05:31:09 - Student registration completed successfully
+2025-05-25 05:54:41 - Starting student registration process
+2025-05-25 05:54:41 - Student details: {"name":"Shreebisha Shrestha","reg":"1"}
+2025-05-25 05:54:41 - Base directory: C:\xampp\htdocs\trys\attendance-project
+2025-05-25 05:54:41 - Python script path: C:\xampp\htdocs\trys\attendance-project/python/realtime_recognition.py
+2025-05-25 05:54:41 - Creating student directory: C:\xampp\htdocs\trys\attendance-project/students/1
+2025-05-25 05:54:41 - Creating student directory: C:\xampp\htdocs\trys\attendance-project/validated_faces/student1
+2025-05-25 05:54:41 - Creating student directory: resources/labels/1
+2025-05-25 05:54:41 - Processing image 1 for student 1
+2025-05-25 05:54:41 - Saved image to: C:\xampp\htdocs\trys\attendance-project/students/1/face_1.jpg
+2025-05-25 05:54:41 - Saved image to: C:\xampp\htdocs\trys\attendance-project/validated_faces/student1/face_1.jpg
+2025-05-25 05:54:41 - Saved image to: resources/labels/1/face_1.jpg
+2025-05-25 05:54:41 - Processing image 2 for student 1
+2025-05-25 05:54:41 - Saved image to: C:\xampp\htdocs\trys\attendance-project/students/1/face_2.jpg
+2025-05-25 05:54:41 - Saved image to: C:\xampp\htdocs\trys\attendance-project/validated_faces/student1/face_2.jpg
+2025-05-25 05:54:41 - Saved image to: resources/labels/1/face_2.jpg
+2025-05-25 05:54:41 - Processing image 3 for student 1
+2025-05-25 05:54:41 - Saved image to: C:\xampp\htdocs\trys\attendance-project/students/1/face_3.jpg
+2025-05-25 05:54:41 - Saved image to: C:\xampp\htdocs\trys\attendance-project/validated_faces/student1/face_3.jpg
+2025-05-25 05:54:41 - Saved image to: resources/labels/1/face_3.jpg
+2025-05-25 05:54:41 - Processing image 4 for student 1
+2025-05-25 05:54:41 - Saved image to: C:\xampp\htdocs\trys\attendance-project/students/1/face_4.jpg
+2025-05-25 05:54:41 - Saved image to: C:\xampp\htdocs\trys\attendance-project/validated_faces/student1/face_4.jpg
+2025-05-25 05:54:41 - Saved image to: resources/labels/1/face_4.jpg
+2025-05-25 05:54:41 - Processing image 5 for student 1
+2025-05-25 05:54:41 - Saved image to: C:\xampp\htdocs\trys\attendance-project/students/1/face_5.jpg
+2025-05-25 05:54:41 - Saved image to: C:\xampp\htdocs\trys\attendance-project/validated_faces/student1/face_5.jpg
+2025-05-25 05:54:41 - Saved image to: resources/labels/1/face_5.jpg
+2025-05-25 05:54:41 - Processing image 6 for student 1
+2025-05-25 05:54:41 - Saved image to: C:\xampp\htdocs\trys\attendance-project/students/1/face_6.jpg
+2025-05-25 05:54:41 - Saved image to: C:\xampp\htdocs\trys\attendance-project/validated_faces/student1/face_6.jpg
+2025-05-25 05:54:41 - Saved image to: resources/labels/1/face_6.jpg
+2025-05-25 05:54:41 - Processing image 7 for student 1
+2025-05-25 05:54:41 - Saved image to: C:\xampp\htdocs\trys\attendance-project/students/1/face_7.jpg
+2025-05-25 05:54:41 - Saved image to: C:\xampp\htdocs\trys\attendance-project/validated_faces/student1/face_7.jpg
+2025-05-25 05:54:41 - Saved image to: resources/labels/1/face_7.jpg
+2025-05-25 05:54:41 - Processing image 8 for student 1
+2025-05-25 05:54:41 - Saved image to: C:\xampp\htdocs\trys\attendance-project/students/1/face_8.jpg
+2025-05-25 05:54:41 - Saved image to: C:\xampp\htdocs\trys\attendance-project/validated_faces/student1/face_8.jpg
+2025-05-25 05:54:41 - Saved image to: resources/labels/1/face_8.jpg
+2025-05-25 05:54:41 - Processing image 9 for student 1
+2025-05-25 05:54:41 - Saved image to: C:\xampp\htdocs\trys\attendance-project/students/1/face_9.jpg
+2025-05-25 05:54:41 - Saved image to: C:\xampp\htdocs\trys\attendance-project/validated_faces/student1/face_9.jpg
+2025-05-25 05:54:41 - Saved image to: resources/labels/1/face_9.jpg
+2025-05-25 05:54:41 - Processing image 10 for student 1
+2025-05-25 05:54:41 - Saved image to: C:\xampp\htdocs\trys\attendance-project/students/1/face_10.jpg
+2025-05-25 05:54:41 - Saved image to: C:\xampp\htdocs\trys\attendance-project/validated_faces/student1/face_10.jpg
+2025-05-25 05:54:41 - Saved image to: resources/labels/1/face_10.jpg
+2025-05-25 05:54:41 - Saved student info files
+2025-05-25 05:54:41 - Executing command: python "C:\xampp\htdocs\trys\attendance-project/python/realtime_recognition.py" --train
+2025-05-25 05:54:48 - Command output: Array
+(
+    [0] => 2025-05-25 09:39:41,965 - INFO - Processing student 45 with label 0
+    [1] => 2025-05-25 09:39:41,966 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\45\face_1.jpg
+    [2] => 2025-05-25 09:39:42,241 - INFO - Successfully processed face from face_1.jpg
+    [3] => 2025-05-25 09:39:42,241 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\45\face_10.jpg
+    [4] => 2025-05-25 09:39:42,287 - INFO - Successfully processed face from face_10.jpg
+    [5] => 2025-05-25 09:39:42,287 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\45\face_4.jpg
+    [6] => 2025-05-25 09:39:42,330 - INFO - Successfully processed face from face_4.jpg
+    [7] => 2025-05-25 09:39:42,330 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\45\face_5.jpg
+    [8] => 2025-05-25 09:39:42,370 - INFO - Successfully processed face from face_5.jpg
+    [9] => 2025-05-25 09:39:42,370 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\45\face_6.jpg
+    [10] => 2025-05-25 09:39:42,408 - INFO - Successfully processed face from face_6.jpg
+    [11] => 2025-05-25 09:39:42,408 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\45\face_7.jpg
+    [12] => 2025-05-25 09:39:42,448 - INFO - Successfully processed face from face_7.jpg
+    [13] => 2025-05-25 09:39:42,448 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\45\face_8.jpg
+    [14] => 2025-05-25 09:39:42,488 - INFO - Successfully processed face from face_8.jpg
+    [15] => 2025-05-25 09:39:42,488 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\45\face_9.jpg
+    [16] => 2025-05-25 09:39:42,529 - INFO - Successfully processed face from face_9.jpg
+    [17] => 2025-05-25 09:39:42,529 - INFO - Processed 8 faces for student 45
+    [18] => 2025-05-25 09:39:42,529 - INFO - Processing student 99 with label 1
+    [19] => 2025-05-25 09:39:42,530 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\99\face_1.jpg
+    [20] => 2025-05-25 09:39:42,569 - INFO - Successfully processed face from face_1.jpg
+    [21] => 2025-05-25 09:39:42,569 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\99\face_10.jpg
+    [22] => 2025-05-25 09:39:42,609 - INFO - Successfully processed face from face_10.jpg
+    [23] => 2025-05-25 09:39:42,609 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\99\face_2.jpg
+    [24] => 2025-05-25 09:39:42,646 - INFO - Successfully processed face from face_2.jpg
+    [25] => 2025-05-25 09:39:42,647 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\99\face_3.jpg
+    [26] => 2025-05-25 09:39:42,684 - INFO - Successfully processed face from face_3.jpg
+    [27] => 2025-05-25 09:39:42,685 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\99\face_4.jpg
+    [28] => 2025-05-25 09:39:42,733 - INFO - Successfully processed face from face_4.jpg
+    [29] => 2025-05-25 09:39:42,733 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\99\face_5.jpg
+    [30] => 2025-05-25 09:39:42,773 - INFO - Successfully processed face from face_5.jpg
+    [31] => 2025-05-25 09:39:42,774 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\99\face_6.jpg
+    [32] => 2025-05-25 09:39:42,814 - INFO - Successfully processed face from face_6.jpg
+    [33] => 2025-05-25 09:39:42,814 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\99\face_8.jpg
+    [34] => 2025-05-25 09:39:42,855 - INFO - Successfully processed face from face_8.jpg
+    [35] => 2025-05-25 09:39:42,856 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\99\face_9.jpg
+    [36] => 2025-05-25 09:39:42,899 - INFO - Successfully processed face from face_9.jpg
+    [37] => 2025-05-25 09:39:42,899 - INFO - Processed 9 faces for student 99
+    [38] => 2025-05-25 09:39:42,899 - INFO - Processing student 1 with label 2
+    [39] => 2025-05-25 09:39:42,899 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student1\face_1.jpg
+    [40] => 2025-05-25 09:39:42,947 - INFO - Successfully processed face from face_1.jpg
+    [41] => 2025-05-25 09:39:42,947 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student1\face_10.jpg
+    [42] => 2025-05-25 09:39:42,987 - INFO - Successfully processed face from face_10.jpg
+    [43] => 2025-05-25 09:39:42,988 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student1\face_2.jpg
+    [44] => 2025-05-25 09:39:43,032 - INFO - Successfully processed face from face_2.jpg
+    [45] => 2025-05-25 09:39:43,032 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student1\face_3.jpg
+    [46] => 2025-05-25 09:39:43,073 - INFO - Successfully processed face from face_3.jpg
+    [47] => 2025-05-25 09:39:43,073 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student1\face_4.jpg
+    [48] => 2025-05-25 09:39:43,115 - INFO - Successfully processed face from face_4.jpg
+    [49] => 2025-05-25 09:39:43,115 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student1\face_5.jpg
+    [50] => 2025-05-25 09:39:43,157 - INFO - Successfully processed face from face_5.jpg
+    [51] => 2025-05-25 09:39:43,158 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student1\face_6.jpg
+    [52] => 2025-05-25 09:39:43,198 - INFO - Successfully processed face from face_6.jpg
+    [53] => 2025-05-25 09:39:43,198 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student1\face_7.jpg
+    [54] => 2025-05-25 09:39:43,238 - INFO - Successfully processed face from face_7.jpg
+    [55] => 2025-05-25 09:39:43,238 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student1\face_8.jpg
+    [56] => 2025-05-25 09:39:43,283 - INFO - Successfully processed face from face_8.jpg
+    [57] => 2025-05-25 09:39:43,283 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student1\face_9.jpg
+    [58] => 2025-05-25 09:39:43,324 - INFO - Successfully processed face from face_9.jpg
+    [59] => 2025-05-25 09:39:43,324 - INFO - Processed 10 faces for student 1
+    [60] => 2025-05-25 09:39:43,325 - INFO - Processing student 123 with label 3
+    [61] => 2025-05-25 09:39:43,325 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student123\face_1.jpg
+    [62] => 2025-05-25 09:39:43,364 - INFO - Successfully processed face from face_1.jpg
+    [63] => 2025-05-25 09:39:43,364 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student123\face_10.jpg
+    [64] => 2025-05-25 09:39:43,403 - INFO - Successfully processed face from face_10.jpg
+    [65] => 2025-05-25 09:39:43,404 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student123\face_2.jpg
+    [66] => 2025-05-25 09:39:43,443 - INFO - Successfully processed face from face_2.jpg
+    [67] => 2025-05-25 09:39:43,443 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student123\face_3.jpg
+    [68] => 2025-05-25 09:39:43,487 - WARNING - Found 2 faces in face_3.jpg - skipping
+    [69] => 2025-05-25 09:39:43,487 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student123\face_4.jpg
+    [70] => 2025-05-25 09:39:43,529 - INFO - Successfully processed face from face_4.jpg
+    [71] => 2025-05-25 09:39:43,529 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student123\face_5.jpg
+    [72] => 2025-05-25 09:39:43,566 - WARNING - Found 2 faces in face_5.jpg - skipping
+    [73] => 2025-05-25 09:39:43,567 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student123\face_6.jpg
+    [74] => 2025-05-25 09:39:43,607 - INFO - Successfully processed face from face_6.jpg
+    [75] => 2025-05-25 09:39:43,607 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student123\face_7.jpg
+    [76] => 2025-05-25 09:39:43,649 - INFO - Successfully processed face from face_7.jpg
+    [77] => 2025-05-25 09:39:43,649 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student123\face_8.jpg
+    [78] => 2025-05-25 09:39:43,689 - INFO - Successfully processed face from face_8.jpg
+    [79] => 2025-05-25 09:39:43,689 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student123\face_9.jpg
+    [80] => 2025-05-25 09:39:43,728 - INFO - Successfully processed face from face_9.jpg
+    [81] => 2025-05-25 09:39:43,728 - INFO - Processed 8 faces for student 123
+    [82] => 2025-05-25 09:39:43,728 - INFO - Processing student 2 with label 4
+    [83] => 2025-05-25 09:39:43,729 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student2\face_1.jpg
+    [84] => 2025-05-25 09:39:43,766 - INFO - Successfully processed face from face_1.jpg
+    [85] => 2025-05-25 09:39:43,766 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student2\face_10.jpg
+    [86] => 2025-05-25 09:39:43,805 - INFO - Successfully processed face from face_10.jpg
+    [87] => 2025-05-25 09:39:43,805 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student2\face_2.jpg
+    [88] => 2025-05-25 09:39:43,847 - INFO - Successfully processed face from face_2.jpg
+    [89] => 2025-05-25 09:39:43,847 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student2\face_3.jpg
+    [90] => 2025-05-25 09:39:43,886 - INFO - Successfully processed face from face_3.jpg
+    [91] => 2025-05-25 09:39:43,886 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student2\face_4.jpg
+    [92] => 2025-05-25 09:39:43,925 - INFO - Successfully processed face from face_4.jpg
+    [93] => 2025-05-25 09:39:43,925 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student2\face_5.jpg
+    [94] => 2025-05-25 09:39:43,966 - INFO - Successfully processed face from face_5.jpg
+    [95] => 2025-05-25 09:39:43,967 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student2\face_6.jpg
+    [96] => 2025-05-25 09:39:44,006 - INFO - Successfully processed face from face_6.jpg
+    [97] => 2025-05-25 09:39:44,006 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student2\face_7.jpg
+    [98] => 2025-05-25 09:39:44,045 - INFO - Successfully processed face from face_7.jpg
+    [99] => 2025-05-25 09:39:44,045 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student2\face_8.jpg
+    [100] => 2025-05-25 09:39:44,084 - INFO - Successfully processed face from face_8.jpg
+    [101] => 2025-05-25 09:39:44,085 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student2\face_9.jpg
+    [102] => 2025-05-25 09:39:44,123 - INFO - Successfully processed face from face_9.jpg
+    [103] => 2025-05-25 09:39:44,123 - INFO - Processed 10 faces for student 2
+    [104] => 2025-05-25 09:39:44,124 - INFO - Processing student 3 with label 5
+    [105] => 2025-05-25 09:39:44,124 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student3\face_1.jpg
+    [106] => 2025-05-25 09:39:44,164 - WARNING - Found 2 faces in face_1.jpg - skipping
+    [107] => 2025-05-25 09:39:44,164 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student3\face_10.jpg
+    [108] => 2025-05-25 09:39:44,207 - INFO - Successfully processed face from face_10.jpg
+    [109] => 2025-05-25 09:39:44,207 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student3\face_2.jpg
+    [110] => 2025-05-25 09:39:44,246 - INFO - Successfully processed face from face_2.jpg
+    [111] => 2025-05-25 09:39:44,246 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student3\face_3.jpg
+    [112] => 2025-05-25 09:39:44,286 - INFO - Successfully processed face from face_3.jpg
+    [113] => 2025-05-25 09:39:44,286 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student3\face_4.jpg
+    [114] => 2025-05-25 09:39:44,328 - INFO - Successfully processed face from face_4.jpg
+    [115] => 2025-05-25 09:39:44,328 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student3\face_5.jpg
+    [116] => 2025-05-25 09:39:44,366 - WARNING - Found 0 faces in face_5.jpg - skipping
+    [117] => 2025-05-25 09:39:44,366 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student3\face_6.jpg
+    [118] => 2025-05-25 09:39:44,408 - INFO - Successfully processed face from face_6.jpg
+    [119] => 2025-05-25 09:39:44,408 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student3\face_7.jpg
+    [120] => 2025-05-25 09:39:44,451 - INFO - Successfully processed face from face_7.jpg
+    [121] => 2025-05-25 09:39:44,451 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student3\face_8.jpg
+    [122] => 2025-05-25 09:39:44,496 - INFO - Successfully processed face from face_8.jpg
+    [123] => 2025-05-25 09:39:44,496 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student3\face_9.jpg
+    [124] => 2025-05-25 09:39:44,539 - INFO - Successfully processed face from face_9.jpg
+    [125] => 2025-05-25 09:39:44,539 - INFO - Processed 8 faces for student 3
+    [126] => 2025-05-25 09:39:44,539 - INFO - Processing student 4 with label 6
+    [127] => 2025-05-25 09:39:44,540 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student4\face_1.jpg
+    [128] => 2025-05-25 09:39:44,570 - INFO - Successfully processed face from face_1.jpg
+    [129] => 2025-05-25 09:39:44,570 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student4\face_10.jpg
+    [130] => 2025-05-25 09:39:44,601 - INFO - Successfully processed face from face_10.jpg
+    [131] => 2025-05-25 09:39:44,602 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student4\face_2.jpg
+    [132] => 2025-05-25 09:39:44,635 - INFO - Successfully processed face from face_2.jpg
+    [133] => 2025-05-25 09:39:44,635 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student4\face_3.jpg
+    [134] => 2025-05-25 09:39:44,665 - INFO - Successfully processed face from face_3.jpg
+    [135] => 2025-05-25 09:39:44,665 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student4\face_4.jpg
+    [136] => 2025-05-25 09:39:44,695 - INFO - Successfully processed face from face_4.jpg
+    [137] => 2025-05-25 09:39:44,695 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student4\face_5.jpg
+    [138] => 2025-05-25 09:39:44,726 - INFO - Successfully processed face from face_5.jpg
+    [139] => 2025-05-25 09:39:44,726 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student4\face_6.jpg
+    [140] => 2025-05-25 09:39:44,756 - INFO - Successfully processed face from face_6.jpg
+    [141] => 2025-05-25 09:39:44,756 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student4\face_7.jpg
+    [142] => 2025-05-25 09:39:44,787 - INFO - Successfully processed face from face_7.jpg
+    [143] => 2025-05-25 09:39:44,787 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student4\face_8.jpg
+    [144] => 2025-05-25 09:39:44,818 - INFO - Successfully processed face from face_8.jpg
+    [145] => 2025-05-25 09:39:44,818 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student4\face_9.jpg
+    [146] => 2025-05-25 09:39:44,848 - INFO - Successfully processed face from face_9.jpg
+    [147] => 2025-05-25 09:39:44,848 - INFO - Processed 10 faces for student 4
+    [148] => 2025-05-25 09:39:44,849 - INFO - Processing student 5 with label 7
+    [149] => 2025-05-25 09:39:44,850 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student5\face_1.jpg
+    [150] => 2025-05-25 09:39:44,879 - INFO - Successfully processed face from face_1.jpg
+    [151] => 2025-05-25 09:39:44,879 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student5\face_10.jpg
+    [152] => 2025-05-25 09:39:44,912 - INFO - Successfully processed face from face_10.jpg
+    [153] => 2025-05-25 09:39:44,912 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student5\face_2.jpg
+    [154] => 2025-05-25 09:39:44,956 - INFO - Successfully processed face from face_2.jpg
+    [155] => 2025-05-25 09:39:44,956 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student5\face_3.jpg
+    [156] => 2025-05-25 09:39:44,999 - INFO - Successfully processed face from face_3.jpg
+    [157] => 2025-05-25 09:39:44,999 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student5\face_4.jpg
+    [158] => 2025-05-25 09:39:45,043 - INFO - Successfully processed face from face_4.jpg
+    [159] => 2025-05-25 09:39:45,043 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student5\face_5.jpg
+    [160] => 2025-05-25 09:39:45,088 - INFO - Successfully processed face from face_5.jpg
+    [161] => 2025-05-25 09:39:45,088 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student5\face_6.jpg
+    [162] => 2025-05-25 09:39:45,124 - INFO - Successfully processed face from face_6.jpg
+    [163] => 2025-05-25 09:39:45,124 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student5\face_7.jpg
+    [164] => 2025-05-25 09:39:45,166 - INFO - Successfully processed face from face_7.jpg
+    [165] => 2025-05-25 09:39:45,166 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student5\face_8.jpg
+    [166] => 2025-05-25 09:39:45,204 - INFO - Successfully processed face from face_8.jpg
+    [167] => 2025-05-25 09:39:45,204 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student5\face_9.jpg
+    [168] => 2025-05-25 09:39:45,240 - INFO - Successfully processed face from face_9.jpg
+    [169] => 2025-05-25 09:39:45,240 - INFO - Processed 10 faces for student 5
+    [170] => 2025-05-25 09:39:45,240 - INFO - Processing student 8 with label 8
+    [171] => 2025-05-25 09:39:45,241 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student8\face_1.jpg
+    [172] => 2025-05-25 09:39:45,290 - INFO - Successfully processed face from face_1.jpg
+    [173] => 2025-05-25 09:39:45,290 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student8\face_10.jpg
+    [174] => 2025-05-25 09:39:45,341 - INFO - Successfully processed face from face_10.jpg
+    [175] => 2025-05-25 09:39:45,341 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student8\face_2.jpg
+    [176] => 2025-05-25 09:39:45,388 - INFO - Successfully processed face from face_2.jpg
+    [177] => 2025-05-25 09:39:45,388 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student8\face_3.jpg
+    [178] => 2025-05-25 09:39:45,438 - INFO - Successfully processed face from face_3.jpg
+    [179] => 2025-05-25 09:39:45,438 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student8\face_4.jpg
+    [180] => 2025-05-25 09:39:45,487 - INFO - Successfully processed face from face_4.jpg
+    [181] => 2025-05-25 09:39:45,487 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student8\face_5.jpg
+    [182] => 2025-05-25 09:39:45,537 - INFO - Successfully processed face from face_5.jpg
+    [183] => 2025-05-25 09:39:45,537 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student8\face_6.jpg
+    [184] => 2025-05-25 09:39:45,588 - INFO - Successfully processed face from face_6.jpg
+    [185] => 2025-05-25 09:39:45,588 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student8\face_7.jpg
+    [186] => 2025-05-25 09:39:45,636 - INFO - Successfully processed face from face_7.jpg
+    [187] => 2025-05-25 09:39:45,636 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student8\face_8.jpg
+    [188] => 2025-05-25 09:39:45,680 - INFO - Successfully processed face from face_8.jpg
+    [189] => 2025-05-25 09:39:45,680 - INFO - Processing image: C:\xampp\htdocs\trys\attendance-project\validated_faces\student8\face_9.jpg
+    [190] => 2025-05-25 09:39:45,718 - INFO - Successfully processed face from face_9.jpg
+    [191] => 2025-05-25 09:39:45,718 - INFO - Processed 10 faces for student 8
+    [192] => 2025-05-25 09:39:45,718 - INFO - Training model with 498 faces...
+    [193] => 2025-05-25 09:39:48,144 - INFO - Training successful: Model trained with 498 faces from 9 students
+)
+
+2025-05-25 05:54:48 - Return code: 0
+2025-05-25 05:54:48 - Student registration completed successfully
