@@ -41,7 +41,8 @@ foreach ($faces as $index => $facePath) {
 }
 
 // Train LBPH model
-$command = "python train_model.py " . escapeshellarg($studentId);
+$pythonScript = __DIR__ . '/python/realtime_recognition.py';
+$command = "python \"$pythonScript\" --train";
 $output = shell_exec($command);
 $result = json_decode($output, true);
 

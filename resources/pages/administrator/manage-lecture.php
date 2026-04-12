@@ -1,4 +1,4 @@
-nt<?php
+<?php
 
 if (isset($_POST["addLecture"])) {
     // Securely handle input
@@ -46,6 +46,70 @@ if (isset($_POST["addLecture"])) {
     }
 }
 
+if (isset($_POST["editLecture"])) {
+    $lectureId = filter_var($_POST["lectureId"], FILTER_VALIDATE_INT);
+    $firstName = htmlspecialchars(trim($_POST["firstName"]));
+    $lastName = htmlspecialchars(trim($_POST["lastName"]));
+    $email = filter_var(trim($_POST["email"]), FILTER_VALIDATE_EMAIL);
+    $phoneNumber = htmlspecialchars(trim($_POST["phoneNumber"]));
+    $faculty = htmlspecialchars(trim($_POST["faculty"]));
+    $password = $_POST["password"];
+
+    if ($lectureId && $email && $firstName && $lastName && $phoneNumber && $faculty) {
+        try {
+            // Check if email exists for other lectures
+            $query = $pdo->prepare("SELECT * FROM tbllecture WHERE emailAddress = :email AND Id != :id");
+            $query->bindParam(':email', $email);
+            $query->bindParam(':id', $lectureId);
+            $query->execute();
+
+            if ($query->rowCount() > 0) {
+                $_SESSION['message'] = "Email already exists for another lecture";
+            } else {
+                // Prepare base query without password
+                $sql = "UPDATE tbllecture SET 
+                        firstName = :firstName,
+                        lastName = :lastName,
+                        emailAddress = :email,
+                        phoneNo = :phoneNumber,
+                        facultyCode = :faculty";
+
+                // Add password to query if it's provided
+                if (!empty($password)) {
+                    $sql .= ", password = :password";
+                }
+
+                $sql .= " WHERE Id = :id";
+
+                $query = $pdo->prepare($sql);
+
+                // Bind parameters
+                $params = [
+                    ':firstName' => $firstName,
+                    ':lastName' => $lastName,
+                    ':email' => $email,
+                    ':phoneNumber' => $phoneNumber,
+                    ':faculty' => $faculty,
+                    ':id' => $lectureId
+                ];
+
+                // Add password to parameters if provided
+                if (!empty($password)) {
+                    $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+                    $params[':password'] = $hashedPassword;
+                }
+
+                $query->execute($params);
+                $_SESSION['message'] = "Lecture Updated Successfully";
+            }
+        } catch (PDOException $e) {
+            $_SESSION['message'] = "Error: " . $e->getMessage();
+        }
+    } else {
+        $_SESSION['message'] = "Invalid input. Please check your data.";
+    }
+}
+
 ?>
 
 
@@ -55,7 +119,7 @@ if (isset($_POST["addLecture"])) {
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="resources/images/logo/attnlg.png" rel="icon">
+    <link href="resources/images/logo/face logo.png" rel="icon">
 
     <title>AMS - Dashboard</title>
     <link rel="stylesheet" href="resources/assets/css/admin_styles.css">
@@ -92,32 +156,41 @@ if (isset($_POST["addLecture"])) {
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <?php
-                                $sql = "SELECT * FROM tbllecture";
-                                $result = fetch($sql);
-                                if ($result) {
-                                    foreach ($result as $row) {
-                                        echo "<tr id='rowlecture{$row["Id"]}'>";
-                                        echo "<td>" . $row["firstName"] . "</td>";
-                                        echo "<td>" . $row["emailAddress"] . "</td>";
-                                        echo "<td>" . $row["phoneNo"] . "</td>";
-                                        echo "<td>" . $row["facultyCode"] . "</td>";
-                                        echo "<td>" . $row["dateCreated"] . "</td>";
-                                        echo "<td><span><i class='ri-delete-bin-line delete' data-id='{$row["Id"]}' data-name='lecture'></i></span></td>";
-                                        echo "</tr>";
-                                    }
-                                } else {
-                                    echo "<tr><td colspan='6'>No records found</td></tr>";
+                            <?php
+                            $sql = "SELECT * FROM tbllecture";
+                            $result = fetch($sql);
+                            if ($result) {
+                                foreach ($result as $row) {
+                                    echo "<tr id='rowlecture{$row["Id"]}'>";
+                                    echo "<td>" . $row["firstName"] . " " . $row["lastName"] . "</td>";
+                                    echo "<td>" . $row["emailAddress"] . "</td>";
+                                    echo "<td>" . $row["phoneNo"] . "</td>";
+                                    echo "<td>" . $row["facultyCode"] . "</td>";
+                                    echo "<td>" . $row["dateCreated"] . "</td>";
+                                    echo "<td>
+                                            <span>
+                                                <i class='ri-edit-line edit' 
+                                                   data-id='{$row["Id"]}' 
+                                                   data-name='lecture'
+                                                   data-firstname='{$row["firstName"]}'
+                                                   data-lastname='{$row["lastName"]}'
+                                                   data-email='{$row["emailAddress"]}'
+                                                   data-phone='{$row["phoneNo"]}'
+                                                   data-faculty='{$row["facultyCode"]}'></i>
+                                                <i class='ri-delete-bin-line delete' data-id='{$row["Id"]}' data-name='lecture'></i>
+                                            </span>
+                                          </td>";
+                                    echo "</tr>";
                                 }
-
-                                ?>
-
+                            } else {
+                                echo "<tr><td colspan='6'>No records found</td></tr>";
+                            }
+                            ?>
                         </tbody>
                     </table>
                 </div>
             </div>
-            <div class="formDiv--" id="form" style="display:none; ">
+            <div class="formDiv" id="form" style="display:none; ">
                 <form method="POST" action="" name="addLecture" enctype="multipart/form-data">
                     <div style="display:flex; justify-content:space-around;">
                         <div class="form-title">
@@ -146,12 +219,96 @@ if (isset($_POST["addLecture"])) {
                 </form>
             </div>
 
+            <!-- Edit Form -->
+            <div class="formDiv" id="editForm" style="display:none; height: 500px;">
+                <form method="POST" action="" name="editLecture" enctype="multipart/form-data">
+                    <div style="display:flex; justify-content:space-around;">
+                        <div class="form-title">
+                            <p>Edit Lecture</p>
+                        </div>
+                        <div>
+                            <span class="close">&times;</span>
+                        </div>
+                    </div>
+                    <input type="hidden" name="lectureId" id="editLectureId">
+                    <input type="text" name="firstName" id="editFirstName" placeholder="First Name" required>
+                    <input type="text" name="lastName" id="editLastName" placeholder="Last Name" required>
+                    <input type="email" name="email" id="editEmail" placeholder="Email Address" required>
+                    <input type="text" name="phoneNumber" id="editPhoneNumber" placeholder="Phone Number" required>
+                    <input type="password" name="password" id="editPassword"
+                        placeholder="New Password (leave empty to keep current)">
+                    <select required name="faculty" id="editFaculty">
+                        <option value="">Select Faculty</option>
+                        <?php
+                        $facultyNames = getFacultyNames();
+                        foreach ($facultyNames as $faculty) {
+                            echo '<option value="' . $faculty["facultyCode"] . '">' . $faculty["facultyName"] . '</option>';
+                        }
+                        ?>
+                    </select>
+                    <input type="submit" class="submit" value="Update Lecture" name="editLecture">
+                </form>
+            </div>
+
 
 
     </section>
 
     <?php js_asset(["admin_functions", "active_link", "delete_request", "script"]) ?>
 
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const addForm = document.getElementById('form');
+            const editForm = document.getElementById('editForm');
+            const overlay = document.getElementById('overlay');
+            const showButton = document.querySelector('#showButton .add');
+            const closeButtons = document.querySelectorAll('.close');
+
+            // Show add form
+            showButton.addEventListener('click', function () {
+                addForm.style.display = 'block';
+                overlay.style.display = 'block';
+            });
+
+            // Handle edit button clicks
+            document.querySelectorAll('.edit').forEach(function (editIcon) {
+                editIcon.addEventListener('click', function () {
+                    const id = this.getAttribute('data-id');
+
+                    // Populate the edit form
+                    document.getElementById('editLectureId').value = id;
+                    document.getElementById('editFirstName').value = this.getAttribute('data-firstname');
+                    document.getElementById('editLastName').value = this.getAttribute('data-lastname');
+                    document.getElementById('editEmail').value = this.getAttribute('data-email');
+                    document.getElementById('editPhoneNumber').value = this.getAttribute('data-phone');
+                    document.getElementById('editFaculty').value = this.getAttribute('data-faculty');
+                    document.getElementById('editPassword').value = ''; // Clear password field
+
+                    // Show the edit form
+                    editForm.style.display = 'block';
+                    overlay.style.display = 'block';
+                });
+            });
+
+            // Close forms
+            closeButtons.forEach(function (closeButton) {
+                closeButton.addEventListener('click', function () {
+                    addForm.style.display = 'none';
+                    editForm.style.display = 'none';
+                    overlay.style.display = 'none';
+                });
+            });
+
+            // Close forms when clicking overlay
+            overlay.addEventListener('click', function () {
+                addForm.style.display = 'none';
+                editForm.style.display = 'none';
+                overlay.style.display = 'none';
+            });
+        });
+    </script>
 
 </body>
 

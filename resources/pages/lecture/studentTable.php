@@ -32,7 +32,7 @@
                         echo "<td>" . $unitID . "</td>";
                         echo "<td>" . $venueID . "</td>";
                         echo "<td class='attendance-status'>Absent</td>";
-                        echo "<td><span><i class='ri-edit-line edit'></i><i class='ri-delete-bin-line delete'></i></span></td>";
+                        echo "<td><span><i class='ri-delete-bin-line delete' onclick='confirmMarkAbsent(this, \"$registrationNumber\", \"$courseID\", \"$unitID\")'></i></span></td>";
                         echo "</tr>";
                     }
                 } else {

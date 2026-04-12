@@ -2,28 +2,39 @@
 
 $courseCode = isset($_GET['course']) ? $_GET['course'] : '';
 $unitCode = isset($_GET['unit']) ? $_GET['unit'] : '';
+$today = date('Y-m-d');
 
-$studentRows = fetchStudentRecordsFromDatabase($courseCode, $unitCode);
-
+// Get course name
 $coursename = "";
 if (!empty($courseCode)) {
-    $coursename_query = "SELECT name FROM tblcourse WHERE courseCode = '$courseCode'";
-    $result = fetch($coursename_query);
-    foreach ($result as $row) {
-
-        $coursename = $row['name'];
+    try {
+        $coursename_query = "SELECT name FROM tblcourse WHERE courseCode = :courseCode";
+        $stmt = $pdo->prepare($coursename_query);
+        $stmt->execute([':courseCode' => $courseCode]);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        if ($result) {
+            $coursename = $result['name'];
+        }
+    } catch (PDOException $e) {
+        error_log("Error fetching course name: " . $e->getMessage());
     }
 }
+
+// Get unit name
 $unitname = "";
 if (!empty($unitCode)) {
-    $unitname_query = "SELECT name FROM tblunit WHERE unitCode = '$unitCode'";
-    $result = fetch($unitname_query);
-    foreach ($result as $row) {
-
-        $unitname = $row['name'];
+    try {
+        $unitname_query = "SELECT name FROM tblunit WHERE unitCode = :unitCode";
+        $stmt = $pdo->prepare($unitname_query);
+        $stmt->execute([':unitCode' => $unitCode]);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        if ($result) {
+            $unitname = $result['name'];
+        }
+    } catch (PDOException $e) {
+        error_log("Error fetching unit name: " . $e->getMessage());
     }
 }
-
 
 ?>
 
@@ -36,7 +47,7 @@ if (!empty($unitCode)) {
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="resources/images/logo/attnlg.png" rel="icon">
+    <link href="resources/images/logo/face logo.png" rel="icon">
     <title>lecture Dashboard</title>
     <link rel="stylesheet" href="resources/assets/css/styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css" rel="stylesheet">
@@ -55,7 +66,9 @@ if (!empty($unitCode)) {
                     <?php
                     $courseNames = getCourseNames();
                     foreach ($courseNames as $course) {
-                        echo '<option value="' . $course["courseCode"] . '">' . $course["name"] . '</option>';
+                        echo '<option value="' . htmlspecialchars($course["courseCode"]) . '"' .
+                            ($courseCode == $course["courseCode"] ? ' selected' : '') . '>' .
+                            htmlspecialchars($course["name"]) . '</option>';
                     }
                     ?>
                 </select>
@@ -65,21 +78,19 @@ if (!empty($unitCode)) {
                     <?php
                     $unitNames = getUnitNames();
                     foreach ($unitNames as $unit) {
-                        echo '<option value="' . $unit["unitCode"] . '">' . $unit["name"] . '</option>';
+                        echo '<option value="' . htmlspecialchars($unit["unitCode"]) . '"' .
+                            ($unitCode == $unit["unitCode"] ? ' selected' : '') . '>' .
+                            htmlspecialchars($unit["name"]) . '</option>';
                     }
                     ?>
                 </select>
             </form>
 
-            <button class="add"
-                onclick="exportTableToExcel('attendaceTable', '<?php echo $unitCode ?>_on_<?php echo date('Y-m-d'); ?>','<?php echo $coursename ?>', '<?php echo $unitname ?>')">Export
-                Attendance As Excel</button>
 
             <div class="table-container">
                 <div class="title">
                     <h2 class="section--title">Mark Attendance</h2>
                     <div class="attendance-controls">
-                        <button class="add" id="startCamera"><i class="ri-camera-line"></i>Start Camera</button>
                         <button class="add" id="markManual"><i class="ri-edit-line"></i>Mark Manually</button>
                     </div>
                 </div>
@@ -99,38 +110,78 @@ if (!empty($unitCode)) {
                 <div id="manualAttendance">
                     <div class="table">
                         <table>
-                            <thead>
-                                <tr>
-                                    <th>Registration No</th>
-                                    <th>Name</th>
-                                    <th>Course</th>
-                                    <th>Unit</th>
-                                    <th>Status</th>
-                                    <th>Confidence</th>
-                                    <th>Date</th>
-                                </tr>
-                            </thead>
+                          <thead>
+  <tr>
+    <th>Registration No</th>
+    <th>Name</th>
+    <th>Course</th>
+    <th>Unit</th>
+    <th>Status</th>
+    <th>Date</th>
+    <th class="action-col" style="display:none;">Action</th>
+  </tr>
+</thead>
+
                             <tbody>
                                 <?php
-                                $sql = "SELECT a.*, s.firstName, s.lastName 
-                                       FROM tblattendance a 
-                                       JOIN tblstudents s ON a.studentRegistrationNumber = s.registrationNumber 
-                                       ORDER BY a.dateMarked DESC";
-                                $result = fetch($sql);
-                                if ($result) {
-                                    foreach ($result as $row) {
-                                        echo "<tr>";
-                                        echo "<td>" . $row["studentRegistrationNumber"] . "</td>";
-                                        echo "<td>" . $row["firstName"] . " " . $row["lastName"] . "</td>";
-                                        echo "<td>" . $row["course"] . "</td>";
-                                        echo "<td>" . $row["unit"] . "</td>";
-                                        echo "<td>" . $row["attendanceStatus"] . "</td>";
-                                        echo "<td>" . (isset($row["confidence"]) ? number_format($row["confidence"], 1) . "%" : "Manual") . "</td>";
-                                        echo "<td>" . $row["dateMarked"] . "</td>";
-                                        echo "</tr>";
+                                if ($courseCode && $unitCode) {
+                                    try {
+                                        $sql = "
+  SELECT 
+    s.registrationNumber,
+    s.firstName,
+    s.lastName,
+    COALESCE(a.attendanceStatus, 'Absent') AS attendanceStatus,
+    COALESCE(a.confidence, NULL) AS confidence,
+    COALESCE(a.dateMarked, :today) AS dateMarked
+  FROM tblstudents s
+  LEFT JOIN tblattendance a 
+    ON s.registrationNumber = a.studentRegistrationNumber
+    AND a.course = :courseCode
+    AND a.unit = :unitCode
+    AND DATE(a.dateMarked) = :today
+  WHERE s.courseCode = :courseCode
+  ORDER BY s.registrationNumber ASC
+";
+
+
+                                        $stmt = $pdo->prepare($sql);
+                                        $stmt->execute([
+                                            ':today' => $today,
+                                            ':courseCode' => $courseCode,
+                                            ':unitCode' => $unitCode
+                                        ]);
+
+                                        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+                                        if ($result) {
+  foreach ($result as $row) {
+    echo "<tr>";
+    echo "<td>" . htmlspecialchars($row["registrationNumber"]) . "</td>";
+    echo "<td>" . htmlspecialchars($row["firstName"] . " " . $row["lastName"]) . "</td>";
+    echo "<td>" . htmlspecialchars($courseCode) . "</td>";
+    echo "<td>" . htmlspecialchars($unitCode) . "</td>";
+    echo "<td class='status-cell'>" . htmlspecialchars($row["attendanceStatus"]) . "</td>";
+    echo "<td>" . htmlspecialchars($row["dateMarked"]) . "</td>";
+    echo "<td class='action-col' style='display:none;'>"
+      . "<select class='manual-status' data-id='" . htmlspecialchars($row["registrationNumber"]) . "'>"
+      . "<option value=''>Change Status</option>"
+      . "<option value='Present'" . ($row["attendanceStatus"] == "Present" ? " selected" : "") . ">Present</option>"
+      . "<option value='Absent'" . ($row["attendanceStatus"] == "Absent" ? " selected" : "") . ">Absent</option>"
+      . "</select>"
+      . "</td>";
+    echo "</tr>";
+  }
+}
+ else {
+                                            echo "<tr><td colspan='8'>No attendance records found for today for this course and unit.</td></tr>";
+                                        }
+                                    } catch (PDOException $e) {
+                                        error_log("Error fetching attendance records: " . $e->getMessage());
+                                        echo "<tr><td colspan='8'>Error retrieving attendance records. Please try again later.</td></tr>";
                                     }
                                 } else {
-                                    echo "<tr><td colspan='7'>No records found</td></tr>";
+                                    echo "<tr><td colspan='8'>Please select both course and unit to view today's attendance.</td></tr>";
                                 }
                                 ?>
                             </tbody>
@@ -148,20 +199,7 @@ if (!empty($unitCode)) {
 
 
 <script>
-    function updateTable() {
-        var courseSelect = document.getElementById("courseSelect");
-        var unitSelect = document.getElementById("unitSelect");
 
-        var selectedCourse = courseSelect.value;
-        var selectedUnit = unitSelect.value;
-
-        var url = "download-record";
-        if (selectedCourse && selectedUnit) {
-            url += "?course=" + encodeURIComponent(selectedCourse) + "&unit=" + encodeURIComponent(selectedUnit);
-            window.location.href = url;
-
-        }
-    }
 
     function exportTableToExcel(tableId, filename = '', courseCode = '', unitCode = '') {
         var table = document.getElementById(tableId);
@@ -266,29 +304,78 @@ if (!empty($unitCode)) {
                 method: 'POST',
                 body: formData
             })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    resultDiv.innerHTML = `
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        resultDiv.innerHTML = `
                     <div class="success">
                         <p>${data.message}</p>
                         <p>Student ID: ${data.student_id}</p>
                         <p>Name: ${data.name}</p>
                         <p>Confidence: ${data.confidence.toFixed(1)}%</p>
                     </div>`;
-                    // Refresh attendance table after 2 seconds
-                    setTimeout(() => {
-                        location.reload();
-                    }, 2000);
+                        // Refresh attendance table after 2 seconds
+                        setTimeout(() => {
+                            location.reload();
+                        }, 2000);
+                    } else {
+                        resultDiv.innerHTML = `<div class="error">${data.message}</div>`;
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    resultDiv.innerHTML = '<div class="error">Error processing face recognition</div>';
+                });
+        }, 'image/jpeg', 0.8);
+    });
+</script>
+
+<script>
+    // Show/hide Action column and enable manual marking
+    const markManualBtn = document.getElementById('markManual');
+    const actionCols = document.querySelectorAll('.action-col');
+
+    markManualBtn.addEventListener('click', () => {
+        actionCols.forEach(col => col.style.display = 'table-cell');
+    });
+
+    // Handle status change
+    document.addEventListener('change', function (e) {
+        if (!e.target.matches('.manual-status')) return;
+
+        const select = e.target;
+        const studentId = select.getAttribute('data-id');
+        const status = select.value;
+        const course = document.getElementById('courseSelect').value;
+        const unit = document.getElementById('unitSelect').value;
+        const statusCell = select.closest('tr').querySelector('.status-cell');
+
+        if (!status) return;
+
+        fetch('/new attendance/attendance-project2/resources/pages/lecture/mark_manual_attendance.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                student_id: studentId,
+                status: status,
+                course: course,
+                unit: unit
+            })
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    statusCell.textContent = status;
+                    alert('Attendance updated successfully');
+                    location.reload(); // Reload to show updated data
                 } else {
-                    resultDiv.innerHTML = `<div class="error">${data.message}</div>`;
+                    alert('Error: ' + (data.message || 'Failed to update attendance'));
                 }
             })
             .catch(error => {
                 console.error('Error:', error);
-                resultDiv.innerHTML = '<div class="error">Error processing face recognition</div>';
+                alert('Error updating attendance. Please try again.');
             });
-        }, 'image/jpeg', 0.8);
     });
 </script>
 
@@ -307,19 +394,37 @@ if (!empty($unitCode)) {
     }
 
     .success {
-        color: green;
-        background: #e8f5e9;
+        color: #4CAF50;
+        background: #E8F5E9;
+        padding: 10px;
+        border-radius: 4px;
+        margin: 10px 0;
+        animation: fadeIn 0.3s ease-in;
+    }
+
+    .error {
+        color: #F44336;
+        background: #FFEBEE;
         padding: 10px;
         border-radius: 4px;
         margin: 10px 0;
     }
 
-    .error {
-        color: red;
-        background: #ffebee;
-        padding: 10px;
-        border-radius: 4px;
-        margin: 10px 0;
+    .loading {
+        color: #2196F3;
+        font-style: italic;
+    }
+
+    .status-cell {
+        font-weight: 500;
+    }
+
+    .status-cell.present {
+        color: #4CAF50;
+    }
+
+    .status-cell.absent {
+        color: #F44336;
     }
 
     #cameraInterface {
@@ -329,24 +434,41 @@ if (!empty($unitCode)) {
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
 
-    .btn-submit,
-    .btn-cancel {
-        padding: 8px 16px;
-        border: none;
+    .manual-status {
+        padding: 4px 8px;
+        border: 1px solid #ddd;
         border-radius: 4px;
+        background: white;
         cursor: pointer;
-        margin: 0 5px;
     }
 
-    .btn-submit {
-        background: #4CAF50;
-        color: white;
+    .manual-status:hover {
+        border-color: #2196F3;
     }
 
-    .btn-cancel {
-        background: #f44336;
-        color: white;
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 </style>
+
+<script>
+    function updateTable() {
+        var courseSelect = document.getElementById("courseSelect");
+        var unitSelect = document.getElementById("unitSelect");
+        var selectedCourse = courseSelect.value;
+        var selectedUnit = unitSelect.value;
+        if (selectedCourse && selectedUnit) {
+            window.location.href = window.location.pathname + "?course=" + encodeURIComponent(selectedCourse) + "&unit=" + encodeURIComponent(selectedUnit);
+        }
+    }
+</script>
 
 </html>

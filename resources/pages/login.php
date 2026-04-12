@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login'])) {
     $stmt->execute(['email' => $email]);
     $user = $stmt->fetch();
 
-  
+
     if ($user && password_verify($password, $user['password'])) {
 
         $_SESSION['user'] = [
@@ -73,57 +73,64 @@ function display_error($error, $is_main = false)
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Login to access dashboard </title>
+    <title>Sign in to SAS Dashboard</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="resources/assets/css/login_styles.css">
+    <link rel="stylesheet" href="resources/assets/css/login_styles.css?v=<?php echo time(); ?>">
+    <link rel="icon" href="resources/images/logo/face logo.png" />
 </head>
 
 <body>
 
-    <div class="container" id="signIn">
-        <h1 class="form-title">Sign In</h1>
-        <?php
-        display_error('login', true);
-        ?>
-        <form method="POST" action="">
-            <div class="input-group">
-                <i class="fas fa-times"></i>
+<body>
 
-                <select name="user_type" id="" required>
-                    <option value="">Select User</option>
-                    <option value="lecture">Lecture</option>
-                    <option value="administrator">Admin</option>
-                </select>
+    <div class="split-layout">
+        <div class="panel-left">
+            <div class="branding">
+                <i class="fas fa-graduation-cap brand-icon"></i>
+                <h1>SAS College</h1>
+                <p>Advanced Attendance Platform</p>
             </div>
-            <div class="input-group">
-                <i class="fas fa-envelope"></i>
-                <input type="email" name="email" id="email" placeholder="Email" required>
-                <?php
-                display_error('email');
-                ?>
-            </div>
-            <div class="input-group password">
-                <i class="fas fa-lock"></i>
-                <input type="password" name="password" id="password" placeholder="Password" required>
-                <i id="eye" class="fa fa-eye"></i>
-                <?php
-                display_error('password')
-                ?>
-            </div>
-            <p class="recover">
-                <a href="#">Recover Password</a>
-            </p>
-            <input type="submit" class="btn" value="Sign In" name="login">
-        </form>
-        <p class="or">
-            ----------or--------
-        </p>
-        <div class="icons">
-            <i class="fab fa-google"></i>
-            <i class="fab fa-facebook"></i>
         </div>
-
+        
+        <div class="panel-right">
+            <div class="form-container">
+                <a href="landing.php" class="logo">
+                    <i class="fas fa-arrow-left" style="margin-right: 8px;"></i> Return to Home
+                </a>
+                <h1 class="form-title">Welcome Back</h1>
+                <p class="form-subtitle">Please enter your credentials to access the portal.</p>
+                
+                <?php display_error('login', true); ?>
+                
+                <form method="POST" action="">
+                    <div class="input-group">
+                        <i class="fas fa-user-shield"></i>
+                        <select name="user_type" id="user_type" required>
+                            <option value="" disabled selected hidden>Select Role</option>
+                            <option value="lecture">Lecture / Teacher</option>
+                            <option value="administrator">System Administrator</option>
+                        </select>
+                    </div>
+                    
+                    <div class="input-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" name="email" id="email" placeholder="Email Address" required>
+                        <?php display_error('email'); ?>
+                    </div>
+                    
+                    <div class="input-group password">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" name="password" id="password" placeholder="Password" required>
+                        <i id="eye" class="fa fa-eye"></i>
+                        <?php display_error('password'); ?>
+                    </div>
+                    
+                    <button type="submit" class="btn" name="login">Sign In <i class="fas fa-sign-in-alt" style="margin-left: 8px;"></i></button>
+                </form>
+            </div>
+        </div>
     </div>
+    
     <script src="resources/assets/javascript/script.js"></script>
 </body>
 

@@ -86,6 +86,61 @@ if (isset($_POST["addFaculty"])) {
     }
 }
 
+// Add edit handlers for Course, Unit, and Faculty
+if (isset($_POST["editCourse"])) {
+    $courseId = filter_var($_POST["courseId"], FILTER_VALIDATE_INT);
+    $courseName = htmlspecialchars(trim($_POST["courseName"]));
+    $courseCode = htmlspecialchars(trim($_POST["courseCode"]));
+    $facultyID = filter_var($_POST["faculty"], FILTER_VALIDATE_INT);
+
+    if ($courseId && $courseName && $courseCode && $facultyID) {
+        $query = $pdo->prepare("UPDATE tblcourse SET name = :name, courseCode = :courseCode, facultyID = :facultyID 
+                               WHERE Id = :id");
+        $query->execute([
+            ':name' => $courseName,
+            ':courseCode' => $courseCode,
+            ':facultyID' => $facultyID,
+            ':id' => $courseId
+        ]);
+        $_SESSION['message'] = "Course Updated Successfully";
+    }
+}
+
+if (isset($_POST["editUnit"])) {
+    $unitId = filter_var($_POST["unitId"], FILTER_VALIDATE_INT);
+    $unitName = htmlspecialchars(trim($_POST["unitName"]));
+    $unitCode = htmlspecialchars(trim($_POST["unitCode"]));
+    $courseID = filter_var($_POST["course"], FILTER_VALIDATE_INT);
+
+    if ($unitId && $unitName && $unitCode && $courseID) {
+        $query = $pdo->prepare("UPDATE tblunit SET name = :name, unitCode = :unitCode, courseID = :courseID 
+                               WHERE Id = :id");
+        $query->execute([
+            ':name' => $unitName,
+            ':unitCode' => $unitCode,
+            ':courseID' => $courseID,
+            ':id' => $unitId
+        ]);
+        $_SESSION['message'] = "Unit Updated Successfully";
+    }
+}
+
+if (isset($_POST["editFaculty"])) {
+    $facultyId = filter_var($_POST["facultyId"], FILTER_VALIDATE_INT);
+    $facultyName = htmlspecialchars(trim($_POST["facultyName"]));
+    $facultyCode = htmlspecialchars(trim($_POST["facultyCode"]));
+
+    if ($facultyId && $facultyName && $facultyCode) {
+        $query = $pdo->prepare("UPDATE tblfaculty SET facultyName = :facultyName, facultyCode = :facultyCode 
+                               WHERE Id = :id");
+        $query->execute([
+            ':facultyName' => $facultyName,
+            ':facultyCode' => $facultyCode,
+            ':id' => $facultyId
+        ]);
+        $_SESSION['message'] = "Faculty Updated Successfully";
+    }
+}
 
 ?>
 
@@ -96,7 +151,7 @@ if (isset($_POST["addFaculty"])) {
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="resources/images/logo/attnlg.png" rel="icon">
+    <link href="resources/images/logo/face logo.png" rel="icon">
     <title>Dashboard</title>
     <link rel="stylesheet" href="resources/assets/css/admin_styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css" rel="stylesheet">
@@ -162,7 +217,6 @@ if (isset($_POST["addFaculty"])) {
                 <div class="title">
                     <h2 class="section--title">Course</h2>
                 </div>
-                </a>
                 <div class="table">
                     <table>
                         <thead>
@@ -179,6 +233,7 @@ if (isset($_POST["addFaculty"])) {
                             <?php
                             $sql = "SELECT 
                         c.name AS course_name,
+                        c.courseCode AS course_code,
                         c.facultyID AS faculty,
                         f.facultyName AS faculty_name,
                         c.Id AS Id,
@@ -201,7 +256,14 @@ if (isset($_POST["addFaculty"])) {
                                     echo "<td>" . $row["total_units"] . "</td>";
                                     echo "<td>" . $row["total_students"] . "</td>";
                                     echo "<td>" . $row["date_created"] . "</td>";
-                                    echo "<td><span><i class='ri-delete-bin-line delete'data-id='{$row["Id"]}' data-name='course'></i></span></td>";
+                                    echo "<td>
+                                            <span>
+                                                <i class='ri-edit-line edit' data-id='{$row["Id"]}' data-name='course' 
+                                                   data-coursename='{$row["course_name"]}' data-coursecode='{$row["course_code"]}' 
+                                                   data-faculty='{$row["faculty"]}'></i>
+                                                <i class='ri-delete-bin-line delete' data-id='{$row["Id"]}' data-name='course'></i>
+                                            </span>
+                                          </td>";
                                     echo "</tr>";
                                 }
                             } else {
@@ -218,7 +280,6 @@ if (isset($_POST["addFaculty"])) {
                 <div class="title">
                     <h2 class="section--title">Unit</h2>
                 </div>
-                </a>
                 <div class="table">
                     <table>
                         <thead>
@@ -236,7 +297,9 @@ if (isset($_POST["addFaculty"])) {
                             $sql = "SELECT 
                             c.name AS course_name,
                             u.unitCode AS unit_code,
-                            u.name AS unit_name, u.Id as Id,
+                            u.name AS unit_name, 
+                            u.Id as Id,
+                            u.courseID as courseID,
                             u.dateCreated AS date_created,
                             COUNT(s.Id) AS total_students
                             FROM tblunit u
@@ -246,13 +309,20 @@ if (isset($_POST["addFaculty"])) {
                             $result = fetch($sql);
                             if ($result) {
                                 foreach ($result as $row) {
-                                    echo "<tr id='rowunit{$row["Id"]}' >";
+                                    echo "<tr id='rowunit{$row["Id"]}'>";
                                     echo "<td>" . $row["unit_code"] . "</td>";
                                     echo "<td>" . $row["unit_name"] . "</td>";
                                     echo "<td>" . $row["course_name"] . "</td>";
                                     echo "<td>" . $row["total_students"] . "</td>";
                                     echo "<td>" . $row["date_created"] . "</td>";
-                                    echo "<td><span><i class='ri-delete-bin-line delete' data-id='{$row["Id"]}' data-name='unit'></i></span></td>";
+                                    echo "<td>
+                                            <span>
+                                                <i class='ri-edit-line edit' data-id='{$row["Id"]}' data-name='unit' 
+                                                   data-unitname='{$row["unit_name"]}' data-unitcode='{$row["unit_code"]}' 
+                                                   data-course='{$row["courseID"]}'></i>
+                                                <i class='ri-delete-bin-line delete' data-id='{$row["Id"]}' data-name='unit'></i>
+                                            </span>
+                                          </td>";
                                     echo "</tr>";
                                 }
                             } else {
@@ -269,7 +339,6 @@ if (isset($_POST["addFaculty"])) {
                 <div class="title">
                     <h2 class="section--title">Faculty</h2>
                 </div>
-                </a>
                 <div class="table">
                     <table>
                         <thead>
@@ -308,7 +377,13 @@ if (isset($_POST["addFaculty"])) {
                                     echo "<td>" . $row["total_students"] . "</td>";
                                     echo "<td>" . $row["total_lectures"] . "</td>";
                                     echo "<td>" . $row["date_created"] . "</td>";
-                                    echo "<td><span><i class='ri-delete-bin-line delete' data-id='{$row["Id"]}' data-name='faculty'></i></span></td>";
+                                    echo "<td>
+                                            <span>
+                                                <i class='ri-edit-line edit' data-id='{$row["Id"]}' data-name='faculty' 
+                                                   data-facultyname='{$row["faculty_name"]}' data-facultycode='{$row["faculty_code"]}'></i>
+                                                <i class='ri-delete-bin-line delete' data-id='{$row["Id"]}' data-name='faculty'></i>
+                                            </span>
+                                          </td>";
                                     echo "</tr>";
                                 }
                             } else {
@@ -372,7 +447,7 @@ if (isset($_POST["addFaculty"])) {
                     <?php
                     $lectureNames = getLectureNames();
                     foreach ($lectureNames as $lecture) {
-                        echo '<option value="' . $lecture["Id"] . '">' . $lecture["firstName"] . ' ' . $lecture["lastName"]  .  '</option>';
+                        echo '<option value="' . $lecture["Id"] . '">' . $lecture["firstName"] . ' ' . $lecture["lastName"] . '</option>';
                     }
                     ?>
                 </select>
@@ -406,11 +481,126 @@ if (isset($_POST["addFaculty"])) {
             </form>
         </div>
 
+        <div class="formDiv" id="editCourseForm" style="display:none;">
+            <form method="POST" action="" name="editCourse" enctype="multipart/form-data">
+                <div style="display:flex; justify-content:space-around;">
+                    <div class="form-title">
+                        <p>Edit Course</p>
+                    </div>
+                    <div>
+                        <span class="close">&times;</span>
+                    </div>
+                </div>
+                <input type="hidden" name="courseId" id="editCourseId">
+                <input type="text" name="courseName" id="editCourseName" placeholder="Course Name" required>
+                <input type="text" name="courseCode" id="editCourseCode" placeholder="Course Code" required>
+                <select required name="faculty" id="editCourseFaculty">
+                    <option value="">Select Faculty</option>
+                    <?php
+                    $facultyNames = getFacultyNames();
+                    foreach ($facultyNames as $faculty) {
+                        echo '<option value="' . $faculty["Id"] . '">' . $faculty["facultyName"] . '</option>';
+                    }
+                    ?>
+                </select>
+                <input type="submit" class="submit" value="Update Course" name="editCourse">
+            </form>
+        </div>
 
+        <div class="formDiv" id="editUnitForm" style="display:none;">
+            <form method="POST" action="" name="editUnit" enctype="multipart/form-data">
+                <div style="display:flex; justify-content:space-around;">
+                    <div class="form-title">
+                        <p>Edit Unit</p>
+                    </div>
+                    <div>
+                        <span class="close">&times;</span>
+                    </div>
+                </div>
+                <input type="hidden" name="unitId" id="editUnitId">
+                <input type="text" name="unitName" id="editUnitName" placeholder="Unit Name" required>
+                <input type="text" name="unitCode" id="editUnitCode" placeholder="Unit Code" required>
+                <select required name="course" id="editUnitCourse">
+                    <option value="">Select Course</option>
+                    <?php
+                    $courseNames = getCourseNames();
+                    foreach ($courseNames as $course) {
+                        echo '<option value="' . $course["Id"] . '">' . $course["name"] . '</option>';
+                    }
+                    ?>
+                </select>
+                <input type="submit" class="submit" value="Update Unit" name="editUnit">
+            </form>
+        </div>
+
+        <div class="formDiv" id="editFacultyForm" style="display:none;">
+            <form method="POST" action="" name="editFaculty" enctype="multipart/form-data">
+                <div style="display:flex; justify-content:space-around;">
+                    <div class="form-title">
+                        <p>Edit Faculty</p>
+                    </div>
+                    <div>
+                        <span class="close">&times;</span>
+                    </div>
+                </div>
+                <input type="hidden" name="facultyId" id="editFacultyId">
+                <input type="text" name="facultyName" id="editFacultyName" placeholder="Faculty Name" required>
+                <input type="text" name="facultyCode" id="editFacultyCode" placeholder="Faculty Code" required>
+                <input type="submit" class="submit" value="Update Faculty" name="editFaculty">
+            </form>
+        </div>
 
     </section>
 
     <?php js_asset(["delete_request", "addCourse", "active_link"]) ?>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Handle edit clicks
+            document.querySelectorAll('.edit').forEach(function (editIcon) {
+                editIcon.addEventListener('click', function () {
+                    const id = this.getAttribute('data-id');
+                    const type = this.getAttribute('data-name');
+
+                    if (type === 'course') {
+                        const form = document.getElementById('editCourseForm');
+                        document.getElementById('editCourseId').value = id;
+                        document.getElementById('editCourseName').value = this.getAttribute('data-coursename');
+                        document.getElementById('editCourseCode').value = this.getAttribute('data-coursecode');
+                        document.getElementById('editCourseFaculty').value = this.getAttribute('data-faculty');
+                        form.style.display = 'block';
+                        document.getElementById('overlay').style.display = 'block';
+                    }
+                    else if (type === 'unit') {
+                        const form = document.getElementById('editUnitForm');
+                        document.getElementById('editUnitId').value = id;
+                        document.getElementById('editUnitName').value = this.getAttribute('data-unitname');
+                        document.getElementById('editUnitCode').value = this.getAttribute('data-unitcode');
+                        document.getElementById('editUnitCourse').value = this.getAttribute('data-course');
+                        form.style.display = 'block';
+                        document.getElementById('overlay').style.display = 'block';
+                    }
+                    else if (type === 'faculty') {
+                        const form = document.getElementById('editFacultyForm');
+                        document.getElementById('editFacultyId').value = id;
+                        document.getElementById('editFacultyName').value = this.getAttribute('data-facultyname');
+                        document.getElementById('editFacultyCode').value = this.getAttribute('data-facultycode');
+                        form.style.display = 'block';
+                        document.getElementById('overlay').style.display = 'block';
+                    }
+                });
+            });
+
+            // Close edit forms
+            document.querySelectorAll('.close').forEach(function (closeBtn) {
+                closeBtn.addEventListener('click', function () {
+                    this.closest('.formDiv').style.display = 'none';
+                    document.getElementById('overlay').style.display = 'none';
+                });
+            });
+        });
+    </script>
+
+
 </body>
 
 </html>

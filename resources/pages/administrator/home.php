@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="resources/images/logo/attnlg.png" rel="icon">
+    <link href="resources/images/logo/face logo.png" rel="icon">
     <title>Dashboard</title>
     <link rel="stylesheet" href="resources/assets/css/styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css" rel="stylesheet">
@@ -66,12 +66,12 @@
             </div>
 
             <div class="table-container">
-                <a href="manage-lecture" style="text-decoration:none;">
-                    <div class="title">
-                        <h2 class="section--title">Lectures</h2>
+                <div class="title">
+                    <h2 class="section--title">Lectures</h2>
+                    <a href="manage-lecture" style="text-decoration:none;">
                         <button class="add"><i class="ri-add-line"></i>Add lecture</button>
-                    </div>
-                </a>
+                    </a>
+                </div>
                 <div class="table">
                     <table>
                         <thead>
@@ -80,8 +80,7 @@
                                 <th>Email Address</th>
                                 <th>Phone No</th>
                                 <th>Faculty</th>
-                                <th>Date Registered</th>
-                                <th>Settings</th>
+                                
                             </tr>
                         </thead>
                         <tbody>
@@ -100,8 +99,6 @@
                                         echo "<td>" . $row["emailAddress"] . "</td>";
                                         echo "<td>" . $row["phoneNo"] . "</td>";
                                         echo "<td>" . $row["facultyName"] . "</td>";
-                                        echo "<td>" . $row["dateCreated"] . "</td>";
-                                        echo "<td><span><i class='ri-delete-bin-line delete' data-id='{$row["Id"]}' data-name='lecture'></i></span></td>";
                                         echo "</tr>";
                                     }
                                 } else {
@@ -114,12 +111,12 @@
                 </div>
             </div>
             <div class="table-container">
-                <a href="manage-students" style="text-decoration:none;">
-                    <div class="title">
-                        <h2 class="section--title">Students</h2>
+                <div class="title">
+                    <h2 class="section--title">Students</h2>
+                    <a href="manage-students" style="text-decoration:none;">
                         <button class="add"><i class="ri-add-line"></i>Add Student</button>
-                    </div>
-                </a>
+                    </a>
+                </div>
                 <div class="table">
                     <table>
                         <thead>
@@ -129,7 +126,6 @@
                                 <th>Faculty</th>
                                 <th>Course</th>
                                 <th>Email</th>
-                                <th>Settings</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -145,7 +141,6 @@
                                     echo "<td>" . $row["faculty"] . "</td>";
                                     echo "<td>" . $row["courseCode"] . "</td>";
                                     echo "<td>" . $row["email"] . "</td>";
-                                    echo "<td><span><i class='ri-delete-bin-line delete' data-id='{$row["Id"]}' data-name='students'></i></span></td>";
                                     echo "</tr>";
                                 }
                             } else {
@@ -160,12 +155,12 @@
 
             </div>
             <div class="table-container">
-                <a href="create-venue" style="text-decoration:none;">
-                    <div class="title">
-                        <h2 class="section--title">Lecture Rooms</h2>
+                <div class="title">
+                    <h2 class="section--title">Lecture Rooms</h2>
+                    <a href="create-venue" style="text-decoration:none;">
                         <button class="add"><i class="ri-add-line"></i>Add room</button>
-                    </div>
-                </a>
+                    </a>
+                </div>
                 <div class="table">
                     <table>
                         <thead>
@@ -175,7 +170,7 @@
                                 <th>Current Status</th>
                                 <th>Capacity</th>
                                 <th>Classification</th>
-                                <th>Settings</th>
+
                             </tr>
                         </thead>
                         <tbody>
@@ -191,7 +186,7 @@
                                     echo "<td>" . $row["currentStatus"] . "</td>";
                                     echo "<td>" . $row["capacity"] . "</td>";
                                     echo "<td>" . $row["classification"] . "</td>";
-                                    echo "<td><span><i class='ri-delete-bin-line delete' data-id='{$row["Id"]}' data-name='venue'></i></span></td>";
+
                                     echo "</tr>";
                                 }
                             } else {
@@ -204,12 +199,12 @@
 
             </div>
             <div class="table-container">
-                <a href="manage-course" style="text-decoration:none;">
-                    <div class="title">
-                        <h2 class="section--title">Courses</h2>
+                <div class="title">
+                    <h2 class="section--title">Courses</h2>
+                    <a href="manage-course" style="text-decoration:none;">
                         <button class="add"><i class="ri-add-line"></i>Add Course</button>
-                    </div>
-                </a>
+                    </a>
+                </div>
                 <div class="table">
                     <table>
                         <thead>
@@ -218,7 +213,7 @@
                                 <th>Faculty</th>
                                 <th>Total Units</th>
                                 <th>Total Students</th>
-                                <th>Date Created</th>
+                                
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -245,8 +240,7 @@
                                     echo "<td>" . $row["faculty_name"] . "</td>";
                                     echo "<td>" . $row["total_units"] . "</td>";
                                     echo "<td>" . $row["total_students"] . "</td>";
-                                    echo "<td>" . $row["date_created"] . "</td>";
-                                    echo "<td><span><i class='ri-delete-bin-line delete' data-id='{$row["Id"]}' data-name='course'></i></span></td>";
+                                   
                                     echo "</tr>";
                                 }
                             } else {

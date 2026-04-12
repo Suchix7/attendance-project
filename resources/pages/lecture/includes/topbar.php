@@ -1,16 +1,16 @@
 <section class="header">
     <div class="logo">
         <i class="ri-menu-line icon icon-0 menu"></i>
-        <h2>Attendance M<span>s</span></h2>
+        <h2>SAS <span>Portal</span></h2>
     </div>
     <div class="search--notification--profile">
-        <div id="searchInput" class="search">
-            <input type="text" id="searchText" placeholder="Search .....">
-            <button onclick="searchItems()"><i class="ri-search-2-line"></i></button>
+        <div class="search">
+            <input type="text" id="searchText" placeholder="Search tables..." oninput="searchItems()">
+            <button><i class="ri-search-line"></i></button>
         </div>
         <div class="notification--profile">
             <div class="picon lock">
-                @ <?php echo user()->name ?>
+                <i class="ri-user-3-line" style="margin-right: 5px;"></i> <?php echo user()->name ?>
             </div>
 
             <div class="picon profile">

@@ -28,12 +28,7 @@
 
     </ul>
     <ul class="sidebar--bottom-items">
-        <li>
-            <a href="#">
-                <span class="icon icon-2"><i class="ri-settings-3-line"></i></span>
-                <span class="sidebar--item">Settings</span>
-            </a>
-        </li>
+       
         <li>
             <a href="logout">
                 <span class="icon icon-2"><i class="ri-logout-box-r-line"></i></span>

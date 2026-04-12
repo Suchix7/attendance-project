@@ -18,7 +18,11 @@ if ($request_site === "logout") {
 $logged_in = user();
 //displaying login page
 if (!$logged_in) {
+  if ($request_site === "login") {
     $request_site = "login";
+  } else {
+    $request_site = "landing";
+  }
 }
 
 $path = __DIR__ . "/resources/pages/";
@@ -27,7 +31,7 @@ if ($logged_in) {
   //we check the role of logged in user and construct link to either administrator or lecture folder
   $page_path = $path . "$logged_in->role/$request_site.php";
 } else {
-  $page_path =  $path . "$request_site.php";
+  $page_path = $path . "$request_site.php";
 }
 
 // echo $page_path;

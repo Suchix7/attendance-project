@@ -42,7 +42,7 @@ if (!empty($unitCode)) {
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="resources/images/logo/attnlg.png" rel="icon">
+    <link href="resources/images/logo/face logo.png" rel="icon">
     <title>lecture Dashboard</title>
     <link rel="stylesheet" href="resources/assets/css/styles.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
@@ -77,7 +77,9 @@ if (!empty($unitCode)) {
                 </select>
             </form>
 
-            <button class="add" onclick="exportTableToExcel('attendaceTable', '<?php echo $unitCode . '_on_' . date('Y-m-d'); ?>','<?php echo $coursename ?>', '<?php echo $unitname ?>')">Export Attendance As Excel</button>
+            <button class="add"
+                onclick="exportTableToExcel('attendaceTable', '<?php echo $unitCode . '_on_' . date('Y-m-d'); ?>','<?php echo $coursename ?>', '<?php echo $unitname ?>')">Export
+                Attendance As Excel</button>
 
             <div class="table-container">
                 <div class="title">
@@ -85,75 +87,68 @@ if (!empty($unitCode)) {
                 </div>
                 <div class="table attendance-table" id="attendaceTable">
                     <table>
-                        <thead>
-                            <tr>
-                                <th>Registration No</th>
-                                <?php
-                                // Fetch distinct dates for the selected course and unit
-                                $distinctDatesQuery = "SELECT DISTINCT dateMarked FROM tblattendance WHERE course = :courseCode AND unit = :unitCode";
-                                $stmtDates = $pdo->prepare($distinctDatesQuery);
-                                $stmtDates->execute([
-                                    ':courseCode' => $courseCode,
-                                    ':unitCode' => $unitCode,
-                                ]);
-                                $distinctDatesResult = $stmtDates->fetchAll(PDO::FETCH_ASSOC);
+                       <thead>
+  <tr>
+    <th>Registration No</th>
+    <th>Student Name</th>
+  </tr>
+</thead>
 
-                                // Display each distinct date as a column header
-                                if ($distinctDatesResult) {
-                                    foreach ($distinctDatesResult as $dateRow) {
-                                        echo "<th>" . $dateRow['dateMarked'] . "</th>";
-                                    }
-                                }
-                                ?>
-                            </tr>
-                        </thead>
-                        <tbody>
+                      <tbody>
                             <?php
-                            // Fetch all unique students for the given course and unit
-                            $studentsQuery = "SELECT DISTINCT studentRegistrationNumber FROM tblattendance WHERE course = :courseCode AND unit = :unitCode";
-                            $stmtStudents = $pdo->prepare($studentsQuery);
-                            $stmtStudents->execute([
-                                ':courseCode' => $courseCode,
-                                ':unitCode' => $unitCode,
+                            // Get distinct dates
+                            $distinctDatesQuery = "SELECT DISTINCT dateMarked FROM tblattendance WHERE course = :courseCode AND unit = :unitCode";
+                            $stmtDates = $pdo->prepare($distinctDatesQuery);
+                            $stmtDates->execute([
+                            ':courseCode' => $courseCode,
+                            ':unitCode' => $unitCode
                             ]);
+                            $distinctDatesResult = $stmtDates->fetchAll(PDO::FETCH_ASSOC);
+
+                            // Get all students in course
+                            $studentsQuery = "
+                            SELECT registrationNumber, firstName, lastName 
+                            FROM tblstudents 
+                            WHERE courseCode = :courseCode
+                            ";
+                            $stmtStudents = $pdo->prepare($studentsQuery);
+                            $stmtStudents->execute([':courseCode' => $courseCode]);
                             $studentRows = $stmtStudents->fetchAll(PDO::FETCH_ASSOC);
 
-                            // Display each student's attendance row
                             foreach ($studentRows as $row) {
-                                echo "<tr>";
-                                echo "<td>" . $row['studentRegistrationNumber'] . "</td>";
+                            echo "<tr>";
+                            echo "<td>" . htmlspecialchars($row['registrationNumber']) . "</td>";
+                            echo "<td>" . htmlspecialchars($row['firstName'] . " " . $row['lastName']) . "</td>";
 
-                                // Loop through each date and fetch the attendance status for the student
-                                foreach ($distinctDatesResult as $dateRow) {
-                                    $date = $dateRow['dateMarked'];
+                            foreach ($distinctDatesResult as $dateRow) {
+                                $date = $dateRow['dateMarked'];
 
-                                    // Fetch attendance for the current student and date
-                                    $attendanceQuery = "SELECT attendanceStatus FROM tblattendance 
-                                    WHERE studentRegistrationNumber = :studentRegistrationNumber 
-                                    AND dateMarked = :date 
-                                    AND course = :courseCode 
-                                    AND unit = :unitCode";
-                                    $stmtAttendance = $pdo->prepare($attendanceQuery);
-                                    $stmtAttendance->execute([
-                                        ':studentRegistrationNumber' => $row['studentRegistrationNumber'],
-                                        ':date' => $date,
-                                        ':courseCode' => $courseCode,
-                                        ':unitCode' => $unitCode,
-                                    ]);
-                                    $attendanceResult = $stmtAttendance->fetch(PDO::FETCH_ASSOC);
+                                $attendanceQuery = "SELECT attendanceStatus FROM tblattendance 
+                                                    WHERE studentRegistrationNumber = :studentRegistrationNumber 
+                                                    AND dateMarked = :date 
+                                                    AND course = :courseCode 
+                                                    AND unit = :unitCode";
+                                $stmtAttendance = $pdo->prepare($attendanceQuery);
+                                $stmtAttendance->execute([
+                                ':studentRegistrationNumber' => $row['registrationNumber'],
+                                ':date' => $date,
+                                ':courseCode' => $courseCode,
+                                ':unitCode' => $unitCode
+                                ]);
+                                $attendanceResult = $stmtAttendance->fetch(PDO::FETCH_ASSOC);
 
-                                    // Display attendance status or default to "Absent"
-                                    if ($attendanceResult) {
-                                        echo "<td>" . $attendanceResult['attendanceStatus'] . "</td>";
-                                    } else {
-                                        echo "<td>Absent</td>";
-                                    }
+                                if ($attendanceResult) {
+                                echo "<td>" . htmlspecialchars($attendanceResult['attendanceStatus']) . "</td>";
+                                } else {
+                                echo "<td>Absent</td>";
                                 }
+                            }
 
-                                echo "</tr>";
+                            echo "</tr>";
                             }
                             ?>
-                        </tbody>
+                            </tbody>
+
                     </table>
 
 

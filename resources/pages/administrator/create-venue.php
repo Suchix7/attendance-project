@@ -8,9 +8,11 @@ if (isset($_POST["addVenue"])) {
     $currentStatus = htmlspecialchars(trim($_POST['currentStatus']));
     $capacity = filter_var($_POST['capacity'], FILTER_VALIDATE_INT);
     $classification = htmlspecialchars(trim($_POST['classification']));
+    $latitude = htmlspecialchars(trim($_POST['latitude']));
+    $longitude = htmlspecialchars(trim($_POST['longitude']));
 
     // Check for required fields
-    if (!$className || !$facultyCode || !$currentStatus || !$capacity || !$classification) {
+    if (!$className || !$facultyCode || !$currentStatus || !$capacity || !$classification || !$latitude || !$longitude) {
         $_SESSION['message'] = "All fields are required and must be valid.";
     } else {
         $dateRegistered = date("Y-m-d");
@@ -27,14 +29,16 @@ if (isset($_POST["addVenue"])) {
             } else {
                 // Insert the new venue
                 $stmt = $pdo->prepare(
-                    "INSERT INTO tblvenue (className, facultyCode, currentStatus, capacity, classification, dateCreated)
-                    VALUES (:className, :facultyCode, :currentStatus, :capacity, :classification, :dateCreated)"
+                    "INSERT INTO tblvenue (className, facultyCode, currentStatus, capacity, classification, latitude, longitude, dateCreated)
+                    VALUES (:className, :facultyCode, :currentStatus, :capacity, :classification, :latitude, :longitude, :dateCreated)"
                 );
                 $stmt->bindParam(':className', $className);
                 $stmt->bindParam(':facultyCode', $facultyCode);
                 $stmt->bindParam(':currentStatus', $currentStatus);
                 $stmt->bindParam(':capacity', $capacity, PDO::PARAM_INT);
                 $stmt->bindParam(':classification', $classification);
+                $stmt->bindParam(':latitude', $latitude);
+                $stmt->bindParam(':longitude', $longitude);
                 $stmt->bindParam(':dateCreated', $dateRegistered);
 
                 if ($stmt->execute()) {
@@ -49,6 +53,52 @@ if (isset($_POST["addVenue"])) {
     }
 }
 
+// Add edit handler for venues
+if (isset($_POST["editVenue"])) {
+    $venueId = filter_var($_POST["venueId"], FILTER_VALIDATE_INT);
+    $className = htmlspecialchars(trim($_POST['className']));
+    $facultyCode = htmlspecialchars(trim($_POST['faculty']));
+    $currentStatus = htmlspecialchars(trim($_POST['currentStatus']));
+    $capacity = filter_var($_POST['capacity'], FILTER_VALIDATE_INT);
+    $classification = htmlspecialchars(trim($_POST['classification']));
+    $latitude = htmlspecialchars(trim($_POST['latitude']));
+    $longitude = htmlspecialchars(trim($_POST['longitude']));
+
+    if ($venueId && $className && $facultyCode && $currentStatus && $capacity && $classification && $latitude && $longitude) {
+        try {
+            // Update the venue
+            $stmt = $pdo->prepare(
+                "UPDATE tblvenue SET 
+                className = :className,
+                facultyCode = :facultyCode,
+                currentStatus = :currentStatus,
+                capacity = :capacity,
+                classification = :classification,
+                latitude = :latitude,
+                longitude = :longitude
+                WHERE Id = :id"
+            );
+
+            $stmt->execute([
+                ':className' => $className,
+                ':facultyCode' => $facultyCode,
+                ':currentStatus' => $currentStatus,
+                ':capacity' => $capacity,
+                ':classification' => $classification,
+                ':latitude' => $latitude,
+                ':longitude' => $longitude,
+                ':id' => $venueId
+            ]);
+
+            $_SESSION['message'] = "Venue Updated Successfully";
+        } catch (PDOException $e) {
+            $_SESSION['message'] = "Error updating venue: " . $e->getMessage();
+        }
+    } else {
+        $_SESSION['message'] = "All fields are required and must be valid.";
+    }
+}
+
 
 ?>
 <!DOCTYPE html>
@@ -58,7 +108,7 @@ if (isset($_POST["addVenue"])) {
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="resources/images/logo/attnlg.png" rel="icon">
+    <link href="resources/images/logo/face logo.png" rel="icon">
     <title>Dashboard</title>
     <link rel="stylesheet" href="resources/assets/css/admin_styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css" rel="stylesheet">
@@ -81,7 +131,8 @@ if (isset($_POST["addVenue"])) {
                             <option value="free">Free</option>
                             <option value="scheduled">Scheduled</option>
                         </select>
-                        <button id="addClass1" class="add show-form"><i class="ri-add-line"></i>Add lecture room</button>
+                        <button id="addClass1" class="add show-form"><i class="ri-add-line"></i>Add lecture
+                            room</button>
                     </div>
                 </div>
                 <div class="rooms--cards">
@@ -145,6 +196,8 @@ if (isset($_POST["addVenue"])) {
                                 <th>Current Status</th>
                                 <th>Capacity</th>
                                 <th>Classification</th>
+                                <th>Latitude</th>
+                                <th>Longitude</th>
                                 <th>Settings</th>
                             </tr>
                         </thead>
@@ -154,17 +207,34 @@ if (isset($_POST["addVenue"])) {
                             $stmt = $pdo->query($sql);
                             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             if ($result) {
-                                foreach ($result as $row)
+                                foreach ($result as $row) {
                                     echo "<tr id='rowvenue{$row["Id"]}'>";
-                                echo "<td>" . $row["className"] . "</td>";
-                                echo "<td>" . $row["facultyCode"] . "</td>";
-                                echo "<td>" . $row["currentStatus"] . "</td>";
-                                echo "<td>" . $row["capacity"] . "</td>";
-                                echo "<td>" . $row["classification"] . "</td>";
-                                echo "<td><span><i class='ri-delete-bin-line delete' data-id='{$row["Id"]}' data-name='venue'></i></span></td>";
-                                echo "</tr>";
+                                    echo "<td>" . $row["className"] . "</td>";
+                                    echo "<td>" . $row["facultyCode"] . "</td>";
+                                    echo "<td>" . $row["currentStatus"] . "</td>";
+                                    echo "<td>" . $row["capacity"] . "</td>";
+                                    echo "<td>" . $row["classification"] . "</td>";
+                                    echo "<td>" . $row["latitude"] . "</td>";
+                                    echo "<td>" . $row["longitude"] . "</td>";
+                                    echo "<td>
+                                            <span>
+                                                <i class='ri-edit-line edit' 
+                                                   data-id='{$row["Id"]}' 
+                                                   data-name='venue'
+                                                   data-classname='{$row["className"]}'
+                                                   data-faculty='{$row["facultyCode"]}'
+                                                   data-status='{$row["currentStatus"]}'
+                                                   data-capacity='{$row["capacity"]}'
+                                                   data-classification='{$row["classification"]}'
+                                                   data-latitude='{$row["latitude"]}'
+                                                   data-longitude='{$row["longitude"]}'></i>
+                                                <i class='ri-delete-bin-line delete' data-id='{$row["Id"]}' data-name='venue'></i>
+                                            </span>
+                                          </td>";
+                                    echo "</tr>";
+                                }
                             } else {
-                                echo "<tr><td colspan='6'>No records found</td></tr>";
+                                echo "<tr><td colspan='8'>No records found</td></tr>";
                             }
 
                             ?>
@@ -174,7 +244,7 @@ if (isset($_POST["addVenue"])) {
 
             </div>
 
-            <div class="formDiv-venue" id="addClassForm" style="display:none ">
+            <div class="formDiv" id="addClassForm" style="display:none ">
                 <form method="POST" action="" name="addVenue" enctype="multipart/form-data">
                     <div style="display:flex; justify-content:space-around;">
                         <div class="form-title">
@@ -191,6 +261,8 @@ if (isset($_POST["addVenue"])) {
                         <option value="scheduled">Scheduled</option>
                     </select>
                     <input type="text" name="capacity" placeholder="Capacity" required>
+                    <input type="text" name="latitude" placeholder="Latitude" required>
+                    <input type="text" name="longitude" placeholder="Longitude" required>
                     <select required name="classification">
                         <option value="" selected> --Select Class Type--</option>
                         <option value="laboratory">Laboratory</option>
@@ -211,31 +283,98 @@ if (isset($_POST["addVenue"])) {
                     <input type="submit" class="submit" value="Save Venue" name="addVenue">
                 </form>
             </div>
+
+            <!-- Add Edit Form -->
+            <div class="formDiv" id="editClassForm" style="display:none">
+                <form method="POST" action="" name="editVenue" enctype="multipart/form-data">
+                    <div style="display:flex; justify-content:space-around;">
+                        <div class="form-title">
+                            <p>Edit Venue</p>
+                        </div>
+                        <div>
+                            <span class="close">&times;</span>
+                        </div>
+                    </div>
+                    <input type="hidden" name="venueId" id="editVenueId">
+                    <input type="text" name="className" id="editClassName" placeholder="Class Name" required>
+                    <select name="currentStatus" id="editCurrentStatus" required>
+                        <option value="">--Current Status--</option>
+                        <option value="availlable">Available</option>
+                        <option value="scheduled">Scheduled</option>
+                    </select>
+                    <input type="text" name="capacity" id="editCapacity" placeholder="Capacity" required>
+                    <input type="text" name="latitude" id="editLatitude" placeholder="Latitude" required>
+                    <input type="text" name="longitude" id="editLongitude" placeholder="Longitude" required>
+                    <select required name="classification" id="editClassification">
+                        <option value=""> --Select Class Type--</option>
+                        <option value="laboratory">Laboratory</option>
+                        <option value="computerLab">Computer Lab</option>
+                        <option value="lectureHall">Lecture Hall</option>
+                        <option value="class">Class</option>
+                        <option value="office">Office</option>
+                    </select>
+                    <select required name="faculty" id="editFaculty">
+                        <option value="">Select Faculty</option>
+                        <?php
+                        $facultyNames = getFacultyNames();
+                        foreach ($facultyNames as $faculty) {
+                            echo '<option value="' . $faculty["facultyCode"] . '">' . $faculty["facultyName"] . '</option>';
+                        }
+                        ?>
+                    </select>
+                    <input type="submit" class="submit" value="Update Venue" name="editVenue">
+                </form>
+            </div>
         </div>
     </section>
     <?php js_asset(["active_link", "delete_request"]) ?>
 
 
+
     <script>
         const show_form = document.querySelectorAll(".show-form")
         const addClassForm = document.getElementById('addClassForm');
+        const editClassForm = document.getElementById('editClassForm');
         const overlay = document.getElementById('overlay');
-        const closeButtons = document.querySelectorAll('#addClassForm .close');
+        const closeButtons = document.querySelectorAll('.close');
+
         show_form.forEach((showForm) => {
-            showForm.addEventListener('click', function() {
+            showForm.addEventListener('click', function () {
                 addClassForm.style.display = 'block';
                 overlay.style.display = 'block';
                 document.body.style.overflow = 'hidden';
-
             });
-        })
+        });
 
-        closeButtons.forEach(function(closeButton) {
-            closeButton.addEventListener('click', function() {
+        // Handle edit button clicks
+        document.querySelectorAll('.edit').forEach(function (editIcon) {
+            editIcon.addEventListener('click', function () {
+                const id = this.getAttribute('data-id');
+
+                // Populate the edit form
+                document.getElementById('editVenueId').value = id;
+                document.getElementById('editClassName').value = this.getAttribute('data-classname');
+                document.getElementById('editCurrentStatus').value = this.getAttribute('data-status');
+                document.getElementById('editCapacity').value = this.getAttribute('data-capacity');
+                document.getElementById('editClassification').value = this.getAttribute('data-classification');
+                document.getElementById('editLatitude').value = this.getAttribute('data-latitude');
+                document.getElementById('editLongitude').value = this.getAttribute('data-longitude');
+                document.getElementById('editFaculty').value = this.getAttribute('data-faculty');
+
+                // Show the edit form
+                editClassForm.style.display = 'block';
+                overlay.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        // Close both add and edit forms
+        closeButtons.forEach(function (closeButton) {
+            closeButton.addEventListener('click', function () {
                 addClassForm.style.display = 'none';
+                editClassForm.style.display = 'none';
                 overlay.style.display = 'none';
                 document.body.style.overflow = 'auto';
-
             });
         });
     </script>

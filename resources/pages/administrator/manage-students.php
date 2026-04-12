@@ -19,6 +19,20 @@ if (isset($_POST['addStudent'])) {
         $faculty = $_POST['faculty'];
         $dateRegistered = date("Y-m-d");
 
+        if (!preg_match("/^[a-zA-Z]+$/", $firstName)) {
+            throw new Exception("First name must contain letters only");
+        }
+
+        if (!preg_match("/^[a-zA-Z]+$/", $lastName)) {
+            throw new Exception("Last name must contain letters only");
+        }
+
+        // ✅ Validate email
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            throw new Exception("Invalid email address");
+        }
+
+
         debug_log("Student details: " . json_encode([
             'name' => "$firstName $lastName",
             'reg' => $registrationNumber
@@ -210,13 +224,113 @@ if (isset($_POST['addStudent'])) {
     }
 }
 
+// Add edit handler for students
+if (isset($_POST['editStudent'])) {
+    try {
+        debug_log("Starting student update process");
+
+        $studentId = filter_var($_POST['studentId'], FILTER_VALIDATE_INT);
+        $firstName = $_POST['firstName'];
+        $lastName = $_POST['lastName'];
+        $email = $_POST['email'];
+        $registrationNumber = $_POST['registrationNumber'];
+        $courseCode = $_POST['course'];
+        $faculty = $_POST['faculty'];
+
+
+    if (!preg_match("/^[a-zA-Z]+$/", $firstName)) {
+    throw new Exception("First name must contain letters only");
+}
+if (!preg_match("/^[a-zA-Z]+$/", $lastName)) {
+    throw new Exception("Last name must contain letters only");
+}
+
+// Validate email
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    throw new Exception("Invalid email address");
+}
+
+        debug_log("Student update details: " . json_encode([
+            'id' => $studentId,
+            'name' => "$firstName $lastName",
+            'reg' => $registrationNumber
+        ]));
+
+        // Check if registration number exists for other students
+        $checkQuery = $pdo->prepare("SELECT COUNT(*) FROM tblstudents WHERE registrationNumber = :registrationNumber AND Id != :id");
+        $checkQuery->execute([
+            ':registrationNumber' => $registrationNumber,
+            ':id' => $studentId
+        ]);
+
+        if ($checkQuery->fetchColumn() > 0) {
+            throw new Exception("Another student with this registration number already exists!");
+        }
+
+        // Update student information
+        $updateQuery = $pdo->prepare("
+            UPDATE tblstudents SET 
+            firstName = :firstName,
+            lastName = :lastName,
+            email = :email,
+            registrationNumber = :registrationNumber,
+            faculty = :faculty,
+            courseCode = :courseCode
+            WHERE Id = :id
+        ");
+
+        $updateQuery->execute([
+            ':firstName' => $firstName,
+            ':lastName' => $lastName,
+            ':email' => $email,
+            ':registrationNumber' => $registrationNumber,
+            ':faculty' => $faculty,
+            ':courseCode' => $courseCode,
+            ':id' => $studentId
+        ]);
+
+        // Update student info.json files
+        $baseDir = realpath(__DIR__ . '/../../..');
+        $studentsDir = $baseDir . '/students';
+        $validatedFacesDir = $baseDir . '/validated_faces';
+
+        $studentInfo = [
+            'id' => $registrationNumber,
+            'name' => $firstName . ' ' . $lastName,
+            'email' => $email,
+            'course' => $courseCode,
+            'faculty' => $faculty
+        ];
+
+        $infoJson = json_encode($studentInfo);
+
+        // Update info.json in both directories
+        $studentDir = "{$studentsDir}/{$registrationNumber}";
+        $validatedDir = "{$validatedFacesDir}/student{$registrationNumber}";
+
+        if (file_exists($studentDir)) {
+            file_put_contents("{$studentDir}/info.json", $infoJson);
+        }
+        if (file_exists($validatedDir)) {
+            file_put_contents("{$validatedDir}/info.json", $infoJson);
+        }
+
+        $_SESSION['message'] = "Student information updated successfully!";
+        debug_log("Student update completed successfully");
+
+    } catch (Exception $e) {
+        debug_log("Error updating student: " . $e->getMessage());
+        $_SESSION['message'] = "Error: " . $e->getMessage();
+    }
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="resources/images/logo/attnlg.png" rel="icon">
+    <link href="resources/images/logo/face logo.png" rel="icon">
     <title>AMS - Dashboard</title>
     <link rel="stylesheet" href="resources/assets/css/admin_styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -260,11 +374,23 @@ if (isset($_POST['addStudent'])) {
                                 foreach ($result as $row) {
                                     echo "<tr id='rowstudents{$row["Id"]}'>";
                                     echo "<td>" . $row["registrationNumber"] . "</td>";
-                                    echo "<td>" . $row["firstName"] . "</td>";
+                                    echo "<td>" . $row["firstName"] . " " . $row["lastName"] . "</td>";
                                     echo "<td>" . $row["faculty"] . "</td>";
                                     echo "<td>" . $row["courseCode"] . "</td>";
                                     echo "<td>" . $row["email"] . "</td>";
-                                    echo "<td><span><i class='ri-delete-bin-line delete' data-id='{$row["Id"]}' data-name='students'></i></span></td>";
+                                    echo "<td>
+                                            <span>
+                                                <i class='ri-edit-line edit' 
+                                                   data-id='{$row["Id"]}' 
+                                                   data-firstname='{$row["firstName"]}'
+                                                   data-lastname='{$row["lastName"]}'
+                                                   data-email='{$row["email"]}'
+                                                   data-regno='{$row["registrationNumber"]}'
+                                                   data-faculty='{$row["faculty"]}'
+                                                   data-course='{$row["courseCode"]}'></i>
+                                                <i class='ri-delete-bin-line delete' data-id='{$row["Id"]}' data-name='students'></i>
+                                            </span>
+                                          </td>";
                                     echo "</tr>";
                                 }
                             } else {
@@ -278,7 +404,7 @@ if (isset($_POST['addStudent'])) {
                 </div>
 
             </div>
-            <div class="formDiv--" id="form" style="display:none;">
+            <div class="formDiv" id="form" style="display:none;">
 
                 <form method="post">
                     <div style="display:flex; justify-content:space-around;">
@@ -291,8 +417,8 @@ if (isset($_POST['addStudent'])) {
                     </div>
                     <div>
                         <div>
-                            <input type="text" name="firstName" placeholder="First Name">
-                            <input type="text" name="lastName" " placeholder=" Last Name">
+                            <input type="text" name="firstName" placeholder="First Name"required>
+                            <input type="text" name="lastName" " placeholder=" Last Name"required>
                             <input type="email" name="email" placeholder="Email Address">
                             <input type="text" required id="registrationNumber" name="registrationNumber"
                                 placeholder="Registration Number"> <br>
@@ -342,6 +468,51 @@ if (isset($_POST['addStudent'])) {
                 </form>
             </div>
 
+            <!-- Add Edit Form -->
+            <div class="formDiv" id="editForm" style="display:none; height: 500px;">
+                <form method="post">
+                    <div style="display:flex; justify-content:space-around;">
+                        <div class="form-title">
+                            <p>Edit Student</p>
+                        </div>
+                        <div>
+                            <span class="close">&times;</span>
+                        </div>
+                    </div>
+                    <div>
+                        <input type="hidden" name="studentId" id="editStudentId">
+                        <input type="text" name="firstName" id="editFirstName" placeholder="First Name" required>
+                        <input type="text" name="lastName" id="editLastName" placeholder="Last Name" required>
+                        <input type="email" name="email" id="editEmail" placeholder="Email Address" required>
+                        <input type="text" required id="editRegistrationNumber" name="registrationNumber"
+                            placeholder="Registration Number">
+                        <p id="editError" style="color: red; display: none;">Invalid characters in registration number.
+                        </p>
+
+                        <select required name="faculty" id="editFaculty">
+                            <option value="">Select Faculty</option>
+                            <?php
+                            $facultyNames = getFacultyNames();
+                            foreach ($facultyNames as $faculty) {
+                                echo '<option value="' . $faculty["facultyCode"] . '">' . $faculty["facultyName"] . '</option>';
+                            }
+                            ?>
+                        </select>
+
+                        <select required name="course" id="editCourse">
+                            <option value="">Select Course</option>
+                            <?php
+                            $courseNames = getCourseNames();
+                            foreach ($courseNames as $course) {
+                                echo '<option value="' . $course["courseCode"] . '">' . $course["name"] . '</option>';
+                            }
+                            ?>
+                        </select>
+                    </div>
+                    <input type="submit" class="btn-submit" value="Update Student" name="editStudent">
+                </form>
+            </div>
+
     </section>
 
 
@@ -367,6 +538,65 @@ if (isset($_POST['addStudent'])) {
             }
 
             registrationNumberInput.value = sanitizedValue;
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const editForm = document.getElementById('editForm');
+            const overlay = document.getElementById('overlay');
+            const closeButtons = document.querySelectorAll('.close');
+
+            // Handle edit button clicks
+            document.querySelectorAll('.edit').forEach(function (editIcon) {
+                editIcon.addEventListener('click', function () {
+                    const id = this.getAttribute('data-id');
+
+                    // Populate the edit form
+                    document.getElementById('editStudentId').value = id;
+                    document.getElementById('editFirstName').value = this.getAttribute('data-firstname');
+                    document.getElementById('editLastName').value = this.getAttribute('data-lastname');
+                    document.getElementById('editEmail').value = this.getAttribute('data-email');
+                    document.getElementById('editRegistrationNumber').value = this.getAttribute('data-regno');
+                    document.getElementById('editFaculty').value = this.getAttribute('data-faculty');
+                    document.getElementById('editCourse').value = this.getAttribute('data-course');
+
+                    // Show the edit form
+                    editForm.style.display = 'block';
+                    overlay.style.display = 'block';
+                });
+            });
+
+            // Close form functionality
+            closeButtons.forEach(function (closeButton) {
+                closeButton.addEventListener('click', function () {
+                    editForm.style.display = 'none';
+                    overlay.style.display = 'none';
+                });
+            });
+
+            // Close form when clicking overlay
+            overlay.addEventListener('click', function () {
+                editForm.style.display = 'none';
+                this.style.display = 'none';
+            });
+
+            // Registration number validation for edit form
+            const editRegistrationNumberInput = document.getElementById('editRegistrationNumber');
+            const editErrorMessage = document.getElementById('editError');
+            const invalidCharacters = /[\\/:*?"<>|]/g;
+
+            editRegistrationNumberInput.addEventListener('input', () => {
+                const originalValue = editRegistrationNumberInput.value;
+                const sanitizedValue = originalValue.replace(invalidCharacters, '');
+
+                if (originalValue !== sanitizedValue) {
+                    editErrorMessage.style.display = 'inline';
+                    editErrorMessage.textContent = 'Invalid characters removed.';
+                } else {
+                    editErrorMessage.style.display = 'none';
+                }
+
+                editRegistrationNumberInput.value = sanitizedValue;
+            });
         });
     </script>
 </body>

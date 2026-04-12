@@ -7,6 +7,7 @@ import pickle
 from pathlib import Path
 import logging
 import argparse
+import gc
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -16,7 +17,7 @@ def train_lbph_with_validated_faces():
     try:
         # Get paths
         base_dir = Path(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-        validated_dir = base_dir / 'validated_faces'
+        validated_dir = base_dir / 'students'
         models_dir = base_dir / 'models'
         model_path = models_dir / 'lbph_model_validated.yml'
         labels_path = models_dir / 'labels_validated.pkl'
@@ -31,14 +32,17 @@ def train_lbph_with_validated_faces():
         # Load face cascade
         face_cascade = cv2.CascadeClassifier(str(cascade_path))
         
-        # Initialize LBPH recognizer
+        # Initialize LBPH recognizer with optimized resolution parameters
         recognizer = cv2.face.LBPHFaceRecognizer_create(
-            radius=1,        # Local binary patterns radius
-            neighbors=8,     # Number of points
-            grid_x=8,       # Grid size
-            grid_y=8,       # Grid size
-            threshold=80    # Slightly higher threshold for better known face detection
+            radius=1,        # Standard radius for 96x96
+            neighbors=8,     # Standard neighbors
+            grid_x=8,
+            grid_y=8,
+            threshold=150    # More tolerant threshold for varied conditions
         )
+        
+        # Initialize CLAHE and Bilateral Filter
+        clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8,8))
         
         # Initialize training data
         face_images = []
@@ -48,10 +52,10 @@ def train_lbph_with_validated_faces():
         
         # Process each student directory
         for student_dir in validated_dir.iterdir():
-            if not student_dir.is_dir() or student_dir.name == 'random':
+            if not student_dir.is_dir() or student_dir.name == 'random' or student_dir.name == 'temp':
                 continue
                 
-            student_id = student_dir.name.replace('student', '')
+            student_id = student_dir.name
             if student_id not in labels:
                 labels[student_id] = next_label
                 next_label += 1
@@ -84,19 +88,14 @@ def train_lbph_with_validated_faces():
                     maxSize=(400, 400)
                 )
                 
-                if len(faces) == 1:
-                    x, y, w, h = faces[0]
+                # Pick the largest face (fixes background crowd issues)
+                if len(faces) >= 1:
+                    x, y, w, h = max(faces, key=lambda f: f[2] * f[3])
                     face_roi = gray[y:y+h, x:x+w]
                     
-                    # Debug output
-                    debug_img = img.copy()
-                    cv2.rectangle(debug_img, (x, y), (x+w, y+h), (0, 255, 0), 2)
-                    debug_path = img_path.parent / f'training_debug_{img_path.name}'
-                    cv2.imwrite(str(debug_path), debug_img)
-                    
-                    # Preprocess
-                    face_roi = cv2.resize(face_roi, (100, 100))
-                    face_roi = cv2.equalizeHist(face_roi)
+                    # Preprocess: Focus on texture (Removed bilateralFilter for better LBP patterns)
+                    face_roi = cv2.resize(face_roi, (96, 96))
+                    face_roi = clahe.apply(face_roi)
                     
                     # Save preprocessed face for verification
                     prep_path = img_path.parent / f'prep_{img_path.name}'
@@ -107,16 +106,23 @@ def train_lbph_with_validated_faces():
                     face_labels.append(label)
                     
                     # Add flipped
+                    # --- LEAN DATA AUGMENTATION (Memory Safe) ---
+                    # 1. Flip
                     flipped = cv2.flip(face_roi, 1)
                     face_images.append(flipped)
                     face_labels.append(label)
                     
-                    # Add rotated versions
-                    for angle in [-7, -3, 3, 7]:
-                        M = cv2.getRotationMatrix2D((50, 50), angle, 1)
-                        rotated = cv2.warpAffine(face_roi, M, (100, 100))
+                    # 2. Slight rotation
+                    for angle in [-5, 5]:
+                        M = cv2.getRotationMatrix2D((48, 48), angle, 1)
+                        rotated = cv2.warpAffine(face_roi, M, (96, 96))
                         face_images.append(rotated)
                         face_labels.append(label)
+                    
+                    # 3. Slight Blur (simulating motion or focus issues)
+                    blurred = cv2.GaussianBlur(face_roi, (3, 3), 0)
+                    face_images.append(blurred)
+                    face_labels.append(label)
                     
                     face_count += 1
                     logging.info(f"Successfully processed face from {img_path.name}")
@@ -128,13 +134,16 @@ def train_lbph_with_validated_faces():
         if not face_images:
             return False, "No valid face images found for training"
         
+        # Clean up memory before training
+        gc.collect()
+        
         # Train model
-        logging.info(f"Training model with {len(face_images)} faces...")
+        logging.info(f"Training model with {len(face_images)} face variations...")
         recognizer.train(face_images, np.array(face_labels))
         
         # Save model and labels
         recognizer.save(str(model_path))
-        with open(labels_path, 'wb') as f:
+        with open(str(labels_path), 'wb') as f:
             pickle.dump(labels, f)
         
         return True, f"Model trained with {len(face_images)} faces from {len(labels)} students"
@@ -206,10 +215,11 @@ def start_recognition():
             
             # Process each face
             for (x, y, w, h) in faces:
-                # Extract and preprocess face region
+                # Extract and preprocess: Focus on texture consistency
                 face_roi = gray[y:y+h, x:x+w]
-                face_roi = cv2.resize(face_roi, (100, 100))
-                face_roi = cv2.equalizeHist(face_roi)
+                face_roi = cv2.resize(face_roi, (96, 96))
+                clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8,8))
+                face_roi = clahe.apply(face_roi)
                 
                 # Predict
                 label, confidence = recognizer.predict(face_roi)
@@ -218,27 +228,25 @@ def start_recognition():
                 # Larger faces (closer to camera) can have slightly higher threshold
                 face_size_factor = min(1.2, max(0.8, (w * h) / (200 * 200)))
                 base_threshold = 75  # Base threshold for recognition
-                adaptive_threshold = base_threshold * face_size_factor
-                
                 # The confidence is actually a distance - lower is better
-                # Convert to a more intuitive percentage where higher is better
-                confidence_percentage = max(0, min(100, 100 * (1 - confidence / 100)))
+                # Using 150 as a normalization factor for 96x96 LBP
+                confidence_percentage = max(0, min(100, 100 * (1 - confidence / 150)))
                 
-                # Recognition with adaptive threshold
-                if confidence < adaptive_threshold:
+                # Recognition with adaptive threshold - relaxed for stability
+                if confidence < 105:
                     name = f"Student {labels_reverse[label]}"
                     color = (0, 255, 0)  # Green
                     
                     # Add confidence level indicator with adjusted thresholds
-                    if confidence < 50:
+                    if confidence < 60:
                         match_quality = "Excellent"
-                        color = (0, 255, 0)  # Pure green for excellent
-                    elif confidence < 65:
+                        color = (0, 255, 0)
+                    elif confidence < 85:
                         match_quality = "Good"
-                        color = (0, 255, 100)  # Slightly different green for good
+                        color = (0, 255, 100)
                     else:
                         match_quality = "Fair"
-                        color = (0, 200, 100)  # More muted green for fair
+                        color = (0, 200, 100)
                         
                 else:
                     name = "Unknown"
@@ -316,16 +324,17 @@ def recognize_single_image(image_path):
         # Convert to grayscale
         gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
         
-        # Apply histogram equalization
-        gray = cv2.equalizeHist(gray)
+        # Apply CLAHE for better local contrast before detection
+        clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8,8))
+        gray = clahe.apply(gray)
         
-        # Detect faces
+        # Detect faces with more robust parameters
         faces = face_cascade.detectMultiScale(
             gray,
-            scaleFactor=1.1,
-            minNeighbors=4,
+            scaleFactor=1.05,
+            minNeighbors=5,
             minSize=(30, 30),
-            maxSize=(400, 400)
+            maxSize=(600, 600)
         )
         
         if len(faces) == 0:
@@ -347,24 +356,33 @@ def recognize_single_image(image_path):
             'height': int(h)
         }
         
-        # Extract and preprocess face region
+        # Extract and preprocess: Consistent texture preservation
         face_roi = gray[y:y+h, x:x+w]
-        face_roi = cv2.resize(face_roi, (100, 100))
-        face_roi = cv2.equalizeHist(face_roi)
+        face_roi = cv2.resize(face_roi, (96, 96))
+        face_roi = clahe.apply(face_roi)
+        # Removed BilateralFilter to keep LBP texture details
         
-        # Predict
+        # Predict with Retry Logic
         label, confidence = recognizer.predict(face_roi)
         
-        # Convert confidence to percentage (0-100%)
-        confidence_percentage = max(0, min(100, 100 * (1 - confidence / 100)))
+        # If confidence is low, try horizontal flip (accounts for mirroring issues)
+        if confidence > 100:
+            flipped_roi = cv2.flip(face_roi, 1)
+            label_f, confidence_f = recognizer.predict(flipped_roi)
+            if confidence_f < confidence:
+                label, confidence = label_f, confidence_f
+
+        # Convert confidence to percentage (Using 150 normalization)
+        confidence_percentage = max(0, min(100, 100 * (1 - confidence / 150)))
         
-        # Determine if face is recognized
-        if confidence < 75:  # Using base threshold
+        # Determine if face is recognized - Relaxed threshold to 105
+        if confidence < 105:  
             student_id = labels_reverse[label]
             return {
                 'success': True,
-                'student_id': student_id,  # Remove "Student " prefix
+                'student_id': student_id,
                 'confidence': confidence_percentage,
+                'raw_distance': round(confidence, 2),
                 'face_location': face_location
             }
         else:
@@ -372,6 +390,7 @@ def recognize_single_image(image_path):
                 'success': True,
                 'student_id': "Unknown",
                 'confidence': 0,
+                'raw_distance': round(confidence, 2),
                 'face_location': face_location
             }
             
@@ -390,10 +409,10 @@ if __name__ == "__main__":
 
     if args.train:
         success, message = train_lbph_with_validated_faces()
+        result = {'success': success, 'message': message}
+        print(json.dumps(result))
         if not success:
-            logging.error(f"Training failed: {message}")
             sys.exit(1)
-        logging.info(f"Training successful: {message}")
         sys.exit(0)
     elif args.image_path:
         result = recognize_single_image(args.image_path)
