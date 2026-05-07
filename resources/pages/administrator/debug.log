@@ -797,3 +797,179 @@
 
 2026-04-12 13:09:48 - Return code: 0
 2026-04-12 13:09:48 - Student registration completed successfully
+2026-04-20 18:26:15 - Starting student registration process
+2026-04-20 18:26:15 - Student details: {"name":"Shreebisha Shrestha","reg":"1"}
+2026-04-20 18:26:15 - Base directory: C:\xampp\htdocs\new attendance\attendance-project2
+2026-04-20 18:26:15 - Python script path: C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py
+2026-04-20 18:26:15 - Processing image 1 for student 1
+2026-04-20 18:26:15 - Saved image to: C:\xampp\htdocs\new attendance\attendance-project2/students/1/face_1.jpg
+2026-04-20 18:26:15 - Saved image to: C:\xampp\htdocs\new attendance\attendance-project2/validated_faces/student1/face_1.jpg
+2026-04-20 18:26:15 - Saved image to: resources/labels/1/face_1.jpg
+2026-04-20 18:26:15 - Processing image 2 for student 1
+2026-04-20 18:26:15 - Saved image to: C:\xampp\htdocs\new attendance\attendance-project2/students/1/face_2.jpg
+2026-04-20 18:26:15 - Saved image to: C:\xampp\htdocs\new attendance\attendance-project2/validated_faces/student1/face_2.jpg
+2026-04-20 18:26:15 - Saved image to: resources/labels/1/face_2.jpg
+2026-04-20 18:26:15 - Processing image 3 for student 1
+2026-04-20 18:26:15 - Saved image to: C:\xampp\htdocs\new attendance\attendance-project2/students/1/face_3.jpg
+2026-04-20 18:26:15 - Saved image to: C:\xampp\htdocs\new attendance\attendance-project2/validated_faces/student1/face_3.jpg
+2026-04-20 18:26:15 - Saved image to: resources/labels/1/face_3.jpg
+2026-04-20 18:26:15 - Processing image 4 for student 1
+2026-04-20 18:26:15 - Saved image to: C:\xampp\htdocs\new attendance\attendance-project2/students/1/face_4.jpg
+2026-04-20 18:26:15 - Saved image to: C:\xampp\htdocs\new attendance\attendance-project2/validated_faces/student1/face_4.jpg
+2026-04-20 18:26:15 - Saved image to: resources/labels/1/face_4.jpg
+2026-04-20 18:26:15 - Processing image 5 for student 1
+2026-04-20 18:26:15 - Saved image to: C:\xampp\htdocs\new attendance\attendance-project2/students/1/face_5.jpg
+2026-04-20 18:26:15 - Saved image to: C:\xampp\htdocs\new attendance\attendance-project2/validated_faces/student1/face_5.jpg
+2026-04-20 18:26:15 - Saved image to: resources/labels/1/face_5.jpg
+2026-04-20 18:26:15 - Processing image 6 for student 1
+2026-04-20 18:26:15 - Saved image to: C:\xampp\htdocs\new attendance\attendance-project2/students/1/face_6.jpg
+2026-04-20 18:26:15 - Saved image to: C:\xampp\htdocs\new attendance\attendance-project2/validated_faces/student1/face_6.jpg
+2026-04-20 18:26:15 - Saved image to: resources/labels/1/face_6.jpg
+2026-04-20 18:26:15 - Processing image 7 for student 1
+2026-04-20 18:26:15 - Saved image to: C:\xampp\htdocs\new attendance\attendance-project2/students/1/face_7.jpg
+2026-04-20 18:26:15 - Saved image to: C:\xampp\htdocs\new attendance\attendance-project2/validated_faces/student1/face_7.jpg
+2026-04-20 18:26:15 - Saved image to: resources/labels/1/face_7.jpg
+2026-04-20 18:26:15 - Processing image 8 for student 1
+2026-04-20 18:26:15 - Saved image to: C:\xampp\htdocs\new attendance\attendance-project2/students/1/face_8.jpg
+2026-04-20 18:26:15 - Saved image to: C:\xampp\htdocs\new attendance\attendance-project2/validated_faces/student1/face_8.jpg
+2026-04-20 18:26:15 - Saved image to: resources/labels/1/face_8.jpg
+2026-04-20 18:26:15 - Processing image 9 for student 1
+2026-04-20 18:26:15 - Saved image to: C:\xampp\htdocs\new attendance\attendance-project2/students/1/face_9.jpg
+2026-04-20 18:26:15 - Saved image to: C:\xampp\htdocs\new attendance\attendance-project2/validated_faces/student1/face_9.jpg
+2026-04-20 18:26:15 - Saved image to: resources/labels/1/face_9.jpg
+2026-04-20 18:26:15 - Processing image 10 for student 1
+2026-04-20 18:26:15 - Saved image to: C:\xampp\htdocs\new attendance\attendance-project2/students/1/face_10.jpg
+2026-04-20 18:26:15 - Saved image to: C:\xampp\htdocs\new attendance\attendance-project2/validated_faces/student1/face_10.jpg
+2026-04-20 18:26:15 - Saved image to: resources/labels/1/face_10.jpg
+2026-04-20 18:26:15 - Saved student info files
+2026-04-20 18:26:15 - Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" --train
+2026-04-20 18:26:16 - Command output: Array
+(
+    [0] => 2026-04-20 22:11:15,445 - INFO - Processing student 1 with label 0
+    [1] => 2026-04-20 22:11:15,447 - INFO - Processing image: C:\xampp\htdocs\new attendance\attendance-project2\students\1\face_1.jpg
+    [2] => 2026-04-20 22:11:15,771 - INFO - Successfully processed face from face_1.jpg
+    [3] => 2026-04-20 22:11:15,771 - INFO - Processing image: C:\xampp\htdocs\new attendance\attendance-project2\students\1\face_10.jpg
+    [4] => 2026-04-20 22:11:15,824 - INFO - Successfully processed face from face_10.jpg
+    [5] => 2026-04-20 22:11:15,824 - INFO - Processing image: C:\xampp\htdocs\new attendance\attendance-project2\students\1\face_2.jpg
+    [6] => 2026-04-20 22:11:15,879 - INFO - Successfully processed face from face_2.jpg
+    [7] => 2026-04-20 22:11:15,879 - INFO - Processing image: C:\xampp\htdocs\new attendance\attendance-project2\students\1\face_3.jpg
+    [8] => 2026-04-20 22:11:15,932 - INFO - Successfully processed face from face_3.jpg
+    [9] => 2026-04-20 22:11:15,932 - INFO - Processing image: C:\xampp\htdocs\new attendance\attendance-project2\students\1\face_4.jpg
+    [10] => 2026-04-20 22:11:15,984 - INFO - Successfully processed face from face_4.jpg
+    [11] => 2026-04-20 22:11:15,984 - INFO - Processing image: C:\xampp\htdocs\new attendance\attendance-project2\students\1\face_5.jpg
+    [12] => 2026-04-20 22:11:16,039 - INFO - Successfully processed face from face_5.jpg
+    [13] => 2026-04-20 22:11:16,040 - INFO - Processing image: C:\xampp\htdocs\new attendance\attendance-project2\students\1\face_6.jpg
+    [14] => 2026-04-20 22:11:16,092 - INFO - Successfully processed face from face_6.jpg
+    [15] => 2026-04-20 22:11:16,092 - INFO - Processing image: C:\xampp\htdocs\new attendance\attendance-project2\students\1\face_7.jpg
+    [16] => 2026-04-20 22:11:16,144 - INFO - Successfully processed face from face_7.jpg
+    [17] => 2026-04-20 22:11:16,144 - INFO - Processing image: C:\xampp\htdocs\new attendance\attendance-project2\students\1\face_8.jpg
+    [18] => 2026-04-20 22:11:16,196 - INFO - Successfully processed face from face_8.jpg
+    [19] => 2026-04-20 22:11:16,196 - INFO - Processing image: C:\xampp\htdocs\new attendance\attendance-project2\students\1\face_9.jpg
+    [20] => 2026-04-20 22:11:16,250 - INFO - Successfully processed face from face_9.jpg
+    [21] => 2026-04-20 22:11:16,251 - INFO - Processed 10 faces for student 1
+    [22] => 2026-04-20 22:11:16,254 - INFO - Training model with 50 face variations...
+    [23] => {"success": true, "message": "Model trained with 50 faces from 1 students"}
+)
+
+2026-04-20 18:26:16 - Return code: 0
+2026-04-20 18:26:16 - Error: Student with the given Registration No: 1 already exists!
+2026-04-20 18:27:21 - Starting student registration process
+2026-04-20 18:27:21 - Student details: {"name":"shree shree","reg":"2"}
+2026-04-20 18:27:21 - Base directory: C:\xampp\htdocs\new attendance\attendance-project2
+2026-04-20 18:27:21 - Python script path: C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py
+2026-04-20 18:27:21 - Creating student directory: C:\xampp\htdocs\new attendance\attendance-project2/students/2
+2026-04-20 18:27:21 - Creating student directory: C:\xampp\htdocs\new attendance\attendance-project2/validated_faces/student2
+2026-04-20 18:27:21 - Processing image 1 for student 2
+2026-04-20 18:27:21 - Saved image to: C:\xampp\htdocs\new attendance\attendance-project2/students/2/face_1.jpg
+2026-04-20 18:27:21 - Saved image to: C:\xampp\htdocs\new attendance\attendance-project2/validated_faces/student2/face_1.jpg
+2026-04-20 18:27:21 - Saved image to: resources/labels/2/face_1.jpg
+2026-04-20 18:27:21 - Processing image 2 for student 2
+2026-04-20 18:27:21 - Saved image to: C:\xampp\htdocs\new attendance\attendance-project2/students/2/face_2.jpg
+2026-04-20 18:27:21 - Saved image to: C:\xampp\htdocs\new attendance\attendance-project2/validated_faces/student2/face_2.jpg
+2026-04-20 18:27:21 - Saved image to: resources/labels/2/face_2.jpg
+2026-04-20 18:27:21 - Processing image 3 for student 2
+2026-04-20 18:27:21 - Saved image to: C:\xampp\htdocs\new attendance\attendance-project2/students/2/face_3.jpg
+2026-04-20 18:27:21 - Saved image to: C:\xampp\htdocs\new attendance\attendance-project2/validated_faces/student2/face_3.jpg
+2026-04-20 18:27:21 - Saved image to: resources/labels/2/face_3.jpg
+2026-04-20 18:27:21 - Processing image 4 for student 2
+2026-04-20 18:27:21 - Saved image to: C:\xampp\htdocs\new attendance\attendance-project2/students/2/face_4.jpg
+2026-04-20 18:27:21 - Saved image to: C:\xampp\htdocs\new attendance\attendance-project2/validated_faces/student2/face_4.jpg
+2026-04-20 18:27:21 - Saved image to: resources/labels/2/face_4.jpg
+2026-04-20 18:27:21 - Processing image 5 for student 2
+2026-04-20 18:27:21 - Saved image to: C:\xampp\htdocs\new attendance\attendance-project2/students/2/face_5.jpg
+2026-04-20 18:27:21 - Saved image to: C:\xampp\htdocs\new attendance\attendance-project2/validated_faces/student2/face_5.jpg
+2026-04-20 18:27:21 - Saved image to: resources/labels/2/face_5.jpg
+2026-04-20 18:27:21 - Processing image 6 for student 2
+2026-04-20 18:27:21 - Saved image to: C:\xampp\htdocs\new attendance\attendance-project2/students/2/face_6.jpg
+2026-04-20 18:27:21 - Saved image to: C:\xampp\htdocs\new attendance\attendance-project2/validated_faces/student2/face_6.jpg
+2026-04-20 18:27:21 - Saved image to: resources/labels/2/face_6.jpg
+2026-04-20 18:27:21 - Processing image 7 for student 2
+2026-04-20 18:27:21 - Saved image to: C:\xampp\htdocs\new attendance\attendance-project2/students/2/face_7.jpg
+2026-04-20 18:27:21 - Saved image to: C:\xampp\htdocs\new attendance\attendance-project2/validated_faces/student2/face_7.jpg
+2026-04-20 18:27:21 - Saved image to: resources/labels/2/face_7.jpg
+2026-04-20 18:27:21 - Processing image 8 for student 2
+2026-04-20 18:27:21 - Saved image to: C:\xampp\htdocs\new attendance\attendance-project2/students/2/face_8.jpg
+2026-04-20 18:27:21 - Saved image to: C:\xampp\htdocs\new attendance\attendance-project2/validated_faces/student2/face_8.jpg
+2026-04-20 18:27:21 - Saved image to: resources/labels/2/face_8.jpg
+2026-04-20 18:27:21 - Processing image 9 for student 2
+2026-04-20 18:27:21 - Saved image to: C:\xampp\htdocs\new attendance\attendance-project2/students/2/face_9.jpg
+2026-04-20 18:27:21 - Saved image to: C:\xampp\htdocs\new attendance\attendance-project2/validated_faces/student2/face_9.jpg
+2026-04-20 18:27:21 - Saved image to: resources/labels/2/face_9.jpg
+2026-04-20 18:27:21 - Processing image 10 for student 2
+2026-04-20 18:27:21 - Saved image to: C:\xampp\htdocs\new attendance\attendance-project2/students/2/face_10.jpg
+2026-04-20 18:27:21 - Saved image to: C:\xampp\htdocs\new attendance\attendance-project2/validated_faces/student2/face_10.jpg
+2026-04-20 18:27:21 - Saved image to: resources/labels/2/face_10.jpg
+2026-04-20 18:27:21 - Saved student info files
+2026-04-20 18:27:21 - Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" --train
+2026-04-20 18:27:23 - Command output: Array
+(
+    [0] => 2026-04-20 22:12:21,431 - INFO - Processing student 1 with label 0
+    [1] => 2026-04-20 22:12:21,432 - INFO - Processing image: C:\xampp\htdocs\new attendance\attendance-project2\students\1\face_1.jpg
+    [2] => 2026-04-20 22:12:21,772 - INFO - Successfully processed face from face_1.jpg
+    [3] => 2026-04-20 22:12:21,772 - INFO - Processing image: C:\xampp\htdocs\new attendance\attendance-project2\students\1\face_10.jpg
+    [4] => 2026-04-20 22:12:21,829 - INFO - Successfully processed face from face_10.jpg
+    [5] => 2026-04-20 22:12:21,829 - INFO - Processing image: C:\xampp\htdocs\new attendance\attendance-project2\students\1\face_2.jpg
+    [6] => 2026-04-20 22:12:21,882 - INFO - Successfully processed face from face_2.jpg
+    [7] => 2026-04-20 22:12:21,882 - INFO - Processing image: C:\xampp\htdocs\new attendance\attendance-project2\students\1\face_3.jpg
+    [8] => 2026-04-20 22:12:21,932 - INFO - Successfully processed face from face_3.jpg
+    [9] => 2026-04-20 22:12:21,932 - INFO - Processing image: C:\xampp\htdocs\new attendance\attendance-project2\students\1\face_4.jpg
+    [10] => 2026-04-20 22:12:21,987 - INFO - Successfully processed face from face_4.jpg
+    [11] => 2026-04-20 22:12:21,987 - INFO - Processing image: C:\xampp\htdocs\new attendance\attendance-project2\students\1\face_5.jpg
+    [12] => 2026-04-20 22:12:22,040 - INFO - Successfully processed face from face_5.jpg
+    [13] => 2026-04-20 22:12:22,040 - INFO - Processing image: C:\xampp\htdocs\new attendance\attendance-project2\students\1\face_6.jpg
+    [14] => 2026-04-20 22:12:22,092 - INFO - Successfully processed face from face_6.jpg
+    [15] => 2026-04-20 22:12:22,092 - INFO - Processing image: C:\xampp\htdocs\new attendance\attendance-project2\students\1\face_7.jpg
+    [16] => 2026-04-20 22:12:22,142 - INFO - Successfully processed face from face_7.jpg
+    [17] => 2026-04-20 22:12:22,142 - INFO - Processing image: C:\xampp\htdocs\new attendance\attendance-project2\students\1\face_8.jpg
+    [18] => 2026-04-20 22:12:22,195 - INFO - Successfully processed face from face_8.jpg
+    [19] => 2026-04-20 22:12:22,196 - INFO - Processing image: C:\xampp\htdocs\new attendance\attendance-project2\students\1\face_9.jpg
+    [20] => 2026-04-20 22:12:22,244 - INFO - Successfully processed face from face_9.jpg
+    [21] => 2026-04-20 22:12:22,244 - INFO - Processed 10 faces for student 1
+    [22] => 2026-04-20 22:12:22,244 - INFO - Processing student 2 with label 1
+    [23] => 2026-04-20 22:12:22,246 - INFO - Processing image: C:\xampp\htdocs\new attendance\attendance-project2\students\2\face_1.jpg
+    [24] => 2026-04-20 22:12:22,293 - INFO - Successfully processed face from face_1.jpg
+    [25] => 2026-04-20 22:12:22,293 - INFO - Processing image: C:\xampp\htdocs\new attendance\attendance-project2\students\2\face_10.jpg
+    [26] => 2026-04-20 22:12:22,340 - INFO - Successfully processed face from face_10.jpg
+    [27] => 2026-04-20 22:12:22,341 - INFO - Processing image: C:\xampp\htdocs\new attendance\attendance-project2\students\2\face_2.jpg
+    [28] => 2026-04-20 22:12:22,390 - INFO - Successfully processed face from face_2.jpg
+    [29] => 2026-04-20 22:12:22,390 - INFO - Processing image: C:\xampp\htdocs\new attendance\attendance-project2\students\2\face_3.jpg
+    [30] => 2026-04-20 22:12:22,440 - INFO - Successfully processed face from face_3.jpg
+    [31] => 2026-04-20 22:12:22,440 - INFO - Processing image: C:\xampp\htdocs\new attendance\attendance-project2\students\2\face_4.jpg
+    [32] => 2026-04-20 22:12:22,490 - INFO - Successfully processed face from face_4.jpg
+    [33] => 2026-04-20 22:12:22,490 - INFO - Processing image: C:\xampp\htdocs\new attendance\attendance-project2\students\2\face_5.jpg
+    [34] => 2026-04-20 22:12:22,538 - INFO - Successfully processed face from face_5.jpg
+    [35] => 2026-04-20 22:12:22,538 - INFO - Processing image: C:\xampp\htdocs\new attendance\attendance-project2\students\2\face_6.jpg
+    [36] => 2026-04-20 22:12:22,590 - INFO - Successfully processed face from face_6.jpg
+    [37] => 2026-04-20 22:12:22,590 - INFO - Processing image: C:\xampp\htdocs\new attendance\attendance-project2\students\2\face_7.jpg
+    [38] => 2026-04-20 22:12:22,640 - INFO - Successfully processed face from face_7.jpg
+    [39] => 2026-04-20 22:12:22,640 - INFO - Processing image: C:\xampp\htdocs\new attendance\attendance-project2\students\2\face_8.jpg
+    [40] => 2026-04-20 22:12:22,689 - INFO - Successfully processed face from face_8.jpg
+    [41] => 2026-04-20 22:12:22,689 - INFO - Processing image: C:\xampp\htdocs\new attendance\attendance-project2\students\2\face_9.jpg
+    [42] => 2026-04-20 22:12:22,733 - INFO - Successfully processed face from face_9.jpg
+    [43] => 2026-04-20 22:12:22,734 - INFO - Processed 10 faces for student 2
+    [44] => 2026-04-20 22:12:22,739 - INFO - Training model with 100 face variations...
+    [45] => {"success": true, "message": "Model trained with 100 faces from 2 students"}
+)
+
+2026-04-20 18:27:23 - Return code: 0
+2026-04-20 18:27:23 - Student registration completed successfully
