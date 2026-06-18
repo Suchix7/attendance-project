@@ -30,6 +30,12 @@
                         <span class="sidebar--item">Manage Students</span>
                     </a>
                 </li>
+                 <li>
+                    <a href="email-alerts">
+                        <span class="icon icon-1"><i class="ri-mail-send-line"></i></span>
+                        <span class="sidebar--item">Email Warnings</span>
+                    </a>
+                </li>
                 <li>
                     <a href="settings">
                         <span class="icon icon-1"><i class="ri-settings-3-line"></i></span>
