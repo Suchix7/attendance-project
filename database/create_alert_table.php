@@ -10,6 +10,7 @@ try {
         lastAbsentAlertSent DATETIME NULL,
         consecutivePresentCount INT DEFAULT 0,
         lastMomentumAlertSent DATETIME NULL,
+        lastThresholdAlertSent DATETIME NULL,
         UNIQUE KEY uq_student_unit (studentRegistrationNumber, courseCode, unitCode)
     )";
 

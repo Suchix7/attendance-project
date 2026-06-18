@@ -40,13 +40,16 @@ function calculateAttendanceRisk($registrationNumber, $courseCode = null) {
 
     $percentage = ($presentCount / $totalClasses) * 100;
     
+    $threshold = (int)get_setting($pdo, 'attendance_threshold', '75');
+    $warningThreshold = $threshold + 10;
+    
     $riskLevel = 'Safe';
     $riskColor = '#22c55e'; // Green
     
-    if ($percentage < 75) {
+    if ($percentage < $threshold) {
         $riskLevel = 'Critical';
         $riskColor = '#ef4444'; // Red
-    } elseif ($percentage < 85) {
+    } elseif ($percentage < $warningThreshold) {
         $riskLevel = 'Warning';
         $riskColor = '#f59e0b'; // Amber
     }

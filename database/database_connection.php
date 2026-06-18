@@ -23,9 +23,17 @@ try {
     
     $stmt = $pdo->prepare("INSERT IGNORE INTO tblsettings (setting_key, setting_value) VALUES 
         ('face_confidence_threshold', '65'),
-        ('email_alerts_mode', 'auto')
+        ('email_alerts_mode', 'auto'),
+        ('attendance_threshold', '75')
     ");
     $stmt->execute();
+
+    // Ensure tblalertstate is up to date with lastThresholdAlertSent column
+    try {
+        $pdo->exec("ALTER TABLE tblalertstate ADD COLUMN lastThresholdAlertSent DATETIME NULL");
+    } catch (PDOException $e) {
+        // Column probably already exists or table doesn't exist yet, ignore
+    }
 } catch (PDOException $e) {
     die("Connection failed: " . $e->getMessage());
 }

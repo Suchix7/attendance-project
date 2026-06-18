@@ -54,7 +54,8 @@ if (!function_exists('evaluate_and_send_alerts')) {
                 $state = [
                     'lastAbsentAlertSent' => null,
                     'consecutivePresentCount' => 0,
-                    'lastMomentumAlertSent' => null
+                    'lastMomentumAlertSent' => null,
+                    'lastThresholdAlertSent' => null
                 ];
             }
 
@@ -125,6 +126,64 @@ if (!function_exists('evaluate_and_send_alerts')) {
                     if (trigger_alert_emailer($studentEmail, $subject, $body)) {
                         $updateMomentumStmt = $pdo->prepare("UPDATE tblalertstate SET lastMomentumAlertSent = :today WHERE studentRegistrationNumber = :studentID AND courseCode = :course AND unitCode = :unit");
                         $updateMomentumStmt->execute([
+                            ':today' => $today,
+                            ':studentID' => $studentID,
+                            ':course' => $course,
+                            ':unit' => $unit
+                        ]);
+                    }
+                }
+            }
+
+            // 3. Check if cumulative attendance for this course and unit falls below threshold
+            $threshold = (int)get_setting($pdo, 'attendance_threshold', '75');
+
+            // Get total distinct dates marked for this course and unit
+            $stmtTotal = $pdo->prepare("SELECT COUNT(DISTINCT dateMarked) as total FROM tblattendance WHERE course = :course AND unit = :unit");
+            $stmtTotal->execute([':course' => $course, ':unit' => $unit]);
+            $totalClasses = $stmtTotal->fetch(PDO::FETCH_ASSOC)['total'] ?: 1;
+
+            // Get student's present count for this course and unit
+            $stmtPresent = $pdo->prepare("SELECT COUNT(*) as present FROM tblattendance 
+                                         WHERE studentRegistrationNumber = :reg 
+                                         AND attendanceStatus = 'Present'
+                                         AND course = :course
+                                         AND unit = :unit");
+            $stmtPresent->execute([
+                ':reg' => $studentID,
+                ':course' => $course,
+                ':unit' => $unit
+            ]);
+            $presentCount = $stmtPresent->fetch(PDO::FETCH_ASSOC)['present'];
+
+            $percentage = ($presentCount / $totalClasses) * 100;
+
+            if ($percentage < $threshold && $emailMode === 'auto') {
+                $shouldSendThreshold = false;
+                if (empty($state['lastThresholdAlertSent'])) {
+                    $shouldSendThreshold = true;
+                } else {
+                    $lastSentTime = strtotime($state['lastThresholdAlertSent']);
+                    $cooldown_threshold = 3 * 24 * 60 * 60; // 3-day cooldown
+                    if (time() - $lastSentTime > $cooldown_threshold) {
+                        $shouldSendThreshold = true;
+                    }
+                }
+
+                if ($shouldSendThreshold) {
+                    $subject = "SAS Portal: CRITICAL Attendance Warning";
+                    $percentFormatted = round($percentage, 1);
+                    $body = "Dear $studentName,\n\n" .
+                            "This is an automated warning regarding your attendance in the course $course (Unit: $unit).\n\n" .
+                            "Your current attendance for this class is $percentFormatted%, which is below the required minimum threshold of $threshold%.\n\n" .
+                            "Please be warned that if your attendance remains below this threshold, you will NOT be eligible to sit for exams for this unit.\n\n" .
+                            "Please make sure to attend all upcoming classes to improve your attendance percentage.\n\n" .
+                            "Best regards,\n" .
+                            "SAS Portal Attendance System";
+
+                    if (trigger_alert_emailer($studentEmail, $subject, $body)) {
+                        $updateThresholdStmt = $pdo->prepare("UPDATE tblalertstate SET lastThresholdAlertSent = :today WHERE studentRegistrationNumber = :studentID AND courseCode = :course AND unitCode = :unit");
+                        $updateThresholdStmt->execute([
                             ':today' => $today,
                             ':studentID' => $studentID,
                             ':course' => $course,

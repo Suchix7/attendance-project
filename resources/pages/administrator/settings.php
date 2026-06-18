@@ -10,9 +10,12 @@ $error = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['save_settings'])) {
     $threshold = filter_var($_POST['face_confidence_threshold'], FILTER_VALIDATE_INT);
     $email_mode = htmlspecialchars(trim($_POST['email_alerts_mode']));
+    $attendance_threshold = filter_var($_POST['attendance_threshold'], FILTER_VALIDATE_INT);
 
     if ($threshold === false || $threshold < 0 || $threshold > 100) {
         $error = "Confidence threshold must be a number between 0 and 100.";
+    } elseif ($attendance_threshold === false || $attendance_threshold < 0 || $attendance_threshold > 100) {
+        $error = "Attendance threshold must be a number between 0 and 100.";
     } elseif (!in_array($email_mode, ['auto', 'manual', 'disabled'])) {
         $error = "Invalid email alerts mode selected.";
     } else {
@@ -24,6 +27,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['save_settings'])) {
             // Update email alerts mode
             $stmt = $pdo->prepare("INSERT INTO tblsettings (setting_key, setting_value) VALUES ('email_alerts_mode', :val) ON DUPLICATE KEY UPDATE setting_value = :val");
             $stmt->execute([':val' => $email_mode]);
+
+            // Update attendance threshold
+            $stmt = $pdo->prepare("INSERT INTO tblsettings (setting_key, setting_value) VALUES ('attendance_threshold', :val) ON DUPLICATE KEY UPDATE setting_value = :val");
+            $stmt->execute([':val' => (string)$attendance_threshold]);
 
             $message = "Settings updated successfully.";
         } catch (PDOException $e) {
@@ -62,12 +69,42 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
         $studentName = trim($student['firstName'] . ' ' . $student['lastName']);
         $studentEmail = $student['email'];
 
-        $subject = "SAS Portal: Student Absence Notice";
-        $body = "Dear Parent/Guardian,\n\n" .
-                "We are writing to inform you that the student $studentName (Registration No: $student_id) was marked Absent for the course $course (Unit: $unit).\n\n" .
-                "Please follow up with the student accordingly.\n\n" .
-                "Best regards,\n" .
-                "SAS Portal Attendance System";
+        // Calculate attendance percentage for this class (course & unit)
+        $stmtTotal = $pdo->prepare("SELECT COUNT(DISTINCT dateMarked) as total FROM tblattendance WHERE course = :course AND unit = :unit");
+        $stmtTotal->execute([':course' => $course, ':unit' => $unit]);
+        $totalClasses = $stmtTotal->fetch(PDO::FETCH_ASSOC)['total'] ?: 1;
+
+        $stmtPresent = $pdo->prepare("SELECT COUNT(*) as present FROM tblattendance 
+                         WHERE studentRegistrationNumber = :reg 
+                         AND attendanceStatus = 'Present'
+                         AND course = :course
+                         AND unit = :unit");
+        $stmtPresent->execute([':reg' => $student_id, ':course' => $course, ':unit' => $unit]);
+        $presentCount = $stmtPresent->fetch(PDO::FETCH_ASSOC)['present'];
+
+        $percentage = ($presentCount / $totalClasses) * 100;
+        $threshold = (int)get_setting($pdo, 'attendance_threshold', '75');
+        
+        $is_below_threshold = ($percentage < $threshold);
+        $percentFormatted = round($percentage, 1);
+
+        if ($is_below_threshold) {
+            $subject = "SAS Portal: CRITICAL Attendance Warning";
+            $body = "Dear Parent/Guardian,\n\n" .
+                    "We are writing to inform you that the student $studentName (Registration No: $student_id) was marked Absent for the course $course (Unit: $unit).\n\n" .
+                    "Additionally, their cumulative attendance for this class has fallen to $percentFormatted%, which is below the minimum required threshold of $threshold%.\n\n" .
+                    "Please be warned that if their attendance remains below this threshold, they will NOT be eligible to sit for exams for this unit.\n\n" .
+                    "Please follow up with the student accordingly.\n\n" .
+                    "Best regards,\n" .
+                    "SAS Portal Attendance System";
+        } else {
+            $subject = "SAS Portal: Student Absence Notice";
+            $body = "Dear Parent/Guardian,\n\n" .
+                    "We are writing to inform you that the student $studentName (Registration No: $student_id) was marked Absent for the course $course (Unit: $unit).\n\n" .
+                    "Please follow up with the student accordingly.\n\n" .
+                    "Best regards,\n" .
+                    "SAS Portal Attendance System";
+        }
 
         // Dispatch email using trigger_alert_emailer from alert_service
         $sent = trigger_alert_emailer($studentEmail, $subject, $body);
@@ -75,7 +112,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
         if ($sent) {
             $today = date('Y-m-d H:i:s');
             // Update tblalertstate
-            $stmt = $pdo->prepare("INSERT INTO tblalertstate (studentRegistrationNumber, courseCode, unitCode, lastAbsentAlertSent) VALUES (:student_id, :course, :unit, :today) ON DUPLICATE KEY UPDATE lastAbsentAlertSent = :today");
+            if ($is_below_threshold) {
+                $stmt = $pdo->prepare("INSERT INTO tblalertstate (studentRegistrationNumber, courseCode, unitCode, lastAbsentAlertSent, lastThresholdAlertSent) VALUES (:student_id, :course, :unit, :today, :today) ON DUPLICATE KEY UPDATE lastAbsentAlertSent = :today, lastThresholdAlertSent = :today");
+            } else {
+                $stmt = $pdo->prepare("INSERT INTO tblalertstate (studentRegistrationNumber, courseCode, unitCode, lastAbsentAlertSent) VALUES (:student_id, :course, :unit, :today) ON DUPLICATE KEY UPDATE lastAbsentAlertSent = :today");
+            }
             $stmt->execute([
                 ':student_id' => $student_id,
                 ':course' => $course,
@@ -96,6 +137,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
 // Retrieve current configurations
 $current_threshold = get_setting($pdo, 'face_confidence_threshold', '65');
 $current_email_mode = get_setting($pdo, 'email_alerts_mode', 'auto');
+$current_attendance_threshold = get_setting($pdo, 'attendance_threshold', '75');
 
 // Retrieve recent absences for the dispatcher
 $absences = [];
@@ -109,7 +151,9 @@ try {
                 s.firstName,
                 s.lastName,
                 s.email,
-                als.lastAbsentAlertSent
+                als.lastAbsentAlertSent,
+                (SELECT COUNT(DISTINCT a2.dateMarked) FROM tblattendance a2 WHERE a2.course = a.course AND a2.unit = a.unit) as total_classes,
+                (SELECT COUNT(*) FROM tblattendance a3 WHERE a3.studentRegistrationNumber = a.studentRegistrationNumber AND a3.attendanceStatus = 'Present' AND a3.course = a.course AND a3.unit = a.unit) as present_classes
             FROM tblattendance a
             INNER JOIN tblstudents s ON a.studentRegistrationNumber = s.registrationNumber
             LEFT JOIN tblalertstate als ON a.studentRegistrationNumber = als.studentRegistrationNumber 
@@ -330,6 +374,11 @@ try {
                             </select>
                             <p class="alert-info-text">Select how email alerts are handled. Auto uses 3-day suppressive rules; Manual lets you review and send below; Disabled stops all alerts.</p>
                         </div>
+                        <div class="setting-field">
+                            <label for="attendance_threshold">Minimum Attendance Threshold (%)</label>
+                            <input type="number" name="attendance_threshold" id="attendance_threshold" min="0" max="100" value="<?php echo htmlspecialchars($current_attendance_threshold); ?>" required>
+                            <p class="alert-info-text">Minimum attendance percentage required for students to be eligible for exams. Defaults to 75%.</p>
+                        </div>
                     </div>
                     <button type="submit" name="save_settings" class="save-settings-btn">
                         <i class="ri-save-line"></i> Save Configurations
@@ -363,6 +412,10 @@ try {
                                         <?php 
                                             $is_sent = !empty($row['lastAbsentAlertSent']);
                                             $sent_date = $is_sent ? date('Y-m-d H:i', strtotime($row['lastAbsentAlertSent'])) : '';
+                                            $total_cls = $row['total_classes'] ?: 1;
+                                            $present_cls = $row['present_classes'];
+                                            $pct = round(($present_cls / $total_cls) * 100, 1);
+                                            $is_critical = ($pct < $current_attendance_threshold);
                                         ?>
                                         <tr id="absence-row-<?php echo $row['attendanceID']; ?>">
                                             <td>
@@ -373,6 +426,11 @@ try {
                                             <td>
                                                 <div><?php echo htmlspecialchars($row['course']); ?></div>
                                                 <div style="font-size: 0.8rem; color: #909399;"><?php echo htmlspecialchars($row['unit']); ?></div>
+                                                <div style="margin-top: 4px;">
+                                                    <span style="font-size: 0.78rem; padding: 2px 6px; border-radius: 4px; font-weight: 600; <?php echo $is_critical ? 'background-color: #fef0f0; color: #f56c6c; border: 1px solid #fde2e2;' : 'background-color: #f0f9eb; color: #67c23a; border: 1px solid #e1f3d8;'; ?>">
+                                                        Attendance: <?php echo $pct; ?>% (<?php echo $present_cls; ?>/<?php echo $total_cls; ?>)
+                                                    </span>
+                                                </div>
                                             </td>
                                             <td><?php echo date('Y-m-d H:i', strtotime($row['dateMarked'])); ?></td>
                                             <td class="status-cell">
