@@ -28,6 +28,15 @@ try {
     ");
     $stmt->execute();
 
+    // Initialize faculty calendar table
+    $pdo->exec("CREATE TABLE IF NOT EXISTS tblfacultycalendar (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        facultyCode VARCHAR(50) NOT NULL,
+        classDate DATE NOT NULL,
+        description VARCHAR(255) NULL,
+        UNIQUE KEY uq_faculty_date (facultyCode, classDate)
+    )");
+
     // Ensure tblalertstate is up to date with lastThresholdAlertSent column
     try {
         $pdo->exec("ALTER TABLE tblalertstate ADD COLUMN lastThresholdAlertSent DATETIME NULL");

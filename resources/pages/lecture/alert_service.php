@@ -1,6 +1,67 @@
 <?php
 // resources/pages/lecture/alert_service.php
 
+/**
+ * Checks whether a given date is an officially scheduled class day
+ * for the faculty that owns the given course.
+ *
+ * If the faculty has NO calendar entries at all we treat every day as
+ * valid (graceful fallback so the system still works before a calendar
+ * is configured).
+ *
+ * @param PDO    $pdo    Active database connection.
+ * @param string $course Course code (used to look up the faculty).
+ * @param string $date   Date string in Y-m-d format (defaults to today).
+ * @return bool  true  → allowed to mark attendance
+ *               false → NOT a scheduled class day; attendance should be blocked/flagged
+ */
+if (!function_exists('is_scheduled_class_day')) {
+    function is_scheduled_class_day($pdo, $course, $date = null) {
+        if ($date === null) {
+            $date = date('Y-m-d');
+        }
+
+        try {
+            // Resolve the faculty that owns this course
+            $stmtFaculty = $pdo->prepare(
+                "SELECT f.facultyCode
+                 FROM tblcourse c
+                 JOIN tblfaculty f ON c.facultyID = f.Id
+                 WHERE c.courseCode = ?"
+            );
+            $stmtFaculty->execute([$course]);
+            $facultyCode = $stmtFaculty->fetchColumn();
+
+            if (!$facultyCode) {
+                return true; // no faculty mapping → no restriction
+            }
+
+            // Check whether ANY calendar entries exist for this faculty
+            $stmtCount = $pdo->prepare(
+                "SELECT COUNT(*) FROM tblfacultycalendar WHERE facultyCode = ?"
+            );
+            $stmtCount->execute([$facultyCode]);
+            $totalEntries = (int) $stmtCount->fetchColumn();
+
+            if ($totalEntries === 0) {
+                return true; // calendar not set up yet → no restriction
+            }
+
+            // Check whether the specific date is scheduled
+            $stmtDate = $pdo->prepare(
+                "SELECT COUNT(*) FROM tblfacultycalendar
+                 WHERE facultyCode = ? AND classDate = ?"
+            );
+            $stmtDate->execute([$facultyCode, $date]);
+
+            return (int) $stmtDate->fetchColumn() > 0;
+        } catch (Exception $e) {
+            error_log("is_scheduled_class_day error: " . $e->getMessage());
+            return true; // fail-open so a DB error never blocks all marking
+        }
+    }
+}
+
 if (!function_exists('evaluate_and_send_alerts')) {
     /**
      * Evaluates attendance state and sends rate-limited/suppressed alerts
@@ -138,23 +199,47 @@ if (!function_exists('evaluate_and_send_alerts')) {
             // 3. Check if cumulative attendance for this course and unit falls below threshold
             $threshold = (int)get_setting($pdo, 'attendance_threshold', '75');
 
-            // Get total distinct dates marked for this course and unit
-            $stmtTotal = $pdo->prepare("SELECT COUNT(DISTINCT dateMarked) as total FROM tblattendance WHERE course = :course AND unit = :unit");
-            $stmtTotal->execute([':course' => $course, ':unit' => $unit]);
-            $totalClasses = $stmtTotal->fetch(PDO::FETCH_ASSOC)['total'] ?: 1;
+            // Fetch faculty code for the course
+            $stmtFaculty = $pdo->prepare("SELECT f.facultyCode FROM tblcourse c JOIN tblfaculty f ON c.facultyID = f.Id WHERE c.courseCode = ?");
+            $stmtFaculty->execute([$course]);
+            $facultyCode = $stmtFaculty->fetchColumn();
 
-            // Get student's present count for this course and unit
-            $stmtPresent = $pdo->prepare("SELECT COUNT(*) as present FROM tblattendance 
-                                         WHERE studentRegistrationNumber = :reg 
-                                         AND attendanceStatus = 'Present'
-                                         AND course = :course
-                                         AND unit = :unit");
-            $stmtPresent->execute([
-                ':reg' => $studentID,
-                ':course' => $course,
-                ':unit' => $unit
-            ]);
-            $presentCount = $stmtPresent->fetch(PDO::FETCH_ASSOC)['present'];
+            // Fetch calendar dates up to today
+            $stmtCal = $pdo->prepare("SELECT classDate FROM tblfacultycalendar WHERE facultyCode = ? AND classDate <= CURDATE() ORDER BY classDate ASC");
+            $stmtCal->execute([$facultyCode]);
+            $calendarDates = $stmtCal->fetchAll(PDO::FETCH_COLUMN);
+
+            if (count($calendarDates) > 0) {
+                // Get present dates for this student in this course/unit
+                $stmtPresentDates = $pdo->prepare("SELECT DISTINCT dateMarked FROM tblattendance 
+                                                  WHERE studentRegistrationNumber = :reg 
+                                                  AND attendanceStatus = 'Present'
+                                                  AND course = :course 
+                                                  AND unit = :unit");
+                $stmtPresentDates->execute([':reg' => $studentID, ':course' => $course, ':unit' => $unit]);
+                $presentDates = $stmtPresentDates->fetchAll(PDO::FETCH_COLUMN);
+
+                $presentCount = count(array_intersect($calendarDates, $presentDates));
+                $totalClasses = count($calendarDates);
+            } else {
+                // Fallback: Get total distinct dates marked for this course and unit
+                $stmtTotal = $pdo->prepare("SELECT COUNT(DISTINCT dateMarked) as total FROM tblattendance WHERE course = :course AND unit = :unit");
+                $stmtTotal->execute([':course' => $course, ':unit' => $unit]);
+                $totalClasses = $stmtTotal->fetch(PDO::FETCH_ASSOC)['total'] ?: 1;
+
+                // Get student's present count for this course and unit
+                $stmtPresent = $pdo->prepare("SELECT COUNT(*) as present FROM tblattendance 
+                                             WHERE studentRegistrationNumber = :reg 
+                                             AND attendanceStatus = 'Present'
+                                             AND course = :course
+                                             AND unit = :unit");
+                $stmtPresent->execute([
+                    ':reg' => $studentID,
+                    ':course' => $course,
+                    ':unit' => $unit
+                ]);
+                $presentCount = $stmtPresent->fetch(PDO::FETCH_ASSOC)['present'];
+            }
 
             $percentage = ($presentCount / $totalClasses) * 100;
 

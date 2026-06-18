@@ -37,6 +37,12 @@
                     </a>
                 </li>
                 <li>
+                    <a href="faculty-calendar">
+                        <span class="icon icon-1"><i class="ri-calendar-todo-line"></i></span>
+                        <span class="sidebar--item">Academic Calendar</span>
+                    </a>
+                </li>
+                <li>
                     <a href="settings">
                         <span class="icon icon-1"><i class="ri-settings-3-line"></i></span>
                         <span class="sidebar--item">Settings</span>

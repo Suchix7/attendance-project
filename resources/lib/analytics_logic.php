@@ -15,28 +15,70 @@
 function calculateAttendanceRisk($registrationNumber, $courseCode = null) {
     global $pdo;
     
-    // Get total unique dates for the course/unit or overall
-    $queryTotal = "SELECT COUNT(DISTINCT dateMarked) as total FROM tblattendance";
+    // Find the faculty code for the student or course
+    $facultyCode = null;
     if ($courseCode) {
-        $queryTotal .= " WHERE course = :course";
+        $stmtFaculty = $pdo->prepare("SELECT f.facultyCode FROM tblcourse c JOIN tblfaculty f ON c.facultyID = f.Id WHERE c.courseCode = ?");
+        $stmtFaculty->execute([$courseCode]);
+        $facultyCode = $stmtFaculty->fetchColumn();
+    } else {
+        $stmtStudFaculty = $pdo->prepare("SELECT faculty FROM tblstudents WHERE registrationNumber = ?");
+        $stmtStudFaculty->execute([$registrationNumber]);
+        $facultyCode = $stmtStudFaculty->fetchColumn();
     }
-    $stmtTotal = $pdo->prepare($queryTotal);
-    if ($courseCode) $stmtTotal->bindParam(':course', $courseCode);
-    $stmtTotal->execute();
-    $totalClasses = $stmtTotal->fetch(PDO::FETCH_ASSOC)['total'] ?: 1;
 
-    // Get student's present count
-    $queryPresent = "SELECT COUNT(*) as present FROM tblattendance 
-                     WHERE studentRegistrationNumber = :reg 
-                     AND attendanceStatus = 'Present'";
-    if ($courseCode) {
-        $queryPresent .= " AND course = :course";
+    // Check if faculty calendar exists
+    $hasCalendar = false;
+    $calendarDates = [];
+    if ($facultyCode) {
+        $stmtCal = $pdo->prepare("SELECT classDate FROM tblfacultycalendar WHERE facultyCode = ? AND classDate <= CURDATE() ORDER BY classDate ASC");
+        $stmtCal->execute([$facultyCode]);
+        $calendarDates = $stmtCal->fetchAll(PDO::FETCH_COLUMN);
+        if (count($calendarDates) > 0) {
+            $hasCalendar = true;
+        }
     }
-    $stmtPresent = $pdo->prepare($queryPresent);
-    $stmtPresent->bindParam(':reg', $registrationNumber);
-    if ($courseCode) $stmtPresent->bindParam(':course', $courseCode);
-    $stmtPresent->execute();
-    $presentCount = $stmtPresent->fetch(PDO::FETCH_ASSOC)['present'];
+
+    if ($hasCalendar) {
+        $totalClasses = count($calendarDates);
+        
+        $dateList = implode(',', array_map(function($d) { return "'$d'"; }, $calendarDates));
+        $queryPresent = "SELECT COUNT(DISTINCT dateMarked) as present FROM tblattendance 
+                         WHERE studentRegistrationNumber = :reg 
+                         AND attendanceStatus = 'Present'
+                         AND dateMarked IN ($dateList)";
+        if ($courseCode) {
+            $queryPresent .= " AND course = :course";
+        }
+        $stmtPresent = $pdo->prepare($queryPresent);
+        $stmtPresent->bindParam(':reg', $registrationNumber);
+        if ($courseCode) $stmtPresent->bindParam(':course', $courseCode);
+        $stmtPresent->execute();
+        $presentCount = $stmtPresent->fetch(PDO::FETCH_ASSOC)['present'];
+    } else {
+        // Fallback: Get total unique dates for the course/unit or overall
+        $queryTotal = "SELECT COUNT(DISTINCT dateMarked) as total FROM tblattendance";
+        if ($courseCode) {
+            $queryTotal .= " WHERE course = :course";
+        }
+        $stmtTotal = $pdo->prepare($queryTotal);
+        if ($courseCode) $stmtTotal->bindParam(':course', $courseCode);
+        $stmtTotal->execute();
+        $totalClasses = $stmtTotal->fetch(PDO::FETCH_ASSOC)['total'] ?: 1;
+
+        // Get student's present count
+        $queryPresent = "SELECT COUNT(*) as present FROM tblattendance 
+                         WHERE studentRegistrationNumber = :reg 
+                         AND attendanceStatus = 'Present'";
+        if ($courseCode) {
+            $queryPresent .= " AND course = :course";
+        }
+        $stmtPresent = $pdo->prepare($queryPresent);
+        $stmtPresent->bindParam(':reg', $registrationNumber);
+        if ($courseCode) $stmtPresent->bindParam(':course', $courseCode);
+        $stmtPresent->execute();
+        $presentCount = $stmtPresent->fetch(PDO::FETCH_ASSOC)['present'];
+    }
 
     $percentage = ($presentCount / $totalClasses) * 100;
     

@@ -26,6 +26,18 @@ try {
     // Check if batch records are provided
     $records = $data['records'] ?? [];
     if (!empty($records)) {
+        // --- Calendar validation: check once using the first record's course ---
+        $firstCourse = $records[0]['course'] ?? '';
+        if ($firstCourse && !is_scheduled_class_day($pdo, $firstCourse, $today)) {
+            while (ob_get_level()) ob_end_clean();
+            echo json_encode([
+                'success' => false,
+                'message' => "Today ($today) is not a scheduled class day for this faculty. Attendance marking is not allowed on unscheduled days.",
+                'blocked_reason' => 'unscheduled_day'
+            ]);
+            exit;
+        }
+
         $pdo->beginTransaction();
         foreach ($records as $record) {
             $student_id = $record['student_id'] ?? '';
@@ -51,13 +63,11 @@ try {
             $existing = $stmt->fetch();
 
             if ($existing) {
-                // Update existing record
                 $stmt = $pdo->prepare("UPDATE tblattendance 
                                       SET attendanceStatus = ? 
                                       WHERE attendanceID = ?");
                 $stmt->execute([$status, $existing['attendanceID']]);
             } else {
-                // Insert new record
                 $stmt = $pdo->prepare("INSERT INTO tblattendance 
                                       (studentRegistrationNumber, course, unit, attendanceStatus, dateMarked) 
                                       VALUES (?, ?, ?, ?, ?)");
@@ -88,6 +98,17 @@ try {
 
     if (!in_array($status, ['Present', 'Absent'])) {
         throw new Exception('Status must be Present or Absent');
+    }
+
+    // --- Calendar validation: block if today is not a scheduled class day ---
+    if (!is_scheduled_class_day($pdo, $course, $today)) {
+        while (ob_get_level()) ob_end_clean();
+        echo json_encode([
+            'success' => false,
+            'message' => "Today ($today) is not a scheduled class day for this faculty. Attendance marking is not allowed on unscheduled days.",
+            'blocked_reason' => 'unscheduled_day'
+        ]);
+        exit;
     }
 
     // Check if record exists for today

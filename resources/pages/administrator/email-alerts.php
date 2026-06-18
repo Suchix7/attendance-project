@@ -56,22 +56,50 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
             $stmtUnit->execute([$unit]);
             $unitName = $stmtUnit->fetchColumn() ?: $unit;
 
-            // Total class dates
-            $stmtTotal = $pdo->prepare("SELECT COUNT(DISTINCT dateMarked) FROM tblattendance WHERE course = ? AND unit = ?");
-            $stmtTotal->execute([$course, $unit]);
-            $total = (int)$stmtTotal->fetchColumn() ?: 1;
+            // Fetch faculty code for the course
+            $stmtFaculty = $pdo->prepare("SELECT f.facultyCode FROM tblcourse c JOIN tblfaculty f ON c.facultyID = f.Id WHERE c.courseCode = ?");
+            $stmtFaculty->execute([$course]);
+            $facultyCode = $stmtFaculty->fetchColumn();
 
-            // Present count
-            $stmtPresent = $pdo->prepare("SELECT COUNT(*) FROM tblattendance WHERE studentRegistrationNumber = ? AND attendanceStatus = 'Present' AND course = ? AND unit = ?");
-            $stmtPresent->execute([$student_id, $course, $unit]);
-            $present = (int)$stmtPresent->fetchColumn();
+            // Fetch calendar dates up to today
+            $stmtCal = $pdo->prepare("SELECT classDate FROM tblfacultycalendar WHERE facultyCode = ? AND classDate <= CURDATE() ORDER BY classDate ASC");
+            $stmtCal->execute([$facultyCode]);
+            $calendarDates = $stmtCal->fetchAll(PDO::FETCH_COLUMN);
 
-            $pct = round(($present / $total) * 100, 1);
+            if (count($calendarDates) > 0) {
+                // Get present dates for this student in this course/unit
+                $stmtPresentDates = $pdo->prepare("SELECT DISTINCT dateMarked FROM tblattendance 
+                                                  WHERE studentRegistrationNumber = :reg 
+                                                  AND attendanceStatus = 'Present'
+                                                  AND course = :course 
+                                                  AND unit = :unit");
+                $stmtPresentDates->execute([':reg' => $student_id, ':course' => $course, ':unit' => $unit]);
+                $presentDates = $stmtPresentDates->fetchAll(PDO::FETCH_COLUMN);
 
-            // Absent Dates
-            $stmtAbsences = $pdo->prepare("SELECT dateMarked FROM tblattendance WHERE studentRegistrationNumber = ? AND attendanceStatus = 'Absent' AND course = ? AND unit = ? ORDER BY dateMarked DESC");
-            $stmtAbsences->execute([$student_id, $course, $unit]);
-            $absentDates = $stmtAbsences->fetchAll(PDO::FETCH_COLUMN);
+                $absentDates = array_diff($calendarDates, $presentDates);
+                usort($absentDates, function($a, $b) { return strcmp($b, $a); });
+                $absentDates = array_values($absentDates); // Reset keys
+
+                $present = count(array_intersect($calendarDates, $presentDates));
+                $total = count($calendarDates);
+            } else {
+                // Fallback: Total class dates
+                $stmtTotal = $pdo->prepare("SELECT COUNT(DISTINCT dateMarked) FROM tblattendance WHERE course = ? AND unit = ?");
+                $stmtTotal->execute([$course, $unit]);
+                $total = (int)$stmtTotal->fetchColumn() ?: 1;
+
+                // Present count
+                $stmtPresent = $pdo->prepare("SELECT COUNT(*) FROM tblattendance WHERE studentRegistrationNumber = ? AND attendanceStatus = 'Present' AND course = ? AND unit = ?");
+                $stmtPresent->execute([$student_id, $course, $unit]);
+                $present = (int)$stmtPresent->fetchColumn();
+
+                // Absent Dates
+                $stmtAbsences = $pdo->prepare("SELECT dateMarked FROM tblattendance WHERE studentRegistrationNumber = ? AND attendanceStatus = 'Absent' AND course = ? AND unit = ? ORDER BY dateMarked DESC");
+                $stmtAbsences->execute([$student_id, $course, $unit]);
+                $absentDates = $stmtAbsences->fetchAll(PDO::FETCH_COLUMN);
+            }
+
+            $pct = $total > 0 ? round(($present / $total) * 100, 1) : 0;
 
             $classes[] = [
                 'course' => $course,
@@ -528,9 +556,11 @@ $current_attendance_threshold = get_setting($pdo, 'attendance_threshold', '75');
                                                 </span>
                                             </td>
                                             <td>
-                                                <button class="btn-dispatch" onclick="openAlertModal('<?php echo $row['registrationNumber']; ?>')">
-                                                    <i class="ri-mail-send-line"></i> Review & Send
-                                                </button>
+                                              <button class="btn-dispatch" 
+        onclick="openAlertModal('<?php echo $row['registrationNumber']; ?>')" 
+        style="background-color: #2563eb; color: #ffffff; border: none; padding: 10px 20px; font-size: 14px; font-weight: 500; border-radius: 6px; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); transition: background-color 0.2s;">
+    <i class="ri-mail-send-line"></i> Review & Send
+</button>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>

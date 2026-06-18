@@ -69,18 +69,40 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
         $studentName = trim($student['firstName'] . ' ' . $student['lastName']);
         $studentEmail = $student['email'];
 
-        // Calculate attendance percentage for this class (course & unit)
-        $stmtTotal = $pdo->prepare("SELECT COUNT(DISTINCT dateMarked) as total FROM tblattendance WHERE course = :course AND unit = :unit");
-        $stmtTotal->execute([':course' => $course, ':unit' => $unit]);
-        $totalClasses = $stmtTotal->fetch(PDO::FETCH_ASSOC)['total'] ?: 1;
+        // Fetch faculty code for the course
+        $stmtFaculty = $pdo->prepare("SELECT f.facultyCode FROM tblcourse c JOIN tblfaculty f ON c.facultyID = f.Id WHERE c.courseCode = ?");
+        $stmtFaculty->execute([$course]);
+        $facultyCode = $stmtFaculty->fetchColumn();
 
-        $stmtPresent = $pdo->prepare("SELECT COUNT(*) as present FROM tblattendance 
-                         WHERE studentRegistrationNumber = :reg 
-                         AND attendanceStatus = 'Present'
-                         AND course = :course
-                         AND unit = :unit");
-        $stmtPresent->execute([':reg' => $student_id, ':course' => $course, ':unit' => $unit]);
-        $presentCount = $stmtPresent->fetch(PDO::FETCH_ASSOC)['present'];
+        // Fetch calendar dates up to today
+        $stmtCal = $pdo->prepare("SELECT classDate FROM tblfacultycalendar WHERE facultyCode = ? AND classDate <= CURDATE() ORDER BY classDate ASC");
+        $stmtCal->execute([$facultyCode]);
+        $calendarDates = $stmtCal->fetchAll(PDO::FETCH_COLUMN);
+
+        if (count($calendarDates) > 0) {
+            // Get present dates for this student in this course/unit
+            $stmtPresentDates = $pdo->prepare("SELECT DISTINCT dateMarked FROM tblattendance 
+                                              WHERE studentRegistrationNumber = :reg 
+                                              AND attendanceStatus = 'Present'
+                                              AND course = :course 
+                                              AND unit = :unit");
+            $stmtPresentDates->execute([':reg' => $student_id, ':course' => $course, ':unit' => $unit]);
+            $presentCount = count(array_intersect($calendarDates, $stmtPresentDates->fetchAll(PDO::FETCH_COLUMN)));
+            $totalClasses = count($calendarDates);
+        } else {
+            // Fallback: Calculate attendance percentage for this class (course & unit)
+            $stmtTotal = $pdo->prepare("SELECT COUNT(DISTINCT dateMarked) as total FROM tblattendance WHERE course = :course AND unit = :unit");
+            $stmtTotal->execute([':course' => $course, ':unit' => $unit]);
+            $totalClasses = $stmtTotal->fetch(PDO::FETCH_ASSOC)['total'] ?: 1;
+
+            $stmtPresent = $pdo->prepare("SELECT COUNT(*) as present FROM tblattendance 
+                             WHERE studentRegistrationNumber = :reg 
+                             AND attendanceStatus = 'Present'
+                             AND course = :course
+                             AND unit = :unit");
+            $stmtPresent->execute([':reg' => $student_id, ':course' => $course, ':unit' => $unit]);
+            $presentCount = $stmtPresent->fetch(PDO::FETCH_ASSOC)['present'];
+        }
 
         $percentage = ($presentCount / $totalClasses) * 100;
         $threshold = (int)get_setting($pdo, 'attendance_threshold', '75');
