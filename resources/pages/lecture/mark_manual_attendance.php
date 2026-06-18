@@ -20,13 +20,63 @@ try {
 
     // Get input data
     $data = json_decode(file_get_contents('php://input'), true);
+    $today = date('Y-m-d');
 
-    // Get required fields
+    // Check if batch records are provided
+    $records = $data['records'] ?? [];
+    if (!empty($records)) {
+        $pdo->beginTransaction();
+        foreach ($records as $record) {
+            $student_id = $record['student_id'] ?? '';
+            $status = $record['status'] ?? '';
+            $course = $record['course'] ?? '';
+            $unit = $record['unit'] ?? '';
+
+            if (!$student_id || !$status || !$course || !$unit) {
+                throw new Exception('All fields are required for all records');
+            }
+
+            if (!in_array($status, ['Present', 'Absent'])) {
+                throw new Exception('Status must be Present or Absent');
+            }
+
+            // Check if record exists for today
+            $stmt = $pdo->prepare("SELECT attendanceID FROM tblattendance 
+              WHERE studentRegistrationNumber = ? 
+              AND course = ? 
+              AND unit = ? 
+              AND DATE(dateMarked) = ?");
+            $stmt->execute([$student_id, $course, $unit, $today]);
+            $existing = $stmt->fetch();
+
+            if ($existing) {
+                // Update existing record
+                $stmt = $pdo->prepare("UPDATE tblattendance 
+                                      SET attendanceStatus = ? 
+                                      WHERE attendanceID = ?");
+                $stmt->execute([$status, $existing['attendanceID']]);
+            } else {
+                // Insert new record
+                $stmt = $pdo->prepare("INSERT INTO tblattendance 
+                                      (studentRegistrationNumber, course, unit, attendanceStatus, dateMarked) 
+                                      VALUES (?, ?, ?, ?, ?)");
+                $stmt->execute([$student_id, $course, $unit, $status, $today]);
+            }
+        }
+        $pdo->commit();
+
+        while (ob_get_level())
+            ob_end_clean();
+
+        echo json_encode(['success' => true]);
+        exit;
+    }
+
+    // Get required fields for single update (backward compatibility)
     $student_id = $data['student_id'] ?? '';
     $status = $data['status'] ?? '';
     $course = $data['course'] ?? '';
     $unit = $data['unit'] ?? '';
-    $today = date('Y-m-d');
 
     // Basic validation
     if (!$student_id || !$status || !$course || !$unit) {

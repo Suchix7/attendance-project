@@ -39,7 +39,9 @@ async function captureImage(video) {
 
       if (faceSizeRatio >= 0.2) {
         // Face must be at least 20% of frame
-        // Draw face rectangle
+        const cleanImage = canvas.toDataURL("image/png");
+
+        // Draw face rectangle for display
         context.strokeStyle = "#00ff00";
         context.lineWidth = 2;
         context.strokeRect(
@@ -49,8 +51,10 @@ async function captureImage(video) {
           largestFace.height
         );
 
-        // Return the image with face rectangle
-        return canvas.toDataURL("image/png");
+        const displayImage = canvas.toDataURL("image/png");
+
+        // Return both clean and display images
+        return { cleanImage, displayImage };
       } else {
         throw new Error("Face too small - Please move closer");
       }
@@ -75,15 +79,15 @@ function openCamera(buttonId) {
 
       setTimeout(async () => {
         try {
-          const capturedImage = await captureImage(video);
+          const { cleanImage, displayImage } = await captureImage(video);
           const imgElement = document.getElementById(
             buttonId + "-captured-image"
           );
-          imgElement.src = capturedImage;
+          imgElement.src = displayImage;
           const hiddenInput = document.getElementById(
             buttonId + "-captured-image-input"
           );
-          hiddenInput.value = capturedImage;
+          hiddenInput.value = cleanImage;
           document.getElementById(
             buttonId.replace("image_", "status_")
           ).textContent = "Face captured successfully!";
@@ -201,6 +205,9 @@ const captureImageWithDelay = async (i) => {
             document.getElementById(`status_${i}`).textContent =
               "Face detected!";
 
+            // Capture clean image
+            const cleanImage = canvas.toDataURL("image/png");
+
             // Draw face rectangle
             context.strokeStyle = "#00ff00";
             context.lineWidth = 2;
@@ -211,16 +218,17 @@ const captureImageWithDelay = async (i) => {
               largestFace.height
             );
 
-            // Capture the image with detected face
-            const capturedImage = canvas.toDataURL("image/png");
+            // Capture display image with rectangle
+            const displayImage = canvas.toDataURL("image/png");
+            
             const imgElement = document.getElementById(
               `image_${i}-captured-image`
             );
-            imgElement.src = capturedImage;
+            imgElement.src = displayImage;
             const hiddenInput = document.getElementById(
               `image_${i}-captured-image-input`
             );
-            hiddenInput.value = capturedImage;
+            hiddenInput.value = cleanImage;
           } else {
             document.getElementById(`status_${i}`).textContent =
               "Face too small - move closer";

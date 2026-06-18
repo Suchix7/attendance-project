@@ -297,16 +297,12 @@ def recognize_single_image(image_path, algo='lbph'):
         # Convert to grayscale
         gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
         
-        # Apply CLAHE for better local contrast before detection
-        clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8,8))
-        gray = clahe.apply(gray)
-        
-        # Detect faces with more robust parameters
+        # Detect faces with robust parameters on raw gray to align with training
         faces = face_cascade.detectMultiScale(
             gray,
             scaleFactor=1.1,
-            minNeighbors=6,
-            minSize=(80, 80),
+            minNeighbors=5,
+            minSize=(40, 40),
             maxSize=(600, 600)
         )
         
@@ -329,55 +325,92 @@ def recognize_single_image(image_path, algo='lbph'):
             'height': int(h)
         }
         
-        # Extract and preprocess: Consistent texture preservation
-        face_roi = gray[y:y+h, x:x+w]
-        face_roi = cv2.resize(face_roi, (96, 96))
+        # Extract and preprocess: Consistent texture preservation (crop from raw gray)
+        # We want to crop a 96x96 face ROI.
+        # To generate translations, we crop various offsets of the face ROI
+        H, W = gray.shape
         
-        # Quality check: Laplacian variance for sharpness
-        laplacian_var = cv2.Laplacian(face_roi, cv2.CV_64F).var()
-        if laplacian_var < 10: # Reject very blurry images
-            return {
-                'success': False,
-                'message': 'Image too blurry. Please look steadily at the camera.'
-            }
-
-        # Multi-sample prediction for better robustness
+        # Base crop
+        face_roi = gray[y:y+h, x:x+w]
+        face_roi_resized = cv2.resize(face_roi, (96, 96))
+        
+        # Multi-sample generation for alignment robustness
         samples = [
-            face_roi,
-            cv2.flip(face_roi, 1), # Horizontal flip
-            cv2.warpAffine(face_roi, cv2.getRotationMatrix2D((48, 48), 5, 1), (96, 96)), # +5 deg
-            cv2.warpAffine(face_roi, cv2.getRotationMatrix2D((48, 48), -5, 1), (96, 96)) # -5 deg
+            face_roi_resized,
+            cv2.flip(face_roi_resized, 1)  # Horizontal flip for mirrored cameras
         ]
         
+        # Shift translation samples
+        shifts = [(-4, -4), (-4, 4), (4, -4), (4, 4), (-2, 0), (2, 0), (0, -2), (0, 2)]
+        for dx, dy in shifts:
+            nx, ny = x + dx, y + dy
+            roi = gray[max(0, ny):min(H, ny+h), max(0, nx):min(W, nx+w)]
+            if roi.size > 0:
+                samples.append(cv2.resize(roi, (96, 96)))
+                
+        # Scale samples
+        scale_changes = [-0.05, 0.05]
+        for ds in scale_changes:
+            dw = int(w * ds)
+            dh = int(h * ds)
+            roi = gray[max(0, y-dh):min(H, y+h+dh), max(0, x-dw):min(W, x+w+dw)]
+            if roi.size > 0:
+                samples.append(cv2.resize(roi, (96, 96)))
+                
+        # Rotation samples
+        for angle in [-5, 5]:
+            M = cv2.getRotationMatrix2D((48, 48), angle, 1)
+            samples.append(cv2.warpAffine(face_roi_resized, M, (96, 96)))
+            
+        clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8,8))
         best_confidence = float('inf')
         best_label = -1
         
         for sample in samples:
-            # Consistent preprocessing for each sample
             sample_prep = clahe.apply(sample)
-            # Add slight smoothing to reduce LBP noise
-            sample_prep = cv2.GaussianBlur(sample_prep, (3, 3), 0)
             
+            # Quality check on the base sample only
+            if np.array_equal(sample, face_roi_resized):
+                laplacian_var = cv2.Laplacian(sample_prep, cv2.CV_64F).var()
+                if laplacian_var < 10: # Reject very blurry images
+                    return {
+                        'success': False,
+                        'message': 'Image too blurry. Please look steadily at the camera.'
+                    }
+            
+            sample_prep = cv2.GaussianBlur(sample_prep, (3, 3), 0)
             label, confidence = recognizer.predict(sample_prep)
             if confidence < best_confidence:
                 best_confidence = confidence
                 best_label = label
-        
+                
         label, confidence = best_label, best_confidence
         
-        # Norm thresholds and logic vary by algorithm
-        # LBPH: 0-150, Eigen: 0-5000, Fisher: 0-500
+        # Define strict thresholds to avoid mismatches
+        # LBPH: 80 (stricter, lower distance is closer match)
+        # Eigen: 3500
+        # Fisher: 400
         if algo == 'lbph':
-            conf_norm = 150
-            thresh = 85
+            thresh = 90
+            if confidence < thresh:
+                # Map raw distance [40 to 90] to [100% to 60%] display confidence
+                confidence_percentage = max(60.0, min(100.0, 100.0 - (confidence - 40.0) * (40.0 / 50.0)))
+            else:
+                confidence_percentage = 0.0
         elif algo == 'eigen':
-            conf_norm = 4000
             thresh = 3500
+            if confidence < thresh:
+                # Map raw distance [1000 to 3500] to [100% to 60%]
+                confidence_percentage = max(60.0, min(100.0, 100.0 - (confidence - 1000.0) * (40.0 / 2500.0)))
+            else:
+                confidence_percentage = 0.0
         else: # fisher
-            conf_norm = 500
             thresh = 400
-
-        confidence_percentage = max(0, min(100, 100 * (1 - confidence / conf_norm)))
+            if confidence < thresh:
+                # Map raw distance [50 to 400] to [100% to 60%]
+                confidence_percentage = max(60.0, min(100.0, 100.0 - (confidence - 50.0) * (40.0 / 350.0)))
+            else:
+                confidence_percentage = 0.0
         
         if confidence < thresh:  
             student_id = labels_reverse[label]

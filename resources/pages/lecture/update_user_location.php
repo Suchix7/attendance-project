@@ -1,6 +1,6 @@
 <?php
 header('Content-Type: application/json');
-require_once('../../config/config.php');
+session_start();
 
 if (isset($_POST['user_lat']) && isset($_POST['user_lng'])) {
     $latitude = $_POST['user_lat'];

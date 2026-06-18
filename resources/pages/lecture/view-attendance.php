@@ -92,6 +92,8 @@ if (!empty($unitCode)) {
                     <h2 class="section--title">Mark Attendance</h2>
                     <div class="attendance-controls">
                         <button class="add" id="markManual"><i class="ri-edit-line"></i>Mark Manually</button>
+                        <button class="add" id="saveManual" style="display: none; background-color: #28a745; border-color: #28a745;"><i class="ri-save-line"></i>Save Changes</button>
+                        <button class="add" id="cancelManual" style="display: none; background-color: #dc3545; border-color: #dc3545;"><i class="ri-close-line"></i>Cancel</button>
                     </div>
                 </div>
 
@@ -333,48 +335,126 @@ if (!empty($unitCode)) {
 <script>
     // Show/hide Action column and enable manual marking
     const markManualBtn = document.getElementById('markManual');
+    const saveManualBtn = document.getElementById('saveManual');
+    const cancelManualBtn = document.getElementById('cancelManual');
     const actionCols = document.querySelectorAll('.action-col');
+    
+    // Store original states and local changes
+    let originalStates = {};
+    let localChanges = {};
 
     markManualBtn.addEventListener('click', () => {
         actionCols.forEach(col => col.style.display = 'table-cell');
+        markManualBtn.style.display = 'none';
+        saveManualBtn.style.display = 'inline-block';
+        cancelManualBtn.style.display = 'inline-block';
+        
+        // Save original status for cancellation
+        document.querySelectorAll('.manual-status').forEach(select => {
+            const studentId = select.getAttribute('data-id');
+            const row = select.closest('tr');
+            const statusCell = row.querySelector('.status-cell');
+            originalStates[studentId] = {
+                statusText: statusCell.textContent,
+                selectValue: select.value
+            };
+        });
+        localChanges = {};
     });
 
-    // Handle status change
+    cancelManualBtn.addEventListener('click', () => {
+        actionCols.forEach(col => col.style.display = 'none');
+        markManualBtn.style.display = 'inline-block';
+        saveManualBtn.style.display = 'none';
+        cancelManualBtn.style.display = 'none';
+        
+        // Restore original values
+        document.querySelectorAll('.manual-status').forEach(select => {
+            const studentId = select.getAttribute('data-id');
+            const orig = originalStates[studentId];
+            if (orig) {
+                select.value = orig.selectValue;
+                const row = select.closest('tr');
+                const statusCell = row.querySelector('.status-cell');
+                statusCell.textContent = orig.statusText;
+                statusCell.style.color = '';
+                statusCell.style.fontWeight = '';
+            }
+        });
+        localChanges = {};
+    });
+
+    // Handle local status change (before saving)
     document.addEventListener('change', function (e) {
         if (!e.target.matches('.manual-status')) return;
 
         const select = e.target;
         const studentId = select.getAttribute('data-id');
         const status = select.value;
-        const course = document.getElementById('courseSelect').value;
-        const unit = document.getElementById('unitSelect').value;
-        const statusCell = select.closest('tr').querySelector('.status-cell');
+        const row = select.closest('tr');
+        const statusCell = row.querySelector('.status-cell');
 
         if (!status) return;
 
-        fetch('/new attendance/attendance-project2/resources/pages/lecture/mark_manual_attendance.php', {
+        // Update local tracking
+        localChanges[studentId] = status;
+        
+        // Show unsaved change in status cell
+        statusCell.textContent = status + ' (Unsaved)';
+        statusCell.style.color = '#ff9800'; // Amber/Orange to indicate unsaved
+        statusCell.style.fontWeight = 'bold';
+    });
+
+    // Handle Batch Save
+    saveManualBtn.addEventListener('click', () => {
+        const studentIds = Object.keys(localChanges);
+        if (studentIds.length === 0) {
+            alert('No status changes to save.');
+            return;
+        }
+
+        const course = document.getElementById('courseSelect').value;
+        const unit = document.getElementById('unitSelect').value;
+
+        if (!course || !unit) {
+            alert('Please select course and unit first.');
+            return;
+        }
+
+        const records = studentIds.map(studentId => ({
+            student_id: studentId,
+            status: localChanges[studentId],
+            course: course,
+            unit: unit
+        }));
+
+        saveManualBtn.disabled = true;
+        saveManualBtn.textContent = 'Saving...';
+
+        fetch('resources/pages/lecture/mark_manual_attendance.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                student_id: studentId,
-                status: status,
-                course: course,
-                unit: unit
-            })
+            body: JSON.stringify({ records: records })
         })
-            .then(res => res.json())
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error('Server returned error status ' + res.status);
+                }
+                return res.json();
+            })
             .then(data => {
                 if (data.success) {
-                    statusCell.textContent = status;
-                    alert('Attendance updated successfully');
-                    location.reload(); // Reload to show updated data
+                    alert('Attendance saved successfully');
+                    location.reload(); // Reload to show updated database data
                 } else {
-                    alert('Error: ' + (data.message || 'Failed to update attendance'));
+                    throw new Error(data.message || 'Failed to save attendance');
                 }
             })
             .catch(error => {
                 console.error('Error:', error);
-                alert('Error updating attendance. Please try again.');
+                alert('Error saving attendance: ' + error.message);
+                saveManualBtn.disabled = false;
+                saveManualBtn.innerHTML = '<i class="ri-save-line"></i>Save Changes';
             });
     });
 </script>

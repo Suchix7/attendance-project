@@ -1,350 +1,628 @@
-var labels = [];
-let detectedFaces = [];
-let sendingData = false;
-let lastErrorTime = 0; // Track when the last error message was shown
+// Consolidated Face Recognition and Geolocation script for Lecturer dashboard
 
-// Face recognition script using LBPH
-let videoStream = null;
+let stream = null;
 let isProcessing = false;
 let recognitionInterval = null;
-const video = document.getElementById("video");
-const videoContainer = document.querySelector(".video-container");
-const startButton = document.getElementById("startButton");
-let webcamStarted = false;
-const canvas = document.getElementById("canvas");
-const overlay = document.getElementById("overlay");
-const statusDiv = document.getElementById("recognitionStatus");
+let lastRecognitionTime = 0;
+let lastRecognizedStudent = null;
+let userLocation = null;
 
-function updateTable() {
-  var selectedCourseID = document.getElementById("courseSelect").value;
-  var selectedUnitCode = document.getElementById("unitSelect").value;
-  var selectedVenue = document.getElementById("venueSelect").value;
-  var xhr = new XMLHttpRequest();
-  xhr.open("POST", "resources/pages/lecture/manageFolder.php", true);
-  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+const RECOGNITION_COOLDOWN = 5000;
+const CONFIDENCE_THRESHOLD = 65;
+const MAX_ALLOWED_DISTANCE = 0.1; // 100 meters in kilometers
 
-  xhr.onreadystatechange = function () {
-    if (xhr.readyState === 4 && xhr.status === 200) {
-      var response = JSON.parse(xhr.responseText);
-      if (response.status === "success") {
-        document.getElementById("studentTableContainer").innerHTML =
-          response.html;
-        // Start face recognition if video is already running
-        if (videoStream) {
-          startFaceRecognition();
+// Define updateTable globally so it can be called from inline select elements
+window.updateTable = function () {
+    const courseSelect = document.getElementById("courseSelect");
+    const unitSelect = document.getElementById("unitSelect");
+    const venueSelect = document.getElementById("venueSelect");
+
+    if (!courseSelect || !unitSelect || !venueSelect) return;
+
+    const selectedCourseID = courseSelect.value;
+    const selectedUnitCode = unitSelect.value;
+    const selectedVenue = venueSelect.value;
+
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", "resources/pages/lecture/manageFolder.php", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            try {
+                const response = JSON.parse(xhr.responseText);
+                if (response.status === "success") {
+                    const container = document.getElementById("studentTableContainer");
+                    if (container) {
+                        container.innerHTML = response.html;
+                    }
+                    // Start face recognition if video stream is already running
+                    if (stream) {
+                        startFaceRecognition();
+                    }
+                } else {
+                    console.error("Error:", response.message);
+                    showMessage("Error updating table: " + response.message, "error");
+                }
+            } catch (e) {
+                console.error("Failed to parse response:", e);
+            }
         }
-      } else {
-        console.error("Error:", response.message);
-        showMessage("Error updating table: " + response.message, "error");
-      }
-    }
-  };
-  xhr.send(
-    "courseID=" +
-    encodeURIComponent(selectedCourseID) +
-    "&unitID=" +
-    encodeURIComponent(selectedUnitCode) +
-    "&venueID=" +
-    encodeURIComponent(selectedVenue)
-  );
-}
+    };
+    xhr.send(
+        "courseID=" + encodeURIComponent(selectedCourseID) +
+        "&unitID=" + encodeURIComponent(selectedUnitCode) +
+        "&venueID=" + encodeURIComponent(selectedVenue)
+    );
+};
 
-function markAttendance(studentId, name, confidence) {
-  document.querySelectorAll("#studentTableContainer tr").forEach((row) => {
-    const registrationNumber = row.cells[0]?.innerText?.trim();
-    if (registrationNumber === studentId) {
-      row.cells[5].innerText = "present";
-      showMessage(
-        `Marked attendance for ${name} (${confidence.toFixed(1)}% confidence)`
-      );
-    }
-  });
-}
+// Define confirmMarkAbsent globally for the action buttons in the table
+window.confirmMarkAbsent = function (element, studentId, course, unit) {
+    if (confirm('Are you sure you want to mark this student as absent?')) {
+        const row = element.closest('tr');
+        const statusCell = row.querySelector('.attendance-status');
 
+        fetch('resources/pages/lecture/update_attendance.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                studentID: studentId,
+                course: course,
+                unit: unit,
+                attendanceStatus: 'Absent',
+                date: new Date().toISOString().split('T')[0]
+            })
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    statusCell.textContent = 'Absent';
+                    statusCell.style.color = '#dc3545';
+                    showMessage('Attendance updated successfully', 'success');
+                } else {
+                    showMessage('Failed to update attendance: ' + data.message, 'error');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                showMessage('An error occurred while updating attendance', 'error');
+            });
+    }
+};
+
+// Helper function to display messages
 function showMessage(message, type = "info") {
-  var messageDiv = document.getElementById("messageDiv");
-  if (!messageDiv) {
-    messageDiv = document.createElement("div");
-    messageDiv.id = "messageDiv";
+    let messageDiv = document.getElementById('messageDiv');
+    if (!messageDiv) {
+        messageDiv = document.createElement('div');
+        messageDiv.id = 'messageDiv';
+        document.body.appendChild(messageDiv);
+    }
+    messageDiv.className = type;
+    messageDiv.textContent = message;
+    messageDiv.style.display = "block";
+
+    // Style updates for high visibility
     messageDiv.style.position = "fixed";
     messageDiv.style.top = "20px";
     messageDiv.style.right = "20px";
     messageDiv.style.padding = "15px 20px";
     messageDiv.style.borderRadius = "5px";
-    messageDiv.style.transition = "opacity 0.5s";
     messageDiv.style.zIndex = "9999";
-    document.body.appendChild(messageDiv);
-  }
+    messageDiv.style.maxWidth = "400px";
+    messageDiv.style.boxShadow = "0 4px 6px rgba(0, 0, 0, 0.1)";
 
-  // Set styles based on message type
-  switch (type) {
-    case "success":
-      messageDiv.style.backgroundColor = "#4CAF50";
-      messageDiv.style.color = "white";
-      break;
-    case "error":
-      messageDiv.style.backgroundColor = "#f44336";
-      messageDiv.style.color = "white";
-      break;
-    default: // info
-      messageDiv.style.backgroundColor = "#2196F3";
-      messageDiv.style.color = "white";
-  }
-
-  messageDiv.style.display = "block";
-  messageDiv.innerHTML = message;
-  messageDiv.style.opacity = 1;
-
-  setTimeout(function () {
-    messageDiv.style.opacity = 0;
-    setTimeout(() => (messageDiv.style.display = "none"), 500);
-  }, 3000);
+    if (type === "error") {
+        messageDiv.style.backgroundColor = "#f8d7da";
+        messageDiv.style.color = "#721c24";
+        messageDiv.style.border = "1px solid #f5c6cb";
+        setTimeout(() => {
+            messageDiv.style.display = "none";
+        }, 5000);
+    } else if (type === "success") {
+        messageDiv.style.backgroundColor = "#d4edda";
+        messageDiv.style.color = "#155724";
+        messageDiv.style.border = "1px solid #c3e6cb";
+        setTimeout(() => {
+            messageDiv.style.display = "none";
+        }, 3000);
+    } else {
+        messageDiv.style.backgroundColor = "#d1ecf1";
+        messageDiv.style.color = "#0c5460";
+        messageDiv.style.border = "1px solid #bee5eb";
+        setTimeout(() => {
+            messageDiv.style.display = "none";
+        }, 3000);
+    }
 }
 
-// Initialize face recognition when start button is clicked
-startButton.addEventListener("click", async () => {
-  const courseSelect = document.getElementById("courseSelect");
-  const unitSelect = document.getElementById("unitSelect");
-  const venueSelect = document.getElementById("venueSelect");
+// Log message helper
+function logWithTime(message, type = 'info') {
+    const timestamp = new Date().toLocaleTimeString();
+    const logMessage = `[${timestamp}] ${message}`;
+    console[type](logMessage);
 
-  if (!courseSelect.value || !unitSelect.value || !venueSelect.value) {
-    showMessage("Please select course, unit, and venue first", "error");
-    return;
-  }
+    const recognitionStatus = document.getElementById("recognitionStatus");
+    if (type === 'error' && recognitionStatus) {
+        recognitionStatus.innerHTML = `<div class="error">${message}</div>`;
+    }
+}
 
-  try {
-    const stream = await navigator.mediaDevices.getUserMedia({
-      video: {
-        width: { ideal: 640 },
-        height: { ideal: 480 },
-        facingMode: "user",
-      },
-    });
+// Haversine formula to calculate distance in km
+function calculateDistance(lat1, lon1, lat2, lon2) {
+    const R = 6371; // Earth's radius in km
+    const dLat = (lat2 - lat1) * Math.PI / 180;
+    const dLon = (lon2 - lon1) * Math.PI / 180;
+    const a =
+        Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+        Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+        Math.sin(dLon / 2) * Math.sin(dLon / 2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    return R * c;
+}
 
-    videoStream = stream;
-    video.srcObject = stream;
-    video.onloadedmetadata = () => {
-      videoContainer.style.display = "flex";
-      canvas.width = video.videoWidth;
-      canvas.height = video.videoHeight;
-      overlay.width = video.videoWidth;
-      overlay.height = video.videoHeight;
-      startFaceRecognition();
-    };
-  } catch (err) {
-    console.error("Error accessing camera:", err);
-    showMessage("Could not access camera. Please check permissions.", "error");
-  }
-});
-
-async function startFaceRecognition() {
-  if (recognitionInterval) {
-    clearInterval(recognitionInterval);
-  }
-
-  const context = canvas.getContext("2d");
-  const overlayCtx = overlay.getContext("2d");
-  let lastRecognizedStudent = null;
-  let lastRecognitionTime = 0;
-  const RECOGNITION_COOLDOWN = 5000; // 5 seconds between recognitions for the same student
-
-  recognitionInterval = setInterval(async () => {
-    if (isProcessing || !videoStream) return;
-    isProcessing = true;
-
+// Stop camera and clean up video resources
+function stopCamera() {
     try {
-      // Clear previous drawings
-      overlayCtx.clearRect(0, 0, overlay.width, overlay.height);
+        const video = document.getElementById("video");
+        const videoContainer = document.querySelector(".video-container");
+        const startButton = document.getElementById("startButton");
 
-      // Draw current frame to canvas
-      context.drawImage(video, 0, 0, canvas.width, canvas.height);
-
-      // Convert canvas to blob
-      const blob = await new Promise((resolve) =>
-        canvas.toBlob(resolve, "image/jpeg", 0.95)
-      );
-
-      // Create form data
-      const formData = new FormData();
-      formData.append("image", blob);
-
-      // Send frame for face recognition
-      const response = await fetch("recognize_face.php", {
-        method: "POST",
-        body: formData,
-      });
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
-      const result = await response.json();
-      console.log("Recognition result:", JSON.stringify(result));
-
-      // Clear previous drawings
-      overlayCtx.clearRect(0, 0, overlay.width, overlay.height);
-
-      if (result.success) {
-        const face = result.face_location;
-        const isRecognized =
-          result.predicted_student_id !== "Unknown" && result.confidence > 50; // Lower threshold (was 75)
-        const color = isRecognized ? "#00ff00" : "#ff0000";
-
-        // Draw face rectangle
-        overlayCtx.strokeStyle = color;
-        overlayCtx.lineWidth = 2;
-        overlayCtx.strokeRect(face.x, face.y, face.width, face.height);
-
-        // Draw recognition result
-        overlayCtx.fillStyle = color;
-        overlayCtx.font = "16px Arial";
-        overlayCtx.fillText(
-          `${result.predicted_student_id} (${result.confidence.toFixed(1)}%)`,
-          face.x,
-          face.y - 10
-        );
-
-        if (isRecognized) {
-          const now = Date.now();
-          // Only update attendance if it's a different student or enough time has passed
-          if (
-            lastRecognizedStudent !== result.predicted_student_id ||
-            now - lastRecognitionTime > RECOGNITION_COOLDOWN
-          ) {
-            lastRecognizedStudent = result.predicted_student_id;
-            lastRecognitionTime = now;
-
-            // Find the student row using the data attribute
-            const studentRow = document.querySelector(
-              `tr[data-student-id="${result.predicted_student_id}"]`
-            );
-            if (studentRow) {
-              const statusCell = studentRow.querySelector(".attendance-status");
-
-              if (
-                statusCell &&
-                statusCell.textContent.trim().toLowerCase() !== "present"
-              ) {
-                // Get course and unit from select elements
-                const courseCode =
-                  document.getElementById("courseSelect").value;
-                const unitCode = document.getElementById("unitSelect").value;
-
-                // Update backend
-                fetch('update_attendance.php', {
-                  method: 'POST',
-                  headers: {
-                    'Content-Type': 'application/json',
-                  },
-                  body: JSON.stringify({
-                    studentID: result.predicted_student_id,
-                    course: courseCode,
-                    unit: unitCode,
-                    attendanceStatus: 'Present'
-                  })
-                })
-                  .then(response => {
-                    if (!response.ok) {
-                      throw new Error(`HTTP error! status: ${response.status}`);
-                    }
-                    return response.json();
-                  })
-                  .then(data => {
-                    if (data.success) {
-                      // Update UI
-                      statusCell.textContent = 'Present';
-                      statusCell.className = 'attendance-status present';
-                      showMessage(`Marked attendance for Student ${result.predicted_student_id} (${result.confidence.toFixed(1)}% confidence)`, "success");
-                      statusDiv.innerHTML = '<div class="success">Attendance marked successfully!</div>';
-                    } else {
-                      throw new Error(data.message || 'Failed to update attendance');
-                    }
-                  })
-                  .catch(error => {
-                    console.error('Error updating attendance:', error);
-                    showMessage("Error updating attendance: " + error.message, "error");
-                  });
-              } else {
-                console.log("Student already marked present");
-              }
-            } else {
-              console.log(
-                "Student not found in table:",
-                result.predicted_student_id
-              );
-            }
-          }
+        if (stream) {
+            const tracks = stream.getTracks();
+            tracks.forEach(track => {
+                track.stop();
+                track.enabled = false;
+            });
+            stream = null;
         }
-
-        // Show status message
-        if (!isRecognized) {
-          statusDiv.innerHTML =
-            '<div class="info">Face detected but not recognized. Please try again.</div>';
+        if (video && video.srcObject) {
+            const oldTracks = video.srcObject.getTracks();
+            oldTracks.forEach(track => {
+                track.stop();
+                track.enabled = false;
+            });
+            video.srcObject = null;
         }
-      } else {
-        // Show guidance message
-        statusDiv.innerHTML =
-          '<div class="info">No face detected. Please look directly at the camera.</div>';
-      }
+        if (video) {
+            video.pause();
+        }
+        if (videoContainer) {
+            videoContainer.style.display = "none";
+        }
+        if (recognitionInterval) {
+            clearInterval(recognitionInterval);
+            recognitionInterval = null;
+        }
+        if (startButton) {
+            startButton.disabled = false;
+        }
+        isProcessing = false;
     } catch (error) {
-      console.error("Error processing frame:", error);
-      const now = Date.now();
-      if (now - lastErrorTime > 5000) {
-        // Only show error every 5 seconds
-        showMessage("Error processing video frame: " + error.message, "error");
-        lastErrorTime = now;
-      }
-      statusDiv.innerHTML =
-        '<div class="error">Error processing video frame. Please try again.</div>';
+        console.error("Error in stopCamera:", error);
     }
-
-    isProcessing = false;
-  }, 500); // Reduced from 100ms to 500ms to prevent too frequent updates
 }
 
-// End attendance button functionality
-document.getElementById("endAttendance").addEventListener("click", async () => {
-  try {
-    // Stop video stream
-    if (videoStream) {
-      videoStream.getTracks().forEach((track) => track.stop());
-      videoStream = null;
+// Check distance to selected venue
+function checkDistanceToVenue() {
+    if (!userLocation) {
+        throw new Error("Unable to determine your location. Please ensure location services are enabled.");
     }
 
-    // Clear recognition interval
+    const venueCoordinatesText = document.getElementById('venue-coordinates').textContent;
+    const matches = venueCoordinatesText.match(/Latitude: ([-\d.]+), Longitude: ([-\d.]+)/);
+
+    if (!matches) {
+        throw new Error("Venue coordinates not available. Please select a valid venue.");
+    }
+
+    const venueLatitude = parseFloat(matches[1]);
+    const venueLongitude = parseFloat(matches[2]);
+
+    const distance = calculateDistance(
+        userLocation.lat,
+        userLocation.lng,
+        venueLatitude,
+        venueLongitude
+    );
+
+    return {
+        distance: distance,
+        isWithinRange: distance <= MAX_ALLOWED_DISTANCE,
+        distanceText: distance <= 1 ?
+            `${(distance * 1000).toFixed(0)} meters` :
+            `${distance.toFixed(2)} kilometers`
+    };
+}
+
+// Start face recognition polling interval
+function startFaceRecognition() {
     if (recognitionInterval) {
-      clearInterval(recognitionInterval);
-      recognitionInterval = null;
+        clearInterval(recognitionInterval);
     }
 
-    // Reset UI elements
-    videoContainer.style.display = "none";
-    startButton.disabled = false;
-    if (statusDiv) statusDiv.innerHTML = "";
+    recognitionInterval = setInterval(async () => {
+        if (!isProcessing && stream) {
+            await processFrame();
+        }
+    }, 500);
 
-    // Clear canvases
+    logWithTime("Face recognition started");
+}
+
+// Update attendance record on server
+async function updateAttendanceStatus(studentId, course, unit) {
+    try {
+        const venueSelect = document.getElementById("venueSelect");
+        const response = await fetch('update_attendance.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                studentID: studentId,
+                course: course,
+                unit: unit,
+                venue: venueSelect ? venueSelect.value : null,
+                latitude: userLocation ? userLocation.lat : null,
+                longitude: userLocation ? userLocation.lng : null,
+                attendanceStatus: 'Present',
+                date: new Date().toISOString().split('T')[0]
+            })
+        });
+
+        if (!response.ok) {
+            throw new Error('Failed to update attendance');
+        }
+
+        const result = await response.json();
+        if (result.success) {
+            logWithTime(`Attendance updated for Student ${studentId}: Present`);
+            const row = document.querySelector(`tr[data-student-id="${studentId}"]`);
+            if (row) {
+                const statusCell = row.querySelector('.attendance-status');
+                if (statusCell) {
+                    statusCell.textContent = 'Present';
+                    statusCell.className = 'attendance-status present';
+                }
+            }
+            return true;
+        } else {
+            throw new Error(result.message || 'Failed to update attendance');
+        }
+    } catch (error) {
+        logWithTime(`Error updating attendance: ${error.message}`, 'error');
+        return false;
+    }
+}
+
+// Process frame from camera stream
+async function processFrame() {
+    const video = document.getElementById("video");
+    const canvas = document.getElementById("canvas");
+    const overlay = document.getElementById("overlay");
+    const recognitionStatus = document.getElementById("recognitionStatus");
+    const courseSelect = document.getElementById("courseSelect");
+    const unitSelect = document.getElementById("unitSelect");
+
+    if (!video || !canvas || !overlay || !recognitionStatus || !courseSelect || !unitSelect) return false;
+    if (isProcessing || !stream) return false;
+
+    const now = Date.now();
+    if (now - lastRecognitionTime < RECOGNITION_COOLDOWN) return false;
+
+    isProcessing = true;
     const context = canvas.getContext("2d");
     const overlayCtx = overlay.getContext("2d");
-    context.clearRect(0, 0, canvas.width, canvas.height);
-    overlayCtx.clearRect(0, 0, overlay.width, overlay.height);
 
-    // Reset processing flags
-    isProcessing = false;
-    webcamStarted = false;
+    try {
+        overlayCtx.clearRect(0, 0, overlay.width, overlay.height);
+        context.drawImage(video, 0, 0, canvas.width, canvas.height);
 
-    showMessage("Attendance taking ended", "info");
-  } catch (error) {
-    console.error("Error ending attendance:", error);
-    // Don't show error message to user, just log it
-  }
-});
+        const blob = await new Promise(resolve => canvas.toBlob(resolve, "image/jpeg", 0.95));
+        logWithTime("Frame captured, size: " + Math.round(blob.size / 1024) + "KB");
 
-// Clean up when page is unloaded
-window.addEventListener("beforeunload", () => {
-  if (videoStream) {
-    videoStream.getTracks().forEach((track) => track.stop());
-  }
-  if (recognitionInterval) {
-    clearInterval(recognitionInterval);
-  }
+        const formData = new FormData();
+        formData.append("image", blob);
+
+        logWithTime("Sending frame for recognition...");
+        const response = await fetch("recognize_face.php", {
+            method: "POST",
+            body: formData
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        if (!stream) return false;
+
+        const result = await response.json();
+        logWithTime("Recognition result: " + JSON.stringify(result));
+
+        if (!stream) return false;
+
+        overlayCtx.clearRect(0, 0, overlay.width, overlay.height);
+
+        if (result.success) {
+            const face = result.face_location;
+            const isRecognized = result.predicted_student_id !== "Unknown" && result.confidence >= CONFIDENCE_THRESHOLD;
+            const color = isRecognized ? "#00ff00" : "#ff0000";
+
+            overlayCtx.strokeStyle = color;
+            overlayCtx.lineWidth = 2;
+            overlayCtx.strokeRect(face.x, face.y, face.width, face.height);
+
+            overlayCtx.fillStyle = color;
+            overlayCtx.font = "16px Arial";
+            overlayCtx.fillText(
+                `${result.predicted_student_id} (${result.confidence.toFixed(1)}%)`,
+                face.x,
+                face.y - 10
+            );
+
+            const statusMessage = isRecognized ?
+                `Student ${result.predicted_student_id} recognized with ${result.confidence.toFixed(1)}% confidence` :
+                `Unknown face detected (${result.confidence.toFixed(1)}% confidence)`;
+            logWithTime(statusMessage);
+            recognitionStatus.innerHTML = `<div class="${isRecognized ? "success" : "info"}">${statusMessage}</div>`;
+
+            if (isRecognized && lastRecognizedStudent !== result.predicted_student_id) {
+                lastRecognitionTime = now;
+                lastRecognizedStudent = result.predicted_student_id;
+                logWithTime(`Updating attendance for Student ${result.predicted_student_id}`);
+
+                const success = await updateAttendanceStatus(
+                    result.predicted_student_id,
+                    courseSelect.value,
+                    unitSelect.value
+                );
+
+                if (success) {
+                    showMessage(`Attendance marked for Student ${result.predicted_student_id}!`, "success");
+                }
+            }
+        } else if (result.message !== "No face detected") {
+            logWithTime("Recognition failed: " + result.message, "warn");
+            recognitionStatus.innerHTML = `<div class="info">${result.message}</div>`;
+        }
+
+        return true;
+    } catch (error) {
+        if (stream) {
+            logWithTime("Error processing frame: " + error.message, "error");
+            if (error.message !== "Failed to fetch" && error.name !== "AbortError") {
+                recognitionStatus.innerHTML = `<div class="error">Error processing video frame: ${error.message}</div>`;
+            }
+        }
+        return false;
+    } finally {
+        isProcessing = false;
+    }
+}
+
+// DOM elements initialization and binding
+document.addEventListener("DOMContentLoaded", () => {
+    const video = document.getElementById("video");
+    const canvas = document.getElementById("canvas");
+    const overlay = document.getElementById("overlay");
+    const startButton = document.getElementById("startButton");
+    const endButton = document.getElementById("endAttendance");
+    const videoContainer = document.querySelector(".video-container");
+    const courseSelect = document.getElementById("courseSelect");
+    const unitSelect = document.getElementById("unitSelect");
+    const venueSelect = document.getElementById("venueSelect");
+
+    if (!video || !canvas || !overlay || !startButton || !endButton) return;
+
+    // Auto-update table if fields are already selected
+    if (courseSelect && unitSelect && venueSelect && courseSelect.value && unitSelect.value && venueSelect.value) {
+        updateTable();
+    }
+
+    function updateButtonState(distanceInfo) {
+        const statusMessage = document.getElementById('status-message');
+        if (!statusMessage) return;
+
+        if (!distanceInfo.isWithinRange) {
+            startButton.disabled = true;
+            startButton.style.backgroundColor = '#ccc';
+            startButton.style.cursor = 'not-allowed';
+            statusMessage.style.display = 'block';
+            statusMessage.textContent = `Cannot launch facial recognition - You are ${distanceInfo.distanceText} away from the venue (Maximum allowed: 100m)`;
+        } else {
+            startButton.disabled = false;
+            startButton.style.backgroundColor = '';
+            startButton.style.cursor = 'pointer';
+            statusMessage.style.display = 'none';
+        }
+    }
+
+    function updateDistanceDisplay() {
+        const venueCoordinates = document.getElementById('venue-coordinates');
+        const distanceDisplay = document.getElementById('distance-display');
+        if (!venueCoordinates || !distanceDisplay) return;
+
+        const venueCoordinatesText = venueCoordinates.textContent;
+        const matches = venueCoordinatesText.match(/Latitude: ([-\d.]+), Longitude: ([-\d.]+)/);
+
+        if (!matches || !userLocation) {
+            distanceDisplay.textContent = "Waiting for coordinates...";
+            return;
+        }
+
+        const venueLatitude = parseFloat(matches[1]);
+        const venueLongitude = parseFloat(matches[2]);
+
+        const distance = calculateDistance(
+            userLocation.lat,
+            userLocation.lng,
+            venueLatitude,
+            venueLongitude
+        );
+
+        const distanceInfo = {
+            distance: distance,
+            isWithinRange: distance <= MAX_ALLOWED_DISTANCE,
+            distanceText: distance <= 1 ?
+                `${(distance * 1000).toFixed(0)} meters` :
+                `${distance.toFixed(2)} kilometers`
+        };
+
+        distanceDisplay.textContent = distanceInfo.distanceText;
+        updateButtonState(distanceInfo);
+    }
+
+    function getUserLocation() {
+        const userCoordinatesElement = document.getElementById('user-coordinates');
+        if (!userCoordinatesElement) return;
+
+        if ("geolocation" in navigator) {
+            navigator.geolocation.watchPosition(
+                function (position) {
+                    const latitude = position.coords.latitude;
+                    const longitude = position.coords.longitude;
+                    userLocation = { lat: latitude, lng: longitude };
+                    userCoordinatesElement.textContent = `Latitude: ${latitude.toFixed(6)}, Longitude: ${longitude.toFixed(6)}`;
+                    updateDistanceDisplay();
+                },
+                function (error) {
+                    switch (error.code) {
+                        case error.PERMISSION_DENIED:
+                            userCoordinatesElement.textContent = "Location access denied. Please enable location services.";
+                            break;
+                        case error.POSITION_UNAVAILABLE:
+                            userCoordinatesElement.textContent = "Location information unavailable.";
+                            break;
+                        case error.TIMEOUT:
+                            userCoordinatesElement.textContent = "Location request timed out.";
+                            break;
+                        default:
+                            userCoordinatesElement.textContent = "An unknown error occurred.";
+                    }
+                    startButton.disabled = true;
+                    startButton.style.backgroundColor = '#ccc';
+                    startButton.style.cursor = 'not-allowed';
+                    const statusMessage = document.getElementById('status-message');
+                    if (statusMessage) {
+                        statusMessage.style.display = 'block';
+                        statusMessage.textContent = "Cannot launch facial recognition - Location services are required";
+                    }
+                }
+            );
+        } else {
+            userCoordinatesElement.textContent = "Geolocation is not supported by your browser.";
+            startButton.disabled = true;
+            startButton.style.backgroundColor = '#ccc';
+            startButton.style.cursor = 'not-allowed';
+            const statusMessage = document.getElementById('status-message');
+            if (statusMessage) {
+                statusMessage.style.display = 'block';
+                statusMessage.textContent = "Cannot launch facial recognition - Your browser doesn't support location services";
+            }
+        }
+    }
+
+    // Call getUserLocation immediately
+    getUserLocation();
+
+    if (venueSelect) {
+        venueSelect.addEventListener('change', () => {
+            setTimeout(updateDistanceDisplay, 500);
+        });
+    }
+
+    // Start recognition trigger
+    startButton.addEventListener("click", async () => {
+        if (!courseSelect.value || !unitSelect.value || !venueSelect.value) {
+            const statusMessage = document.getElementById('status-message');
+            if (statusMessage) {
+                statusMessage.style.display = 'block';
+                statusMessage.textContent = "Please select course, unit, and venue first";
+            }
+            return;
+        }
+
+        try {
+            const distanceInfo = checkDistanceToVenue();
+            if (!distanceInfo.isWithinRange) {
+                const statusMessage = document.getElementById('status-message');
+                if (statusMessage) {
+                    statusMessage.style.display = 'block';
+                    statusMessage.textContent = `Cannot launch facial recognition - You are ${distanceInfo.distanceText} away from the venue (Maximum allowed: 100m)`;
+                }
+                return;
+            }
+        } catch (distError) {
+            const statusMessage = document.getElementById('status-message');
+            if (statusMessage) {
+                statusMessage.style.display = 'block';
+                statusMessage.textContent = "Error checking location: " + distError.message;
+            }
+            return;
+        }
+
+        try {
+            stopCamera();
+            logWithTime("Starting camera...");
+            stream = await navigator.mediaDevices.getUserMedia({
+                video: {
+                    width: { ideal: 640 },
+                    height: { ideal: 480 },
+                    frameRate: { ideal: 30 }
+                }
+            });
+
+            video.srcObject = stream;
+            await video.play();
+
+            if (videoContainer) {
+                videoContainer.style.display = "block";
+            }
+            
+            // Adjust overlay dimensions to match video stream
+            video.onloadedmetadata = () => {
+                canvas.width = video.videoWidth;
+                canvas.height = video.videoHeight;
+                overlay.width = video.videoWidth;
+                overlay.height = video.videoHeight;
+            };
+            
+            startButton.disabled = true;
+            startFaceRecognition();
+            const statusMessage = document.getElementById('status-message');
+            if (statusMessage) {
+                statusMessage.style.display = 'none';
+            }
+            logWithTime("Camera started successfully");
+        } catch (error) {
+            stopCamera();
+            logWithTime("Error: " + error.message, "error");
+            const statusMessage = document.getElementById('status-message');
+            if (statusMessage) {
+                statusMessage.style.display = 'block';
+                statusMessage.textContent = "Error accessing camera: " + error.message;
+            }
+        }
+    });
+
+    // End attendance taking
+    endButton.addEventListener("click", () => {
+        stopCamera();
+        logWithTime("Attendance taking ended");
+        const statusMessage = document.getElementById('status-message');
+        if (statusMessage) {
+            statusMessage.style.display = 'none';
+        }
+    });
+
+    // Stop camera on page unload or visibility change
+    window.addEventListener('beforeunload', stopCamera);
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+            stopCamera();
+        }
+    });
 });
