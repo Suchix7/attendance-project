@@ -84,58 +84,59 @@ function display_error($error, $is_main = false)
 
 <body>
 
-<body>
+    <body>
 
-    <div class="split-layout">
-        <div class="panel-left">
-            <div class="branding">
-                <i class="fas fa-graduation-cap brand-icon"></i>
-                <h1>SAS College</h1>
-                <p>Advanced Attendance Platform</p>
+        <div class="split-layout">
+            <div class="panel-left">
+                <div class="branding">
+                    <i class="fas fa-graduation-cap brand-icon"></i>
+                    <h1>SAS College</h1>
+                    <p>Advanced Attendance Platform</p>
+                </div>
+            </div>
+
+            <div class="panel-right">
+                <div class="form-container">
+                    <a href="landing.php" class="logo">
+                        <i class="fas fa-arrow-left" style="margin-right: 8px;"></i> Return to Home
+                    </a>
+                    <h1 class="form-title">Welcome Back</h1>
+                    <p class="form-subtitle">Please enter your credentials to access the portal.</p>
+
+                    <?php display_error('login', true); ?>
+
+                    <form method="POST" action="">
+                        <div class="input-group">
+                            <i class="fas fa-user-shield"></i>
+                            <select name="user_type" id="user_type" required>
+                                <option value="" disabled selected hidden>Select Role</option>
+                                <!-- <option value="student">Student</option> -->
+                                <option value="lecture">Lecture / Teacher</option>
+                                <option value="administrator">System Administrator</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" name="email" id="email" placeholder="Email Address" required>
+                            <?php display_error('email'); ?>
+                        </div>
+
+                        <div class="input-group password">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" name="password" id="password" placeholder="Password" required>
+                            <i id="eye" class="fa fa-eye"></i>
+                            <?php display_error('password'); ?>
+                        </div>
+
+                        <button type="submit" class="btn" name="login">Sign In <i class="fas fa-sign-in-alt"
+                                style="margin-left: 8px;"></i></button>
+                    </form>
+                </div>
             </div>
         </div>
-        
-        <div class="panel-right">
-            <div class="form-container">
-                <a href="landing.php" class="logo">
-                    <i class="fas fa-arrow-left" style="margin-right: 8px;"></i> Return to Home
-                </a>
-                <h1 class="form-title">Welcome Back</h1>
-                <p class="form-subtitle">Please enter your credentials to access the portal.</p>
-                
-                <?php display_error('login', true); ?>
-                
-                <form method="POST" action="">
-                    <div class="input-group">
-                        <i class="fas fa-user-shield"></i>
-                        <select name="user_type" id="user_type" required>
-                            <option value="" disabled selected hidden>Select Role</option>
-                            <option value="student">Student</option>
-                            <option value="lecture">Lecture / Teacher</option>
-                            <option value="administrator">System Administrator</option>
-                        </select>
-                    </div>
-                    
-                    <div class="input-group">
-                        <i class="fas fa-envelope"></i>
-                        <input type="email" name="email" id="email" placeholder="Email Address" required>
-                        <?php display_error('email'); ?>
-                    </div>
-                    
-                    <div class="input-group password">
-                        <i class="fas fa-lock"></i>
-                        <input type="password" name="password" id="password" placeholder="Password" required>
-                        <i id="eye" class="fa fa-eye"></i>
-                        <?php display_error('password'); ?>
-                    </div>
-                    
-                    <button type="submit" class="btn" name="login">Sign In <i class="fas fa-sign-in-alt" style="margin-left: 8px;"></i></button>
-                </form>
-            </div>
-        </div>
-    </div>
-    
-    <script src="resources/assets/javascript/script.js"></script>
-</body>
+
+        <script src="resources/assets/javascript/script.js"></script>
+    </body>
 
 </html>

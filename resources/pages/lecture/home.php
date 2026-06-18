@@ -267,6 +267,12 @@ function getVenueCoordinates($venue)
         </div>
     </section>
 
+    <script>
+        window.ATTENDANCE_SETTINGS = {
+            confidenceThreshold: <?php echo get_setting($pdo, 'face_confidence_threshold', 65); ?>,
+            emailAlertsMode: '<?php echo get_setting($pdo, 'email_alerts_mode', 'auto'); ?>'
+        };
+    </script>
     <?php js_asset(["active_link", 'face_logics/script']) ?>
 
 

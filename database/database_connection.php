@@ -14,6 +14,31 @@ try {
     $pdo = new PDO("mysql:host=$host;dbname=$database", $user, $password);
     // Set PDO error mode to exception for better error handling
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    
+    // Initialize settings table and default values
+    $pdo->exec("CREATE TABLE IF NOT EXISTS tblsettings (
+        setting_key VARCHAR(255) PRIMARY KEY,
+        setting_value TEXT
+    )");
+    
+    $stmt = $pdo->prepare("INSERT IGNORE INTO tblsettings (setting_key, setting_value) VALUES 
+        ('face_confidence_threshold', '65'),
+        ('email_alerts_mode', 'auto')
+    ");
+    $stmt->execute();
 } catch (PDOException $e) {
     die("Connection failed: " . $e->getMessage());
+}
+
+if (!function_exists('get_setting')) {
+    function get_setting($pdo, $key, $default = '') {
+        try {
+            $stmt = $pdo->prepare("SELECT setting_value FROM tblsettings WHERE setting_key = ?");
+            $stmt->execute([$key]);
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+            return $row ? $row['setting_value'] : $default;
+        } catch (Exception $e) {
+            return $default;
+        }
+    }
 }

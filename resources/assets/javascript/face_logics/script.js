@@ -8,7 +8,7 @@ let lastRecognizedStudent = null;
 let userLocation = null;
 
 const RECOGNITION_COOLDOWN = 5000;
-const CONFIDENCE_THRESHOLD = 65;
+const CONFIDENCE_THRESHOLD = (window.ATTENDANCE_SETTINGS && typeof window.ATTENDANCE_SETTINGS.confidenceThreshold !== 'undefined') ? parseInt(window.ATTENDANCE_SETTINGS.confidenceThreshold) : 65;
 const MAX_ALLOWED_DISTANCE = 0.1; // 100 meters in kilometers
 
 // Define updateTable globally so it can be called from inline select elements

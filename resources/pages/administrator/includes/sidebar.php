@@ -30,6 +30,12 @@
                         <span class="sidebar--item">Manage Students</span>
                     </a>
                 </li>
+                <li>
+                    <a href="settings">
+                        <span class="icon icon-1"><i class="ri-settings-3-line"></i></span>
+                        <span class="sidebar--item">Settings</span>
+                    </a>
+                </li>
                 
             </ul>
             <ul class="sidebar--bottom-items">

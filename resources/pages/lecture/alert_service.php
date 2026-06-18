@@ -14,6 +14,12 @@ if (!function_exists('evaluate_and_send_alerts')) {
      */
     function evaluate_and_send_alerts($pdo, $studentID, $course, $unit, $status) {
         try {
+            // Check global email alerts setting
+            $emailMode = get_setting($pdo, 'email_alerts_mode', 'auto');
+            if ($emailMode === 'disabled') {
+                return; // Emails turned off entirely
+            }
+
             // 1. Fetch student details (name, email)
             $stmt = $pdo->prepare("SELECT firstName, lastName, email FROM tblstudents WHERE registrationNumber = :studentID");
             $stmt->execute([':studentID' => $studentID]);
@@ -66,12 +72,14 @@ if (!function_exists('evaluate_and_send_alerts')) {
 
                 // Check cooldown for absence notification
                 $shouldSend = false;
-                if (empty($state['lastAbsentAlertSent'])) {
-                    $shouldSend = true;
-                } else {
-                    $lastSentTime = strtotime($state['lastAbsentAlertSent']);
-                    if (time() - $lastSentTime > $cooldown_seconds) {
+                if ($emailMode === 'auto') {
+                    if (empty($state['lastAbsentAlertSent'])) {
                         $shouldSend = true;
+                    } else {
+                        $lastSentTime = strtotime($state['lastAbsentAlertSent']);
+                        if (time() - $lastSentTime > $cooldown_seconds) {
+                            $shouldSend = true;
+                        }
                     }
                 }
 
@@ -106,7 +114,7 @@ if (!function_exists('evaluate_and_send_alerts')) {
                 ]);
 
                 // Check for positive attendance momentum (milestones at multiples of 3)
-                if ($newStreak > 0 && $newStreak % 3 === 0) {
+                if ($newStreak > 0 && $newStreak % 3 === 0 && $emailMode === 'auto') {
                     $subject = "Congratulations on Your Attendance Momentum!";
                     $body = "Dear $studentName,\n\n" .
                             "Congratulations! You have successfully attended $newStreak consecutive sessions of $course (Unit: $unit)!\n\n" .
