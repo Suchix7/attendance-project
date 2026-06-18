@@ -3,6 +3,7 @@ header('Content-Type: application/json');
 
 // Include database connection
 require_once 'database/database_connection.php';
+require_once 'resources/pages/lecture/alert_service.php';
 
 // Get JSON data
 $data = json_decode(file_get_contents('php://input'), true);
@@ -54,6 +55,8 @@ try {
                 ':attendanceID' => $existingRecord['attendanceID']
             ]);
 
+            evaluate_and_send_alerts($pdo, $studentID, $course, $unit, $attendanceStatus);
+
             echo json_encode([
                 'success' => true,
                 'message' => 'Attendance updated successfully',
@@ -80,6 +83,8 @@ try {
             ':unit' => $unit,
             ':status' => $attendanceStatus
         ]);
+
+        evaluate_and_send_alerts($pdo, $studentID, $course, $unit, $attendanceStatus);
 
         echo json_encode([
             'success' => true,

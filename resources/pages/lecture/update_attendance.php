@@ -1,6 +1,7 @@
 <?php
 header('Content-Type: application/json');
 require_once('../../../database/database_connection.php');
+require_once('alert_service.php');
 
 // Get the JSON data from the request
 $data = json_decode(file_get_contents("php://input"), true);
@@ -52,6 +53,7 @@ if ($data) {
         ]);
 
         if ($result) {
+            evaluate_and_send_alerts($pdo, $data['studentID'], $data['course'], $data['unit'], $data['attendanceStatus']);
             echo json_encode([
                 'success' => true,
                 'message' => 'Attendance updated successfully'

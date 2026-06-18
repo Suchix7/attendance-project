@@ -17,6 +17,7 @@ header('Access-Control-Allow-Headers: Content-Type');
 
 try {
     require_once '../../../database/database_connection.php';
+    require_once 'alert_service.php';
 
     // Get input data
     $data = json_decode(file_get_contents('php://input'), true);
@@ -62,6 +63,8 @@ try {
                                       VALUES (?, ?, ?, ?, ?)");
                 $stmt->execute([$student_id, $course, $unit, $status, $today]);
             }
+
+            evaluate_and_send_alerts($pdo, $student_id, $course, $unit, $status);
         }
         $pdo->commit();
 
@@ -110,6 +113,8 @@ try {
                               VALUES (?, ?, ?, ?, ?)");
         $stmt->execute([$student_id, $course, $unit, $status, $today]);
     }
+
+    evaluate_and_send_alerts($pdo, $student_id, $course, $unit, $status);
 
     // Log the attendance change
     error_log("Attendance updated for student $student_id in course $course, unit $unit: $status");
