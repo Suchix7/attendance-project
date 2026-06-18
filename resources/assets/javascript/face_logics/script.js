@@ -41,11 +41,11 @@ function updateTable() {
   };
   xhr.send(
     "courseID=" +
-      encodeURIComponent(selectedCourseID) +
-      "&unitID=" +
-      encodeURIComponent(selectedUnitCode) +
-      "&venueID=" +
-      encodeURIComponent(selectedVenue)
+    encodeURIComponent(selectedCourseID) +
+    "&unitID=" +
+    encodeURIComponent(selectedUnitCode) +
+    "&venueID=" +
+    encodeURIComponent(selectedVenue)
   );
 }
 
@@ -187,7 +187,7 @@ async function startFaceRecognition() {
       if (result.success) {
         const face = result.face_location;
         const isRecognized =
-          result.predicted_student_id !== "Unknown" && result.confidence > 30; // Adjust threshold as needed
+          result.predicted_student_id !== "Unknown" && result.confidence > 50; // Lower threshold (was 75)
         const color = isRecognized ? "#00ff00" : "#ff0000";
 
         // Draw face rectangle
@@ -243,27 +243,27 @@ async function startFaceRecognition() {
                     attendanceStatus: 'Present'
                   })
                 })
-                .then(response => {
-                  if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                  }
-                  return response.json();
-                })
-                .then(data => {
-                  if (data.success) {
-                    // Update UI
-                    statusCell.textContent = 'Present';
-                    statusCell.className = 'attendance-status present';
-                    showMessage(`Marked attendance for Student ${result.predicted_student_id} (${result.confidence.toFixed(1)}% confidence)`, "success");
-                    statusDiv.innerHTML = '<div class="success">Attendance marked successfully!</div>';
-                  } else {
-                    throw new Error(data.message || 'Failed to update attendance');
-                  }
-                })
-                .catch(error => {
-                  console.error('Error updating attendance:', error);
-                  showMessage("Error updating attendance: " + error.message, "error");
-                });
+                  .then(response => {
+                    if (!response.ok) {
+                      throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.json();
+                  })
+                  .then(data => {
+                    if (data.success) {
+                      // Update UI
+                      statusCell.textContent = 'Present';
+                      statusCell.className = 'attendance-status present';
+                      showMessage(`Marked attendance for Student ${result.predicted_student_id} (${result.confidence.toFixed(1)}% confidence)`, "success");
+                      statusDiv.innerHTML = '<div class="success">Attendance marked successfully!</div>';
+                    } else {
+                      throw new Error(data.message || 'Failed to update attendance');
+                    }
+                  })
+                  .catch(error => {
+                    console.error('Error updating attendance:', error);
+                    showMessage("Error updating attendance: " + error.message, "error");
+                  });
               } else {
                 console.log("Student already marked present");
               }

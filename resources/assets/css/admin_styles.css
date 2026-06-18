@@ -610,4 +610,74 @@ form select:focus, form input:focus {
     .search { display: none; }
     .logo { width: auto; padding-left: 0; }
     .cards { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
 }
+
+/* Venue Management Enhancements */
+.gps-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 16px;
+    background-color: var(--accent-light);
+    color: var(--accent-dark);
+    border: 1px solid var(--accent);
+    border-radius: var(--radius-sm);
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    margin-bottom: 16px;
+    width: 100%;
+}
+
+.gps-btn:hover {
+    background-color: var(--accent);
+    color: #fff;
+    box-shadow: 0 4px 10px var(--accent-glow);
+}
+
+.gps-btn i {
+    margin-right: 8px;
+    font-size: 1.1rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.input-with-icon {
+    position: relative;
+    width: 100%;
+}
+
+.input-with-icon i {
+    position: absolute;
+    left: 14px;
+    top: 14px;
+    color: var(--text-muted);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.input-with-icon input, .input-with-icon select {
+    padding-left: 40px !important;
+}
+
+.venue-settings {
+    display: flex;
+    gap: 10px;
+}
+
+.venue-settings i {
+    padding: 8px;
+    border-radius: var(--radius-sm);
+    background: var(--bg-main);
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.venue-settings .edit:hover { background: var(--accent-light); color: var(--accent); }
+.venue-settings .delete:hover { background: #fee2e2; color: #ef4444; }

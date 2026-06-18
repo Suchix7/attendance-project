@@ -187,7 +187,7 @@ function getVenueCoordinates($venue)
                         if (isset($_GET['venue']) && !empty($_GET['venue'])) {
                             $coords = getVenueCoordinates($_GET['venue']);
                             if ($coords) {
-                                echo "Lat: {$coords['latitude']}, Lon: {$coords['longitude']}";
+                                echo "Latitude: {$coords['latitude']}, Longitude: {$coords['longitude']}";
                             } else {
                                 echo "Coordinates not available";
                             }
@@ -295,7 +295,7 @@ function getVenueCoordinates($venue)
             let lastRecognizedStudent = null;
             let userLocation = null;
             const RECOGNITION_COOLDOWN = 5000;
-            const CONFIDENCE_THRESHOLD = 50;
+            const CONFIDENCE_THRESHOLD = 65;
             const MAX_ALLOWED_DISTANCE = 0.1;
 
             // Helper function for logging with timestamp
@@ -381,7 +381,7 @@ function getVenueCoordinates($venue)
                     startButton.style.backgroundColor = '#ccc';
                     startButton.style.cursor = 'not-allowed';
                     statusMessage.style.display = 'block';
-                    statusMessage.textContent = `Cannot launch facial recognition - You are ${distanceInfo.distanceText} away from the venue (Maximum allowed distance: ${MAX_ALLOWED_DISTANCE}km)`;
+                    statusMessage.textContent = `Cannot launch facial recognition - You are ${distanceInfo.distanceText} away from the venue (Maximum allowed: 100m)`;
                 } else {
                     startButton.disabled = false;
                     startButton.style.backgroundColor = '';
@@ -555,6 +555,20 @@ function getVenueCoordinates($venue)
                     return;
                 }
 
+                // Distance check before launching
+                try {
+                    const distanceInfo = await checkDistanceToVenue();
+                    if (!distanceInfo.isWithinRange) {
+                        document.getElementById('status-message').style.display = 'block';
+                        document.getElementById('status-message').textContent = `Cannot launch facial recognition - You are ${distanceInfo.distanceText} away from the venue (Maximum allowed: 100m)`;
+                        return;
+                    }
+                } catch (distError) {
+                    document.getElementById('status-message').style.display = 'block';
+                    document.getElementById('status-message').textContent = "Error checking location: " + distError.message;
+                    return;
+                }
+
                 try {
                     stopCamera();
                     logWithTime("Starting camera...");
@@ -612,6 +626,9 @@ function getVenueCoordinates($venue)
                             studentID: studentId,
                             course: course,
                             unit: unit,
+                            venue: venueSelect.value,
+                            latitude: userLocation ? userLocation.lat : null,
+                            longitude: userLocation ? userLocation.lng : null,
                             attendanceStatus: 'Present',
                             date: new Date().toISOString().split('T')[0]
                         })

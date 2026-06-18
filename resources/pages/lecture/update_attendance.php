@@ -7,12 +7,17 @@ $data = json_decode(file_get_contents("php://input"), true);
 
 if ($data) {
     try {
+        // Ensure date is set
+        if (!isset($data['date'])) {
+            $data['date'] = date('Y-m-d');
+        }
+
         // Check if an attendance record already exists for this student, course, unit, and date
         $checkSql = "SELECT * FROM tblattendance WHERE 
             studentRegistrationNumber = :studentID AND 
             course = :course AND 
             unit = :unit AND 
-            dateMarked = :date";
+            DATE(dateMarked) = :date";
 
         $checkStmt = $pdo->prepare($checkSql);
         $checkStmt->execute([

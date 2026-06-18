@@ -5,7 +5,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add New Student - Face Attendance System</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="resources/assets/css/styles.css">
+    <style>
+        .video-container {
+            position: relative;
+            width: 640px;
+            height: 480px;
+            background: #000;
+            margin: 20px auto;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        #video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .controls {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .btn {
+            padding: 10px 20px;
+            margin: 0 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            border: none;
+            background: #2563eb;
+            color: white;
+            font-weight: 600;
+        }
+        .btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        .status-container {
+            text-align: center;
+            margin: 10px 0;
+        }
+        .face-list {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .face-item {
+            text-align: center;
+        }
+        .face-thumbnail {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 5px;
+            border: 2px solid #2563eb;
+        }
+    </style>
 </head>
 
 <body>

@@ -217,7 +217,7 @@ if (isset($_POST["editVenue"])) {
                                     echo "<td>" . $row["latitude"] . "</td>";
                                     echo "<td>" . $row["longitude"] . "</td>";
                                     echo "<td>
-                                            <span>
+                                            <div class='venue-settings'>
                                                 <i class='ri-edit-line edit' 
                                                    data-id='{$row["Id"]}' 
                                                    data-name='venue'
@@ -229,7 +229,7 @@ if (isset($_POST["editVenue"])) {
                                                    data-latitude='{$row["latitude"]}'
                                                    data-longitude='{$row["longitude"]}'></i>
                                                 <i class='ri-delete-bin-line delete' data-id='{$row["Id"]}' data-name='venue'></i>
-                                            </span>
+                                            </div>
                                           </td>";
                                     echo "</tr>";
                                 }
@@ -254,32 +254,66 @@ if (isset($_POST["editVenue"])) {
                             <span class="close">&times;</span>
                         </div>
                     </div>
-                    <input type="text" name="className" placeholder="Class Name" required>
-                    <select name="currentStatus" id="">
-                        <option value="">--Current Status--</option>
-                        <option value="availlable">Available</option>
-                        <option value="scheduled">Scheduled</option>
-                    </select>
-                    <input type="text" name="capacity" placeholder="Capacity" required>
-                    <input type="text" name="latitude" placeholder="Latitude" required>
-                    <input type="text" name="longitude" placeholder="Longitude" required>
-                    <select required name="classification">
-                        <option value="" selected> --Select Class Type--</option>
-                        <option value="laboratory">Laboratory</option>
-                        <option value="computerLab">Computer Lab</option>
-                        <option value="lectureHall">Lecture Hall</option>
-                        <option value="class">Class</option>
-                        <option value="office">Office</option>
-                    </select>
-                    <select required name="faculty">
-                        <option value="" selected>Select Faculty</option>
-                        <?php
-                        $facultyNames = getFacultyNames();
-                        foreach ($facultyNames as $faculty) {
-                            echo '<option value="' . $faculty["facultyCode"] . '">' . $faculty["facultyName"] . '</option>';
-                        }
-                        ?>
-                    </select>
+                    <div class="input-with-icon">
+                        <i class="ri-building-line"></i>
+                        <input type="text" name="className" placeholder="Class Name" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="input-with-icon">
+                            <i class="ri-checkbox-circle-line"></i>
+                            <select name="currentStatus" required>
+                                <option value="">--Current Status--</option>
+                                <option value="availlable">Available</option>
+                                <option value="scheduled">Scheduled</option>
+                            </select>
+                        </div>
+                        <div class="input-with-icon">
+                            <i class="ri-group-line"></i>
+                            <input type="text" name="capacity" placeholder="Capacity" required>
+                        </div>
+                    </div>
+
+                    <button type="button" class="gps-btn" onclick="autoFillGPS('addClassForm')">
+                        <i class="ri-map-pin-line"></i> Auto-fill Current GPS Location
+                    </button>
+
+                    <div class="form-row">
+                        <div class="input-with-icon">
+                            <i class="ri-map-pin-2-line"></i>
+                            <input type="text" name="latitude" id="addLatitude" placeholder="Latitude" required>
+                        </div>
+                        <div class="input-with-icon">
+                            <i class="ri-map-pin-2-fill"></i>
+                            <input type="text" name="longitude" id="addLongitude" placeholder="Longitude" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="input-with-icon">
+                            <i class="ri-list-check"></i>
+                            <select required name="classification">
+                                <option value="" selected> --Select Class Type--</option>
+                                <option value="laboratory">Laboratory</option>
+                                <option value="computerLab">Computer Lab</option>
+                                <option value="lectureHall">Lecture Hall</option>
+                                <option value="class">Class</option>
+                                <option value="office">Office</option>
+                            </select>
+                        </div>
+                        <div class="input-with-icon">
+                            <i class="ri-government-line"></i>
+                            <select required name="faculty">
+                                <option value="" selected>Select Faculty</option>
+                                <?php
+                                $facultyNames = getFacultyNames();
+                                foreach ($facultyNames as $faculty) {
+                                    echo '<option value="' . $faculty["facultyCode"] . '">' . $faculty["facultyName"] . '</option>';
+                                }
+                                ?>
+                            </select>
+                        </div>
+                    </div>
                     <input type="submit" class="submit" value="Save Venue" name="addVenue">
                 </form>
             </div>
@@ -296,32 +330,66 @@ if (isset($_POST["editVenue"])) {
                         </div>
                     </div>
                     <input type="hidden" name="venueId" id="editVenueId">
-                    <input type="text" name="className" id="editClassName" placeholder="Class Name" required>
-                    <select name="currentStatus" id="editCurrentStatus" required>
-                        <option value="">--Current Status--</option>
-                        <option value="availlable">Available</option>
-                        <option value="scheduled">Scheduled</option>
-                    </select>
-                    <input type="text" name="capacity" id="editCapacity" placeholder="Capacity" required>
-                    <input type="text" name="latitude" id="editLatitude" placeholder="Latitude" required>
-                    <input type="text" name="longitude" id="editLongitude" placeholder="Longitude" required>
-                    <select required name="classification" id="editClassification">
-                        <option value=""> --Select Class Type--</option>
-                        <option value="laboratory">Laboratory</option>
-                        <option value="computerLab">Computer Lab</option>
-                        <option value="lectureHall">Lecture Hall</option>
-                        <option value="class">Class</option>
-                        <option value="office">Office</option>
-                    </select>
-                    <select required name="faculty" id="editFaculty">
-                        <option value="">Select Faculty</option>
-                        <?php
-                        $facultyNames = getFacultyNames();
-                        foreach ($facultyNames as $faculty) {
-                            echo '<option value="' . $faculty["facultyCode"] . '">' . $faculty["facultyName"] . '</option>';
-                        }
-                        ?>
-                    </select>
+                    <div class="input-with-icon">
+                        <i class="ri-building-line"></i>
+                        <input type="text" name="className" id="editClassName" placeholder="Class Name" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="input-with-icon">
+                            <i class="ri-checkbox-circle-line"></i>
+                            <select name="currentStatus" id="editCurrentStatus" required>
+                                <option value="">--Current Status--</option>
+                                <option value="availlable">Available</option>
+                                <option value="scheduled">Scheduled</option>
+                            </select>
+                        </div>
+                        <div class="input-with-icon">
+                            <i class="ri-group-line"></i>
+                            <input type="text" name="capacity" id="editCapacity" placeholder="Capacity" required>
+                        </div>
+                    </div>
+
+                    <button type="button" class="gps-btn" onclick="autoFillGPS('editClassForm')">
+                        <i class="ri-map-pin-line"></i> Update with Current GPS Location
+                    </button>
+
+                    <div class="form-row">
+                        <div class="input-with-icon">
+                            <i class="ri-map-pin-2-line"></i>
+                            <input type="text" name="latitude" id="editLatitude" placeholder="Latitude" required>
+                        </div>
+                        <div class="input-with-icon">
+                            <i class="ri-map-pin-2-fill"></i>
+                            <input type="text" name="longitude" id="editLongitude" placeholder="Longitude" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="input-with-icon">
+                            <i class="ri-list-check"></i>
+                            <select required name="classification" id="editClassification">
+                                <option value=""> --Select Class Type--</option>
+                                <option value="laboratory">Laboratory</option>
+                                <option value="computerLab">Computer Lab</option>
+                                <option value="lectureHall">Lecture Hall</option>
+                                <option value="class">Class</option>
+                                <option value="office">Office</option>
+                            </select>
+                        </div>
+                        <div class="input-with-icon">
+                            <i class="ri-government-line"></i>
+                            <select required name="faculty" id="editFaculty">
+                                <option value="">Select Faculty</option>
+                                <?php
+                                $facultyNames = getFacultyNames();
+                                foreach ($facultyNames as $faculty) {
+                                    echo '<option value="' . $faculty["facultyCode"] . '">' . $faculty["facultyName"] . '</option>';
+                                }
+                                ?>
+                            </select>
+                        </div>
+                    </div>
                     <input type="submit" class="submit" value="Update Venue" name="editVenue">
                 </form>
             </div>
@@ -377,6 +445,54 @@ if (isset($_POST["editVenue"])) {
                 document.body.style.overflow = 'auto';
             });
         });
+
+        // GPS Functions
+        function autoFillGPS(formId) {
+            const btn = document.querySelector(`#${formId} .gps-btn`);
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<i class="ri-loader-4-line ri-spin"></i> Getting Location...';
+            btn.disabled = true;
+
+            if ("geolocation" in navigator) {
+                navigator.geolocation.getCurrentPosition(
+                    function(position) {
+                        const lat = position.coords.latitude.toFixed(8);
+                        const lng = position.coords.longitude.toFixed(8);
+                        
+                        if (formId === 'addClassForm') {
+                            document.getElementById('addLatitude').value = lat;
+                            document.getElementById('addLongitude').value = lng;
+                        } else {
+                            document.getElementById('editLatitude').value = lat;
+                            document.getElementById('editLongitude').value = lng;
+                        }
+                        
+                        btn.innerHTML = '<i class="ri-checkbox-circle-line"></i> Location Captured!';
+                        btn.style.backgroundColor = '#dcfce7';
+                        btn.style.color = '#166534';
+                        btn.style.borderColor = '#22c55e';
+                        
+                        setTimeout(() => {
+                            btn.innerHTML = originalText;
+                            btn.style.backgroundColor = '';
+                            btn.style.color = '';
+                            btn.style.borderColor = '';
+                            btn.disabled = false;
+                        }, 3000);
+                    },
+                    function(error) {
+                        alert("Error getting location: " + error.message);
+                        btn.innerHTML = originalText;
+                        btn.disabled = false;
+                    },
+                    { enableHighAccuracy: true, timeout: 5000, maximumAge: 0 }
+                );
+            } else {
+                alert("Geolocation is not supported by your browser.");
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+            }
+        }
     </script>
 </body>
 

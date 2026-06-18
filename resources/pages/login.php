@@ -28,6 +28,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login'])) {
         $stmt = $pdo->prepare("SELECT * FROM tbladmin WHERE emailAddress = :email");
     } elseif ($userType == "lecture") {
         $stmt = $pdo->prepare("SELECT * FROM tbllecture WHERE emailAddress = :email");
+    } elseif ($userType == "student") {
+        $stmt = $pdo->prepare("SELECT *, email as emailAddress, registrationNumber as Id FROM tblStudents WHERE email = :email");
     }
     $stmt->execute(['email' => $email]);
     $user = $stmt->fetch();
@@ -39,6 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login'])) {
             'id' => $user['Id'],
             'email' => $user['emailAddress'],
             'name' => $user['firstName'],
+            'registrationNumber' => isset($user['registrationNumber']) ? $user['registrationNumber'] : null,
             'role' => $userType,
         ];
 
@@ -107,6 +110,7 @@ function display_error($error, $is_main = false)
                         <i class="fas fa-user-shield"></i>
                         <select name="user_type" id="user_type" required>
                             <option value="" disabled selected hidden>Select Role</option>
+                            <option value="student">Student</option>
                             <option value="lecture">Lecture / Teacher</option>
                             <option value="administrator">System Administrator</option>
                         </select>

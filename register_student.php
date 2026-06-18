@@ -42,7 +42,7 @@ foreach ($faces as $index => $facePath) {
 
 // Train LBPH model
 $pythonScript = __DIR__ . '/python/realtime_recognition.py';
-$command = "python \"$pythonScript\" --train";
+$command = "python \"$pythonScript\" --train 2>&1";
 $output = shell_exec($command);
 $result = json_decode($output, true);
 

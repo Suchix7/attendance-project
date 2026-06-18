@@ -19,19 +19,35 @@
                 $unitID = $_POST['unitID'];
                 $venueID = $_POST['venueID'];
 
-                $sql = "SELECT * FROM tblStudents WHERE courseCode = '$courseID'";
-                $result = fetch($sql);
+                $sql = "SELECT s.*, a.attendanceStatus 
+                        FROM tblStudents s 
+                        LEFT JOIN tblattendance a ON s.registrationNumber = a.studentRegistrationNumber 
+                        AND a.course = :courseID 
+                        AND a.unit = :unitID 
+                        AND a.dateMarked = CURDATE()
+                        WHERE s.courseCode = :courseID2";
+                
+                $stmt = $pdo->prepare($sql);
+                $stmt->execute([
+                    ':courseID' => $courseID,
+                    ':unitID' => $unitID,
+                    ':courseID2' => $courseID
+                ]);
+                $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
                 if ($result) {
                     foreach ($result as $row) {
                         $registrationNumber = $row["registrationNumber"];
+                        $status = !empty($row["attendanceStatus"]) ? $row["attendanceStatus"] : "Absent";
+                        $statusClass = strtolower($status) === "present" ? "attendance-status present" : "attendance-status";
+                        
                         echo "<tr data-student-id='{$registrationNumber}'>";
                         echo "<td class='student-id'>" . $registrationNumber . "</td>";
                         echo "<td>" . $row["firstName"] . " " . $row["lastName"] . "</td>";
                         echo "<td>" . $courseID . "</td>";
                         echo "<td>" . $unitID . "</td>";
                         echo "<td>" . $venueID . "</td>";
-                        echo "<td class='attendance-status'>Absent</td>";
+                        echo "<td class='{$statusClass}'>" . $status . "</td>";
                         echo "<td><span><i class='ri-delete-bin-line delete' onclick='confirmMarkAbsent(this, \"$registrationNumber\", \"$courseID\", \"$unitID\")'></i></span></td>";
                         echo "</tr>";
                     }

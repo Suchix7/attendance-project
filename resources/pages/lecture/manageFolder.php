@@ -8,8 +8,10 @@ if (isset($_POST['courseID']) && isset($_POST['unitID']) && isset($_POST['venueI
     $unitID = $_POST['unitID'];
     $venueID = $_POST['venueID'];
 
-    $sql = "SELECT registrationNumber FROM tblStudents WHERE courseCode = '$courseID'";
-    $result = fetch($sql);
+    $sql = "SELECT registrationNumber FROM tblStudents WHERE courseCode = :courseID";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([':courseID' => $courseID]);
+    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     if ($result) {
         $registrationNumbers = array();

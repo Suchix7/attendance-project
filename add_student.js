@@ -37,10 +37,13 @@ document.addEventListener("DOMContentLoaded", () => {
         },
       });
       video.srcObject = stream;
-      startButton.disabled = true;
-      captureButton.disabled = false;
-      status.textContent = "Status: Camera started";
-      startFaceDetection();
+      video.onloadedmetadata = () => {
+        video.play();
+        startButton.disabled = true;
+        captureButton.disabled = false;
+        status.textContent = "Status: Camera started";
+        startFaceDetection();
+      };
     } catch (err) {
       console.error("Error accessing camera:", err);
       status.textContent = "Status: Error accessing camera";
@@ -161,6 +164,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
           } catch (err) {
             console.error("Error detecting faces:", err);
+            status.textContent = "Status: Error in face detection loop. Check if Python/OpenCV is correctly installed.";
           }
         },
         "image/jpeg",

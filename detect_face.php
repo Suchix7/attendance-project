@@ -25,8 +25,8 @@ try {
     // Save the uploaded image temporarily
     $tmpImage = $_FILES['image']['tmp_name'];
 
-    // Execute the Python script for face detection
-    $command = escapeshellcmd("python python/detect_face.py " . escapeshellarg($tmpImage));
+    // Execute the Python script for face detection, capturing both stdout and stderr
+    $command = escapeshellcmd("python python/detect_face.py " . escapeshellarg($tmpImage)) . " 2>&1";
     $output = shell_exec($command);
 
     // Parse the JSON output from Python script
