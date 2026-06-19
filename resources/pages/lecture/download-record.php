@@ -86,58 +86,88 @@ if (!empty($unitCode)) {
                 </div>
                 <div class="table attendance-table" id="attendaceTable">
                     <table>
-                       <?php
-                       // Build thead with Nepali date headers
-                       echo '<thead><tr>';
-                       echo '<th>Registration No</th>';
-                       echo '<th>Student Name</th>';
-                       
-                       // Get distinct dates
-                       $distinctDatesQuery = "SELECT DISTINCT dateMarked FROM tblattendance WHERE course = :courseCode AND unit = :unitCode ORDER BY dateMarked ASC";
-                       $stmtDates = $pdo->prepare($distinctDatesQuery);
-                       $stmtDates->execute([':courseCode' => $courseCode, ':unitCode' => $unitCode]);
-                       $distinctDatesResult = $stmtDates->fetchAll(PDO::FETCH_ASSOC);
-                       
-                       foreach ($distinctDatesResult as $dateRow) {
-                           $gregDate = $dateRow['dateMarked'];
-                           $npDate   = formatNepaliDate($gregDate, 'short');
-                           echo '<th>' . htmlspecialchars($npDate) . '</th>';
-                       }
-                       echo '</tr></thead>';
-                       
-                       // Get all students in course
-                       $studentsQuery = "SELECT registrationNumber, firstName, lastName FROM tblstudents WHERE courseCode = :courseCode";
-                       $stmtStudents = $pdo->prepare($studentsQuery);
-                       $stmtStudents->execute([':courseCode' => $courseCode]);
-                       $studentRows = $stmtStudents->fetchAll(PDO::FETCH_ASSOC);
+                        <?php
+                        // Get faculty code for the course
+                        $facultyCode = null;
+                        if (!empty($courseCode)) {
+                            $stmtFaculty = $pdo->prepare("SELECT f.facultyCode FROM tblcourse c JOIN tblfaculty f ON c.facultyID = f.Id WHERE c.courseCode = ?");
+                            $stmtFaculty->execute([$courseCode]);
+                            $facultyCode = $stmtFaculty->fetchColumn();
+                        }
 
-                       echo '<tbody>';
-                       foreach ($studentRows as $row) {
-                           echo "<tr>";
-                           echo "<td>" . htmlspecialchars($row['registrationNumber']) . "</td>";
-                           echo "<td>" . htmlspecialchars($row['firstName'] . " " . $row['lastName']) . "</td>";
+                        // Resolve active semester ID
+                        $semesterId = 0;
+                        if ($facultyCode && function_exists('getActiveSemester')) {
+                            $activeSem = getActiveSemester($pdo, $facultyCode);
+                            if ($activeSem) {
+                                $semesterId = $activeSem['Id'];
+                            }
+                        }
 
-                           foreach ($distinctDatesResult as $dateRow) {
-                               $date = $dateRow['dateMarked'];
-                               $attendanceQuery = "SELECT attendanceStatus FROM tblattendance 
-                                                   WHERE studentRegistrationNumber = :sReg 
-                                                   AND dateMarked = :date 
-                                                   AND course = :courseCode 
-                                                   AND unit = :unitCode";
-                               $stmtAtt = $pdo->prepare($attendanceQuery);
-                               $stmtAtt->execute([
-                                   ':sReg'       => $row['registrationNumber'],
-                                   ':date'       => $date,
-                                   ':courseCode' => $courseCode,
-                                   ':unitCode'   => $unitCode
-                               ]);
-                               $attResult = $stmtAtt->fetch(PDO::FETCH_ASSOC);
-                               echo "<td>" . ($attResult ? htmlspecialchars($attResult['attendanceStatus']) : 'Absent') . "</td>";
-                           }
-                           echo "</tr>";
-                       }
-                       echo '</tbody>';
-                       ?>
+                        // Get distinct dates within active semester's calendar (or fallback to tblattendance if none set)
+                        $calendarDates = [];
+                        if ($facultyCode && $semesterId) {
+                            $stmtCal = $pdo->prepare("SELECT DISTINCT classDate FROM tblfacultycalendar WHERE facultyCode = ? AND semesterID = ? AND classDate <= CURDATE() ORDER BY classDate ASC");
+                            $stmtCal->execute([$facultyCode, $semesterId]);
+                            $calendarDates = $stmtCal->fetchAll(PDO::FETCH_COLUMN);
+                        }
+
+                        if (empty($calendarDates) && $courseCode && $unitCode) {
+                            $distinctDatesQuery = "SELECT DISTINCT dateMarked FROM tblattendance WHERE course = :courseCode AND unit = :unitCode ORDER BY dateMarked ASC";
+                            $stmtDates = $pdo->prepare($distinctDatesQuery);
+                            $stmtDates->execute([':courseCode' => $courseCode, ':unitCode' => $unitCode]);
+                            $calendarDates = $stmtDates->fetchAll(PDO::FETCH_COLUMN);
+                        }
+
+                        // Build thead with Nepali date headers
+                        echo '<thead><tr>';
+                        echo '<th>Registration No</th>';
+                        echo '<th>Student Name</th>';
+                        
+                        foreach ($calendarDates as $dateVal) {
+                            $npDate = formatNepaliDate($dateVal, 'short');
+                            echo '<th>' . htmlspecialchars($npDate) . '</th>';
+                        }
+                        echo '</tr></thead>';
+                        
+                        // Get students in course filtered by active semester
+                        if ($semesterId) {
+                            $studentsQuery = "SELECT registrationNumber, firstName, lastName FROM tblstudents WHERE courseCode = :courseCode AND semesterID = :semesterID ORDER BY firstName, lastName";
+                            $stmtStudents = $pdo->prepare($studentsQuery);
+                            $stmtStudents->execute([':courseCode' => $courseCode, ':semesterID' => $semesterId]);
+                        } else {
+                            $studentsQuery = "SELECT registrationNumber, firstName, lastName FROM tblstudents WHERE courseCode = :courseCode ORDER BY firstName, lastName";
+                            $stmtStudents = $pdo->prepare($studentsQuery);
+                            $stmtStudents->execute([':courseCode' => $courseCode]);
+                        }
+                        $studentRows = $stmtStudents->fetchAll(PDO::FETCH_ASSOC);
+
+                        echo '<tbody>';
+                        foreach ($studentRows as $row) {
+                            echo "<tr>";
+                            echo "<td>" . htmlspecialchars($row['registrationNumber']) . "</td>";
+                            echo "<td>" . htmlspecialchars($row['firstName'] . " " . $row['lastName']) . "</td>";
+
+                            foreach ($calendarDates as $date) {
+                                $attendanceQuery = "SELECT attendanceStatus FROM tblattendance 
+                                                    WHERE studentRegistrationNumber = :sReg 
+                                                    AND dateMarked = :date 
+                                                    AND course = :courseCode 
+                                                    AND unit = :unitCode";
+                                $stmtAtt = $pdo->prepare($attendanceQuery);
+                                $stmtAtt->execute([
+                                    ':sReg'       => $row['registrationNumber'],
+                                    ':date'       => $date,
+                                    ':courseCode' => $courseCode,
+                                    ':unitCode'   => $unitCode
+                                ]);
+                                $attResult = $stmtAtt->fetch(PDO::FETCH_ASSOC);
+                                echo "<td>" . ($attResult ? htmlspecialchars($attResult['attendanceStatus']) : 'Absent') . "</td>";
+                            }
+                            echo "</tr>";
+                        }
+                        echo '</tbody>';
+                        ?>
 
                     </table>
 

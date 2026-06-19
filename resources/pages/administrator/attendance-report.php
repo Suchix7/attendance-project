@@ -48,8 +48,13 @@ if (empty($calendarDates) && $selectedCourse && $selectedUnit) {
 // ── Students ──────────────────────────────────────────────────────
 $students = [];
 if ($selectedCourse) {
-    $stmtS = $pdo->prepare("SELECT registrationNumber, firstName, lastName FROM tblstudents WHERE courseCode = ? ORDER BY firstName, lastName");
-    $stmtS->execute([$selectedCourse]);
+    if ($selectedSemester) {
+        $stmtS = $pdo->prepare("SELECT registrationNumber, firstName, lastName FROM tblstudents WHERE courseCode = ? AND semesterID = ? ORDER BY firstName, lastName");
+        $stmtS->execute([$selectedCourse, $selectedSemester]);
+    } else {
+        $stmtS = $pdo->prepare("SELECT registrationNumber, firstName, lastName FROM tblstudents WHERE courseCode = ? ORDER BY firstName, lastName");
+        $stmtS->execute([$selectedCourse]);
+    }
     $students = $stmtS->fetchAll(PDO::FETCH_ASSOC);
 }
 

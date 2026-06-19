@@ -13,6 +13,16 @@ if ($data) {
             $data['date'] = date('Y-m-d');
         }
 
+        // --- Calendar validation: block marking on non-scheduled days ---
+        if (!is_scheduled_class_day($pdo, $data['course'], $data['date'])) {
+            echo json_encode([
+                'success' => false,
+                'message' => "Today ({$data['date']}) is not a scheduled class day for this faculty. Attendance has not been recorded.",
+                'blocked_reason' => 'unscheduled_day'
+            ]);
+            exit;
+        }
+
         // Check if an attendance record already exists for this student, course, unit, and date
         $checkSql = "SELECT * FROM tblattendance WHERE 
             studentRegistrationNumber = :studentID AND 

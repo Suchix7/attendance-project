@@ -195,9 +195,9 @@ if (isset($_POST['addStudent'])) {
         // Insert new student
         $insertQuery = $pdo->prepare("
             INSERT INTO tblstudents 
-            (firstName, lastName, email, registrationNumber, faculty, courseCode, studentImage, dateRegistered) 
+            (firstName, lastName, email, registrationNumber, faculty, courseCode, semesterID, studentImage, dateRegistered) 
             VALUES 
-            (:firstName, :lastName, :email, :registrationNumber, :faculty, :courseCode, :studentImage, :dateRegistered)
+            (:firstName, :lastName, :email, :registrationNumber, :faculty, :courseCode, :semesterID, :studentImage, :dateRegistered)
         ");
 
         $insertQuery->execute([
@@ -207,6 +207,7 @@ if (isset($_POST['addStudent'])) {
             ':registrationNumber' => $registrationNumber,
             ':faculty' => $faculty,
             ':courseCode' => $courseCode,
+            ':semesterID' => $semesterID,
             ':studentImage' => json_encode($imageFileNames),
             ':dateRegistered' => $dateRegistered
         ]);

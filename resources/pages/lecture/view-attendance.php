@@ -128,35 +128,53 @@ if (!empty($unitCode)) {
 
                             <tbody>
                                 <?php
-                                if ($courseCode && $unitCode) {
-                                    try {
-                                        $sql = "
-  SELECT 
-    s.registrationNumber,
-    s.firstName,
-    s.lastName,
-    COALESCE(a.attendanceStatus, 'Absent') AS attendanceStatus,
-    COALESCE(a.confidence, NULL) AS confidence,
-    COALESCE(a.dateMarked, :today) AS dateMarked
-  FROM tblstudents s
-  LEFT JOIN tblattendance a 
-    ON s.registrationNumber = a.studentRegistrationNumber
-    AND a.course = :courseCode
-    AND a.unit = :unitCode
-    AND DATE(a.dateMarked) = :today
-  WHERE s.courseCode = :courseCode
-  ORDER BY s.registrationNumber ASC
-";
+                                 if ($courseCode && $unitCode) {
+                                     try {
+                                         // Resolve active semester ID
+                                         $semesterId = 0;
+                                         $stmtFaculty = $pdo->prepare("SELECT f.facultyCode FROM tblcourse c JOIN tblfaculty f ON c.facultyID = f.Id WHERE c.courseCode = ?");
+                                         $stmtFaculty->execute([$courseCode]);
+                                         $facultyCode = $stmtFaculty->fetchColumn();
+                                         if ($facultyCode && function_exists('getActiveSemester')) {
+                                             $activeSem = getActiveSemester($pdo, $facultyCode);
+                                             if ($activeSem) {
+                                                 $semesterId = $activeSem['Id'];
+                                             }
+                                         }
 
+                                         $sql = "
+                                           SELECT 
+                                             s.registrationNumber,
+                                             s.firstName,
+                                             s.lastName,
+                                             COALESCE(a.attendanceStatus, 'Absent') AS attendanceStatus,
+                                             COALESCE(a.confidence, NULL) AS confidence,
+                                             COALESCE(a.dateMarked, :today) AS dateMarked
+                                           FROM tblstudents s
+                                           LEFT JOIN tblattendance a 
+                                             ON s.registrationNumber = a.studentRegistrationNumber
+                                             AND a.course = :courseCode
+                                             AND a.unit = :unitCode
+                                             AND DATE(a.dateMarked) = :today
+                                           WHERE s.courseCode = :courseCode
+                                         ";
+                                         if ($semesterId) {
+                                             $sql .= " AND s.semesterID = :semesterID";
+                                         }
+                                         $sql .= " ORDER BY s.registrationNumber ASC";
 
-                                        $stmt = $pdo->prepare($sql);
-                                        $stmt->execute([
-                                            ':today' => $today,
-                                            ':courseCode' => $courseCode,
-                                            ':unitCode' => $unitCode
-                                        ]);
+                                         $stmt = $pdo->prepare($sql);
+                                         $params = [
+                                             ':today' => $today,
+                                             ':courseCode' => $courseCode,
+                                             ':unitCode' => $unitCode
+                                         ];
+                                         if ($semesterId) {
+                                             $params[':semesterID'] = $semesterId;
+                                         }
+                                         $stmt->execute($params);
 
-                                        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                                         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
                                         if ($result) {
   foreach ($result as $row) {

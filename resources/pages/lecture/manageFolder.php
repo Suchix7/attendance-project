@@ -8,9 +8,28 @@ if (isset($_POST['courseID']) && isset($_POST['unitID']) && isset($_POST['venueI
     $unitID = $_POST['unitID'];
     $venueID = $_POST['venueID'];
 
+    // Resolve active semester ID
+    $semesterId = 0;
+    $stmtFaculty = $pdo->prepare("SELECT f.facultyCode FROM tblcourse c JOIN tblfaculty f ON c.facultyID = f.Id WHERE c.courseCode = ?");
+    $stmtFaculty->execute([$courseID]);
+    $facultyCode = $stmtFaculty->fetchColumn();
+    if ($facultyCode && function_exists('getActiveSemester')) {
+        $activeSem = getActiveSemester($pdo, $facultyCode);
+        if ($activeSem) {
+            $semesterId = $activeSem['Id'];
+        }
+    }
+
     $sql = "SELECT registrationNumber FROM tblStudents WHERE courseCode = :courseID";
+    if ($semesterId) {
+        $sql .= " AND semesterID = :semesterID";
+    }
     $stmt = $pdo->prepare($sql);
-    $stmt->execute([':courseID' => $courseID]);
+    $params = [':courseID' => $courseID];
+    if ($semesterId) {
+        $params[':semesterID'] = $semesterId;
+    }
+    $stmt->execute($params);
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     if ($result) {

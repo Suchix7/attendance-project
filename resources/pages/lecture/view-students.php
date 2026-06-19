@@ -88,22 +88,44 @@ if (!empty($unitCode)) {
                             </tr>
                         </thead>
                         <tbody>
-                            <?php $query = "SELECT * FROM tblstudents WHERE courseCode = '$courseCode'";
+                            <?php 
+                            $semesterId = 0;
+                            if (!empty($courseCode)) {
+                                $stmtFaculty = $pdo->prepare("SELECT f.facultyCode FROM tblcourse c JOIN tblfaculty f ON c.facultyID = f.Id WHERE c.courseCode = ?");
+                                $stmtFaculty->execute([$courseCode]);
+                                $facultyCode = $stmtFaculty->fetchColumn();
+                                if ($facultyCode && function_exists('getActiveSemester')) {
+                                    $activeSem = getActiveSemester($pdo, $facultyCode);
+                                    if ($activeSem) {
+                                        $semesterId = $activeSem['Id'];
+                                    }
+                                }
+                            }
 
-                            $result = fetch($query);
+                            $query = "SELECT * FROM tblstudents WHERE courseCode = :courseCode";
+                            if ($semesterId) {
+                                $query .= " AND semesterID = :semesterID";
+                            }
+                            $query .= " ORDER BY firstName, lastName";
+
+                            $stmt = $pdo->prepare($query);
+                            $params = [':courseCode' => $courseCode];
+                            if ($semesterId) {
+                                $params[':semesterID'] = $semesterId;
+                            }
+                            $stmt->execute($params);
+                            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
                             if ($result) {
                                 foreach ($result as $row) {
                                     echo "<tr>";
-                                    echo "<td>" . $row['registrationNumber'] . "</td>";
-                                    echo "<td>" . $row['firstName'] . "</td>";
-                                    echo "<td>" . $row['lastName'] . "</td>";
-                                    echo "<td>" . $row['email'] . "</td>";
-
+                                    echo "<td>" . htmlspecialchars($row['registrationNumber']) . "</td>";
+                                    echo "<td>" . htmlspecialchars($row['firstName']) . "</td>";
+                                    echo "<td>" . htmlspecialchars($row['lastName']) . "</td>";
+                                    echo "<td>" . htmlspecialchars($row['email']) . "</td>";
                                     echo "</tr>";
                                 }
-
                                 echo "</table>";
-                            } else {
                             }
                             ?>
 
