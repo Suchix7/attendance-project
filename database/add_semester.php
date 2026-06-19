@@ -58,7 +58,8 @@ try {
     $keyNames = array_column($indexes, 'Key_name');
 
     // Drop old unique if present
-    foreach (['facultyCode', 'faculty_date_unique', 'unique_faculty_date'] as $oldKey) {
+    $oldKeys = ['uq_faculty_date', 'facultyCode', 'faculty_date_unique', 'unique_faculty_date', 'unique_faculty_semester_date'];
+    foreach ($oldKeys as $oldKey) {
         if (in_array($oldKey, $keyNames)) {
             $pdo->exec("ALTER TABLE `tblfacultycalendar` DROP INDEX `$oldKey`");
             $steps[] = ['ok', "Dropped old index: $oldKey"];
@@ -66,17 +67,12 @@ try {
     }
 
     // Add new unique index if not already there
-    $newKeyExists = false;
-    foreach ($indexes as $idx) {
-        if ($idx['Key_name'] === 'unique_faculty_semester_date') {
-            $newKeyExists = true; break;
-        }
-    }
+    $newKeyExists = in_array('uq_faculty_semester_date', $keyNames);
     if (!$newKeyExists) {
-        $pdo->exec("ALTER TABLE `tblfacultycalendar` ADD UNIQUE KEY `unique_faculty_semester_date` (`facultyCode`, `semesterID`, `classDate`)");
-        $steps[] = ['ok', 'Added unique index (facultyCode, semesterID, classDate) to tblfacultycalendar'];
+        $pdo->exec("ALTER TABLE `tblfacultycalendar` ADD UNIQUE KEY `uq_faculty_semester_date` (`facultyCode`, `semesterID`, `classDate`)");
+        $steps[] = ['ok', 'Added unique index uq_faculty_semester_date (facultyCode, semesterID, classDate) to tblfacultycalendar'];
     } else {
-        $steps[] = ['skip', 'Unique index unique_faculty_semester_date already exists'];
+        $steps[] = ['skip', 'Unique index uq_faculty_semester_date already exists'];
     }
 } catch (PDOException $e) {
     $steps[] = ['err', 'Index update: ' . $e->getMessage()];
