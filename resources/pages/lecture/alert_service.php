@@ -288,12 +288,25 @@ if (!function_exists('evaluate_and_send_alerts')) {
 
             $percentage = ($presentCount / $totalClasses) * 100;
 
+            // Clear threshold warning state once the student recovers above threshold.
+            if ($percentage >= $threshold && !empty($state['lastThresholdAlertSent'])) {
+                $resetThresholdStmt = $pdo->prepare("UPDATE tblalertstate SET lastThresholdAlertSent = NULL WHERE studentRegistrationNumber = :studentID AND courseCode = :course AND unitCode = :unit");
+                $resetThresholdStmt->execute([
+                    ':studentID' => $studentID,
+                    ':course' => $course,
+                    ':unit' => $unit
+                ]);
+                $state['lastThresholdAlertSent'] = null;
+            }
+
             // First month/grace period suppression — uses shared helper from analytics_logic.php
             $isFirstMonth = isSemesterInGracePeriod($pdo, $facultyCode, $semesterId);
 
+            // Only send the critical threshold warning on an absence event.
+            // If the student attends today, do not send the warning immediately.
             if ($isFirstMonth) {
                 error_log("Alert Service: Suppressing CRITICAL Attendance Warning for $studentID on $course ($unit) - first month/grace period active.");
-            } else if ($percentage < $threshold && $emailMode === 'auto') {
+            } else if ($status === 'Absent' && $percentage < $threshold && $emailMode === 'auto') {
                 $shouldSendThreshold = false;
                 if (empty($state['lastThresholdAlertSent'])) {
                     $shouldSendThreshold = true;
