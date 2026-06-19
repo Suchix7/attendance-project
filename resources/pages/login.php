@@ -129,8 +129,25 @@ function display_error($error, $is_main = false)
                             <?php display_error('password'); ?>
                         </div>
 
-                        <button type="submit" class="btn" name="login">Sign In <i class="fas fa-sign-in-alt"
-                                style="margin-left: 8px;"></i></button>
+                       <button type="submit" class="btn" name="login"
+style="background: linear-gradient(135deg,#1e90ff,#0066ff);
+color:white;
+padding:12px 22px;
+border:none;
+border-radius:8px;
+cursor:pointer;
+font-weight:700;
+font-size:16px;
+display:flex;
+width:100%;
+align-items:center;
+justify-content:center;
+margin:0 auto;
+box-shadow:0 6px 15px rgba(30,144,255,0.3);
+transition:0.2s ease;">
+  Sign In
+  <i class="fas fa-sign-in-alt" style="margin-left:10px;"></i>
+</button>
                     </form>
                 </div>
             </div>

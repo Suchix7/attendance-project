@@ -41,6 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['save_settings'])) {
     }
 }
 
+/*
 // Handle Manual Email Dispatch (AJAX POST)
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'send_manual_alert') {
     header('Content-Type: application/json');
@@ -174,6 +175,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
     }
     exit;
 }
+*/
 
 // Retrieve current configurations
 $current_threshold = get_setting($pdo, 'face_confidence_threshold', '65');
@@ -428,160 +430,22 @@ try {
                 </form>
             </div>
 
-            <!-- Manual Email Dispatcher -->
+            <!--
+            Manual Email Dispatcher (temporarily disabled)
             <div class="settings-card">
                 <h3><i class="ri-mail-send-line"></i> Manual Email Dispatcher</h3>
                 <p style="color: #606266; font-size: 0.88rem; margin-bottom: 20px;">
-                    Below is the list of recent absences recorded in the database. You can manually trigger an email notification immediately to their registered parent/guardian.
+                    The manual email dispatcher has been disabled for now. This section is retained in the file for future reactivation.
                 </p>
-
-                <div class="table-container" style="box-shadow: none; padding: 0;">
-                    <div class="table">
-                        <table style="width: 100%;">
-                            <thead>
-                                <tr>
-                                    <th>Student</th>
-                                    <th>Registration No</th>
-                                    <th>Course / Unit</th>
-                                    <th>Date Marked</th>
-                                    <th>Alert Status</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php if (!empty($absences)): ?>
-                                    <?php foreach ($absences as $row): ?>
-                                        <?php 
-                                            // Get student's faculty code to resolve active semester
-                                            $stmtStudFaculty = $pdo->prepare("SELECT faculty FROM tblstudents WHERE registrationNumber = ?");
-                                            $stmtStudFaculty->execute([$row['studentRegistrationNumber']]);
-                                            $studentFaculty = $stmtStudFaculty->fetchColumn();
-
-                                            $semesterId = 0;
-                                            if ($studentFaculty && function_exists('getActiveSemester')) {
-                                                $activeSem = getActiveSemester($pdo, $studentFaculty);
-                                                if ($activeSem) {
-                                                    $semesterId = $activeSem['Id'];
-                                                }
-                                            }
-
-                                            // Calculate risk scoped to the resolved active semester
-                                            $risk = calculateAttendanceRisk($row['studentRegistrationNumber'], $row['course'], $semesterId);
-
-                                            $is_sent = !empty($row['lastAbsentAlertSent']);
-                                            $sent_date = $is_sent ? formatNepaliDate($row['lastAbsentAlertSent'], 'short') : '';
-                                            $total_cls = $risk['total'] ?: 1;
-                                            $present_cls = $risk['present'];
-                                            $pct = $risk['percentage'];
-                                            $is_critical = ($pct < $current_attendance_threshold);
-                                        ?>
-                                        <tr id="absence-row-<?php echo $row['attendanceID']; ?>">
-                                            <td>
-                                                <div style="font-weight: 600;"><?php echo htmlspecialchars($row['firstName'] . ' ' . $row['lastName']); ?></div>
-                                                <div style="font-size: 0.8rem; color: #909399;"><?php echo htmlspecialchars($row['email']); ?></div>
-                                            </td>
-                                            <td><?php echo htmlspecialchars($row['studentRegistrationNumber']); ?></td>
-                                            <td>
-                                                <div><?php echo htmlspecialchars($row['course']); ?></div>
-                                                <div style="font-size: 0.8rem; color: #909399;"><?php echo htmlspecialchars($row['unit']); ?></div>
-                                                <div style="margin-top: 4px;">
-                                                    <span style="font-size: 0.78rem; padding: 2px 6px; border-radius: 4px; font-weight: 600; <?php echo $is_critical ? 'background-color: #fef0f0; color: #f56c6c; border: 1px solid #fde2e2;' : 'background-color: #f0f9eb; color: #67c23a; border: 1px solid #e1f3d8;'; ?>">
-                                                        Attendance: <?php echo $pct; ?>% (<?php echo $present_cls; ?>/<?php echo $total_cls; ?>)
-                                                    </span>
-                                                </div>
-                                            </td>
-                                            <td><?php echo htmlspecialchars(formatNepaliDate($row['dateMarked'], 'short')); ?></td>
-                                            <td class="status-cell">
-                                                <?php if ($is_sent): ?>
-                                                    <span class="badge badge-sent"><i class="ri-checkbox-circle-line"></i> Sent (<?php echo $sent_date; ?>)</span>
-                                                <?php else: ?>
-                                                    <span class="badge badge-pending"><i class="ri-time-line"></i> Pending Dispatch</span>
-                                                <?php endif; ?>
-                                            </td>
-                                            <td>
-                                                <button class="btn-dispatch" onclick="dispatchManualAlert(this, '<?php echo $row['studentRegistrationNumber']; ?>', '<?php echo $row['course']; ?>', '<?php echo $row['unit']; ?>')">
-                                                    <i class="ri-send-plane-line"></i> Send Alert
-                                                </button>
-                                            </td>
-                                        </tr>
-                                    <?php endforeach; ?>
-                                <?php else: ?>
-                                    <tr>
-                                        <td colspan="6" style="text-align: center; color: #909399; padding: 20px;">No recent absences found in the database.</td>
-                                    </tr>
-                                <?php endif; ?>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
             </div>
+            -->
 
         </div>
     </section>
 
     <?php js_asset(["active_link"]) ?>
 
-    <script>
-        function dispatchManualAlert(button, studentId, course, unit) {
-            if (!confirm('Are you sure you want to send an email notification for this absence?')) {
-                return;
-            }
-
-            // Disable button and show loading state
-            button.disabled = true;
-            const originalText = button.innerHTML;
-            button.innerHTML = '<i class="ri-loader-4-line" style="animation: spin 1s infinite linear;"></i> Sending...';
-
-            const formData = new FormData();
-            formData.append('action', 'send_manual_alert');
-            formData.append('student_id', studentId);
-            formData.append('course', course);
-            formData.append('unit', unit);
-
-            fetch('', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    alert('Email sent successfully!');
-                    
-                    // Find the row and update the status cell
-                    const row = button.closest('tr');
-                    const statusCell = row.querySelector('.status-cell');
-                    
-                    // Format current date/time in Nepali BS
-                    const now = new Date();
-                    const gregStr = now.getFullYear() + '-' + 
-                                   String(now.getMonth() + 1).padStart(2, '0') + '-' + 
-                                   String(now.getDate()).padStart(2, '0');
-                    const dateString = NepaliCalendar.formatNepaliDate(gregStr, 'short') + 
-                                       ' ' + String(now.getHours()).padStart(2, '0') + ':' + 
-                                       String(now.getMinutes()).padStart(2, '0');
-
-                    statusCell.innerHTML = `<span class="badge badge-sent"><i class="ri-checkbox-circle-line"></i> Sent (${dateString})</span>`;
-                    button.innerHTML = '<i class="ri-check-line"></i> Sent';
-                } else {
-                    alert('Error: ' + data.message);
-                    button.disabled = false;
-                    button.innerHTML = originalText;
-                }
-            })
-            .catch(error => {
-                console.error('Error dispatching manual alert:', error);
-                alert('An error occurred while sending the email.');
-                button.disabled = false;
-                button.innerHTML = originalText;
-            });
-        }
-    </script>
-    <style>
-        @keyframes spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-    </style>
+    <!-- Manual dispatcher UI and JavaScript have been commented out while this feature is disabled. -->
 </body>
 
 </html>

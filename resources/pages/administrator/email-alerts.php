@@ -236,6 +236,10 @@ try {
         $where[] = "s.faculty = ?";
         $params[] = $selectedFaculty;
     }
+    if ($selectedSemesterId) {
+        $where[] = "s.semesterID = ?";
+        $params[] = $selectedSemesterId;
+    }
     if ($where) {
         $sql .= " WHERE " . implode(" AND ", $where);
     }
