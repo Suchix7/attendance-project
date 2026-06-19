@@ -107,8 +107,8 @@ if (!function_exists('evaluate_and_send_alerts')) {
                 return; // Emails turned off entirely
             }
 
-            // 1. Fetch student details (name, email)
-            $stmt = $pdo->prepare("SELECT firstName, lastName, email, faculty FROM tblstudents WHERE registrationNumber = :studentID");
+            // 1. Fetch student details (name, email, semesterID)
+            $stmt = $pdo->prepare("SELECT firstName, lastName, email, faculty, semesterID FROM tblstudents WHERE registrationNumber = :studentID");
             $stmt->execute([':studentID' => $studentID]);
             $student = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -121,10 +121,24 @@ if (!function_exists('evaluate_and_send_alerts')) {
             $studentEmail = $student['email'];
             $facultyCode = $student['faculty'];
 
-            // Get active semester
+            // Get active semester or student's assigned semester
             $semesterId = 0;
             $semesterName = '';
-            if ($facultyCode && function_exists('getActiveSemester')) {
+            $activeSem = null;
+            $studentSemesterId = (int)($student['semesterID'] ?? 0);
+
+            if ($studentSemesterId > 0) {
+                $stmtSem = $pdo->prepare("SELECT * FROM tblsemester WHERE Id = ?");
+                $stmtSem->execute([$studentSemesterId]);
+                $activeSem = $stmtSem->fetch(PDO::FETCH_ASSOC) ?: null;
+                if ($activeSem) {
+                    $semesterId = $activeSem['Id'];
+                    $semesterName = $activeSem['name'];
+                }
+            }
+
+            // Fallback to faculty active semester if no student-specific semester
+            if (!$semesterId && $facultyCode && function_exists('getActiveSemester')) {
                 $activeSem = getActiveSemester($pdo, $facultyCode);
                 if ($activeSem) {
                     $semesterId = $activeSem['Id'];
@@ -285,7 +299,12 @@ if (!function_exists('evaluate_and_send_alerts')) {
 
             $percentage = ($presentCount / $totalClasses) * 100;
 
-            if ($percentage < $threshold && $emailMode === 'auto') {
+            // First month/grace period suppression — uses shared helper from analytics_logic.php
+            $isFirstMonth = isSemesterInGracePeriod($pdo, $facultyCode, $semesterId);
+
+            if ($isFirstMonth) {
+                error_log("Alert Service: Suppressing CRITICAL Attendance Warning for $studentID on $course ($unit) - first month/grace period active.");
+            } else if ($percentage < $threshold && $emailMode === 'auto') {
                 $shouldSendThreshold = false;
                 if (empty($state['lastThresholdAlertSent'])) {
                     $shouldSendThreshold = true;

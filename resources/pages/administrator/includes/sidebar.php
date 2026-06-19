@@ -37,6 +37,12 @@
                     </a>
                 </li>
                 <li>
+                    <a href="attendance-report">
+                        <span class="icon icon-1"><i class="ri-file-excel-2-line"></i></span>
+                        <span class="sidebar--item">Attendance Report</span>
+                    </a>
+                </li>
+                <li>
                     <a href="faculty-calendar">
                         <span class="icon icon-1"><i class="ri-calendar-todo-line"></i></span>
                         <span class="sidebar--item">Academic Calendar</span>

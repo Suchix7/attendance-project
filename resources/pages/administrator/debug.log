@@ -1348,3 +1348,6 @@
 
 2026-06-18 17:39:52 - Return code: 0
 2026-06-18 17:39:52 - Student registration completed successfully
+2026-06-19 11:46:31 - Starting student update process
+2026-06-19 11:46:31 - Student update details: {"id":141,"name":"Sujal Chitrakar","reg":"89889"}
+2026-06-19 11:46:31 - Student update completed successfully

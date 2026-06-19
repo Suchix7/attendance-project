@@ -17,6 +17,7 @@ if (isset($_POST['addStudent'])) {
         $registrationNumber = $_POST['registrationNumber'];
         $courseCode = $_POST['course'];
         $faculty = $_POST['faculty'];
+        $semesterID = isset($_POST['semester']) ? (int)$_POST['semester'] : 0;
         $dateRegistered = date("Y-m-d");
 
         if (!preg_match("/^[a-zA-Z]+$/", $firstName)) {
@@ -132,7 +133,8 @@ if (isset($_POST['addStudent'])) {
             'name' => $firstName . ' ' . $lastName,
             'email' => $email,
             'course' => $courseCode,
-            'faculty' => $faculty
+            'faculty' => $faculty,
+            'semesterID' => $semesterID
         ];
 
         // Save info.json in both locations
@@ -236,6 +238,7 @@ if (isset($_POST['editStudent'])) {
         $registrationNumber = $_POST['registrationNumber'];
         $courseCode = $_POST['course'];
         $faculty = $_POST['faculty'];
+        $semesterID = isset($_POST['semester']) ? (int)$_POST['semester'] : 0;
 
 
     if (!preg_match("/^[a-zA-Z]+$/", $firstName)) {
@@ -275,7 +278,8 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             email = :email,
             registrationNumber = :registrationNumber,
             faculty = :faculty,
-            courseCode = :courseCode
+            courseCode = :courseCode,
+            semesterID = :semesterID
             WHERE Id = :id
         ");
 
@@ -286,6 +290,7 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             ':registrationNumber' => $registrationNumber,
             ':faculty' => $faculty,
             ':courseCode' => $courseCode,
+            ':semesterID' => $semesterID,
             ':id' => $studentId
         ]);
 
@@ -299,7 +304,8 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             'name' => $firstName . ' ' . $lastName,
             'email' => $email,
             'course' => $courseCode,
-            'faculty' => $faculty
+            'faculty' => $faculty,
+            'semesterID' => $semesterID
         ];
 
         $infoJson = json_encode($studentInfo);
@@ -356,19 +362,19 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 
                 <div class="table">
                     <table>
-                        <thead>
-                            <tr>
+                        <thead                            <tr>
                                 <th>Registration No</th>
                                 <th>Name</th>
                                 <th>Faculty</th>
                                 <th>Course</th>
+                                <th>Semester</th>
                                 <th>Email</th>
                                 <th>Settings</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
-                            $sql = "SELECT * FROM tblstudents";
+                            $sql = "SELECT s.*, sem.name as semesterName FROM tblstudents s LEFT JOIN tblsemester sem ON s.semesterID = sem.Id";
                             $result = fetch($sql);
                             if ($result) {
                                 foreach ($result as $row) {
@@ -377,6 +383,7 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
                                     echo "<td>" . $row["firstName"] . " " . $row["lastName"] . "</td>";
                                     echo "<td>" . $row["faculty"] . "</td>";
                                     echo "<td>" . $row["courseCode"] . "</td>";
+                                    echo "<td>" . ($row["semesterName"] ?: 'Not Assigned') . "</td>";
                                     echo "<td>" . $row["email"] . "</td>";
                                     echo "<td>
                                             <span>
@@ -387,7 +394,8 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
                                                    data-email='{$row["email"]}'
                                                    data-regno='{$row["registrationNumber"]}'
                                                    data-faculty='{$row["faculty"]}'
-                                                   data-course='{$row["courseCode"]}'></i>
+                                                   data-course='{$row["courseCode"]}'
+                                                   data-semester='{$row["semesterID"]}'></i>
                                                 <i class='ri-delete-bin-line delete' data-id='{$row["Id"]}' data-name='students'></i>
                                             </span>
                                           </td>";
@@ -422,9 +430,8 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
                             <input type="email" name="email" placeholder="Email Address">
                             <input type="text" required id="registrationNumber" name="registrationNumber"
                                 placeholder="Registration Number"> <br>
-                            <p id="error" style="color: red; display: none;">Invalid characters in registration number.
-                            </p>
-                            <select required name="faculty">
+                            <p id="error" style="color: red; display: none;">Invalid characters in registration number.</p>
+                            <select required name="faculty" id="facultySelect" onchange="filterSemesters('facultySelect', 'semesterSelect')">
                                 <option value="" selected>Select Faculty</option>
                                 <?php
                                 $facultyNames = getFacultyNames();
@@ -433,7 +440,7 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
                                 }
                                 ?>
                             </select> <br />
-
+ 
                             <select required name="course">
                                 <option value="" selected>Select Course</option>
                                 <?php
@@ -442,7 +449,19 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
                                     echo '<option value="' . $course["courseCode"] . '">' . $course["name"] . '</option>';
                                 }
                                 ?>
-                            </select>
+                            </select> <br />
+
+                            <select required name="semester" id="semesterSelect">
+                                <option value="" selected>Select Semester</option>
+                                <?php
+                                if (function_exists('getAllSemesters')) {
+                                    $semesters = getAllSemesters($pdo);
+                                    foreach ($semesters as $sem) {
+                                        echo '<option value="' . $sem['Id'] . '">' . htmlspecialchars($sem['name']) . ' (' . htmlspecialchars($sem['facultyName'] ?: $sem['facultyCode']) . ')' . '</option>';
+                                    }
+                                }
+                                ?>
+                            </select>t>
                         </div>
                         <div>
                             <div class="form-title-image">
@@ -487,9 +506,7 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
                         <input type="text" required id="editRegistrationNumber" name="registrationNumber"
                             placeholder="Registration Number">
                         <p id="editError" style="color: red; display: none;">Invalid characters in registration number.
-                        </p>
-
-                        <select required name="faculty" id="editFaculty">
+                        </p>                        <select required name="faculty" id="editFaculty" onchange="filterSemesters('editFaculty', 'editSemester')">
                             <option value="">Select Faculty</option>
                             <?php
                             $facultyNames = getFacultyNames();
@@ -498,13 +515,25 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
                             }
                             ?>
                         </select>
-
+ 
                         <select required name="course" id="editCourse">
                             <option value="">Select Course</option>
                             <?php
                             $courseNames = getCourseNames();
                             foreach ($courseNames as $course) {
                                 echo '<option value="' . $course["courseCode"] . '">' . $course["name"] . '</option>';
+                            }
+                            ?>
+                        </select>
+
+                        <select required name="semester" id="editSemester">
+                            <option value="">Select Semester</option>
+                            <?php
+                            if (function_exists('getAllSemesters')) {
+                                $semesters = getAllSemesters($pdo);
+                                foreach ($semesters as $sem) {
+                                    echo '<option value="' . $sem['Id'] . '">' . htmlspecialchars($sem['name']) . ' (' . htmlspecialchars($sem['facultyName'] ?: $sem['facultyCode']) . ')' . '</option>';
+                                }
                             }
                             ?>
                         </select>
@@ -540,7 +569,30 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             registrationNumberInput.value = sanitizedValue;
         });
 
+        const allSemesters = <?php echo json_encode(function_exists('getAllSemesters') ? getAllSemesters($pdo) : []); ?>;
+        
+        function filterSemesters(facultySelectId, semesterSelectId, selectedSemId = '') {
+            const facultyVal = document.getElementById(facultySelectId).value;
+            const semSelect = document.getElementById(semesterSelectId);
+            semSelect.innerHTML = '<option value="">Select Semester</option>';
+            
+            allSemesters.forEach(sem => {
+                if (!facultyVal || sem.facultyCode === facultyVal) {
+                    const opt = document.createElement('option');
+                    opt.value = sem.Id;
+                    opt.textContent = `${sem.name} (${sem.facultyName || sem.facultyCode})`;
+                    if (String(sem.Id) === String(selectedSemId)) {
+                        opt.selected = true;
+                    }
+                    semSelect.appendChild(opt);
+                }
+            });
+        }
+
         document.addEventListener('DOMContentLoaded', function () {
+            // Initial filter for Add Student form
+            filterSemesters('facultySelect', 'semesterSelect');
+
             const editForm = document.getElementById('editForm');
             const overlay = document.getElementById('overlay');
             const closeButtons = document.querySelectorAll('.close');
@@ -556,8 +608,13 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
                     document.getElementById('editLastName').value = this.getAttribute('data-lastname');
                     document.getElementById('editEmail').value = this.getAttribute('data-email');
                     document.getElementById('editRegistrationNumber').value = this.getAttribute('data-regno');
-                    document.getElementById('editFaculty').value = this.getAttribute('data-faculty');
+                    const faculty = this.getAttribute('data-faculty');
+                    document.getElementById('editFaculty').value = faculty;
                     document.getElementById('editCourse').value = this.getAttribute('data-course');
+
+                    // Filter and select the semester in Edit Student form
+                    const semId = this.getAttribute('data-semester');
+                    filterSemesters('editFaculty', 'editSemester', semId);
 
                     // Show the edit form
                     editForm.style.display = 'block';

@@ -34,10 +34,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
         $studentEmail = $student['email'];
         $facultyCode = $student['faculty'];
 
-        if ($facultyCode && !$semester_id) {
-            $activeSem = getActiveSemester($pdo, $facultyCode);
-            if ($activeSem) {
-                $semester_id = $activeSem['Id'];
+        if (!$semester_id) {
+            // First check student's assigned semester
+            $stmtStudentSem = $pdo->prepare("SELECT semesterID FROM tblstudents WHERE registrationNumber = ?");
+            $stmtStudentSem->execute([$student_id]);
+            $studentSemId = (int)$stmtStudentSem->fetchColumn();
+            
+            if ($studentSemId > 0) {
+                $semester_id = $studentSemId;
+            } else if ($facultyCode) {
+                $activeSem = getActiveSemester($pdo, $facultyCode);
+                if ($activeSem) {
+                    $semester_id = $activeSem['Id'];
+                }
             }
         }
 

@@ -67,6 +67,14 @@ try {
         }
     } catch (PDOException $e) { /* ignore */ }
 
+    // Silently add semesterID to tblstudents if missing (upgrade path)
+    try {
+        $chk = $pdo->query("SHOW COLUMNS FROM `tblstudents` LIKE 'semesterID'");
+        if ($chk->rowCount() === 0) {
+            $pdo->exec("ALTER TABLE `tblstudents` ADD COLUMN `semesterID` INT(10) NOT NULL DEFAULT 0 AFTER `courseCode`");
+        }
+    } catch (PDOException $e) { /* ignore */ }
+
 } catch (PDOException $e) {
     die("Connection failed: " . $e->getMessage());
 }

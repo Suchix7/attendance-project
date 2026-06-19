@@ -27,11 +27,19 @@ function calculateAttendanceRisk($registrationNumber, $courseCode = null, $semes
         $facultyCode = $stmtStudFaculty->fetchColumn();
     }
 
-    if ($facultyCode && !$semesterId) {
-        if (function_exists('getActiveSemester')) {
-            $activeSem = getActiveSemester($pdo, $facultyCode);
-            if ($activeSem) {
-                $semesterId = $activeSem['Id'];
+    if (!$semesterId) {
+        // Fetch student's assigned semester first
+        $stmtStudentSem = $pdo->prepare("SELECT semesterID FROM tblstudents WHERE registrationNumber = ?");
+        $stmtStudentSem->execute([$registrationNumber]);
+        $studentSemId = (int)$stmtStudentSem->fetchColumn();
+        if ($studentSemId > 0) {
+            $semesterId = $studentSemId;
+        } else if ($facultyCode) {
+            if (function_exists('getActiveSemester')) {
+                $activeSem = getActiveSemester($pdo, $facultyCode);
+                if ($activeSem) {
+                    $semesterId = $activeSem['Id'];
+                }
             }
         }
     }
@@ -102,12 +110,18 @@ function calculateAttendanceRisk($registrationNumber, $courseCode = null, $semes
     $riskLevel = 'Safe';
     $riskColor = '#22c55e'; // Green
     
-    if ($percentage < $threshold) {
-        $riskLevel = 'Critical';
-        $riskColor = '#ef4444'; // Red
-    } elseif ($percentage < $warningThreshold) {
-        $riskLevel = 'Warning';
-        $riskColor = '#f59e0b'; // Amber
+    $inGrace = isSemesterInGracePeriod($pdo, $facultyCode, $semesterId);
+    if ($inGrace) {
+        $riskLevel = 'Grace Period';
+        $riskColor = '#3b82f6'; // Blue
+    } else {
+        if ($percentage < $threshold) {
+            $riskLevel = 'Critical';
+            $riskColor = '#ef4444'; // Red
+        } elseif ($percentage < $warningThreshold) {
+            $riskLevel = 'Warning';
+            $riskColor = '#f59e0b'; // Amber
+        }
     }
 
     return [
@@ -117,6 +131,61 @@ function calculateAttendanceRisk($registrationNumber, $courseCode = null, $semes
         'level' => $riskLevel,
         'color' => $riskColor
     ];
+}
+
+if (!function_exists('isSemesterInGracePeriod')) {
+    function isSemesterInGracePeriod($pdo, $facultyCode, $semesterId) {
+        // 1. Fetch semester start date
+        $startDate = null;
+        if ($semesterId) {
+            $stmt = $pdo->prepare("SELECT startDate FROM tblsemester WHERE Id = ?");
+            $stmt->execute([$semesterId]);
+            $startDate = $stmt->fetchColumn();
+        }
+        
+        // 2. Fallback to earliest calendar class date
+        if (!$startDate) {
+            if ($facultyCode && $semesterId) {
+                $stmtEarliest = $pdo->prepare("SELECT MIN(classDate) FROM tblfacultycalendar WHERE facultyCode = ? AND semesterID = ?");
+                $stmtEarliest->execute([$facultyCode, $semesterId]);
+                $startDate = $stmtEarliest->fetchColumn();
+            } else if ($facultyCode) {
+                $stmtEarliest = $pdo->prepare("SELECT MIN(classDate) FROM tblfacultycalendar WHERE facultyCode = ?");
+                $stmtEarliest->execute([$facultyCode]);
+                $startDate = $stmtEarliest->fetchColumn();
+            }
+        }
+        
+        if ($startDate) {
+            $startTs = strtotime($startDate);
+            $todayTs = time();
+            $diffDays = ($todayTs - $startTs) / (24 * 60 * 60);
+            if ($diffDays <= 30) {
+                return true;
+            }
+        } else {
+            return true; // If no start date or calendar dates exist, default to grace period
+        }
+        
+        // 3. Fetch calendar dates up to today
+        $calendarDates = [];
+        if ($facultyCode) {
+            if ($semesterId) {
+                $stmtCal = $pdo->prepare("SELECT classDate FROM tblfacultycalendar WHERE facultyCode = ? AND semesterID = ? AND classDate <= CURDATE()");
+                $stmtCal->execute([$facultyCode, $semesterId]);
+            } else {
+                $stmtCal = $pdo->prepare("SELECT classDate FROM tblfacultycalendar WHERE facultyCode = ? AND classDate <= CURDATE()");
+                $stmtCal->execute([$facultyCode]);
+            }
+            $calendarDates = $stmtCal->fetchAll(PDO::FETCH_COLUMN);
+        }
+        
+        if (count($calendarDates) < 5) {
+            return true;
+        }
+        
+        return false;
+    }
 }
 
 function getLatestNotices($limit = 5) {
