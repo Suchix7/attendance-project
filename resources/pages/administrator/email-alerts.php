@@ -12,6 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
     }
 
     $student_id = htmlspecialchars(trim($_POST['student_id'] ?? ''));
+    $semester_id = isset($_POST['semester_id']) ? (int)$_POST['semester_id'] : 0;
 
     if (!$student_id) {
         echo json_encode(['success' => false, 'message' => 'Missing student ID.']);
@@ -20,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
 
     try {
         // Fetch student details
-        $stmt = $pdo->prepare("SELECT firstName, lastName, email FROM tblstudents WHERE registrationNumber = ?");
+        $stmt = $pdo->prepare("SELECT firstName, lastName, email, faculty FROM tblstudents WHERE registrationNumber = ?");
         $stmt->execute([$student_id]);
         $student = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -31,9 +32,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
 
         $studentName = trim($student['firstName'] . ' ' . $student['lastName']);
         $studentEmail = $student['email'];
+        $facultyCode = $student['faculty'];
+
+        if ($facultyCode && !$semester_id) {
+            $activeSem = getActiveSemester($pdo, $facultyCode);
+            if ($activeSem) {
+                $semester_id = $activeSem['Id'];
+            }
+        }
+
+        $semesterName = '';
+        if ($semester_id) {
+            $stmtSem = $pdo->prepare("SELECT name FROM tblsemester WHERE Id = ?");
+            $stmtSem->execute([$semester_id]);
+            $semesterName = $stmtSem->fetchColumn();
+        }
 
         // Get student's overall attendance using risk analytics logic
-        $risk = calculateAttendanceRisk($student_id);
+        $risk = calculateAttendanceRisk($student_id, null, $semester_id);
         $threshold = (int)get_setting($pdo, 'attendance_threshold', '75');
 
         // Fetch all unique classes (course + unit) this student has attendance records for
@@ -56,14 +72,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
             $stmtUnit->execute([$unit]);
             $unitName = $stmtUnit->fetchColumn() ?: $unit;
 
-            // Fetch faculty code for the course
-            $stmtFaculty = $pdo->prepare("SELECT f.facultyCode FROM tblcourse c JOIN tblfaculty f ON c.facultyID = f.Id WHERE c.courseCode = ?");
-            $stmtFaculty->execute([$course]);
-            $facultyCode = $stmtFaculty->fetchColumn();
-
-            // Fetch calendar dates up to today
-            $stmtCal = $pdo->prepare("SELECT classDate FROM tblfacultycalendar WHERE facultyCode = ? AND classDate <= CURDATE() ORDER BY classDate ASC");
-            $stmtCal->execute([$facultyCode]);
+            // Fetch calendar dates up to today for this faculty and semester
+            if ($semester_id) {
+                $stmtCal = $pdo->prepare("SELECT classDate FROM tblfacultycalendar WHERE facultyCode = ? AND semesterID = ? AND classDate <= CURDATE() ORDER BY classDate ASC");
+                $stmtCal->execute([$facultyCode, $semester_id]);
+            } else {
+                $stmtCal = $pdo->prepare("SELECT classDate FROM tblfacultycalendar WHERE facultyCode = ? AND classDate <= CURDATE() ORDER BY classDate ASC");
+                $stmtCal->execute([$facultyCode]);
+            }
             $calendarDates = $stmtCal->fetchAll(PDO::FETCH_COLUMN);
 
             if (count($calendarDates) > 0) {
@@ -122,6 +138,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
             'overallPresent' => $risk['present'],
             'overallTotal' => $risk['total'],
             'threshold' => $threshold,
+            'semesterId' => $semester_id,
+            'semesterName' => $semesterName,
             'classes' => $classes
         ]);
     } catch (Exception $e) {
@@ -191,16 +209,35 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
 }
 
 // Retrieve Student List with Overall Attendance Risk
+$selectedFaculty = isset($_GET['faculty']) ? htmlspecialchars(trim($_GET['faculty'])) : '';
+$selectedSemesterId = isset($_GET['semester']) ? (int)$_GET['semester'] : 0;
+
 $students = [];
+$faculties = [];
 try {
-    $stmt = $pdo->query("SELECT s.registrationNumber, s.firstName, s.lastName, s.email, s.faculty, s.courseCode, c.name as courseName 
-                         FROM tblstudents s
-                         LEFT JOIN tblcourse c ON s.courseCode = c.courseCode
-                         ORDER BY s.firstName, s.lastName");
+    $faculties = $pdo->query("SELECT * FROM tblfaculty ORDER BY facultyName")->fetchAll(PDO::FETCH_ASSOC);
+
+    $sql = "SELECT s.registrationNumber, s.firstName, s.lastName, s.email, s.faculty, s.courseCode, c.name as courseName 
+            FROM tblstudents s
+            LEFT JOIN tblcourse c ON s.courseCode = c.courseCode";
+    
+    $where = [];
+    $params = [];
+    if ($selectedFaculty) {
+        $where[] = "s.faculty = ?";
+        $params[] = $selectedFaculty;
+    }
+    if ($where) {
+        $sql .= " WHERE " . implode(" AND ", $where);
+    }
+    $sql .= " ORDER BY s.faculty, s.firstName, s.lastName";
+    
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute($params);
     $rawStudents = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     foreach ($rawStudents as $row) {
-        $risk = calculateAttendanceRisk($row['registrationNumber']);
+        $risk = calculateAttendanceRisk($row['registrationNumber'], null, $selectedSemesterId);
         $row['overall_pct'] = $risk['percentage'];
         $row['present'] = $risk['present'];
         $row['total'] = $risk['total'];
@@ -225,6 +262,7 @@ $current_attendance_threshold = get_setting($pdo, 'attendance_threshold', '75');
     <title>Email Warning Dispatcher</title>
     <link rel="stylesheet" href="resources/assets/css/admin_styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css" rel="stylesheet">
+    <script src="resources/assets/javascript/nepali_calendar.js"></script>
     <style>
         .student-card {
             background: #ffffff;
@@ -521,6 +559,39 @@ $current_attendance_threshold = get_setting($pdo, 'attendance_threshold', '75');
                     Below is the list of all registered students with their current overall attendance. Click "Review & Send" to open a detailed class-by-class report and dispatch an exam eligibility warning.
                 </p>
 
+                <!-- Faculty and Semester Selection Form -->
+                <form method="GET" action="" style="display: flex; gap: 15px; align-items: center; margin-bottom: 25px; flex-wrap: wrap; background: #f8fafc; padding: 15px; border-radius: 8px; border: 1.5px solid #cbd5e1;">
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <label for="filter_faculty" style="font-weight: 600; color: #475569; font-size: 0.88rem; white-space: nowrap;">Faculty:</label>
+                        <select name="faculty" id="filter_faculty" onchange="document.getElementById('filter_semester').value='0'; this.form.submit()" style="padding: 8px 12px; border-radius: 6px; border: 1.5px solid #cbd5e1; background: white; font-size: 0.88rem; min-width: 160px; color: #1e293b;">
+                            <option value="">-- All Faculties --</option>
+                            <?php foreach ($faculties as $f): ?>
+                                <option value="<?php echo htmlspecialchars($f['facultyCode']); ?>" <?php if ($selectedFaculty === $f['facultyCode']) echo 'selected'; ?>>
+                                    <?php echo htmlspecialchars($f['facultyName']); ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <label for="filter_semester" style="font-weight: 600; color: #475569; font-size: 0.88rem; white-space: nowrap;">Semester:</label>
+                        <select name="semester" id="filter_semester" onchange="this.form.submit()" style="padding: 8px 12px; border-radius: 6px; border: 1.5px solid #cbd5e1; background: white; font-size: 0.88rem; min-width: 220px; color: #1e293b;">
+                            <option value="0">-- Active/Default Semester --</option>
+                            <?php if (!empty($selectedFaculty)): ?>
+                                <?php 
+                                $sems = getSemestersByFaculty($pdo, $selectedFaculty);
+                                foreach ($sems as $sem): ?>
+                                    <option value="<?php echo $sem['Id']; ?>" <?php if ($selectedSemesterId == $sem['Id']) echo 'selected'; ?>>
+                                        <?php echo htmlspecialchars($sem['name']) . ($sem['isActive'] ? ' (Active)' : ''); ?>
+                                    </option>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
+                        </select>
+                    </div>
+                    <?php if ($selectedFaculty || $selectedSemesterId): ?>
+                        <a href="email-alerts.php" style="font-size: 0.88rem; color: #ef4444; text-decoration: none; display: inline-flex; align-items: center; gap: 4px; font-weight: 600;"><i class="ri-refresh-line"></i> Clear Filters</a>
+                    <?php endif; ?>
+                </form>
+
                 <div class="table-container" style="box-shadow: none; padding: 0;">
                     <div class="table">
                         <table style="width: 100%;">
@@ -536,7 +607,22 @@ $current_attendance_threshold = get_setting($pdo, 'attendance_threshold', '75');
                             </thead>
                             <tbody>
                                 <?php if (!empty($students)): ?>
-                                    <?php foreach ($students as $row): ?>
+                                    <?php 
+                                    $currentFaculty = null;
+                                    foreach ($students as $row): 
+                                        if ($currentFaculty !== $row['faculty']) {
+                                            $currentFaculty = $row['faculty'];
+                                            $facName = '';
+                                            foreach ($faculties as $f) {
+                                                if ($f['facultyCode'] === $currentFaculty) {
+                                                    $facName = $f['facultyName'];
+                                                    break;
+                                                }
+                                            }
+                                            if (!$facName) $facName = $currentFaculty;
+                                            echo "<tr style='background-color: #f8fafc; font-weight: 700; color: #475569;'><td colspan='6' style='padding: 12px 20px; font-size: 0.95rem; border-bottom: 2px solid #cbd5e1;'><i class='ri-graduation-cap-line'></i> Faculty of " . htmlspecialchars($facName) . "</td></tr>";
+                                        }
+                                    ?>
                                         <tr>
                                             <td>
                                                 <div style="font-weight: 600;"><?php echo htmlspecialchars($row['firstName'] . ' ' . $row['lastName']); ?></div>
@@ -557,10 +643,10 @@ $current_attendance_threshold = get_setting($pdo, 'attendance_threshold', '75');
                                             </td>
                                             <td>
                                               <button class="btn-dispatch" 
-        onclick="openAlertModal('<?php echo $row['registrationNumber']; ?>')" 
-        style="background-color: #2563eb; color: #ffffff; border: none; padding: 10px 20px; font-size: 14px; font-weight: 500; border-radius: 6px; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); transition: background-color 0.2s;">
-    <i class="ri-mail-send-line"></i> Review & Send
-</button>
+                                        onclick="openAlertModal('<?php echo $row['registrationNumber']; ?>')" 
+                                        style="background-color: #2563eb; color: #ffffff; border: none; padding: 10px 20px; font-size: 14px; font-weight: 500; border-radius: 6px; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); transition: background-color 0.2s;">
+                                    <i class="ri-mail-send-line"></i> Review & Send
+                                </button>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>
@@ -660,9 +746,12 @@ $current_attendance_threshold = get_setting($pdo, 'attendance_threshold', '75');
             mainContent.style.display = 'none';
             overlay.classList.add('active');
 
+            const filterSemester = document.getElementById('filter_semester') ? document.getElementById('filter_semester').value : '0';
+
             const formData = new FormData();
             formData.append('action', 'get_student_details');
             formData.append('student_id', studentId);
+            formData.append('semester_id', filterSemester);
 
             fetch('', {
                 method: 'POST',
@@ -716,16 +805,17 @@ $current_attendance_threshold = get_setting($pdo, 'attendance_threshold', '75');
                             // Checkbox status: auto check if it is below threshold (Critical)
                             const isChecked = c.isBelowThreshold ? 'checked' : '';
                             
-                            // Absences display
+                            // Absences display — convert Gregorian dates to Nepali BS
                             let absencesHtml = '';
                             if (c.absentDates && c.absentDates.length > 0) {
+                                const formattedAbsentDates = c.absentDates.map(d => NepaliCalendar.formatNepaliDate(d, 'short'));
                                 absencesHtml = `
                                     <div class="absences-toggle" onclick="toggleAbsenceList(${index})">
                                         <i class="ri-calendar-event-line"></i> View absences (${c.absentDates.length})
                                     </div>
                                     <div class="absences-dates-list" id="absences-list-${index}">
-                                        <strong>Absent Dates:</strong><br>
-                                        ${c.absentDates.join(', ')}
+                                        <strong>Absent Dates (BS):</strong><br>
+                                        ${formattedAbsentDates.join(', ')}
                                     </div>
                                 `;
                             } else {
@@ -782,8 +872,9 @@ $current_attendance_threshold = get_setting($pdo, 'attendance_threshold', '75');
 
             const selectedCheckboxes = document.querySelectorAll('.class-checkbox:checked');
             
+            const semName = currentStudentData.semesterName ? 'for ' + currentStudentData.semesterName : '';
             let body = `Dear ${name},\n\n`;
-            body += `This is an official warning notification regarding your academic class attendance progress.\n\n`;
+            body += `This is an official warning notification regarding your academic class attendance progress ${semName}.\n\n`;
             body += `AGGREGATE ATTENDANCE REPORT:\n`;
             body += `----------------------------\n`;
             body += `Overall aggregate attendance: ${overallPct}% (${overallPresent}/${overallTotal} total classes attended).\n`;
@@ -805,7 +896,8 @@ $current_attendance_threshold = get_setting($pdo, 'attendance_threshold', '75');
                     body += `  Attendance: ${c.percentage}% (${c.present}/${c.total} sessions) - ${label}\n`;
                     
                     if (c.absentDates && c.absentDates.length > 0) {
-                        body += `  Absent dates: ${c.absentDates.join(', ')}\n`;
+                        const formattedDates = c.absentDates.map(d => NepaliCalendar.formatNepaliDate(d, 'short'));
+                        body += `  Absent dates (BS): ${formattedDates.join(', ')}\n`;
                     }
                     body += `\n`;
                 });

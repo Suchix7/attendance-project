@@ -1,5 +1,7 @@
 <?php
 
+require_once __DIR__ . '/../../lib/nepali_calendar.php';
+
 $courseCode = isset($_GET['course']) ? $_GET['course'] : '';
 $unitCode = isset($_GET['unit']) ? $_GET['unit'] : '';
 $today = date('Y-m-d');
@@ -164,7 +166,7 @@ if (!empty($unitCode)) {
     echo "<td>" . htmlspecialchars($courseCode) . "</td>";
     echo "<td>" . htmlspecialchars($unitCode) . "</td>";
     echo "<td class='status-cell'>" . htmlspecialchars($row["attendanceStatus"]) . "</td>";
-    echo "<td>" . htmlspecialchars($row["dateMarked"]) . "</td>";
+    echo "<td>" . htmlspecialchars(formatNepaliDate($row["dateMarked"])) . "</td>";
     echo "<td class='action-col' style='display:none;'>"
       . "<select class='manual-status' data-id='" . htmlspecialchars($row["registrationNumber"]) . "'>"
       . "<option value=''>Change Status</option>"

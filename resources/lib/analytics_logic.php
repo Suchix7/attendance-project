@@ -12,7 +12,7 @@
  * 3. Forecast: If current trend continues, will they hit 75%?
  */
 
-function calculateAttendanceRisk($registrationNumber, $courseCode = null) {
+function calculateAttendanceRisk($registrationNumber, $courseCode = null, $semesterId = null) {
     global $pdo;
     
     // Find the faculty code for the student or course
@@ -27,12 +27,26 @@ function calculateAttendanceRisk($registrationNumber, $courseCode = null) {
         $facultyCode = $stmtStudFaculty->fetchColumn();
     }
 
+    if ($facultyCode && !$semesterId) {
+        if (function_exists('getActiveSemester')) {
+            $activeSem = getActiveSemester($pdo, $facultyCode);
+            if ($activeSem) {
+                $semesterId = $activeSem['Id'];
+            }
+        }
+    }
+
     // Check if faculty calendar exists
     $hasCalendar = false;
     $calendarDates = [];
     if ($facultyCode) {
-        $stmtCal = $pdo->prepare("SELECT classDate FROM tblfacultycalendar WHERE facultyCode = ? AND classDate <= CURDATE() ORDER BY classDate ASC");
-        $stmtCal->execute([$facultyCode]);
+        if ($semesterId) {
+            $stmtCal = $pdo->prepare("SELECT classDate FROM tblfacultycalendar WHERE facultyCode = ? AND semesterID = ? AND classDate <= CURDATE() ORDER BY classDate ASC");
+            $stmtCal->execute([$facultyCode, $semesterId]);
+        } else {
+            $stmtCal = $pdo->prepare("SELECT classDate FROM tblfacultycalendar WHERE facultyCode = ? AND classDate <= CURDATE() ORDER BY classDate ASC");
+            $stmtCal->execute([$facultyCode]);
+        }
         $calendarDates = $stmtCal->fetchAll(PDO::FETCH_COLUMN);
         if (count($calendarDates) > 0) {
             $hasCalendar = true;

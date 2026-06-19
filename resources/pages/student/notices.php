@@ -1,5 +1,6 @@
 <?php
 require_once "resources/lib/analytics_logic.php";
+require_once "resources/lib/nepali_calendar.php";
 
 $user = user();
 
@@ -97,7 +98,7 @@ $notices = getLatestNotices(20);
                         <h3 style="margin-bottom: 10px; padding-right: 120px;"><?php echo htmlspecialchars($notice['title']); ?></h3>
                         <p style="color: #475569; line-height: 1.6;"><?php echo nl2br(htmlspecialchars($notice['message'])); ?></p>
                         <div style="margin-top: 15px; font-size: 0.85rem; color: #94a3b8;">
-                            <i class="ri-time-line"></i> Posted on <?php echo date('F j, Y \a\t g:i A', strtotime($notice['postedDate'])); ?>
+                            <i class="ri-time-line"></i> Posted on <?php echo formatNepaliDate($notice['postedDate']); ?>
                         </div>
                     </div>
                 <?php endforeach; ?>

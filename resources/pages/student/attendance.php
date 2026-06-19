@@ -1,5 +1,6 @@
 <?php
 require_once "resources/lib/analytics_logic.php";
+require_once "resources/lib/nepali_calendar.php";
 
 $user = user();
 $reg = $user->registrationNumber;
@@ -60,7 +61,7 @@ $records = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             <?php else: ?>
                                 <?php foreach ($records as $row): ?>
                                     <tr>
-                                        <td><?php echo date('M d, Y', strtotime($row['dateMarked'])); ?></td>
+                                        <td><?php echo formatNepaliDate($row['dateMarked']); ?></td>
                                         <td><?php echo $row['courseName']; ?></td>
                                         <td><?php echo $row['unitName']; ?></td>
                                         <td>

@@ -1,6 +1,8 @@
 <?php
 // resources/pages/lecture/alert_service.php
 
+require_once __DIR__ . '/../../lib/nepali_calendar.php';
+
 /**
  * Checks whether a given date is an officially scheduled class day
  * for the faculty that owns the given course.
@@ -36,11 +38,27 @@ if (!function_exists('is_scheduled_class_day')) {
                 return true; // no faculty mapping → no restriction
             }
 
-            // Check whether ANY calendar entries exist for this faculty
-            $stmtCount = $pdo->prepare(
-                "SELECT COUNT(*) FROM tblfacultycalendar WHERE facultyCode = ?"
-            );
-            $stmtCount->execute([$facultyCode]);
+            // Get active semester for this faculty
+            $semesterId = 0;
+            if (function_exists('getActiveSemester')) {
+                $activeSem = getActiveSemester($pdo, $facultyCode);
+                if ($activeSem) {
+                    $semesterId = $activeSem['Id'];
+                }
+            }
+
+            // Check whether ANY calendar entries exist for this faculty and semester
+            if ($semesterId) {
+                $stmtCount = $pdo->prepare(
+                    "SELECT COUNT(*) FROM tblfacultycalendar WHERE facultyCode = ? AND semesterID = ?"
+                );
+                $stmtCount->execute([$facultyCode, $semesterId]);
+            } else {
+                $stmtCount = $pdo->prepare(
+                    "SELECT COUNT(*) FROM tblfacultycalendar WHERE facultyCode = ?"
+                );
+                $stmtCount->execute([$facultyCode]);
+            }
             $totalEntries = (int) $stmtCount->fetchColumn();
 
             if ($totalEntries === 0) {
@@ -48,11 +66,19 @@ if (!function_exists('is_scheduled_class_day')) {
             }
 
             // Check whether the specific date is scheduled
-            $stmtDate = $pdo->prepare(
-                "SELECT COUNT(*) FROM tblfacultycalendar
-                 WHERE facultyCode = ? AND classDate = ?"
-            );
-            $stmtDate->execute([$facultyCode, $date]);
+            if ($semesterId) {
+                $stmtDate = $pdo->prepare(
+                    "SELECT COUNT(*) FROM tblfacultycalendar
+                     WHERE facultyCode = ? AND semesterID = ? AND classDate = ?"
+                );
+                $stmtDate->execute([$facultyCode, $semesterId, $date]);
+            } else {
+                $stmtDate = $pdo->prepare(
+                    "SELECT COUNT(*) FROM tblfacultycalendar
+                     WHERE facultyCode = ? AND classDate = ?"
+                );
+                $stmtDate->execute([$facultyCode, $date]);
+            }
 
             return (int) $stmtDate->fetchColumn() > 0;
         } catch (Exception $e) {
@@ -82,7 +108,7 @@ if (!function_exists('evaluate_and_send_alerts')) {
             }
 
             // 1. Fetch student details (name, email)
-            $stmt = $pdo->prepare("SELECT firstName, lastName, email FROM tblstudents WHERE registrationNumber = :studentID");
+            $stmt = $pdo->prepare("SELECT firstName, lastName, email, faculty FROM tblstudents WHERE registrationNumber = :studentID");
             $stmt->execute([':studentID' => $studentID]);
             $student = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -93,6 +119,18 @@ if (!function_exists('evaluate_and_send_alerts')) {
 
             $studentName = trim($student['firstName'] . ' ' . $student['lastName']);
             $studentEmail = $student['email'];
+            $facultyCode = $student['faculty'];
+
+            // Get active semester
+            $semesterId = 0;
+            $semesterName = '';
+            if ($facultyCode && function_exists('getActiveSemester')) {
+                $activeSem = getActiveSemester($pdo, $facultyCode);
+                if ($activeSem) {
+                    $semesterId = $activeSem['Id'];
+                    $semesterName = $activeSem['name'];
+                }
+            }
 
             // 2. Fetch or initialize alert state for this student, course, and unit
             $stmt = $pdo->prepare("SELECT * FROM tblalertstate WHERE studentRegistrationNumber = :studentID AND courseCode = :course AND unitCode = :unit");
@@ -147,8 +185,10 @@ if (!function_exists('evaluate_and_send_alerts')) {
 
                 if ($shouldSend) {
                     $subject = "SAS Portal: Student Absence Notice";
+                    $todayNepali = formatNepaliDate(date('Y-m-d'));
+                    $semStr = $semesterName ? " for " . $semesterName : "";
                     $body = "Dear Parent/Guardian,\n\n" .
-                            "We are writing to inform you that the student $studentName (Registration No: $studentID) was marked Absent today for the course $course (Unit: $unit).\n\n" .
+                            "We are writing to inform you that the student $studentName (Registration No: $studentID) was marked Absent on $todayNepali (BS) for the course $course (Unit: $unit)$semStr.\n\n" .
                             "To prevent notification fatigue, absence email alerts are rate-limited to once every 3 days. Please follow up with the student accordingly.\n\n" .
                             "Best regards,\n" .
                             "SAS Portal Attendance System";
@@ -199,15 +239,17 @@ if (!function_exists('evaluate_and_send_alerts')) {
             // 3. Check if cumulative attendance for this course and unit falls below threshold
             $threshold = (int)get_setting($pdo, 'attendance_threshold', '75');
 
-            // Fetch faculty code for the course
-            $stmtFaculty = $pdo->prepare("SELECT f.facultyCode FROM tblcourse c JOIN tblfaculty f ON c.facultyID = f.Id WHERE c.courseCode = ?");
-            $stmtFaculty->execute([$course]);
-            $facultyCode = $stmtFaculty->fetchColumn();
-
-            // Fetch calendar dates up to today
-            $stmtCal = $pdo->prepare("SELECT classDate FROM tblfacultycalendar WHERE facultyCode = ? AND classDate <= CURDATE() ORDER BY classDate ASC");
-            $stmtCal->execute([$facultyCode]);
-            $calendarDates = $stmtCal->fetchAll(PDO::FETCH_COLUMN);
+            // Fetch calendar dates up to today scoped to the semester
+            if ($facultyCode && $semesterId) {
+                $stmtCal = $pdo->prepare("SELECT classDate FROM tblfacultycalendar WHERE facultyCode = ? AND semesterID = ? AND classDate <= CURDATE() ORDER BY classDate ASC");
+                $stmtCal->execute([$facultyCode, $semesterId]);
+            } else if ($facultyCode) {
+                $stmtCal = $pdo->prepare("SELECT classDate FROM tblfacultycalendar WHERE facultyCode = ? AND classDate <= CURDATE() ORDER BY classDate ASC");
+                $stmtCal->execute([$facultyCode]);
+            } else {
+                $stmtCal = null;
+            }
+            $calendarDates = $stmtCal ? $stmtCal->fetchAll(PDO::FETCH_COLUMN) : [];
 
             if (count($calendarDates) > 0) {
                 // Get present dates for this student in this course/unit
@@ -258,8 +300,9 @@ if (!function_exists('evaluate_and_send_alerts')) {
                 if ($shouldSendThreshold) {
                     $subject = "SAS Portal: CRITICAL Attendance Warning";
                     $percentFormatted = round($percentage, 1);
+                    $semStr = $semesterName ? " for " . $semesterName : "";
                     $body = "Dear $studentName,\n\n" .
-                            "This is an automated warning regarding your attendance in the course $course (Unit: $unit).\n\n" .
+                            "This is an automated warning regarding your attendance in the course $course (Unit: $unit)$semStr.\n\n" .
                             "Your current attendance for this class is $percentFormatted%, which is below the required minimum threshold of $threshold%.\n\n" .
                             "Please be warned that if your attendance remains below this threshold, you will NOT be eligible to sit for exams for this unit.\n\n" .
                             "Please make sure to attend all upcoming classes to improve your attendance percentage.\n\n" .

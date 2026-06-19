@@ -2,6 +2,8 @@
 // resources/pages/administrator/settings.php
 
 require_once __DIR__ . '/../../pages/lecture/alert_service.php';
+require_once __DIR__ . '/../../lib/nepali_calendar.php';
+require_once __DIR__ . '/../../lib/analytics_logic.php';
 
 $message = '';
 $error = '';
@@ -74,9 +76,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
         $stmtFaculty->execute([$course]);
         $facultyCode = $stmtFaculty->fetchColumn();
 
-        // Fetch calendar dates up to today
-        $stmtCal = $pdo->prepare("SELECT classDate FROM tblfacultycalendar WHERE facultyCode = ? AND classDate <= CURDATE() ORDER BY classDate ASC");
-        $stmtCal->execute([$facultyCode]);
+        // Resolve active semester or fallback
+        $semesterId = 0;
+        $semesterName = '';
+        if (function_exists('getActiveSemester')) {
+            $activeSem = getActiveSemester($pdo, $facultyCode);
+            if ($activeSem) {
+                $semesterId = $activeSem['Id'];
+                $semesterName = $activeSem['name'];
+            }
+        }
+
+        // Fetch calendar dates up to today scoped to active semester
+        if ($semesterId) {
+            $stmtCal = $pdo->prepare("SELECT classDate FROM tblfacultycalendar WHERE facultyCode = ? AND semesterID = ? AND classDate <= CURDATE() ORDER BY classDate ASC");
+            $stmtCal->execute([$facultyCode, $semesterId]);
+        } else {
+            $stmtCal = $pdo->prepare("SELECT classDate FROM tblfacultycalendar WHERE facultyCode = ? AND classDate <= CURDATE() ORDER BY classDate ASC");
+            $stmtCal->execute([$facultyCode]);
+        }
         $calendarDates = $stmtCal->fetchAll(PDO::FETCH_COLUMN);
 
         if (count($calendarDates) > 0) {
@@ -110,10 +128,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
         $is_below_threshold = ($percentage < $threshold);
         $percentFormatted = round($percentage, 1);
 
+        $semStr = $semesterName ? " for " . $semesterName : "";
         if ($is_below_threshold) {
             $subject = "SAS Portal: CRITICAL Attendance Warning";
             $body = "Dear Parent/Guardian,\n\n" .
-                    "We are writing to inform you that the student $studentName (Registration No: $student_id) was marked Absent for the course $course (Unit: $unit).\n\n" .
+                    "We are writing to inform you that the student $studentName (Registration No: $student_id) was marked Absent for the course $course (Unit: $unit)$semStr.\n\n" .
                     "Additionally, their cumulative attendance for this class has fallen to $percentFormatted%, which is below the minimum required threshold of $threshold%.\n\n" .
                     "Please be warned that if their attendance remains below this threshold, they will NOT be eligible to sit for exams for this unit.\n\n" .
                     "Please follow up with the student accordingly.\n\n" .
@@ -122,7 +141,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
         } else {
             $subject = "SAS Portal: Student Absence Notice";
             $body = "Dear Parent/Guardian,\n\n" .
-                    "We are writing to inform you that the student $studentName (Registration No: $student_id) was marked Absent for the course $course (Unit: $unit).\n\n" .
+                    "We are writing to inform you that the student $studentName (Registration No: $student_id) was marked Absent for the course $course (Unit: $unit)$semStr.\n\n" .
                     "Please follow up with the student accordingly.\n\n" .
                     "Best regards,\n" .
                     "SAS Portal Attendance System";
@@ -201,6 +220,7 @@ try {
     <title>System Settings</title>
     <link rel="stylesheet" href="resources/assets/css/admin_styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css" rel="stylesheet">
+    <script src="resources/assets/javascript/nepali_calendar.js"></script>
     <style>
         .settings-card {
             background: #ffffff;
@@ -432,11 +452,27 @@ try {
                                 <?php if (!empty($absences)): ?>
                                     <?php foreach ($absences as $row): ?>
                                         <?php 
+                                            // Get student's faculty code to resolve active semester
+                                            $stmtStudFaculty = $pdo->prepare("SELECT faculty FROM tblstudents WHERE registrationNumber = ?");
+                                            $stmtStudFaculty->execute([$row['studentRegistrationNumber']]);
+                                            $studentFaculty = $stmtStudFaculty->fetchColumn();
+
+                                            $semesterId = 0;
+                                            if ($studentFaculty && function_exists('getActiveSemester')) {
+                                                $activeSem = getActiveSemester($pdo, $studentFaculty);
+                                                if ($activeSem) {
+                                                    $semesterId = $activeSem['Id'];
+                                                }
+                                            }
+
+                                            // Calculate risk scoped to the resolved active semester
+                                            $risk = calculateAttendanceRisk($row['studentRegistrationNumber'], $row['course'], $semesterId);
+
                                             $is_sent = !empty($row['lastAbsentAlertSent']);
-                                            $sent_date = $is_sent ? date('Y-m-d H:i', strtotime($row['lastAbsentAlertSent'])) : '';
-                                            $total_cls = $row['total_classes'] ?: 1;
-                                            $present_cls = $row['present_classes'];
-                                            $pct = round(($present_cls / $total_cls) * 100, 1);
+                                            $sent_date = $is_sent ? formatNepaliDate($row['lastAbsentAlertSent'], 'short') : '';
+                                            $total_cls = $risk['total'] ?: 1;
+                                            $present_cls = $risk['present'];
+                                            $pct = $risk['percentage'];
                                             $is_critical = ($pct < $current_attendance_threshold);
                                         ?>
                                         <tr id="absence-row-<?php echo $row['attendanceID']; ?>">
@@ -454,7 +490,7 @@ try {
                                                     </span>
                                                 </div>
                                             </td>
-                                            <td><?php echo date('Y-m-d H:i', strtotime($row['dateMarked'])); ?></td>
+                                            <td><?php echo htmlspecialchars(formatNepaliDate($row['dateMarked'], 'short')); ?></td>
                                             <td class="status-cell">
                                                 <?php if ($is_sent): ?>
                                                     <span class="badge badge-sent"><i class="ri-checkbox-circle-line"></i> Sent (<?php echo $sent_date; ?>)</span>
@@ -515,12 +551,13 @@ try {
                     const row = button.closest('tr');
                     const statusCell = row.querySelector('.status-cell');
                     
-                    // Format current date/time
+                    // Format current date/time in Nepali BS
                     const now = new Date();
-                    const dateString = now.getFullYear() + '-' + 
-                                       String(now.getMonth() + 1).padStart(2, '0') + '-' + 
-                                       String(now.getDate()).padStart(2, '0') + ' ' + 
-                                       String(now.getHours()).padStart(2, '0') + ':' + 
+                    const gregStr = now.getFullYear() + '-' + 
+                                   String(now.getMonth() + 1).padStart(2, '0') + '-' + 
+                                   String(now.getDate()).padStart(2, '0');
+                    const dateString = NepaliCalendar.formatNepaliDate(gregStr, 'short') + 
+                                       ' ' + String(now.getHours()).padStart(2, '0') + ':' + 
                                        String(now.getMinutes()).padStart(2, '0');
 
                     statusCell.innerHTML = `<span class="badge badge-sent"><i class="ri-checkbox-circle-line"></i> Sent (${dateString})</span>`;

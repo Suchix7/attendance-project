@@ -1,7 +1,6 @@
 <?php
 
-
-
+require_once __DIR__ . '/../../lib/nepali_calendar.php';
 
 $courseCode = isset($_GET['course']) ? $_GET['course'] : '';
 $unitCode = isset($_GET['unit']) ? $_GET['unit'] : '';
@@ -78,7 +77,7 @@ if (!empty($unitCode)) {
             </form>
 
             <button class="add"
-                onclick="exportTableToExcel('attendaceTable', '<?php echo $unitCode . '_on_' . date('Y-m-d'); ?>','<?php echo $coursename ?>', '<?php echo $unitname ?>')">Export
+                onclick="exportTableToExcel('attendaceTable', '<?php echo $unitCode . '_on_' . formatNepaliDate(date('Y-m-d'), 'numeric'); ?>','<?php echo $coursename ?>', '<?php echo $unitname ?>')">Export
                 Attendance As Excel</button>
 
             <div class="table-container">
@@ -87,67 +86,58 @@ if (!empty($unitCode)) {
                 </div>
                 <div class="table attendance-table" id="attendaceTable">
                     <table>
-                       <thead>
-  <tr>
-    <th>Registration No</th>
-    <th>Student Name</th>
-  </tr>
-</thead>
+                       <?php
+                       // Build thead with Nepali date headers
+                       echo '<thead><tr>';
+                       echo '<th>Registration No</th>';
+                       echo '<th>Student Name</th>';
+                       
+                       // Get distinct dates
+                       $distinctDatesQuery = "SELECT DISTINCT dateMarked FROM tblattendance WHERE course = :courseCode AND unit = :unitCode ORDER BY dateMarked ASC";
+                       $stmtDates = $pdo->prepare($distinctDatesQuery);
+                       $stmtDates->execute([':courseCode' => $courseCode, ':unitCode' => $unitCode]);
+                       $distinctDatesResult = $stmtDates->fetchAll(PDO::FETCH_ASSOC);
+                       
+                       foreach ($distinctDatesResult as $dateRow) {
+                           $gregDate = $dateRow['dateMarked'];
+                           $npDate   = formatNepaliDate($gregDate, 'short');
+                           echo '<th>' . htmlspecialchars($npDate) . '</th>';
+                       }
+                       echo '</tr></thead>';
+                       
+                       // Get all students in course
+                       $studentsQuery = "SELECT registrationNumber, firstName, lastName FROM tblstudents WHERE courseCode = :courseCode";
+                       $stmtStudents = $pdo->prepare($studentsQuery);
+                       $stmtStudents->execute([':courseCode' => $courseCode]);
+                       $studentRows = $stmtStudents->fetchAll(PDO::FETCH_ASSOC);
 
-                      <tbody>
-                            <?php
-                            // Get distinct dates
-                            $distinctDatesQuery = "SELECT DISTINCT dateMarked FROM tblattendance WHERE course = :courseCode AND unit = :unitCode";
-                            $stmtDates = $pdo->prepare($distinctDatesQuery);
-                            $stmtDates->execute([
-                            ':courseCode' => $courseCode,
-                            ':unitCode' => $unitCode
-                            ]);
-                            $distinctDatesResult = $stmtDates->fetchAll(PDO::FETCH_ASSOC);
+                       echo '<tbody>';
+                       foreach ($studentRows as $row) {
+                           echo "<tr>";
+                           echo "<td>" . htmlspecialchars($row['registrationNumber']) . "</td>";
+                           echo "<td>" . htmlspecialchars($row['firstName'] . " " . $row['lastName']) . "</td>";
 
-                            // Get all students in course
-                            $studentsQuery = "
-                            SELECT registrationNumber, firstName, lastName 
-                            FROM tblstudents 
-                            WHERE courseCode = :courseCode
-                            ";
-                            $stmtStudents = $pdo->prepare($studentsQuery);
-                            $stmtStudents->execute([':courseCode' => $courseCode]);
-                            $studentRows = $stmtStudents->fetchAll(PDO::FETCH_ASSOC);
-
-                            foreach ($studentRows as $row) {
-                            echo "<tr>";
-                            echo "<td>" . htmlspecialchars($row['registrationNumber']) . "</td>";
-                            echo "<td>" . htmlspecialchars($row['firstName'] . " " . $row['lastName']) . "</td>";
-
-                            foreach ($distinctDatesResult as $dateRow) {
-                                $date = $dateRow['dateMarked'];
-
-                                $attendanceQuery = "SELECT attendanceStatus FROM tblattendance 
-                                                    WHERE studentRegistrationNumber = :studentRegistrationNumber 
-                                                    AND dateMarked = :date 
-                                                    AND course = :courseCode 
-                                                    AND unit = :unitCode";
-                                $stmtAttendance = $pdo->prepare($attendanceQuery);
-                                $stmtAttendance->execute([
-                                ':studentRegistrationNumber' => $row['registrationNumber'],
-                                ':date' => $date,
-                                ':courseCode' => $courseCode,
-                                ':unitCode' => $unitCode
-                                ]);
-                                $attendanceResult = $stmtAttendance->fetch(PDO::FETCH_ASSOC);
-
-                                if ($attendanceResult) {
-                                echo "<td>" . htmlspecialchars($attendanceResult['attendanceStatus']) . "</td>";
-                                } else {
-                                echo "<td>Absent</td>";
-                                }
-                            }
-
-                            echo "</tr>";
-                            }
-                            ?>
-                            </tbody>
+                           foreach ($distinctDatesResult as $dateRow) {
+                               $date = $dateRow['dateMarked'];
+                               $attendanceQuery = "SELECT attendanceStatus FROM tblattendance 
+                                                   WHERE studentRegistrationNumber = :sReg 
+                                                   AND dateMarked = :date 
+                                                   AND course = :courseCode 
+                                                   AND unit = :unitCode";
+                               $stmtAtt = $pdo->prepare($attendanceQuery);
+                               $stmtAtt->execute([
+                                   ':sReg'       => $row['registrationNumber'],
+                                   ':date'       => $date,
+                                   ':courseCode' => $courseCode,
+                                   ':unitCode'   => $unitCode
+                               ]);
+                               $attResult = $stmtAtt->fetch(PDO::FETCH_ASSOC);
+                               echo "<td>" . ($attResult ? htmlspecialchars($attResult['attendanceStatus']) : 'Absent') . "</td>";
+                           }
+                           echo "</tr>";
+                       }
+                       echo '</tbody>';
+                       ?>
 
                     </table>
 

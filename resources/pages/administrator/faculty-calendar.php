@@ -18,10 +18,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
         exit;
     }
 
+    if ($action === 'get_semesters') {
+        try {
+            $stmt = $pdo->prepare("SELECT * FROM tblsemester WHERE facultyCode = ? ORDER BY startDate DESC");
+            $stmt->execute([$facultyCode]);
+            $semesters = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            echo json_encode(['success' => true, 'semesters' => $semesters]);
+        } catch (Exception $e) {
+            echo json_encode(['success' => false, 'message' => $e->getMessage()]);
+        }
+        exit;
+    }
+
+    $semesterID = (int)($_POST['semester_id'] ?? 0);
+    if (!$semesterID) {
+        echo json_encode(['success' => false, 'message' => 'Missing semester ID.']);
+        exit;
+    }
+
     if ($action === 'get_dates') {
         try {
-            $stmt = $pdo->prepare("SELECT classDate FROM tblfacultycalendar WHERE facultyCode = ?");
-            $stmt->execute([$facultyCode]);
+            $stmt = $pdo->prepare("SELECT classDate FROM tblfacultycalendar WHERE facultyCode = ? AND semesterID = ?");
+            $stmt->execute([$facultyCode, $semesterID]);
             $dates = $stmt->fetchAll(PDO::FETCH_COLUMN);
             echo json_encode(['success' => true, 'dates' => $dates]);
         } catch (Exception $e) {
@@ -39,19 +57,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
 
         try {
             // Check if date exists
-            $stmt = $pdo->prepare("SELECT id FROM tblfacultycalendar WHERE facultyCode = ? AND classDate = ?");
-            $stmt->execute([$facultyCode, $date]);
+            $stmt = $pdo->prepare("SELECT id FROM tblfacultycalendar WHERE facultyCode = ? AND semesterID = ? AND classDate = ?");
+            $stmt->execute([$facultyCode, $semesterID, $date]);
             $exists = $stmt->fetchColumn();
 
             if ($exists) {
                 // Delete
-                $stmtDel = $pdo->prepare("DELETE FROM tblfacultycalendar WHERE facultyCode = ? AND classDate = ?");
-                $stmtDel->execute([$facultyCode, $date]);
+                $stmtDel = $pdo->prepare("DELETE FROM tblfacultycalendar WHERE facultyCode = ? AND semesterID = ? AND classDate = ?");
+                $stmtDel->execute([$facultyCode, $semesterID, $date]);
                 echo json_encode(['success' => true, 'status' => 'removed', 'date' => $date]);
             } else {
                 // Insert
-                $stmtIns = $pdo->prepare("INSERT INTO tblfacultycalendar (facultyCode, classDate) VALUES (?, ?)");
-                $stmtIns->execute([$facultyCode, $date]);
+                $stmtIns = $pdo->prepare("INSERT INTO tblfacultycalendar (facultyCode, semesterID, classDate) VALUES (?, ?, ?)");
+                $stmtIns->execute([$facultyCode, $semesterID, $date]);
                 echo json_encode(['success' => true, 'status' => 'added', 'date' => $date]);
             }
         } catch (Exception $e) {
@@ -61,35 +79,55 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
     }
 
     if ($action === 'bulk_weekdays') {
-        $year = (int)($_POST['year'] ?? date('Y'));
-        $month = (int)($_POST['month'] ?? date('n')); // 1-indexed
+        // Accepts BS year/month, converts all days to Gregorian for storage
+        require_once __DIR__ . '/../../lib/nepali_calendar.php';
 
-        if ($month < 1 || $month > 12 || $year < 2000) {
-            echo json_encode(['success' => false, 'message' => 'Invalid month/year parameters.']);
+        $np_year  = (int)($_POST['np_year']  ?? 0);
+        $np_month = (int)($_POST['np_month'] ?? 0); // 1-indexed BS month
+
+        if ($np_month < 1 || $np_month > 12 || $np_year < 2000) {
+            echo json_encode(['success' => false, 'message' => 'Invalid Nepali month/year parameters.']);
             exit;
         }
 
         try {
-            $daysInMonth = cal_days_in_month(CAL_GREGORIAN, $month, $year);
+            // Get semester details
+            $stmtSem = $pdo->prepare("SELECT * FROM tblsemester WHERE Id = ?");
+            $stmtSem->execute([$semesterID]);
+            $semester = $stmtSem->fetch(PDO::FETCH_ASSOC);
+            if (!$semester) {
+                echo json_encode(['success' => false, 'message' => 'Semester not found.']);
+                exit;
+            }
+
+            $daysInNpMonth = nepali_days_in_month($np_year, $np_month);
             $added = 0;
 
             $pdo->beginTransaction();
-            $stmt = $pdo->prepare("INSERT IGNORE INTO tblfacultycalendar (facultyCode, classDate) VALUES (?, ?)");
+            $stmt = $pdo->prepare("INSERT IGNORE INTO tblfacultycalendar (facultyCode, semesterID, classDate) VALUES (?, ?, ?)");
 
-            for ($day = 1; $day <= $daysInMonth; $day++) {
-                $dateStr = sprintf("%04d-%02d-%02d", $year, $month, $day);
+            for ($np_day = 1; $np_day <= $daysInNpMonth; $np_day++) {
+                $greg = nepaliToGregorian($np_year, $np_month, $np_day);
+                if (!$greg) continue;
+                $dateStr = sprintf("%04d-%02d-%02d", $greg['year'], $greg['month'], $greg['day']);
+                
+                // Restrict to semester start/end date range
+                if ($dateStr < $semester['startDate'] || $dateStr > $semester['endDate']) {
+                    continue;
+                }
+
                 $dayOfWeek = date('N', strtotime($dateStr)); // 1 (Mon) - 7 (Sun)
 
                 if ($dayOfWeek >= 1 && $dayOfWeek <= 5) { // Weekdays (Mon-Fri)
-                    $stmt->execute([$facultyCode, $dateStr]);
+                    $stmt->execute([$facultyCode, $semesterID, $dateStr]);
                     $added++;
                 }
             }
             $pdo->commit();
 
             // Fetch all dates to return updated list
-            $stmtAll = $pdo->prepare("SELECT classDate FROM tblfacultycalendar WHERE facultyCode = ?");
-            $stmtAll->execute([$facultyCode]);
+            $stmtAll = $pdo->prepare("SELECT classDate FROM tblfacultycalendar WHERE facultyCode = ? AND semesterID = ?");
+            $stmtAll->execute([$facultyCode, $semesterID]);
             $dates = $stmtAll->fetchAll(PDO::FETCH_COLUMN);
 
             echo json_encode(['success' => true, 'dates' => $dates, 'added_count' => $added]);
@@ -120,9 +158,10 @@ try {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="resources/images/logo/face logo.png" rel="icon">
-    <title>Academic Calendar</title>
+    <title>Academic Calendar (Nepali BS)</title>
     <link rel="stylesheet" href="resources/assets/css/admin_styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css" rel="stylesheet">
+    <script src="resources/assets/javascript/nepali_calendar.js"></script>
     <style>
         .calendar-card {
             background: #ffffff;
@@ -135,7 +174,7 @@ try {
         .calendar-grid {
             display: grid;
             grid-template-columns: repeat(7, 1fr);
-            gap: 8px;
+            gap: 6px;
             margin-top: 15px;
         }
 
@@ -143,7 +182,7 @@ try {
             font-weight: 600;
             color: #64748b;
             text-align: center;
-            font-size: 0.88rem;
+            font-size: 0.82rem;
             padding: 8px 0;
             border-bottom: 2px solid #f1f5f9;
         }
@@ -152,8 +191,8 @@ try {
             background: #f8fafc;
             border: 1px solid #e2e8f0;
             border-radius: 8px;
-            height: 80px;
-            padding: 8px;
+            height: 90px;
+            padding: 7px 8px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -163,15 +202,49 @@ try {
         }
 
         .calendar-day-cell:hover {
-            border-color: #cbd5e1;
-            background: #f1f5f9;
+            border-color: #6366f1;
+            background: #f5f3ff;
             transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(99,102,241,0.12);
         }
 
-        .calendar-day-number {
-            font-weight: 700;
-            font-size: 0.95rem;
-            color: #475569;
+        /* top row: BS number + English number */
+        .cell-top-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        /* Big Nepali BS number */
+        .calendar-day-np {
+            font-weight: 800;
+            font-size: 1.35rem;
+            color: #1e293b;
+            line-height: 1;
+        }
+
+        /* Small English AD number */
+        .calendar-day-en {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: #94a3b8;
+            background: #f1f5f9;
+            border-radius: 4px;
+            padding: 1px 5px;
+            line-height: 1.5;
+        }
+
+        /* Today highlight */
+        .calendar-day-cell.today-cell {
+            border-color: #f59e0b;
+            background: #fffbeb;
+        }
+        .calendar-day-cell.today-cell .calendar-day-np {
+            color: #b45309;
+        }
+        .calendar-day-cell.today-cell .calendar-day-en {
+            background: #fef3c7;
+            color: #92400e;
         }
 
         .calendar-day-cell.inactive {
@@ -182,8 +255,12 @@ try {
             pointer-events: none;
         }
 
-        .calendar-day-cell.inactive .calendar-day-number {
-            color: #cbd5e1;
+        .calendar-day-cell.inactive .calendar-day-np {
+            color: #e2e8f0;
+        }
+        .calendar-day-cell.inactive .calendar-day-en {
+            color: #e2e8f0;
+            background: transparent;
         }
 
         /* Active Scheduled Class Day */
@@ -192,15 +269,28 @@ try {
             border-color: #3b82f6;
         }
 
-        .calendar-day-cell.active-day .calendar-day-number {
+        .calendar-day-cell.active-day .calendar-day-np {
             color: #1d4ed8;
+        }
+        .calendar-day-cell.active-day .calendar-day-en {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        /* Active + today */
+        .calendar-day-cell.active-day.today-cell {
+            background: #e0f2fe;
+            border-color: #0ea5e9;
+        }
+        .calendar-day-cell.active-day.today-cell .calendar-day-np {
+            color: #0c4a6e;
         }
 
         .calendar-day-indicator {
-            align-self: flex-end;
-            font-size: 0.72rem;
+            align-self: flex-start;
+            font-size: 0.65rem;
             font-weight: 700;
-            padding: 2px 6px;
+            padding: 2px 5px;
             border-radius: 4px;
             background: #3b82f6;
             color: white;
@@ -213,20 +303,29 @@ try {
             display: inline-flex;
         }
 
+        /* Month header dual-line */
+        .month-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2px;
+        }
+        .month-header-bs {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: #1e293b;
+        }
+        .month-header-en {
+            font-size: 0.78rem;
+            font-weight: 500;
+            color: #64748b;
+        }
+
         .calendar-navigation {
             display: flex;
             align-items: center;
             justify-content: space-between;
             margin-bottom: 20px;
-        }
-
-        .month-header {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: #1e293b;
-            display: flex;
-            align-items: center;
-            gap: 15px;
         }
 
         .nav-btn {
@@ -318,11 +417,18 @@ try {
                 <div class="control-panel">
                     <div class="faculty-selector">
                         <label for="faculty_select" style="font-weight:600; color:#475569; white-space:nowrap;">Select Faculty:</label>
-                        <select id="faculty_select" onchange="loadFacultyCalendar()">
+                        <select id="faculty_select" onchange="loadSemesters()">
                             <option value="">-- Choose a Faculty --</option>
                             <?php foreach ($faculties as $f): ?>
                                 <option value="<?php echo htmlspecialchars($f['facultyCode']); ?>"><?php echo htmlspecialchars($f['facultyName']); ?> (<?php echo htmlspecialchars($f['facultyCode']); ?>)</option>
                             <?php endforeach; ?>
+                        </select>
+                    </div>
+
+                    <div class="faculty-selector" id="semester_selector_wrapper" style="display: none;">
+                        <label for="semester_select" style="font-weight:600; color:#475569; white-space:nowrap;">Select Semester:</label>
+                        <select id="semester_select" onchange="loadFacultyCalendar()">
+                            <option value="">-- Choose a Semester --</option>
                         </select>
                     </div>
 
@@ -334,12 +440,15 @@ try {
                 <div id="calendar_wrapper" style="display: none;">
                     <div class="calendar-navigation">
                         <button class="nav-btn" onclick="navigateMonth(-1)"><i class="ri-arrow-left-s-line"></i></button>
-                        <div class="month-header" id="month_title_label">June 2026</div>
+                        <div class="month-header" id="month_title_label">
+                            <div class="month-header-bs" id="month_title_bs">Ashadh 2083 BS</div>
+                            <div class="month-header-en" id="month_title_en">June – July 2026</div>
+                        </div>
                         <button class="nav-btn" onclick="navigateMonth(1)"><i class="ri-arrow-right-s-line"></i></button>
                     </div>
 
                     <p style="font-size: 0.82rem; color: #64748b; margin-bottom: 15px;">
-                        <i class="ri-information-line"></i> Click on any day box below to toggle it as a scheduled class day for this faculty.
+                        <i class="ri-information-line"></i> Click on any day box below to toggle it as a scheduled class day for this faculty. Dates shown in Nepali Bikram Sambat (BS) calendar.
                     </p>
 
                     <div class="calendar-grid" id="calendar_grid_header">
@@ -371,39 +480,123 @@ try {
     <script>
         let selectedFaculty = '';
         let scheduledDates = new Set();
-        let currentDate = new Date(); // Tracks the currently viewed month/year
+        let semesters = [];
+        let selectedSemester = null;
 
-        const monthNames = [
-            "January", "February", "March", "April", "May", "June",
-            "July", "August", "September", "October", "November", "December"
-        ];
+        // Current Nepali BS month/year being viewed
+        let currentNpDate = NepaliCalendar.todayNepali();
 
-        function loadFacultyCalendar() {
+        function loadSemesters() {
             const select = document.getElementById('faculty_select');
             selectedFaculty = select.value;
+
+            const semWrapper = document.getElementById('semester_selector_wrapper');
+            const semSelect = document.getElementById('semester_select');
+            const calendarWrapper = document.getElementById('calendar_wrapper');
+            const placeholder = document.getElementById('no_faculty_selected_view');
+            const bulkBtn = document.getElementById('bulk_weekdays_btn');
+
+            semSelect.innerHTML = '<option value="">-- Choose a Semester --</option>';
+            selectedSemester = null;
+            calendarWrapper.style.display = 'none';
+            placeholder.style.display = 'block';
+            bulkBtn.disabled = true;
+
+            if (!selectedFaculty) {
+                semWrapper.style.display = 'none';
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('action', 'get_semesters');
+            formData.append('faculty_code', selectedFaculty);
+
+            fetch('', {
+                method: 'POST',
+                body: formData
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    semesters = data.semesters;
+                    if (semesters.length === 0) {
+                        semSelect.innerHTML = '<option value="">No semesters found</option>';
+                        semWrapper.style.display = 'block';
+                        return;
+                    }
+                    semesters.forEach(sem => {
+                        const opt = document.createElement('option');
+                        opt.value = sem.Id;
+                        const activeLabel = sem.isActive === '1' ? ' (Active)' : '';
+                        opt.textContent = `${sem.name}${activeLabel}`;
+                        semSelect.appendChild(opt);
+                    });
+                    semWrapper.style.display = 'block';
+
+                    // Auto select the active semester if present
+                    const activeSem = semesters.find(sem => sem.isActive === '1');
+                    if (activeSem) {
+                        semSelect.value = activeSem.Id;
+                        loadFacultyCalendar();
+                    }
+                } else {
+                    alert('Error: ' + data.message);
+                }
+            })
+            .catch(err => {
+                console.error(err);
+                alert('Failed to retrieve semesters.');
+            });
+        }
+
+        function loadFacultyCalendar() {
+            const semSelect = document.getElementById('semester_select');
+            const semId = semSelect.value;
 
             const calendarWrapper = document.getElementById('calendar_wrapper');
             const placeholder = document.getElementById('no_faculty_selected_view');
             const bulkBtn = document.getElementById('bulk_weekdays_btn');
 
-            if (!selectedFaculty) {
+            if (!semId) {
+                selectedSemester = null;
                 calendarWrapper.style.display = 'none';
                 placeholder.style.display = 'block';
                 bulkBtn.disabled = true;
                 return;
             }
 
+            selectedSemester = semesters.find(sem => sem.Id == semId);
+            if (!selectedSemester) return;
+
             calendarWrapper.style.display = 'block';
             placeholder.style.display = 'none';
             bulkBtn.disabled = false;
+
+            // Set current viewed month: show from today if within semester range, else fallback to start date
+            const now = new Date();
+            const y = now.getFullYear();
+            const m = String(now.getMonth() + 1).padStart(2, '0');
+            const d = String(now.getDate()).padStart(2, '0');
+            const todayStr = `${y}-${m}-${d}`;
+
+            if (todayStr >= selectedSemester.startDate && todayStr <= selectedSemester.endDate) {
+                currentNpDate = NepaliCalendar.todayNepali();
+            } else {
+                const startNp = NepaliCalendar.gregorianToNepali(selectedSemester.startDate);
+                if (startNp) {
+                    currentNpDate = startNp;
+                }
+            }
 
             fetchDates();
         }
 
         function fetchDates() {
+            if (!selectedSemester) return;
             const formData = new FormData();
             formData.append('action', 'get_dates');
             formData.append('faculty_code', selectedFaculty);
+            formData.append('semester_id', selectedSemester.Id);
 
             fetch('', {
                 method: 'POST',
@@ -425,63 +618,138 @@ try {
         }
 
         function renderCalendar() {
-            const year = currentDate.getFullYear();
-            const month = currentDate.getMonth(); // 0-indexed
+            const npYear  = currentNpDate.year;
+            const npMonth = currentNpDate.month;
 
-            document.getElementById('month_title_label').textContent = `${monthNames[month]} ${year}`;
+            // --- Update month header: BS name + English date range ---
+            document.getElementById('month_title_bs').textContent =
+                `${NepaliCalendar.getMonthName(npMonth)} ${npYear} BS`;
+
+            // Find first & last Gregorian dates of this BS month to show English range
+            const firstGregDate = NepaliCalendar.nepaliToGregorian(npYear, npMonth, 1);
+            const lastDay       = NepaliCalendar.daysInNepaliMonth(npYear, npMonth);
+            const lastGregDate  = NepaliCalendar.nepaliToGregorian(npYear, npMonth, lastDay);
+            const engMonths = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+            if (firstGregDate && lastGregDate) {
+                const startLabel = `${engMonths[firstGregDate.getMonth()]} ${firstGregDate.getFullYear()}`;
+                const endLabel   = `${engMonths[lastGregDate.getMonth()]} ${lastGregDate.getFullYear()}`;
+                document.getElementById('month_title_en').textContent =
+                    startLabel === endLabel ? startLabel : `${startLabel} – ${endLabel}`;
+            }
+
+            // --- Today in BS for highlighting ---
+            const todayNp = NepaliCalendar.todayNepali();
 
             const container = document.getElementById('calendar_days_container');
             container.innerHTML = '';
 
-            const firstDayIndex = new Date(year, month, 1).getDay();
-            const totalDays = new Date(year, month + 1, 0).getDate();
-            const prevTotalDays = new Date(year, month, 0).getDate();
+            const firstDayIndex = NepaliCalendar.firstDayOfNepaliMonth(npYear, npMonth);
+            const totalDays     = NepaliCalendar.daysInNepaliMonth(npYear, npMonth);
 
-            // Render padding cells for previous month
+            // Prev month days for padding
+            let prevNpYear  = npYear;
+            let prevNpMonth = npMonth - 1;
+            if (prevNpMonth < 1) { prevNpMonth = 12; prevNpYear--; }
+            const prevTotalDays = prevNpYear >= 2000 ? NepaliCalendar.daysInNepaliMonth(prevNpYear, prevNpMonth) : 30;
+
+            // Render padding cells for previous month (show prev BS + EN)
             for (let i = firstDayIndex; i > 0; i--) {
+                const prevNpDay = prevTotalDays - i + 1;
+                const prevGregDate = NepaliCalendar.nepaliToGregorian(prevNpYear, prevNpMonth, prevNpDay);
+                const prevEnDay   = prevGregDate ? prevGregDate.getDate() : '';
                 const cell = document.createElement('div');
                 cell.className = 'calendar-day-cell inactive';
-                cell.innerHTML = `<span class="calendar-day-number">${prevTotalDays - i + 1}</span>`;
+                cell.innerHTML = `
+                    <div class="cell-top-row">
+                        <span class="calendar-day-np">${prevNpDay}</span>
+                        <span class="calendar-day-en">${prevEnDay}</span>
+                    </div>
+                `;
                 container.appendChild(cell);
             }
 
-            // Render active day cells for current month
-            for (let day = 1; day <= totalDays; day++) {
-                const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
-                const isActive = scheduledDates.has(dateStr);
+            // Render active day cells for current Nepali month
+            for (let npDay = 1; npDay <= totalDays; npDay++) {
+                // Convert this BS day to Gregorian for DB lookup + English display
+                const gregDate    = NepaliCalendar.nepaliToGregorian(npYear, npMonth, npDay);
+                const gregDateStr = NepaliCalendar.nepaliToGregorianStr(npYear, npMonth, npDay);
+                const enDay       = gregDate ? gregDate.getDate() : '';
+                const isActive    = gregDateStr ? scheduledDates.has(gregDateStr) : false;
+
+                // Check if date falls outside semester start/end
+                let isOutsideSemester = false;
+                if (selectedSemester) {
+                    if (gregDateStr < selectedSemester.startDate || gregDateStr > selectedSemester.endDate) {
+                        isOutsideSemester = true;
+                    }
+                }
+
+                // Check if today
+                const isToday = todayNp &&
+                    todayNp.year === npYear &&
+                    todayNp.month === npMonth &&
+                    todayNp.day === npDay;
 
                 const cell = document.createElement('div');
-                cell.className = 'calendar-day-cell' + (isActive ? ' active-day' : '');
-                cell.dataset.date = dateStr;
-                cell.onclick = () => toggleDay(dateStr, cell);
+                let cls = 'calendar-day-cell';
+                if (isActive)  cls += ' active-day';
+                if (isToday)   cls += ' today-cell';
+                if (isOutsideSemester) cls += ' inactive';
+                cell.className = cls;
+
+                if (gregDateStr && !isOutsideSemester) {
+                    cell.dataset.date = gregDateStr;
+                    cell.onclick = () => toggleDay(gregDateStr, cell);
+                }
 
                 cell.innerHTML = `
-                    <span class="calendar-day-number">${day}</span>
+                    <div class="cell-top-row">
+                        <span class="calendar-day-np">${npDay}</span>
+                        <span class="calendar-day-en">${enDay}</span>
+                    </div>
                     <span class="calendar-day-indicator"><i class="ri-check-line"></i> Class</span>
                 `;
                 container.appendChild(cell);
             }
 
-            // Render padding cells for next month to complete the row
+            // Render padding cells for next month
             const totalCells = firstDayIndex + totalDays;
             const remaining = (7 - (totalCells % 7)) % 7;
+            let nextNpMonth = npMonth + 1;
+            let nextNpYear  = npYear;
+            if (nextNpMonth > 12) { nextNpMonth = 1; nextNpYear++; }
             for (let i = 1; i <= remaining; i++) {
+                const nextGregDate = NepaliCalendar.nepaliToGregorian(nextNpYear, nextNpMonth, i);
+                const nextEnDay    = nextGregDate ? nextGregDate.getDate() : '';
                 const cell = document.createElement('div');
                 cell.className = 'calendar-day-cell inactive';
-                cell.innerHTML = `<span class="calendar-day-number">${i}</span>`;
+                cell.innerHTML = `
+                    <div class="cell-top-row">
+                        <span class="calendar-day-np">${i}</span>
+                        <span class="calendar-day-en">${nextEnDay}</span>
+                    </div>
+                `;
                 container.appendChild(cell);
             }
         }
 
         function navigateMonth(direction) {
-            currentDate.setMonth(currentDate.getMonth() + direction);
+            // Navigate in Nepali BS months
+            let { year, month, day } = currentNpDate;
+            month += direction;
+            if (month > 12) { month = 1; year++; }
+            if (month < 1)  { month = 12; year--; }
+            currentNpDate = { year, month, day };
             renderCalendar();
         }
 
         function toggleDay(dateStr, cellElement) {
+            if (!selectedSemester) return;
+            // dateStr is Gregorian (Y-m-d) for the server
             const formData = new FormData();
             formData.append('action', 'toggle_date');
             formData.append('faculty_code', selectedFaculty);
+            formData.append('semester_id', selectedSemester.Id);
             formData.append('date', dateStr);
 
             fetch('', {
@@ -509,10 +777,12 @@ try {
         }
 
         function bulkSetWeekdays() {
-            const year = currentDate.getFullYear();
-            const month = currentDate.getMonth() + 1; // 1-indexed
+            if (!selectedSemester) return;
+            const npYear  = currentNpDate.year;
+            const npMonth = currentNpDate.month;
+            const npMonthName = NepaliCalendar.getMonthName(npMonth);
 
-            if (!confirm(`Are you sure you want to pre-populate all Mon-Fri weekdays of ${monthNames[month-1]} ${year} as class days for this faculty?`)) {
+            if (!confirm(`Are you sure you want to pre-populate all Mon-Fri weekdays of ${npMonthName} ${npYear} BS (within the semester range) as class days for this faculty?`)) {
                 return;
             }
 
@@ -524,8 +794,9 @@ try {
             const formData = new FormData();
             formData.append('action', 'bulk_weekdays');
             formData.append('faculty_code', selectedFaculty);
-            formData.append('year', year);
-            formData.append('month', month);
+            formData.append('semester_id', selectedSemester.Id);
+            formData.append('np_year',  npYear);
+            formData.append('np_month', npMonth);
 
             fetch('', {
                 method: 'POST',

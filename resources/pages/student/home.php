@@ -1,5 +1,6 @@
 <?php
 require_once "resources/lib/analytics_logic.php";
+require_once "resources/lib/nepali_calendar.php";
 
 $user = user();
 $risk = calculateAttendanceRisk($user->registrationNumber);
@@ -105,7 +106,7 @@ $notices = getLatestNotices(3);
                                 <strong><?php echo htmlspecialchars($notice['title']); ?></strong>
                                 <p style="margin-top: 5px;"><?php echo htmlspecialchars(substr($notice['message'], 0, 100)) . '...'; ?></p>
                                 <div class="notice-meta">
-                                    Posted by <?php echo $notice['postedByRole']; ?> on <?php echo date('M d, Y', strtotime($notice['postedDate'])); ?>
+                                    Posted by <?php echo $notice['postedByRole']; ?> on <?php echo formatNepaliDate($notice['postedDate']); ?>
                                 </div>
                             </div>
                         <?php endforeach; ?>

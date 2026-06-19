@@ -1,6 +1,86 @@
 <?php
 
+require_once __DIR__ . '/../../lib/nepali_calendar.php';
 
+// ---- Semester CRUD ----
+if (isset($_POST['addSemester'])) {
+    $semName    = htmlspecialchars(trim($_POST['semName']));
+    $facCode    = htmlspecialchars(trim($_POST['semFacultyCode']));
+    $startDate  = $_POST['semStartDate'];
+    $endDate    = $_POST['semEndDate'];
+    $isActive   = isset($_POST['semIsActive']) ? 1 : 0;
+    $today      = date('Y-m-d');
+
+    if ($semName && $facCode && $startDate && $endDate) {
+        try {
+            if ($isActive) {
+                // Deactivate all semesters for this faculty first
+                $pdo->prepare("UPDATE tblsemester SET isActive=0 WHERE facultyCode=?")->execute([$facCode]);
+            }
+            $pdo->prepare("INSERT INTO tblsemester (facultyCode,name,startDate,endDate,isActive,dateCreated) VALUES (?,?,?,?,?,?)")
+                ->execute([$facCode, $semName, $startDate, $endDate, $isActive, $today]);
+            $_SESSION['message'] = 'Semester added successfully';
+        } catch (PDOException $e) {
+            $_SESSION['message'] = 'Error: ' . $e->getMessage();
+        }
+    } else {
+        $_SESSION['message'] = 'All semester fields are required';
+    }
+}
+
+if (isset($_POST['editSemester'])) {
+    $semId     = (int)$_POST['semId'];
+    $semName   = htmlspecialchars(trim($_POST['semName']));
+    $facCode   = htmlspecialchars(trim($_POST['semFacultyCode']));
+    $startDate = $_POST['semStartDate'];
+    $endDate   = $_POST['semEndDate'];
+    $isActive  = isset($_POST['semIsActive']) ? 1 : 0;
+
+    if ($semId && $semName && $facCode && $startDate && $endDate) {
+        try {
+            if ($isActive) {
+                $pdo->prepare("UPDATE tblsemester SET isActive=0 WHERE facultyCode=? AND Id!=?")->execute([$facCode, $semId]);
+            }
+            $pdo->prepare("UPDATE tblsemester SET name=?,startDate=?,endDate=?,isActive=? WHERE Id=?")
+                ->execute([$semName, $startDate, $endDate, $isActive, $semId]);
+            $_SESSION['message'] = 'Semester updated successfully';
+        } catch (PDOException $e) {
+            $_SESSION['message'] = 'Error: ' . $e->getMessage();
+        }
+    }
+}
+
+if (isset($_GET['deleteSemester'])) {
+    $semId = (int)$_GET['deleteSemester'];
+    if ($semId) {
+        try {
+            $pdo->prepare("DELETE FROM tblsemester WHERE Id=?")->execute([$semId]);
+            // Also remove calendar entries for this semester
+            $pdo->prepare("DELETE FROM tblfacultycalendar WHERE semesterID=?")->execute([$semId]);
+            $_SESSION['message'] = 'Semester deleted';
+        } catch (PDOException $e) {
+            $_SESSION['message'] = 'Error: ' . $e->getMessage();
+        }
+    }
+    header('Location: ' . strtok($_SERVER['REQUEST_URI'], '?'));
+    exit;
+}
+
+if (isset($_GET['toggleActiveSemester'])) {
+    $semId = (int)$_GET['toggleActiveSemester'];
+    $facCode = $_GET['fac'] ?? '';
+    if ($semId && $facCode) {
+        try {
+            $pdo->prepare("UPDATE tblsemester SET isActive=0 WHERE facultyCode=?")->execute([$facCode]);
+            $pdo->prepare("UPDATE tblsemester SET isActive=1 WHERE Id=?")->execute([$semId]);
+            $_SESSION['message'] = 'Active semester updated';
+        } catch (PDOException $e) {
+            $_SESSION['message'] = 'Error: ' . $e->getMessage();
+        }
+    }
+    header('Location: ' . strtok($_SERVER['REQUEST_URI'], '?'));
+    exit;
+}
 if (isset($_POST["addCourse"])) {
     $courseName = htmlspecialchars(trim($_POST["courseName"])); // Escape and trim whitespace
     $courseCode = htmlspecialchars(trim($_POST["courseCode"]));
@@ -176,7 +256,6 @@ if (isset($_POST["editFaculty"])) {
                 </div>
                 <div class="cards">
                     <div id="addCourse" class="card card-1">
-
                         <div class="card--data">
                             <div class="card--content">
                                 <button class="add"><i class="ri-add-line"></i>Add Course</button>
@@ -184,10 +263,8 @@ if (isset($_POST["editFaculty"])) {
                             </div>
                             <i class="ri-user-2-line card--icon--lg"></i>
                         </div>
-
                     </div>
                     <div class="card card-1" id="addUnit">
-
                         <div class="card--data">
                             <div class="card--content">
                                 <button class="add"><i class="ri-add-line"></i>Add Units</button>
@@ -195,11 +272,8 @@ if (isset($_POST["editFaculty"])) {
                             </div>
                             <i class="ri-file-text-line card--icon--lg"></i>
                         </div>
-
                     </div>
-
                     <div class="card card-1" id="addFaculty">
-
                         <div class="card--data">
                             <div class="card--content">
                                 <button class="add"><i class="ri-add-line"></i>Add Faculty</button>
@@ -207,7 +281,19 @@ if (isset($_POST["editFaculty"])) {
                             </div>
                             <i class="ri-user-line card--icon--lg"></i>
                         </div>
-
+                    </div>
+                    <div class="card card-1" id="addSemesterCard">
+                        <div class="card--data">
+                            <div class="card--content">
+                                <button class="add" onclick="document.getElementById('addSemesterForm').style.display='flex'; document.getElementById('overlay').style.display='block';"><i class="ri-calendar-2-line"></i>Add Semester</button>
+                                <?php
+                                try { $semCount = $pdo->query('SELECT COUNT(*) FROM tblsemester')->fetchColumn(); }
+                                catch(Exception $e) { $semCount = 0; }
+                                ?>
+                                <h1><?= $semCount ?> Semesters</h1>
+                            </div>
+                            <i class="ri-calendar-2-line card--icon--lg"></i>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -397,7 +483,67 @@ if (isset($_POST["editFaculty"])) {
 
             </div>
 
-        </div>
+            <!-- ============================================================
+                 SEMESTER TABLE
+            ============================================================ -->
+            <div class="table-container">
+                <div class="title">
+                    <h2 class="section--title">Semesters</h2>
+                </div>
+                <div class="table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Faculty</th>
+                                <th>Semester Name</th>
+                                <th>Start (BS)</th>
+                                <th>End (BS)</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <?php
+                        try {
+                            $semRows = getAllSemesters($pdo);
+                            if ($semRows) {
+                                foreach ($semRows as $sem) {
+                                    $activeBadge = $sem['isActive']
+                                        ? '<span style="background:#dcfce7;color:#166534;padding:2px 10px;border-radius:99px;font-size:0.78rem;font-weight:700;">Active</span>'
+                                        : '<span style="background:#f1f5f9;color:#64748b;padding:2px 10px;border-radius:99px;font-size:0.78rem;">Inactive</span>';
+                                    $startBS = formatNepaliDate($sem['startDate'], 'short');
+                                    $endBS   = formatNepaliDate($sem['endDate'],   'short');
+                                    echo "<tr id='rowsemester{$sem['Id']}'>"
+                                       . "<td>" . htmlspecialchars($sem['facultyName'] ?? $sem['facultyCode']) . "</td>"
+                                       . "<td><strong>" . htmlspecialchars($sem['name']) . "</strong></td>"
+                                       . "<td>$startBS</td>"
+                                       . "<td>$endBS</td>"
+                                       . "<td>$activeBadge</td>"
+                                       . "<td><span>"
+                                       . (!$sem['isActive'] ? "<a href='?toggleActiveSemester={$sem['Id']}&fac={$sem['facultyCode']}' style='color:#16a34a;font-size:0.8rem;margin-right:8px;' onclick=\"return confirm('Set this as active semester?')\">▶ Set Active</a>" : '')
+                                       . "<i class='ri-edit-line edit' data-id='{$sem['Id']}' data-name='semester'
+                                            data-semname='" . htmlspecialchars($sem['name'], ENT_QUOTES) . "'
+                                            data-faccode='" . htmlspecialchars($sem['facultyCode'], ENT_QUOTES) . "'
+                                            data-start='" . htmlspecialchars($sem['startDate'], ENT_QUOTES) . "'
+                                            data-end='"   . htmlspecialchars($sem['endDate'],   ENT_QUOTES) . "'
+                                            data-active='" . $sem['isActive'] . "'></i>"
+                                       . "<a href='?deleteSemester={$sem['Id']}' onclick=\"return confirm('Delete semester and its calendar entries?')\">"
+                                       . "<i class='ri-delete-bin-line delete'></i></a>"
+                                       . "</span></td>"
+                                       . "</tr>";
+                                }
+                            } else {
+                                echo "<tr><td colspan='6' style='text-align:center;color:#94a3b8;'>No semesters yet. Add one above.</td></tr>";
+                            }
+                        } catch (Exception $e) {
+                            echo "<tr><td colspan='6'>Error: " . htmlspecialchars($e->getMessage()) . "</td></tr>";
+                        }
+                        ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- end semester table -->
         <div class="formDiv" id="addCourseForm" style="display:none; ">
 
             <form method="POST" action="" name="addCourse" enctype="multipart/form-data">
@@ -465,19 +611,52 @@ if (isset($_POST["editFaculty"])) {
             </form>
         </div>
 
-        <div class="formDiv" id="addFacultyForm" style="display:none; ">
-            <form method="POST" action="" name="addFaculty" enctype="multipart/form-data">
+        <div class="formDiv" id="addSemesterForm" style="display:none;">
+            <form method="POST" action="">
                 <div style="display:flex; justify-content:space-around;">
-                    <div class="form-title">
-                        <p>Add Faculty</p>
-                    </div>
-                    <div>
-                        <span class="close">&times;</span>
-                    </div>
+                    <div class="form-title"><p>Add Semester</p></div>
+                    <div><span class="close">&times;</span></div>
                 </div>
-                <input type="text" name="facultyName" placeholder="Faculty Name" required>
-                <input type="text" name="facultyCode" placeholder="Faculty Code" required>
-                <input type="submit" class="submit" value="Save Faculty" name="addFaculty">
+                <select required name="semFacultyCode">
+                    <option value="">Select Faculty</option>
+                    <?php foreach(getFacultyNames() as $f): ?>
+                        <option value="<?= htmlspecialchars($f['facultyCode']) ?>"><?= htmlspecialchars($f['facultyName']) ?></option>
+                    <?php endforeach; ?>
+                </select>
+                <input type="text" name="semName" placeholder="Semester Name (e.g. Semester I 2081)" required>
+                <label style="font-size:0.82rem;color:#64748b;margin-top:8px;display:block;">Start Date (AD)</label>
+                <input type="date" name="semStartDate" required>
+                <label style="font-size:0.82rem;color:#64748b;margin-top:8px;display:block;">End Date (AD)</label>
+                <input type="date" name="semEndDate" required>
+                <label style="display:flex;align-items:center;gap:8px;margin-top:12px;font-size:0.9rem;">
+                    <input type="checkbox" name="semIsActive" value="1"> Set as Active Semester for this Faculty
+                </label>
+                <input type="submit" class="submit" value="Save Semester" name="addSemester">
+            </form>
+        </div>
+
+        <div class="formDiv" id="editSemesterForm" style="display:none;">
+            <form method="POST" action="">
+                <div style="display:flex; justify-content:space-around;">
+                    <div class="form-title"><p>Edit Semester</p></div>
+                    <div><span class="close">&times;</span></div>
+                </div>
+                <input type="hidden" name="semId" id="editSemId">
+                <select required name="semFacultyCode" id="editSemFaculty">
+                    <option value="">Select Faculty</option>
+                    <?php foreach(getFacultyNames() as $f): ?>
+                        <option value="<?= htmlspecialchars($f['facultyCode']) ?>"><?= htmlspecialchars($f['facultyName']) ?></option>
+                    <?php endforeach; ?>
+                </select>
+                <input type="text" name="semName" id="editSemName" placeholder="Semester Name" required>
+                <label style="font-size:0.82rem;color:#64748b;margin-top:8px;display:block;">Start Date (AD)</label>
+                <input type="date" name="semStartDate" id="editSemStart" required>
+                <label style="font-size:0.82rem;color:#64748b;margin-top:8px;display:block;">End Date (AD)</label>
+                <input type="date" name="semEndDate" id="editSemEnd" required>
+                <label style="display:flex;align-items:center;gap:8px;margin-top:12px;font-size:0.9rem;">
+                    <input type="checkbox" name="semIsActive" id="editSemActive" value="1"> Set as Active Semester
+                </label>
+                <input type="submit" class="submit" value="Update Semester" name="editSemester">
             </form>
         </div>
 
@@ -585,6 +764,16 @@ if (isset($_POST["editFaculty"])) {
                         document.getElementById('editFacultyName').value = this.getAttribute('data-facultyname');
                         document.getElementById('editFacultyCode').value = this.getAttribute('data-facultycode');
                         form.style.display = 'block';
+                        document.getElementById('overlay').style.display = 'block';
+                    }
+                    else if (type === 'semester') {
+                        document.getElementById('editSemId').value      = id;
+                        document.getElementById('editSemName').value    = this.getAttribute('data-semname');
+                        document.getElementById('editSemFaculty').value = this.getAttribute('data-faccode');
+                        document.getElementById('editSemStart').value   = this.getAttribute('data-start');
+                        document.getElementById('editSemEnd').value     = this.getAttribute('data-end');
+                        document.getElementById('editSemActive').checked = this.getAttribute('data-active') === '1';
+                        document.getElementById('editSemesterForm').style.display = 'block';
                         document.getElementById('overlay').style.display = 'block';
                     }
                 });
