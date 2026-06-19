@@ -44,22 +44,20 @@ function calculateAttendanceRisk($registrationNumber, $courseCode = null, $semes
         }
     }
 
-    // Check if faculty calendar exists
+    // Fetch calendar dates ONLY for the resolved semester.
+    // Never query without semesterID — doing so merges all semesters' dates.
     $hasCalendar = false;
     $calendarDates = [];
-    if ($facultyCode) {
-        if ($semesterId) {
-            $stmtCal = $pdo->prepare("SELECT classDate FROM tblfacultycalendar WHERE facultyCode = ? AND semesterID = ? AND classDate <= CURDATE() ORDER BY classDate ASC");
-            $stmtCal->execute([$facultyCode, $semesterId]);
-        } else {
-            $stmtCal = $pdo->prepare("SELECT classDate FROM tblfacultycalendar WHERE facultyCode = ? AND classDate <= CURDATE() ORDER BY classDate ASC");
-            $stmtCal->execute([$facultyCode]);
-        }
+    if ($facultyCode && $semesterId) {
+        $stmtCal = $pdo->prepare("SELECT classDate FROM tblfacultycalendar WHERE facultyCode = ? AND semesterID = ? AND classDate <= CURDATE() ORDER BY classDate ASC");
+        $stmtCal->execute([$facultyCode, $semesterId]);
         $calendarDates = $stmtCal->fetchAll(PDO::FETCH_COLUMN);
         if (count($calendarDates) > 0) {
             $hasCalendar = true;
         }
     }
+    // If semesterId is not resolved, $calendarDates stays [], and the attendance-table
+    // fallback below is used instead.
 
     if ($hasCalendar) {
         $totalClasses = count($calendarDates);
@@ -135,56 +133,43 @@ function calculateAttendanceRisk($registrationNumber, $courseCode = null, $semes
 
 if (!function_exists('isSemesterInGracePeriod')) {
     function isSemesterInGracePeriod($pdo, $facultyCode, $semesterId) {
-        // 1. Fetch semester start date
-        $startDate = null;
-        if ($semesterId) {
-            $stmt = $pdo->prepare("SELECT startDate FROM tblsemester WHERE Id = ?");
-            $stmt->execute([$semesterId]);
-            $startDate = $stmt->fetchColumn();
+        // Without a scoped semester we cannot determine grace period reliably.
+        // Default to grace=true so students are never wrongly shown as Critical.
+        if (!$semesterId) {
+            return true;
         }
-        
-        // 2. Fallback to earliest calendar class date
-        if (!$startDate) {
-            if ($facultyCode && $semesterId) {
-                $stmtEarliest = $pdo->prepare("SELECT MIN(classDate) FROM tblfacultycalendar WHERE facultyCode = ? AND semesterID = ?");
-                $stmtEarliest->execute([$facultyCode, $semesterId]);
-                $startDate = $stmtEarliest->fetchColumn();
-            } else if ($facultyCode) {
-                $stmtEarliest = $pdo->prepare("SELECT MIN(classDate) FROM tblfacultycalendar WHERE facultyCode = ?");
-                $stmtEarliest->execute([$facultyCode]);
-                $startDate = $stmtEarliest->fetchColumn();
-            }
+
+        // 1. Fetch semester start date from tblsemester
+        $stmt = $pdo->prepare("SELECT startDate FROM tblsemester WHERE Id = ?");
+        $stmt->execute([$semesterId]);
+        $startDate = $stmt->fetchColumn();
+
+        // 2. If no startDate stored, fall back to earliest calendar date FOR THIS SEMESTER ONLY
+        if (!$startDate && $facultyCode) {
+            $stmtEarliest = $pdo->prepare("SELECT MIN(classDate) FROM tblfacultycalendar WHERE facultyCode = ? AND semesterID = ?");
+            $stmtEarliest->execute([$facultyCode, $semesterId]);
+            $startDate = $stmtEarliest->fetchColumn();
         }
-        
+
         if ($startDate) {
-            $startTs = strtotime($startDate);
-            $todayTs = time();
-            $diffDays = ($todayTs - $startTs) / (24 * 60 * 60);
+            $diffDays = (time() - strtotime($startDate)) / 86400;
             if ($diffDays <= 30) {
                 return true;
             }
         } else {
-            return true; // If no start date or calendar dates exist, default to grace period
-        }
-        
-        // 3. Fetch calendar dates up to today
-        $calendarDates = [];
-        if ($facultyCode) {
-            if ($semesterId) {
-                $stmtCal = $pdo->prepare("SELECT classDate FROM tblfacultycalendar WHERE facultyCode = ? AND semesterID = ? AND classDate <= CURDATE()");
-                $stmtCal->execute([$facultyCode, $semesterId]);
-            } else {
-                $stmtCal = $pdo->prepare("SELECT classDate FROM tblfacultycalendar WHERE facultyCode = ? AND classDate <= CURDATE()");
-                $stmtCal->execute([$facultyCode]);
-            }
-            $calendarDates = $stmtCal->fetchAll(PDO::FETCH_COLUMN);
-        }
-        
-        if (count($calendarDates) < 5) {
+            // No start date at all for this semester — treat as grace active
             return true;
         }
-        
-        return false;
+
+        // 3. Count class days held so far FOR THIS SEMESTER ONLY
+        $calendarDates = [];
+        if ($facultyCode) {
+            $stmtCal = $pdo->prepare("SELECT classDate FROM tblfacultycalendar WHERE facultyCode = ? AND semesterID = ? AND classDate <= CURDATE()");
+            $stmtCal->execute([$facultyCode, $semesterId]);
+            $calendarDates = $stmtCal->fetchAll(PDO::FETCH_COLUMN);
+        }
+
+        return count($calendarDates) < 5;
     }
 }
 

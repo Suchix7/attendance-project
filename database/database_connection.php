@@ -67,6 +67,34 @@ try {
         }
     } catch (PDOException $e) { /* ignore */ }
 
+    // Fix the unique key: old installs have uq_faculty_date (facultyCode, classDate) which
+    // prevents the same date appearing in two semesters. Replace it with a 3-column key
+    // that includes semesterID so each semester can have its own independent calendar.
+    try {
+        // Check if the broken 2-column key still exists
+        $chkKey = $pdo->query(
+            "SELECT COUNT(*) FROM information_schema.STATISTICS
+             WHERE TABLE_SCHEMA = DATABASE()
+               AND TABLE_NAME   = 'tblfacultycalendar'
+               AND INDEX_NAME   = 'uq_faculty_date'"
+        );
+        if ((int)$chkKey->fetchColumn() > 0) {
+            $pdo->exec("ALTER TABLE `tblfacultycalendar` DROP INDEX `uq_faculty_date`");
+        }
+
+        // Ensure the correct 3-column key exists
+        $chkNewKey = $pdo->query(
+            "SELECT COUNT(*) FROM information_schema.STATISTICS
+             WHERE TABLE_SCHEMA = DATABASE()
+               AND TABLE_NAME   = 'tblfacultycalendar'
+               AND INDEX_NAME   = 'uq_faculty_semester_date'"
+        );
+        if ((int)$chkNewKey->fetchColumn() === 0) {
+            $pdo->exec("ALTER TABLE `tblfacultycalendar`
+                        ADD UNIQUE KEY `uq_faculty_semester_date` (`facultyCode`, `semesterID`, `classDate`)");
+        }
+    } catch (PDOException $e) { /* ignore — key already correct or table not yet created */ }
+
     // Silently add semesterID to tblstudents if missing (upgrade path)
     try {
         $chk = $pdo->query("SHOW COLUMNS FROM `tblstudents` LIKE 'semesterID'");

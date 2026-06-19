@@ -87,15 +87,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
             }
         }
 
-        // Fetch calendar dates up to today scoped to active semester
+        // Fetch calendar dates scoped strictly to the resolved semester.
+        // Never query without semesterID — it would merge all semesters' dates.
         if ($semesterId) {
             $stmtCal = $pdo->prepare("SELECT classDate FROM tblfacultycalendar WHERE facultyCode = ? AND semesterID = ? AND classDate <= CURDATE() ORDER BY classDate ASC");
             $stmtCal->execute([$facultyCode, $semesterId]);
+            $calendarDates = $stmtCal->fetchAll(PDO::FETCH_COLUMN);
         } else {
-            $stmtCal = $pdo->prepare("SELECT classDate FROM tblfacultycalendar WHERE facultyCode = ? AND classDate <= CURDATE() ORDER BY classDate ASC");
-            $stmtCal->execute([$facultyCode]);
+            $calendarDates = []; // no semester resolved — fall through to attendance-table counts
         }
-        $calendarDates = $stmtCal->fetchAll(PDO::FETCH_COLUMN);
 
         if (count($calendarDates) > 0) {
             // Get present dates for this student in this course/unit

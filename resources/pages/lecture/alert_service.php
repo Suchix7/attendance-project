@@ -47,38 +47,29 @@ if (!function_exists('is_scheduled_class_day')) {
                 }
             }
 
-            // Check whether ANY calendar entries exist for this faculty and semester
-            if ($semesterId) {
-                $stmtCount = $pdo->prepare(
-                    "SELECT COUNT(*) FROM tblfacultycalendar WHERE facultyCode = ? AND semesterID = ?"
-                );
-                $stmtCount->execute([$facultyCode, $semesterId]);
-            } else {
-                $stmtCount = $pdo->prepare(
-                    "SELECT COUNT(*) FROM tblfacultycalendar WHERE facultyCode = ?"
-                );
-                $stmtCount->execute([$facultyCode]);
+            // If no semester is scoped we cannot isolate this semester's calendar.
+            // Fail-open: allow the attendance marking rather than blocking with mixed data.
+            if (!$semesterId) {
+                return true;
             }
+
+            // Check whether ANY calendar entries exist for this faculty + semester
+            $stmtCount = $pdo->prepare(
+                "SELECT COUNT(*) FROM tblfacultycalendar WHERE facultyCode = ? AND semesterID = ?"
+            );
+            $stmtCount->execute([$facultyCode, $semesterId]);
             $totalEntries = (int) $stmtCount->fetchColumn();
 
             if ($totalEntries === 0) {
-                return true; // calendar not set up yet → no restriction
+                return true; // calendar not set up yet for this semester → no restriction
             }
 
-            // Check whether the specific date is scheduled
-            if ($semesterId) {
-                $stmtDate = $pdo->prepare(
-                    "SELECT COUNT(*) FROM tblfacultycalendar
-                     WHERE facultyCode = ? AND semesterID = ? AND classDate = ?"
-                );
-                $stmtDate->execute([$facultyCode, $semesterId, $date]);
-            } else {
-                $stmtDate = $pdo->prepare(
-                    "SELECT COUNT(*) FROM tblfacultycalendar
-                     WHERE facultyCode = ? AND classDate = ?"
-                );
-                $stmtDate->execute([$facultyCode, $date]);
-            }
+            // Check whether this specific date is in this semester's schedule
+            $stmtDate = $pdo->prepare(
+                "SELECT COUNT(*) FROM tblfacultycalendar
+                 WHERE facultyCode = ? AND semesterID = ? AND classDate = ?"
+            );
+            $stmtDate->execute([$facultyCode, $semesterId, $date]);
 
             return (int) $stmtDate->fetchColumn() > 0;
         } catch (Exception $e) {
@@ -253,17 +244,15 @@ if (!function_exists('evaluate_and_send_alerts')) {
             // 3. Check if cumulative attendance for this course and unit falls below threshold
             $threshold = (int)get_setting($pdo, 'attendance_threshold', '75');
 
-            // Fetch calendar dates up to today scoped to the semester
+            // Fetch calendar dates scoped strictly to the resolved semester.
+            // Never query without semesterID — it would merge dates from all semesters.
             if ($facultyCode && $semesterId) {
                 $stmtCal = $pdo->prepare("SELECT classDate FROM tblfacultycalendar WHERE facultyCode = ? AND semesterID = ? AND classDate <= CURDATE() ORDER BY classDate ASC");
                 $stmtCal->execute([$facultyCode, $semesterId]);
-            } else if ($facultyCode) {
-                $stmtCal = $pdo->prepare("SELECT classDate FROM tblfacultycalendar WHERE facultyCode = ? AND classDate <= CURDATE() ORDER BY classDate ASC");
-                $stmtCal->execute([$facultyCode]);
+                $calendarDates = $stmtCal->fetchAll(PDO::FETCH_COLUMN);
             } else {
-                $stmtCal = null;
+                $calendarDates = []; // no semester — fall through to attendance-table counts
             }
-            $calendarDates = $stmtCal ? $stmtCal->fetchAll(PDO::FETCH_COLUMN) : [];
 
             if (count($calendarDates) > 0) {
                 // Get present dates for this student in this course/unit

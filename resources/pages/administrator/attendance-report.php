@@ -23,11 +23,19 @@ if ($selectedFaculty) {
     if ($selectedSemester) {
         $stmtCal = $pdo->prepare("SELECT DISTINCT classDate FROM tblfacultycalendar WHERE facultyCode = ? AND semesterID = ? AND classDate <= CURDATE() ORDER BY classDate ASC");
         $stmtCal->execute([$selectedFaculty, $selectedSemester]);
+        $calendarDates = $stmtCal->fetchAll(PDO::FETCH_COLUMN);
     } else {
-        $stmtCal = $pdo->prepare("SELECT DISTINCT classDate FROM tblfacultycalendar WHERE facultyCode = ? AND classDate <= CURDATE() ORDER BY classDate ASC");
-        $stmtCal->execute([$selectedFaculty]);
+        // No semester explicitly selected — resolve the active one so we never mix semesters
+        $activeSemForCal = function_exists('getActiveSemester') ? getActiveSemester($pdo, $selectedFaculty) : null;
+        if ($activeSemForCal) {
+            $selectedSemester = $activeSemForCal['Id']; // keep consistent for the rest of the page
+            $stmtCal = $pdo->prepare("SELECT DISTINCT classDate FROM tblfacultycalendar WHERE facultyCode = ? AND semesterID = ? AND classDate <= CURDATE() ORDER BY classDate ASC");
+            $stmtCal->execute([$selectedFaculty, $selectedSemester]);
+            $calendarDates = $stmtCal->fetchAll(PDO::FETCH_COLUMN);
+        }
+        // If no active semester exists, $calendarDates stays [] and the attendance-table
+        // fallback later in the page will handle display gracefully.
     }
-    $calendarDates = $stmtCal->fetchAll(PDO::FETCH_COLUMN);
 }
 
 // Fallback: use unique dates from attendance table when no calendar is configured
