@@ -17,7 +17,7 @@ if (isset($_POST['addStudent'])) {
         $registrationNumber = $_POST['registrationNumber'];
         $courseCode = $_POST['course'];
         $faculty = $_POST['faculty'];
-        $semesterID = isset($_POST['semester']) ? (int)$_POST['semester'] : 0;
+        $semesterID = isset($_POST['semester']) ? (int) $_POST['semester'] : 0;
         $dateRegistered = date("Y-m-d");
 
         if (!preg_match("/^[a-zA-Z]+$/", $firstName)) {
@@ -239,20 +239,20 @@ if (isset($_POST['editStudent'])) {
         $registrationNumber = $_POST['registrationNumber'];
         $courseCode = $_POST['course'];
         $faculty = $_POST['faculty'];
-        $semesterID = isset($_POST['semester']) ? (int)$_POST['semester'] : 0;
+        $semesterID = isset($_POST['semester']) ? (int) $_POST['semester'] : 0;
 
 
-    if (!preg_match("/^[a-zA-Z]+$/", $firstName)) {
-    throw new Exception("First name must contain letters only");
-}
-if (!preg_match("/^[a-zA-Z]+$/", $lastName)) {
-    throw new Exception("Last name must contain letters only");
-}
+        if (!preg_match("/^[a-zA-Z]+$/", $firstName)) {
+            throw new Exception("First name must contain letters only");
+        }
+        if (!preg_match("/^[a-zA-Z]+$/", $lastName)) {
+            throw new Exception("Last name must contain letters only");
+        }
 
-// Validate email
-if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    throw new Exception("Invalid email address");
-}
+        // Validate email
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            throw new Exception("Invalid email address");
+        }
 
         debug_log("Student update details: " . json_encode([
             'id' => $studentId,
@@ -363,14 +363,14 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 
                 <div class="table">
                     <table>
-                        <thead                            <tr>
-                                <th>Registration No</th>
-                                <th>Name</th>
-                                <th>Faculty</th>
-                                <th>Course</th>
-                                <th>Semester</th>
-                                <th>Email</th>
-                                <th>Settings</th>
+                        <thead <tr>
+                            <th>Registration No</th>
+                            <th>Name</th>
+                            <th>Faculty</th>
+                            <th>Course</th>
+                            <th>Semester</th>
+                            <th>Email</th>
+                            <th>Settings</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -426,13 +426,15 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
                     </div>
                     <div>
                         <div>
-                            <input type="text" name="firstName" placeholder="First Name"required>
+                            <input type="text" name="firstName" placeholder="First Name" required>
                             <input type="text" name="lastName" " placeholder=" Last Name"required>
                             <input type="email" name="email" placeholder="Email Address">
                             <input type="text" required id="registrationNumber" name="registrationNumber"
                                 placeholder="Registration Number"> <br>
-                            <p id="error" style="color: red; display: none;">Invalid characters in registration number.</p>
-                            <select required name="faculty" id="facultySelect" onchange="filterSemesters('facultySelect', 'semesterSelect')">
+                            <p id="error" style="color: red; display: none;">Invalid characters in registration number.
+                            </p>
+                            <select required name="faculty" id="facultySelect"
+                                onchange="filterSemesters('facultySelect', 'semesterSelect')">
                                 <option value="" selected>Select Faculty</option>
                                 <?php
                                 $facultyNames = getFacultyNames();
@@ -441,7 +443,7 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
                                 }
                                 ?>
                             </select> <br />
- 
+
                             <select required name="course">
                                 <option value="" selected>Select Course</option>
                                 <?php
@@ -462,7 +464,7 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
                                     }
                                 }
                                 ?>
-                            </select>t>
+                            </select>
                         </div>
                         <div>
                             <div class="form-title-image">
@@ -507,7 +509,8 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
                         <input type="text" required id="editRegistrationNumber" name="registrationNumber"
                             placeholder="Registration Number">
                         <p id="editError" style="color: red; display: none;">Invalid characters in registration number.
-                        </p>                        <select required name="faculty" id="editFaculty" onchange="filterSemesters('editFaculty', 'editSemester')">
+                        </p> <select required name="faculty" id="editFaculty"
+                            onchange="filterSemesters('editFaculty', 'editSemester')">
                             <option value="">Select Faculty</option>
                             <?php
                             $facultyNames = getFacultyNames();
@@ -516,7 +519,7 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
                             }
                             ?>
                         </select>
- 
+
                         <select required name="course" id="editCourse">
                             <option value="">Select Course</option>
                             <?php
@@ -571,12 +574,12 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         });
 
         const allSemesters = <?php echo json_encode(function_exists('getAllSemesters') ? getAllSemesters($pdo) : []); ?>;
-        
+
         function filterSemesters(facultySelectId, semesterSelectId, selectedSemId = '') {
             const facultyVal = document.getElementById(facultySelectId).value;
             const semSelect = document.getElementById(semesterSelectId);
             semSelect.innerHTML = '<option value="">Select Semester</option>';
-            
+
             allSemesters.forEach(sem => {
                 if (!facultyVal || sem.facultyCode === facultyVal) {
                     const opt = document.createElement('option');

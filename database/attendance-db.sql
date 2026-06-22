@@ -121,7 +121,7 @@ CREATE TABLE `tbllecture` (
 --
 
 INSERT INTO `tbllecture` (`Id`, `firstName`, `lastName`, `emailAddress`, `password`, `phoneNo`, `facultyCode`, `dateCreated`) VALUES
-(15, 'mark', 'lila', 'mark@gmail.com', '$2y$10$/st06w2mh/4adxGE9yCxROHkqHp6SzRARGhfCIg95zC3cxqbmkpaW', '07123456789', 'CIT', '2024-04-07');
+(15, 'mark', 'lila', 'mark@gmail.com', '$2y$10$kW9x9dhfPXxvPJzDyUVEZenUKwwgIUb.60y9/5b9IlJNaClKMGap.', '07123456789', 'CIT', '2024-04-07');
 
 -- --------------------------------------------------------
 

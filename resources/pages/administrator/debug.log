@@ -1351,3 +1351,73 @@
 2026-06-19 11:46:31 - Starting student update process
 2026-06-19 11:46:31 - Student update details: {"id":141,"name":"Sujal Chitrakar","reg":"89889"}
 2026-06-19 11:46:31 - Student update completed successfully
+2026-06-22 19:20:42 - Starting student update process
+2026-06-22 19:20:42 - Student update details: {"id":141,"name":"Sujal Chitrakar","reg":"89889"}
+2026-06-22 19:20:42 - Student update completed successfully
+2026-06-22 19:29:20 - Starting student registration process
+2026-06-22 19:29:20 - Error: Invalid email address
+2026-06-22 19:30:17 - Starting student registration process
+2026-06-22 19:30:17 - Student details: {"name":"Ram aha","reg":"123"}
+2026-06-22 19:30:17 - Base directory: C:\xampp\htdocs\new\Face-Recognition-Attendance-System
+2026-06-22 19:30:17 - Python script path: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/python/realtime_recognition.py
+2026-06-22 19:30:17 - Creating student directory: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/123
+2026-06-22 19:30:17 - Creating student directory: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student123
+2026-06-22 19:30:17 - Creating student directory: resources/labels/123
+2026-06-22 19:30:17 - Processing image 1 for student 123
+2026-06-22 19:30:17 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/123/face_1.jpg
+2026-06-22 19:30:17 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student123/face_1.jpg
+2026-06-22 19:30:17 - Saved image to: resources/labels/123/face_1.jpg
+2026-06-22 19:30:17 - Processing image 2 for student 123
+2026-06-22 19:30:17 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/123/face_2.jpg
+2026-06-22 19:30:17 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student123/face_2.jpg
+2026-06-22 19:30:17 - Saved image to: resources/labels/123/face_2.jpg
+2026-06-22 19:30:17 - Processing image 3 for student 123
+2026-06-22 19:30:17 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/123/face_3.jpg
+2026-06-22 19:30:17 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student123/face_3.jpg
+2026-06-22 19:30:17 - Saved image to: resources/labels/123/face_3.jpg
+2026-06-22 19:30:17 - Processing image 4 for student 123
+2026-06-22 19:30:17 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/123/face_4.jpg
+2026-06-22 19:30:17 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student123/face_4.jpg
+2026-06-22 19:30:17 - Saved image to: resources/labels/123/face_4.jpg
+2026-06-22 19:30:17 - Processing image 5 for student 123
+2026-06-22 19:30:17 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/123/face_5.jpg
+2026-06-22 19:30:17 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student123/face_5.jpg
+2026-06-22 19:30:17 - Saved image to: resources/labels/123/face_5.jpg
+2026-06-22 19:30:17 - Processing image 6 for student 123
+2026-06-22 19:30:17 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/123/face_6.jpg
+2026-06-22 19:30:17 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student123/face_6.jpg
+2026-06-22 19:30:17 - Saved image to: resources/labels/123/face_6.jpg
+2026-06-22 19:30:17 - Processing image 7 for student 123
+2026-06-22 19:30:17 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/123/face_7.jpg
+2026-06-22 19:30:17 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student123/face_7.jpg
+2026-06-22 19:30:17 - Saved image to: resources/labels/123/face_7.jpg
+2026-06-22 19:30:17 - Processing image 8 for student 123
+2026-06-22 19:30:17 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/123/face_8.jpg
+2026-06-22 19:30:17 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student123/face_8.jpg
+2026-06-22 19:30:17 - Saved image to: resources/labels/123/face_8.jpg
+2026-06-22 19:30:17 - Processing image 9 for student 123
+2026-06-22 19:30:17 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/123/face_9.jpg
+2026-06-22 19:30:17 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student123/face_9.jpg
+2026-06-22 19:30:17 - Saved image to: resources/labels/123/face_9.jpg
+2026-06-22 19:30:17 - Processing image 10 for student 123
+2026-06-22 19:30:17 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/123/face_10.jpg
+2026-06-22 19:30:17 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student123/face_10.jpg
+2026-06-22 19:30:17 - Saved image to: resources/labels/123/face_10.jpg
+2026-06-22 19:30:17 - Saved student info files
+2026-06-22 19:30:17 - Executing command: python "C:\xampp\htdocs\new\Face-Recognition-Attendance-System/python/realtime_recognition.py" --train
+2026-06-22 19:30:19 - Command output: Array
+(
+    [0] => 2026-06-22 23:15:18,042 - INFO - Processing student 123 with label 0
+    [1] => 2026-06-22 23:15:18,545 - INFO - Training LBPH...
+    [2] => 2026-06-22 23:15:18,716 - INFO - Training Eigenfaces...
+    [3] => C:\xampp\htdocs\new\Face-Recognition-Attendance-System\python\realtime_recognition.py:108: DeprecationWarning: The 'warn' function is deprecated, use 'warning' instead
+    [4] =>   logging.warn("Fisherfaces skipped: need at least 2 students")
+    [5] => 2026-06-22 23:15:18,994 - WARNING - Fisherfaces skipped: need at least 2 students
+    [6] => {"success": true, "message": "Trained 1 students with 40 images using multiple algorithms"}
+)
+
+2026-06-22 19:30:19 - Return code: 0
+2026-06-22 19:30:19 - Student registration completed successfully
+2026-06-22 20:07:05 - Starting student update process
+2026-06-22 20:07:05 - Student update details: {"id":141,"name":"Sujal Chitrakar","reg":"89889"}
+2026-06-22 20:07:05 - Student update completed successfully

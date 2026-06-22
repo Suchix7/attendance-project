@@ -24,9 +24,14 @@ try {
         throw new Exception('Failed to save uploaded image');
     }
 
+    $algo = isset($_POST['algorithm']) ? $_POST['algorithm'] : 'lbph';
+    if (!in_array($algo, ['lbph', 'eigen', 'fisher'])) {
+        $algo = 'lbph';
+    }
+
     // Call Python script for face recognition
     $pythonScript = __DIR__ . '/python/realtime_recognition.py';
-    $command = "python \"$pythonScript\" \"$tempImage\"";
+    $command = "python \"$pythonScript\" \"$tempImage\" --algorithm " . escapeshellarg($algo);
 
     logMessage("Executing command: $command");
     $output = [];
@@ -62,7 +67,8 @@ try {
         'success' => true,
         'predicted_student_id' => $result['student_id'],
         'confidence' => $result['confidence'],
-        'face_location' => $result['face_location']
+        'face_location' => $result['face_location'],
+        'algorithm' => $result['algorithm'] ?? $algo
     ]);
 
 } catch (Exception $e) {

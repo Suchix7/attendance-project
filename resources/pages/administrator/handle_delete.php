@@ -1,5 +1,5 @@
 <?php
-require_once('../../../database/database_connection.php');
+require_once __DIR__ . '/../../../database/database_connection.php';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $input = json_decode(file_get_contents('php://input'), true);
 
@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 if ($student) {
                     $regNum = $student['registrationNumber'];
                     $baseDir = realpath(__DIR__ . '/../../..');
-                    
+
                     // Paths to delete
                     $studentDir = $baseDir . '/students/' . $regNum;
                     $validatedDir = $baseDir . '/validated_faces/student' . $regNum;
@@ -53,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $stmt->execute([':id' => $id]);
 
             echo json_encode(['success' => true]);
-        } catch (PDOException $e) {
+        } catch (Throwable $e) {
             echo json_encode(['success' => false, 'error' => $e->getMessage()]);
         }
     } else {

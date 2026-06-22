@@ -88,7 +88,7 @@ if (!empty($unitCode)) {
                             </tr>
                         </thead>
                         <tbody>
-                            <?php 
+                            <?php
                             $semesterId = 0;
                             if (!empty($courseCode)) {
                                 $stmtFaculty = $pdo->prepare("SELECT f.facultyCode FROM tblcourse c JOIN tblfaculty f ON c.facultyID = f.Id WHERE c.courseCode = ?");

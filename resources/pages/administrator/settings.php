@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['save_settings'])) {
         try {
             // Update confidence threshold
             $stmt = $pdo->prepare("INSERT INTO tblsettings (setting_key, setting_value) VALUES ('face_confidence_threshold', :val) ON DUPLICATE KEY UPDATE setting_value = :val");
-            $stmt->execute([':val' => (string)$threshold]);
+            $stmt->execute([':val' => (string) $threshold]);
 
             // Update email alerts mode
             $stmt = $pdo->prepare("INSERT INTO tblsettings (setting_key, setting_value) VALUES ('email_alerts_mode', :val) ON DUPLICATE KEY UPDATE setting_value = :val");
@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['save_settings'])) {
 
             // Update attendance threshold
             $stmt = $pdo->prepare("INSERT INTO tblsettings (setting_key, setting_value) VALUES ('attendance_threshold', :val) ON DUPLICATE KEY UPDATE setting_value = :val");
-            $stmt->execute([':val' => (string)$attendance_threshold]);
+            $stmt->execute([':val' => (string) $attendance_threshold]);
 
             $message = "Settings updated successfully.";
         } catch (PDOException $e) {
@@ -125,7 +125,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
 
         $percentage = ($presentCount / $totalClasses) * 100;
         $threshold = (int)get_setting($pdo, 'attendance_threshold', '75');
-        
+
         $is_below_threshold = ($percentage < $threshold);
         $percentFormatted = round($percentage, 1);
 
@@ -262,7 +262,8 @@ try {
             font-size: 0.9rem;
         }
 
-        .setting-field input, .setting-field select {
+        .setting-field input,
+        .setting-field select {
             padding: 12px 16px;
             border: 1.5px solid #dcdfe6;
             border-radius: 8px;
@@ -272,7 +273,8 @@ try {
             transition: all 0.3s ease;
         }
 
-        .setting-field input:focus, .setting-field select:focus {
+        .setting-field input:focus,
+        .setting-field select:focus {
             border-color: #409eff;
             background-color: #ffffff;
             outline: none;
@@ -380,7 +382,7 @@ try {
     <section class="main">
         <?php include 'includes/sidebar.php'; ?>
         <div class="main--content">
-            
+
             <div class="overview">
                 <div class="title">
                     <h2 class="section--title">System Configuration</h2>
@@ -406,22 +408,29 @@ try {
                     <div class="form-grid">
                         <div class="setting-field">
                             <label for="face_confidence_threshold">Face Recognition Confidence Threshold (%)</label>
-                            <input type="number" name="face_confidence_threshold" id="face_confidence_threshold" min="0" max="100" value="<?php echo htmlspecialchars($current_threshold); ?>" required>
-                            <p class="alert-info-text">Minimum matching confidence score (0-100) required to recognize a student's face. Defaults to 65%.</p>
+                            <input type="number" name="face_confidence_threshold" id="face_confidence_threshold" min="0"
+                                max="100" value="<?php echo htmlspecialchars($current_threshold); ?>" required>
+                            <p class="alert-info-text">Minimum matching confidence score (0-100) required to recognize a
+                                student's face. Defaults to 65%.</p>
                         </div>
                         <div class="setting-field">
                             <label for="email_alerts_mode">Email Notification Mode</label>
                             <select name="email_alerts_mode" id="email_alerts_mode" required>
-                                <option value="auto" <?php echo $current_email_mode === 'auto' ? 'selected' : ''; ?>>Auto (Stateful Alert Suppression)</option>
-                                <option value="manual" <?php echo $current_email_mode === 'manual' ? 'selected' : ''; ?>>Manual (Dispatch via Dashboard)</option>
+                                <option value="auto" <?php echo $current_email_mode === 'auto' ? 'selected' : ''; ?>>Auto
+                                    (Stateful Alert Suppression)</option>
+                                <option value="manual" <?php echo $current_email_mode === 'manual' ? 'selected' : ''; ?>>
+                                    Manual (Dispatch via Dashboard)</option>
                                 <option value="disabled" <?php echo $current_email_mode === 'disabled' ? 'selected' : ''; ?>>Disabled (No Emails Sent)</option>
                             </select>
-                            <p class="alert-info-text">Select how email alerts are handled. Auto uses 3-day suppressive rules; Manual lets you review and send below; Disabled stops all alerts.</p>
+                            <p class="alert-info-text">Select how email alerts are handled. Auto uses 3-day suppressive
+                                rules; Manual lets you review and send below; Disabled stops all alerts.</p>
                         </div>
                         <div class="setting-field">
                             <label for="attendance_threshold">Minimum Attendance Threshold (%)</label>
-                            <input type="number" name="attendance_threshold" id="attendance_threshold" min="0" max="100" value="<?php echo htmlspecialchars($current_attendance_threshold); ?>" required>
-                            <p class="alert-info-text">Minimum attendance percentage required for students to be eligible for exams. Defaults to 75%.</p>
+                            <input type="number" name="attendance_threshold" id="attendance_threshold" min="0" max="100"
+                                value="<?php echo htmlspecialchars($current_attendance_threshold); ?>" required>
+                            <p class="alert-info-text">Minimum attendance percentage required for students to be
+                                eligible for exams. Defaults to 75%.</p>
                         </div>
                     </div>
                     <button type="submit" name="save_settings" class="save-settings-btn">

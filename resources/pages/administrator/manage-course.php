@@ -4,12 +4,12 @@ require_once __DIR__ . '/../../lib/nepali_calendar.php';
 
 // ---- Semester CRUD ----
 if (isset($_POST['addSemester'])) {
-    $semName    = htmlspecialchars(trim($_POST['semName']));
-    $facCode    = htmlspecialchars(trim($_POST['semFacultyCode']));
-    $startDate  = $_POST['semStartDate'];
-    $endDate    = $_POST['semEndDate'];
-    $isActive   = isset($_POST['semIsActive']) ? 1 : 0;
-    $today      = date('Y-m-d');
+    $semName = htmlspecialchars(trim($_POST['semName']));
+    $facCode = htmlspecialchars(trim($_POST['semFacultyCode']));
+    $startDate = $_POST['semStartDate'];
+    $endDate = $_POST['semEndDate'];
+    $isActive = isset($_POST['semIsActive']) ? 1 : 0;
+    $today = date('Y-m-d');
 
     if ($semName && $facCode && $startDate && $endDate) {
         try {
@@ -29,12 +29,12 @@ if (isset($_POST['addSemester'])) {
 }
 
 if (isset($_POST['editSemester'])) {
-    $semId     = (int)$_POST['semId'];
-    $semName   = htmlspecialchars(trim($_POST['semName']));
-    $facCode   = htmlspecialchars(trim($_POST['semFacultyCode']));
+    $semId = (int) $_POST['semId'];
+    $semName = htmlspecialchars(trim($_POST['semName']));
+    $facCode = htmlspecialchars(trim($_POST['semFacultyCode']));
     $startDate = $_POST['semStartDate'];
-    $endDate   = $_POST['semEndDate'];
-    $isActive  = isset($_POST['semIsActive']) ? 1 : 0;
+    $endDate = $_POST['semEndDate'];
+    $isActive = isset($_POST['semIsActive']) ? 1 : 0;
 
     if ($semId && $semName && $facCode && $startDate && $endDate) {
         try {
@@ -51,7 +51,7 @@ if (isset($_POST['editSemester'])) {
 }
 
 if (isset($_GET['deleteSemester'])) {
-    $semId = (int)$_GET['deleteSemester'];
+    $semId = (int) $_GET['deleteSemester'];
     if ($semId) {
         try {
             $pdo->prepare("DELETE FROM tblsemester WHERE Id=?")->execute([$semId]);
@@ -67,7 +67,7 @@ if (isset($_GET['deleteSemester'])) {
 }
 
 if (isset($_GET['toggleActiveSemester'])) {
-    $semId = (int)$_GET['toggleActiveSemester'];
+    $semId = (int) $_GET['toggleActiveSemester'];
     $facCode = $_GET['fac'] ?? '';
     if ($semId && $facCode) {
         try {
@@ -285,10 +285,15 @@ if (isset($_POST["editFaculty"])) {
                     <div class="card card-1" id="addSemesterCard">
                         <div class="card--data">
                             <div class="card--content">
-                                <button class="add" onclick="document.getElementById('addSemesterForm').style.display='flex'; document.getElementById('overlay').style.display='block';"><i class="ri-calendar-2-line"></i>Add Semester</button>
+                                <button class="add"
+                                    onclick="document.getElementById('addSemesterForm').style.display='flex'; document.getElementById('overlay').style.display='block';"><i
+                                        class="ri-calendar-2-line"></i>Add Semester</button>
                                 <?php
-                                try { $semCount = $pdo->query('SELECT COUNT(*) FROM tblsemester')->fetchColumn(); }
-                                catch(Exception $e) { $semCount = 0; }
+                                try {
+                                    $semCount = $pdo->query('SELECT COUNT(*) FROM tblsemester')->fetchColumn();
+                                } catch (Exception $e) {
+                                    $semCount = 0;
+                                }
                                 ?>
                                 <h1><?= $semCount ?> Semesters</h1>
                             </div>
@@ -503,231 +508,239 @@ if (isset($_POST["editFaculty"])) {
                             </tr>
                         </thead>
                         <tbody>
-                        <?php
-                        try {
-                            $semRows = getAllSemesters($pdo);
-                            if ($semRows) {
-                                foreach ($semRows as $sem) {
-                                    $activeBadge = $sem['isActive']
-                                        ? '<span style="background:#dcfce7;color:#166534;padding:2px 10px;border-radius:99px;font-size:0.78rem;font-weight:700;">Active</span>'
-                                        : '<span style="background:#f1f5f9;color:#64748b;padding:2px 10px;border-radius:99px;font-size:0.78rem;">Inactive</span>';
-                                    $startBS = formatNepaliDate($sem['startDate'], 'short');
-                                    $endBS   = formatNepaliDate($sem['endDate'],   'short');
-                                    echo "<tr id='rowsemester{$sem['Id']}'>"
-                                       . "<td>" . htmlspecialchars($sem['facultyName'] ?? $sem['facultyCode']) . "</td>"
-                                       . "<td><strong>" . htmlspecialchars($sem['name']) . "</strong></td>"
-                                       . "<td>$startBS</td>"
-                                       . "<td>$endBS</td>"
-                                       . "<td>$activeBadge</td>"
-                                       . "<td><span>"
-                                       . (!$sem['isActive'] ? "<a href='?toggleActiveSemester={$sem['Id']}&fac={$sem['facultyCode']}' style='color:#16a34a;font-size:0.8rem;margin-right:8px;' onclick=\"return confirm('Set this as active semester?')\">▶ Set Active</a>" : '')
-                                       . "<i class='ri-edit-line edit' data-id='{$sem['Id']}' data-name='semester'
+                            <?php
+                            try {
+                                $semRows = getAllSemesters($pdo);
+                                if ($semRows) {
+                                    foreach ($semRows as $sem) {
+                                        $activeBadge = $sem['isActive']
+                                            ? '<span style="background:#dcfce7;color:#166534;padding:2px 10px;border-radius:99px;font-size:0.78rem;font-weight:700;">Active</span>'
+                                            : '<span style="background:#f1f5f9;color:#64748b;padding:2px 10px;border-radius:99px;font-size:0.78rem;">Inactive</span>';
+                                        $startBS = formatNepaliDate($sem['startDate'], 'short');
+                                        $endBS = formatNepaliDate($sem['endDate'], 'short');
+                                        echo "<tr id='rowsemester{$sem['Id']}'>"
+                                            . "<td>" . htmlspecialchars($sem['facultyName'] ?? $sem['facultyCode']) . "</td>"
+                                            . "<td><strong>" . htmlspecialchars($sem['name']) . "</strong></td>"
+                                            . "<td>$startBS</td>"
+                                            . "<td>$endBS</td>"
+                                            . "<td>$activeBadge</td>"
+                                            . "<td><span>"
+                                            . (!$sem['isActive'] ? "<a href='?toggleActiveSemester={$sem['Id']}&fac={$sem['facultyCode']}' style='color:#16a34a;font-size:0.8rem;margin-right:8px;' onclick=\"return confirm('Set this as active semester?')\">▶ Set Active</a>" : '')
+                                            . "<i class='ri-edit-line edit' data-id='{$sem['Id']}' data-name='semester'
                                             data-semname='" . htmlspecialchars($sem['name'], ENT_QUOTES) . "'
                                             data-faccode='" . htmlspecialchars($sem['facultyCode'], ENT_QUOTES) . "'
                                             data-start='" . htmlspecialchars($sem['startDate'], ENT_QUOTES) . "'
-                                            data-end='"   . htmlspecialchars($sem['endDate'],   ENT_QUOTES) . "'
+                                            data-end='" . htmlspecialchars($sem['endDate'], ENT_QUOTES) . "'
                                             data-active='" . $sem['isActive'] . "'></i>"
-                                       . "<a href='?deleteSemester={$sem['Id']}' onclick=\"return confirm('Delete semester and its calendar entries?')\">"
-                                       . "<i class='ri-delete-bin-line delete'></i></a>"
-                                       . "</span></td>"
-                                       . "</tr>";
+                                            . "<a href='?deleteSemester={$sem['Id']}' onclick=\"return confirm('Delete semester and its calendar entries?')\">"
+                                            . "<i class='ri-delete-bin-line delete'></i></a>"
+                                            . "</span></td>"
+                                            . "</tr>";
+                                    }
+                                } else {
+                                    echo "<tr><td colspan='6' style='text-align:center;color:#94a3b8;'>No semesters yet. Add one above.</td></tr>";
                                 }
-                            } else {
-                                echo "<tr><td colspan='6' style='text-align:center;color:#94a3b8;'>No semesters yet. Add one above.</td></tr>";
+                            } catch (Exception $e) {
+                                echo "<tr><td colspan='6'>Error: " . htmlspecialchars($e->getMessage()) . "</td></tr>";
                             }
-                        } catch (Exception $e) {
-                            echo "<tr><td colspan='6'>Error: " . htmlspecialchars($e->getMessage()) . "</td></tr>";
-                        }
-                        ?>
+                            ?>
                         </tbody>
                     </table>
                 </div>
             </div>
             <!-- end semester table -->
-        <div class="formDiv" id="addCourseForm" style="display:none; ">
+            <div class="formDiv" id="addCourseForm" style="display:none; ">
 
-            <form method="POST" action="" name="addCourse" enctype="multipart/form-data">
-                <div style="display:flex; justify-content:space-around;">
-                    <div class="form-title">
-                        <p>Add Course</p>
+                <form method="POST" action="" name="addCourse" enctype="multipart/form-data">
+                    <div style="display:flex; justify-content:space-around;">
+                        <div class="form-title">
+                            <p>Add Course</p>
+                        </div>
+                        <div>
+                            <span class="close">&times;</span>
+                        </div>
                     </div>
-                    <div>
-                        <span class="close">&times;</span>
+
+                    <input type="text" name="courseName" placeholder="Course Name" required>
+                    <input type="text" name="courseCode" placeholder="Course Code" required>
+
+
+                    <select required name="faculty">
+                        <option value="" selected>Select Faculty</option>
+                        <?php
+                        $facultyNames = getFacultyNames();
+                        foreach ($facultyNames as $faculty) {
+                            echo '<option value="' . $faculty["Id"] . '">' . $faculty["facultyName"] . '</option>';
+                        }
+                        ?>
+                    </select>
+
+                    <input type="submit" class="submit" value="Save Course" name="addCourse">
+                </form>
+            </div>
+
+            <div class="formDiv" id="addUnitForm" style="display:none; ">
+                <form method="POST" action="" name="addUnit" enctype="multipart/form-data">
+                    <div style="display:flex; justify-content:space-around;">
+                        <div class="form-title">
+                            <p>Add Unit</p>
+                        </div>
+                        <div>
+                            <span class="close">&times;</span>
+                        </div>
                     </div>
-                </div>
 
-                <input type="text" name="courseName" placeholder="Course Name" required>
-                <input type="text" name="courseCode" placeholder="Course Code" required>
+                    <input type="text" name="unitName" placeholder="Unit Name" required>
+                    <input type="text" name="unitCode" placeholder="Unit Code" required>
 
+                    <select required name="lecture">
+                        <option value="" selected>Assign Lecture</option>
+                        <?php
+                        $lectureNames = getLectureNames();
+                        foreach ($lectureNames as $lecture) {
+                            echo '<option value="' . $lecture["Id"] . '">' . $lecture["firstName"] . ' ' . $lecture["lastName"] . '</option>';
+                        }
+                        ?>
+                    </select>
+                    <select required name="course">
+                        <option value="" selected>Select Course</option>
+                        <?php
+                        $courseNames = getCourseNames();
+                        foreach ($courseNames as $course) {
+                            echo '<option value="' . $course["Id"] . '">' . $course["name"] . '</option>';
+                        }
+                        ?>
+                    </select>
 
-                <select required name="faculty">
-                    <option value="" selected>Select Faculty</option>
-                    <?php
-                    $facultyNames = getFacultyNames();
-                    foreach ($facultyNames as $faculty) {
-                        echo '<option value="' . $faculty["Id"] . '">' . $faculty["facultyName"] . '</option>';
-                    }
-                    ?>
-                </select>
+                    <input type="submit" class="submit" value="Save Unit" name="addUnit">
+                </form>
+            </div>
 
-                <input type="submit" class="submit" value="Save Course" name="addCourse">
-            </form>
-        </div>
-
-        <div class="formDiv" id="addUnitForm" style="display:none; ">
-            <form method="POST" action="" name="addUnit" enctype="multipart/form-data">
-                <div style="display:flex; justify-content:space-around;">
-                    <div class="form-title">
-                        <p>Add Unit</p>
+            <div class="formDiv" id="addSemesterForm" style="display:none;">
+                <form method="POST" action="">
+                    <div style="display:flex; justify-content:space-around;">
+                        <div class="form-title">
+                            <p>Add Semester</p>
+                        </div>
+                        <div><span class="close">&times;</span></div>
                     </div>
-                    <div>
-                        <span class="close">&times;</span>
+                    <select required name="semFacultyCode">
+                        <option value="">Select Faculty</option>
+                        <?php foreach (getFacultyNames() as $f): ?>
+                            <option value="<?= htmlspecialchars($f['facultyCode']) ?>">
+                                <?= htmlspecialchars($f['facultyName']) ?>
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
+                    <input type="text" name="semName" placeholder="Semester Name (e.g. Semester I 2081)" required>
+                    <label style="font-size:0.82rem;color:#64748b;margin-top:8px;display:block;">Start Date (AD)</label>
+                    <input type="date" name="semStartDate" required>
+                    <label style="font-size:0.82rem;color:#64748b;margin-top:8px;display:block;">End Date (AD)</label>
+                    <input type="date" name="semEndDate" required>
+                    <label style="display:flex;align-items:center;gap:8px;margin-top:12px;font-size:0.9rem;">
+                        <input type="checkbox" name="semIsActive" value="1"> Set as Active Semester for this Faculty
+                    </label>
+                    <input type="submit" class="submit" value="Save Semester" name="addSemester">
+                </form>
+            </div>
+
+            <div class="formDiv" id="editSemesterForm" style="display:none;">
+                <form method="POST" action="">
+                    <div style="display:flex; justify-content:space-around;">
+                        <div class="form-title">
+                            <p>Edit Semester</p>
+                        </div>
+                        <div><span class="close">&times;</span></div>
                     </div>
-                </div>
+                    <input type="hidden" name="semId" id="editSemId">
+                    <select required name="semFacultyCode" id="editSemFaculty">
+                        <option value="">Select Faculty</option>
+                        <?php foreach (getFacultyNames() as $f): ?>
+                            <option value="<?= htmlspecialchars($f['facultyCode']) ?>">
+                                <?= htmlspecialchars($f['facultyName']) ?>
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
+                    <input type="text" name="semName" id="editSemName" placeholder="Semester Name" required>
+                    <label style="font-size:0.82rem;color:#64748b;margin-top:8px;display:block;">Start Date (AD)</label>
+                    <input type="date" name="semStartDate" id="editSemStart" required>
+                    <label style="font-size:0.82rem;color:#64748b;margin-top:8px;display:block;">End Date (AD)</label>
+                    <input type="date" name="semEndDate" id="editSemEnd" required>
+                    <label style="display:flex;align-items:center;gap:8px;margin-top:12px;font-size:0.9rem;">
+                        <input type="checkbox" name="semIsActive" id="editSemActive" value="1"> Set as Active Semester
+                    </label>
+                    <input type="submit" class="submit" value="Update Semester" name="editSemester">
+                </form>
+            </div>
 
-                <input type="text" name="unitName" placeholder="Unit Name" required>
-                <input type="text" name="unitCode" placeholder="Unit Code" required>
-
-                <select required name="lecture">
-                    <option value="" selected>Assign Lecture</option>
-                    <?php
-                    $lectureNames = getLectureNames();
-                    foreach ($lectureNames as $lecture) {
-                        echo '<option value="' . $lecture["Id"] . '">' . $lecture["firstName"] . ' ' . $lecture["lastName"] . '</option>';
-                    }
-                    ?>
-                </select>
-                <select required name="course">
-                    <option value="" selected>Select Course</option>
-                    <?php
-                    $courseNames = getCourseNames();
-                    foreach ($courseNames as $course) {
-                        echo '<option value="' . $course["Id"] . '">' . $course["name"] . '</option>';
-                    }
-                    ?>
-                </select>
-
-                <input type="submit" class="submit" value="Save Unit" name="addUnit">
-            </form>
-        </div>
-
-        <div class="formDiv" id="addSemesterForm" style="display:none;">
-            <form method="POST" action="">
-                <div style="display:flex; justify-content:space-around;">
-                    <div class="form-title"><p>Add Semester</p></div>
-                    <div><span class="close">&times;</span></div>
-                </div>
-                <select required name="semFacultyCode">
-                    <option value="">Select Faculty</option>
-                    <?php foreach(getFacultyNames() as $f): ?>
-                        <option value="<?= htmlspecialchars($f['facultyCode']) ?>"><?= htmlspecialchars($f['facultyName']) ?></option>
-                    <?php endforeach; ?>
-                </select>
-                <input type="text" name="semName" placeholder="Semester Name (e.g. Semester I 2081)" required>
-                <label style="font-size:0.82rem;color:#64748b;margin-top:8px;display:block;">Start Date (AD)</label>
-                <input type="date" name="semStartDate" required>
-                <label style="font-size:0.82rem;color:#64748b;margin-top:8px;display:block;">End Date (AD)</label>
-                <input type="date" name="semEndDate" required>
-                <label style="display:flex;align-items:center;gap:8px;margin-top:12px;font-size:0.9rem;">
-                    <input type="checkbox" name="semIsActive" value="1"> Set as Active Semester for this Faculty
-                </label>
-                <input type="submit" class="submit" value="Save Semester" name="addSemester">
-            </form>
-        </div>
-
-        <div class="formDiv" id="editSemesterForm" style="display:none;">
-            <form method="POST" action="">
-                <div style="display:flex; justify-content:space-around;">
-                    <div class="form-title"><p>Edit Semester</p></div>
-                    <div><span class="close">&times;</span></div>
-                </div>
-                <input type="hidden" name="semId" id="editSemId">
-                <select required name="semFacultyCode" id="editSemFaculty">
-                    <option value="">Select Faculty</option>
-                    <?php foreach(getFacultyNames() as $f): ?>
-                        <option value="<?= htmlspecialchars($f['facultyCode']) ?>"><?= htmlspecialchars($f['facultyName']) ?></option>
-                    <?php endforeach; ?>
-                </select>
-                <input type="text" name="semName" id="editSemName" placeholder="Semester Name" required>
-                <label style="font-size:0.82rem;color:#64748b;margin-top:8px;display:block;">Start Date (AD)</label>
-                <input type="date" name="semStartDate" id="editSemStart" required>
-                <label style="font-size:0.82rem;color:#64748b;margin-top:8px;display:block;">End Date (AD)</label>
-                <input type="date" name="semEndDate" id="editSemEnd" required>
-                <label style="display:flex;align-items:center;gap:8px;margin-top:12px;font-size:0.9rem;">
-                    <input type="checkbox" name="semIsActive" id="editSemActive" value="1"> Set as Active Semester
-                </label>
-                <input type="submit" class="submit" value="Update Semester" name="editSemester">
-            </form>
-        </div>
-
-        <div class="formDiv" id="editCourseForm" style="display:none;">
-            <form method="POST" action="" name="editCourse" enctype="multipart/form-data">
-                <div style="display:flex; justify-content:space-around;">
-                    <div class="form-title">
-                        <p>Edit Course</p>
+            <div class="formDiv" id="editCourseForm" style="display:none;">
+                <form method="POST" action="" name="editCourse" enctype="multipart/form-data">
+                    <div style="display:flex; justify-content:space-around;">
+                        <div class="form-title">
+                            <p>Edit Course</p>
+                        </div>
+                        <div>
+                            <span class="close">&times;</span>
+                        </div>
                     </div>
-                    <div>
-                        <span class="close">&times;</span>
-                    </div>
-                </div>
-                <input type="hidden" name="courseId" id="editCourseId">
-                <input type="text" name="courseName" id="editCourseName" placeholder="Course Name" required>
-                <input type="text" name="courseCode" id="editCourseCode" placeholder="Course Code" required>
-                <select required name="faculty" id="editCourseFaculty">
-                    <option value="">Select Faculty</option>
-                    <?php
-                    $facultyNames = getFacultyNames();
-                    foreach ($facultyNames as $faculty) {
-                        echo '<option value="' . $faculty["Id"] . '">' . $faculty["facultyName"] . '</option>';
-                    }
-                    ?>
-                </select>
-                <input type="submit" class="submit" value="Update Course" name="editCourse">
-            </form>
-        </div>
+                    <input type="hidden" name="courseId" id="editCourseId">
+                    <input type="text" name="courseName" id="editCourseName" placeholder="Course Name" required>
+                    <input type="text" name="courseCode" id="editCourseCode" placeholder="Course Code" required>
+                    <select required name="faculty" id="editCourseFaculty">
+                        <option value="">Select Faculty</option>
+                        <?php
+                        $facultyNames = getFacultyNames();
+                        foreach ($facultyNames as $faculty) {
+                            echo '<option value="' . $faculty["Id"] . '">' . $faculty["facultyName"] . '</option>';
+                        }
+                        ?>
+                    </select>
+                    <input type="submit" class="submit" value="Update Course" name="editCourse">
+                </form>
+            </div>
 
-        <div class="formDiv" id="editUnitForm" style="display:none;">
-            <form method="POST" action="" name="editUnit" enctype="multipart/form-data">
-                <div style="display:flex; justify-content:space-around;">
-                    <div class="form-title">
-                        <p>Edit Unit</p>
+            <div class="formDiv" id="editUnitForm" style="display:none;">
+                <form method="POST" action="" name="editUnit" enctype="multipart/form-data">
+                    <div style="display:flex; justify-content:space-around;">
+                        <div class="form-title">
+                            <p>Edit Unit</p>
+                        </div>
+                        <div>
+                            <span class="close">&times;</span>
+                        </div>
                     </div>
-                    <div>
-                        <span class="close">&times;</span>
-                    </div>
-                </div>
-                <input type="hidden" name="unitId" id="editUnitId">
-                <input type="text" name="unitName" id="editUnitName" placeholder="Unit Name" required>
-                <input type="text" name="unitCode" id="editUnitCode" placeholder="Unit Code" required>
-                <select required name="course" id="editUnitCourse">
-                    <option value="">Select Course</option>
-                    <?php
-                    $courseNames = getCourseNames();
-                    foreach ($courseNames as $course) {
-                        echo '<option value="' . $course["Id"] . '">' . $course["name"] . '</option>';
-                    }
-                    ?>
-                </select>
-                <input type="submit" class="submit" value="Update Unit" name="editUnit">
-            </form>
-        </div>
+                    <input type="hidden" name="unitId" id="editUnitId">
+                    <input type="text" name="unitName" id="editUnitName" placeholder="Unit Name" required>
+                    <input type="text" name="unitCode" id="editUnitCode" placeholder="Unit Code" required>
+                    <select required name="course" id="editUnitCourse">
+                        <option value="">Select Course</option>
+                        <?php
+                        $courseNames = getCourseNames();
+                        foreach ($courseNames as $course) {
+                            echo '<option value="' . $course["Id"] . '">' . $course["name"] . '</option>';
+                        }
+                        ?>
+                    </select>
+                    <input type="submit" class="submit" value="Update Unit" name="editUnit">
+                </form>
+            </div>
 
-        <div class="formDiv" id="editFacultyForm" style="display:none;">
-            <form method="POST" action="" name="editFaculty" enctype="multipart/form-data">
-                <div style="display:flex; justify-content:space-around;">
-                    <div class="form-title">
-                        <p>Edit Faculty</p>
+            <div class="formDiv" id="editFacultyForm" style="display:none;">
+                <form method="POST" action="" name="editFaculty" enctype="multipart/form-data">
+                    <div style="display:flex; justify-content:space-around;">
+                        <div class="form-title">
+                            <p>Edit Faculty</p>
+                        </div>
+                        <div>
+                            <span class="close">&times;</span>
+                        </div>
                     </div>
-                    <div>
-                        <span class="close">&times;</span>
-                    </div>
-                </div>
-                <input type="hidden" name="facultyId" id="editFacultyId">
-                <input type="text" name="facultyName" id="editFacultyName" placeholder="Faculty Name" required>
-                <input type="text" name="facultyCode" id="editFacultyCode" placeholder="Faculty Code" required>
-                <input type="submit" class="submit" value="Update Faculty" name="editFaculty">
-            </form>
-        </div>
+                    <input type="hidden" name="facultyId" id="editFacultyId">
+                    <input type="text" name="facultyName" id="editFacultyName" placeholder="Faculty Name" required>
+                    <input type="text" name="facultyCode" id="editFacultyCode" placeholder="Faculty Code" required>
+                    <input type="submit" class="submit" value="Update Faculty" name="editFaculty">
+                </form>
+            </div>
 
     </section>
 
@@ -767,11 +780,11 @@ if (isset($_POST["editFaculty"])) {
                         document.getElementById('overlay').style.display = 'block';
                     }
                     else if (type === 'semester') {
-                        document.getElementById('editSemId').value      = id;
-                        document.getElementById('editSemName').value    = this.getAttribute('data-semname');
+                        document.getElementById('editSemId').value = id;
+                        document.getElementById('editSemName').value = this.getAttribute('data-semname');
                         document.getElementById('editSemFaculty').value = this.getAttribute('data-faccode');
-                        document.getElementById('editSemStart').value   = this.getAttribute('data-start');
-                        document.getElementById('editSemEnd').value     = this.getAttribute('data-end');
+                        document.getElementById('editSemStart').value = this.getAttribute('data-start');
+                        document.getElementById('editSemEnd').value = this.getAttribute('data-end');
                         document.getElementById('editSemActive').checked = this.getAttribute('data-active') === '1';
                         document.getElementById('editSemesterForm').style.display = 'block';
                         document.getElementById('overlay').style.display = 'block';

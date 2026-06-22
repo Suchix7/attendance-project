@@ -20,7 +20,6 @@ try {
     // Extract data
     $studentID = $data['studentID'];
     $course = $data['course'];
-    $unit = $data['unit'];
     $attendanceStatus = $data['attendanceStatus'];
     $date = isset($data['date']) ? $data['date'] : date('Y-m-d');
 
@@ -38,14 +37,12 @@ try {
     $checkSql = "SELECT attendanceID, attendanceStatus FROM tblattendance 
                  WHERE studentRegistrationNumber = :studentID 
                  AND course = :course 
-                 AND unit = :unit 
                  AND DATE(dateMarked) = :date";
 
     $checkStmt = $pdo->prepare($checkSql);
     $checkStmt->execute([
         ':studentID' => $studentID,
         ':course' => $course,
-        ':unit' => $unit,
         ':date' => $date
     ]);
 
@@ -65,7 +62,7 @@ try {
                 ':attendanceID' => $existingRecord['attendanceID']
             ]);
 
-            evaluate_and_send_alerts($pdo, $studentID, $course, $unit, $attendanceStatus);
+            evaluate_and_send_alerts($pdo, $studentID, $course, $attendanceStatus);
 
             echo json_encode([
                 'success' => true,
@@ -83,18 +80,17 @@ try {
     } else {
         // No existing record, insert new one
         $insertSql = "INSERT INTO tblattendance 
-                      (studentRegistrationNumber, course, unit, attendanceStatus, dateMarked) 
-                      VALUES (:studentID, :course, :unit, :status, NOW())";
+                      (studentRegistrationNumber, course, attendanceStatus, dateMarked) 
+                      VALUES (:studentID, :course, :status, NOW())";
 
         $insertStmt = $pdo->prepare($insertSql);
         $insertStmt->execute([
             ':studentID' => $studentID,
             ':course' => $course,
-            ':unit' => $unit,
             ':status' => $attendanceStatus
         ]);
 
-        evaluate_and_send_alerts($pdo, $studentID, $course, $unit, $attendanceStatus);
+        evaluate_and_send_alerts($pdo, $studentID, $course, $attendanceStatus);
 
         echo json_encode([
             'success' => true,

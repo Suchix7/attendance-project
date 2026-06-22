@@ -123,13 +123,13 @@ if (!empty($unitCode)) {
                         echo '<thead><tr>';
                         echo '<th>Registration No</th>';
                         echo '<th>Student Name</th>';
-                        
+
                         foreach ($calendarDates as $dateVal) {
                             $npDate = formatNepaliDate($dateVal, 'short');
                             echo '<th>' . htmlspecialchars($npDate) . '</th>';
                         }
                         echo '</tr></thead>';
-                        
+
                         // Get students in course filtered by active semester
                         if ($semesterId) {
                             $studentsQuery = "SELECT registrationNumber, firstName, lastName FROM tblstudents WHERE courseCode = :courseCode AND semesterID = :semesterID ORDER BY firstName, lastName";
@@ -156,10 +156,10 @@ if (!empty($unitCode)) {
                                                     AND unit = :unitCode";
                                 $stmtAtt = $pdo->prepare($attendanceQuery);
                                 $stmtAtt->execute([
-                                    ':sReg'       => $row['registrationNumber'],
-                                    ':date'       => $date,
+                                    ':sReg' => $row['registrationNumber'],
+                                    ':date' => $date,
                                     ':courseCode' => $courseCode,
-                                    ':unitCode'   => $unitCode
+                                    ':unitCode' => $unitCode
                                 ]);
                                 $attResult = $stmtAtt->fetch(PDO::FETCH_ASSOC);
                                 echo "<td>" . ($attResult ? htmlspecialchars($attResult['attendanceStatus']) : 'Absent') . "</td>";

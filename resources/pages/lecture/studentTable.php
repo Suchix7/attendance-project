@@ -41,7 +41,7 @@
                 if ($semesterId) {
                     $sql .= " AND s.semesterID = :semesterID";
                 }
-                
+
                 $stmt = $pdo->prepare($sql);
                 $params = [
                     ':courseID' => $courseID,
@@ -59,7 +59,7 @@
                         $registrationNumber = $row["registrationNumber"];
                         $status = !empty($row["attendanceStatus"]) ? $row["attendanceStatus"] : "Absent";
                         $statusClass = strtolower($status) === "present" ? "attendance-status present" : "attendance-status";
-                        
+
                         echo "<tr data-student-id='{$registrationNumber}'>";
                         echo "<td class='student-id'>" . $registrationNumber . "</td>";
                         echo "<td>" . $row["firstName"] . " " . $row["lastName"] . "</td>";

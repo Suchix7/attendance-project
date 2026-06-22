@@ -94,8 +94,12 @@ if (!empty($unitCode)) {
                     <h2 class="section--title">Mark Attendance</h2>
                     <div class="attendance-controls">
                         <button class="add" id="markManual"><i class="ri-edit-line"></i>Mark Manually</button>
-                        <button class="add" id="saveManual" style="display: none; background-color: #28a745; border-color: #28a745;"><i class="ri-save-line"></i>Save Changes</button>
-                        <button class="add" id="cancelManual" style="display: none; background-color: #dc3545; border-color: #dc3545;"><i class="ri-close-line"></i>Cancel</button>
+                        <button class="add" id="saveManual"
+                            style="display: none; background-color: #28a745; border-color: #28a745;"><i
+                                class="ri-save-line"></i>Save Changes</button>
+                        <button class="add" id="cancelManual"
+                            style="display: none; background-color: #dc3545; border-color: #dc3545;"><i
+                                class="ri-close-line"></i>Cancel</button>
                     </div>
                 </div>
 
@@ -114,35 +118,35 @@ if (!empty($unitCode)) {
                 <div id="manualAttendance">
                     <div class="table">
                         <table>
-                          <thead>
-  <tr>
-    <th>Registration No</th>
-    <th>Name</th>
-    <th>Course</th>
-    <th>Unit</th>
-    <th>Status</th>
-    <th>Date</th>
-    <th class="action-col" style="display:none;">Action</th>
-  </tr>
-</thead>
+                            <thead>
+                                <tr>
+                                    <th>Registration No</th>
+                                    <th>Name</th>
+                                    <th>Course</th>
+                                    <th>Unit</th>
+                                    <th>Status</th>
+                                    <th>Date</th>
+                                    <th class="action-col" style="display:none;">Action</th>
+                                </tr>
+                            </thead>
 
                             <tbody>
                                 <?php
-                                 if ($courseCode && $unitCode) {
-                                     try {
-                                         // Resolve active semester ID
-                                         $semesterId = 0;
-                                         $stmtFaculty = $pdo->prepare("SELECT f.facultyCode FROM tblcourse c JOIN tblfaculty f ON c.facultyID = f.Id WHERE c.courseCode = ?");
-                                         $stmtFaculty->execute([$courseCode]);
-                                         $facultyCode = $stmtFaculty->fetchColumn();
-                                         if ($facultyCode && function_exists('getActiveSemester')) {
-                                             $activeSem = getActiveSemester($pdo, $facultyCode);
-                                             if ($activeSem) {
-                                                 $semesterId = $activeSem['Id'];
-                                             }
-                                         }
+                                if ($courseCode && $unitCode) {
+                                    try {
+                                        // Resolve active semester ID
+                                        $semesterId = 0;
+                                        $stmtFaculty = $pdo->prepare("SELECT f.facultyCode FROM tblcourse c JOIN tblfaculty f ON c.facultyID = f.Id WHERE c.courseCode = ?");
+                                        $stmtFaculty->execute([$courseCode]);
+                                        $facultyCode = $stmtFaculty->fetchColumn();
+                                        if ($facultyCode && function_exists('getActiveSemester')) {
+                                            $activeSem = getActiveSemester($pdo, $facultyCode);
+                                            if ($activeSem) {
+                                                $semesterId = $activeSem['Id'];
+                                            }
+                                        }
 
-                                         $sql = "
+                                        $sql = "
                                            SELECT 
                                              s.registrationNumber,
                                              s.firstName,
@@ -158,44 +162,43 @@ if (!empty($unitCode)) {
                                              AND DATE(a.dateMarked) = :today
                                            WHERE s.courseCode = :courseCode
                                          ";
-                                         if ($semesterId) {
-                                             $sql .= " AND s.semesterID = :semesterID";
-                                         }
-                                         $sql .= " ORDER BY s.registrationNumber ASC";
+                                        if ($semesterId) {
+                                            $sql .= " AND s.semesterID = :semesterID";
+                                        }
+                                        $sql .= " ORDER BY s.registrationNumber ASC";
 
-                                         $stmt = $pdo->prepare($sql);
-                                         $params = [
-                                             ':today' => $today,
-                                             ':courseCode' => $courseCode,
-                                             ':unitCode' => $unitCode
-                                         ];
-                                         if ($semesterId) {
-                                             $params[':semesterID'] = $semesterId;
-                                         }
-                                         $stmt->execute($params);
+                                        $stmt = $pdo->prepare($sql);
+                                        $params = [
+                                            ':today' => $today,
+                                            ':courseCode' => $courseCode,
+                                            ':unitCode' => $unitCode
+                                        ];
+                                        if ($semesterId) {
+                                            $params[':semesterID'] = $semesterId;
+                                        }
+                                        $stmt->execute($params);
 
-                                         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                                        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
                                         if ($result) {
-  foreach ($result as $row) {
-    echo "<tr>";
-    echo "<td>" . htmlspecialchars($row["registrationNumber"]) . "</td>";
-    echo "<td>" . htmlspecialchars($row["firstName"] . " " . $row["lastName"]) . "</td>";
-    echo "<td>" . htmlspecialchars($courseCode) . "</td>";
-    echo "<td>" . htmlspecialchars($unitCode) . "</td>";
-    echo "<td class='status-cell'>" . htmlspecialchars($row["attendanceStatus"]) . "</td>";
-    echo "<td>" . htmlspecialchars(formatNepaliDate($row["dateMarked"])) . "</td>";
-    echo "<td class='action-col' style='display:none;'>"
-      . "<select class='manual-status' data-id='" . htmlspecialchars($row["registrationNumber"]) . "'>"
-      . "<option value=''>Change Status</option>"
-      . "<option value='Present'" . ($row["attendanceStatus"] == "Present" ? " selected" : "") . ">Present</option>"
-      . "<option value='Absent'" . ($row["attendanceStatus"] == "Absent" ? " selected" : "") . ">Absent</option>"
-      . "</select>"
-      . "</td>";
-    echo "</tr>";
-  }
-}
- else {
+                                            foreach ($result as $row) {
+                                                echo "<tr>";
+                                                echo "<td>" . htmlspecialchars($row["registrationNumber"]) . "</td>";
+                                                echo "<td>" . htmlspecialchars($row["firstName"] . " " . $row["lastName"]) . "</td>";
+                                                echo "<td>" . htmlspecialchars($courseCode) . "</td>";
+                                                echo "<td>" . htmlspecialchars($unitCode) . "</td>";
+                                                echo "<td class='status-cell'>" . htmlspecialchars($row["attendanceStatus"]) . "</td>";
+                                                echo "<td>" . htmlspecialchars(formatNepaliDate($row["dateMarked"])) . "</td>";
+                                                echo "<td class='action-col' style='display:none;'>"
+                                                    . "<select class='manual-status' data-id='" . htmlspecialchars($row["registrationNumber"]) . "'>"
+                                                    . "<option value=''>Change Status</option>"
+                                                    . "<option value='Present'" . ($row["attendanceStatus"] == "Present" ? " selected" : "") . ">Present</option>"
+                                                    . "<option value='Absent'" . ($row["attendanceStatus"] == "Absent" ? " selected" : "") . ">Absent</option>"
+                                                    . "</select>"
+                                                    . "</td>";
+                                                echo "</tr>";
+                                            }
+                                        } else {
                                             echo "<tr><td colspan='8'>No attendance records found for today for this course and unit.</td></tr>";
                                         }
                                     } catch (PDOException $e) {
@@ -358,7 +361,7 @@ if (!empty($unitCode)) {
     const saveManualBtn = document.getElementById('saveManual');
     const cancelManualBtn = document.getElementById('cancelManual');
     const actionCols = document.querySelectorAll('.action-col');
-    
+
     // Store original states and local changes
     let originalStates = {};
     let localChanges = {};
@@ -368,7 +371,7 @@ if (!empty($unitCode)) {
         markManualBtn.style.display = 'none';
         saveManualBtn.style.display = 'inline-block';
         cancelManualBtn.style.display = 'inline-block';
-        
+
         // Save original status for cancellation
         document.querySelectorAll('.manual-status').forEach(select => {
             const studentId = select.getAttribute('data-id');
@@ -387,7 +390,7 @@ if (!empty($unitCode)) {
         markManualBtn.style.display = 'inline-block';
         saveManualBtn.style.display = 'none';
         cancelManualBtn.style.display = 'none';
-        
+
         // Restore original values
         document.querySelectorAll('.manual-status').forEach(select => {
             const studentId = select.getAttribute('data-id');
@@ -418,7 +421,7 @@ if (!empty($unitCode)) {
 
         // Update local tracking
         localChanges[studentId] = status;
-        
+
         // Show unsaved change in status cell
         statusCell.textContent = status + ' (Unsaved)';
         statusCell.style.color = '#ff9800'; // Amber/Orange to indicate unsaved

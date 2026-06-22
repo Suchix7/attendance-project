@@ -56,7 +56,7 @@ function getCourseNames()
 function getVenueNames()
 {
     $sql = "SELECT className FROM tblvenue";
-    $result =  fetch($sql);
+    $result = fetch($sql);
 
     $venueNames = array();
     if ($result) {

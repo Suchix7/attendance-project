@@ -61,25 +61,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
         $risk = calculateAttendanceRisk($student_id, null, $semester_id);
         $threshold = (int)get_setting($pdo, 'attendance_threshold', '75');
 
-        // Fetch all unique classes (course + unit) this student has attendance records for
-        $stmtClasses = $pdo->prepare("SELECT DISTINCT course, unit FROM tblattendance WHERE studentRegistrationNumber = ?");
+        // Fetch all unique classes (course) this student has attendance records for
+        $stmtClasses = $pdo->prepare("SELECT DISTINCT course FROM tblattendance WHERE studentRegistrationNumber = ?");
         $stmtClasses->execute([$student_id]);
         $classRows = $stmtClasses->fetchAll(PDO::FETCH_ASSOC);
 
         $classes = [];
         foreach ($classRows as $c) {
             $course = $c['course'];
-            $unit = $c['unit'];
 
             // Course Name
             $stmtCourse = $pdo->prepare("SELECT name FROM tblcourse WHERE courseCode = ?");
             $stmtCourse->execute([$course]);
             $courseName = $stmtCourse->fetchColumn() ?: $course;
-
-            // Unit Name
-            $stmtUnit = $pdo->prepare("SELECT name FROM tblunit WHERE unitCode = ?");
-            $stmtUnit->execute([$unit]);
-            $unitName = $stmtUnit->fetchColumn() ?: $unit;
 
             // Fetch calendar dates up to today for this faculty and semester
             // Scope calendar strictly to the student's semester — never mix semesters
@@ -92,13 +86,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
             }
 
             if (count($calendarDates) > 0) {
-                // Get present dates for this student in this course/unit
+                // Get present dates for this student in this course
                 $stmtPresentDates = $pdo->prepare("SELECT DISTINCT dateMarked FROM tblattendance 
                                                   WHERE studentRegistrationNumber = :reg 
                                                   AND attendanceStatus = 'Present'
-                                                  AND course = :course 
-                                                  AND unit = :unit");
-                $stmtPresentDates->execute([':reg' => $student_id, ':course' => $course, ':unit' => $unit]);
+                                                  AND course = :course");
+                $stmtPresentDates->execute([':reg' => $student_id, ':course' => $course]);
                 $presentDates = $stmtPresentDates->fetchAll(PDO::FETCH_COLUMN);
 
                 $absentDates = array_diff($calendarDates, $presentDates);
@@ -109,18 +102,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
                 $total = count($calendarDates);
             } else {
                 // Fallback: Total class dates
-                $stmtTotal = $pdo->prepare("SELECT COUNT(DISTINCT dateMarked) FROM tblattendance WHERE course = ? AND unit = ?");
-                $stmtTotal->execute([$course, $unit]);
+                $stmtTotal = $pdo->prepare("SELECT COUNT(DISTINCT dateMarked) FROM tblattendance WHERE course = ?");
+                $stmtTotal->execute([$course]);
                 $total = (int)$stmtTotal->fetchColumn() ?: 1;
 
                 // Present count
-                $stmtPresent = $pdo->prepare("SELECT COUNT(*) FROM tblattendance WHERE studentRegistrationNumber = ? AND attendanceStatus = 'Present' AND course = ? AND unit = ?");
-                $stmtPresent->execute([$student_id, $course, $unit]);
+                $stmtPresent = $pdo->prepare("SELECT COUNT(*) FROM tblattendance WHERE studentRegistrationNumber = ? AND attendanceStatus = 'Present' AND course = ?");
+                $stmtPresent->execute([$student_id, $course]);
                 $present = (int)$stmtPresent->fetchColumn();
 
                 // Absent Dates
-                $stmtAbsences = $pdo->prepare("SELECT dateMarked FROM tblattendance WHERE studentRegistrationNumber = ? AND attendanceStatus = 'Absent' AND course = ? AND unit = ? ORDER BY dateMarked DESC");
-                $stmtAbsences->execute([$student_id, $course, $unit]);
+                $stmtAbsences = $pdo->prepare("SELECT dateMarked FROM tblattendance WHERE studentRegistrationNumber = ? AND attendanceStatus = 'Absent' AND course = ? ORDER BY dateMarked DESC");
+                $stmtAbsences->execute([$student_id, $course]);
                 $absentDates = $stmtAbsences->fetchAll(PDO::FETCH_COLUMN);
             }
 
@@ -129,8 +122,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
             $classes[] = [
                 'course' => $course,
                 'courseName' => $courseName,
-                'unit' => $unit,
-                'unitName' => $unitName,
                 'total' => $total,
                 'present' => $present,
                 'percentage' => $pct,
@@ -167,7 +158,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
     $student_id = htmlspecialchars(trim($_POST['student_id'] ?? ''));
     $subject = htmlspecialchars(trim($_POST['subject'] ?? ''));
     $body = trim($_POST['body'] ?? '');
-    $selected_classes = $_POST['selected_classes'] ?? []; // Array of "course|unit" strings
+    $selected_classes = $_POST['selected_classes'] ?? []; // Array of courseCode strings
 
     if (!$student_id || !$subject || !$body) {
         echo json_encode(['success' => false, 'message' => 'Missing student, subject, or email content.']);
@@ -190,21 +181,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
 
         if ($sent) {
             $today = date('Y-m-d H:i:s');
-            // Log states in database for each selected course & unit
-            foreach ($selected_classes as $clsStr) {
-                $parts = explode('|', $clsStr);
-                if (count($parts) === 2) {
-                    $course = $parts[0];
-                    $unit = $parts[1];
-
-                    $stmt = $pdo->prepare("INSERT INTO tblalertstate (studentRegistrationNumber, courseCode, unitCode, lastThresholdAlertSent) VALUES (:reg, :course, :unit, :today) ON DUPLICATE KEY UPDATE lastThresholdAlertSent = :today");
-                    $stmt->execute([
-                        ':reg' => $student_id,
-                        ':course' => $course,
-                        ':unit' => $unit,
-                        ':today' => $today
-                    ]);
-                }
+            // Log states in database for each selected course
+            foreach ($selected_classes as $course) {
+                $stmt = $pdo->prepare("INSERT INTO tblalertstate (studentRegistrationNumber, courseCode, lastThresholdAlertSent) VALUES (:reg, :course, :today) ON DUPLICATE KEY UPDATE lastThresholdAlertSent = :today");
+                $stmt->execute([
+                    ':reg' => $student_id,
+                    ':course' => $course,
+                    ':today' => $today
+                ]);
             }
 
             echo json_encode(['success' => true, 'message' => 'Warning email sent successfully!', 'date' => $today]);
@@ -712,7 +696,7 @@ $current_attendance_threshold = get_setting($pdo, 'attendance_threshold', '75');
                     <!-- Left: Classes Selector -->
                     <div class="classes-selector">
                         <h4 style="font-size: 0.95rem; color: #1e293b; margin-bottom: 12px; font-weight: 700;">Select Classes to Warn</h4>
-                        <p style="font-size: 0.78rem; color: #64748b; margin-bottom: 15px;">Check the specific course units you want to highlight in the warning email.</p>
+                        <p style="font-size: 0.78rem; color: #64748b; margin-bottom: 15px;">Check the specific courses you want to highlight in the warning email.</p>
                         <div id="classes_checkbox_list">
                             <!-- Populated via JS -->
                         </div>
@@ -840,7 +824,7 @@ $current_attendance_threshold = get_setting($pdo, 'attendance_threshold', '75');
                                     <input type="checkbox" class="class-item-checkbox class-checkbox" id="class_cb_${index}" data-index="${index}" ${isChecked} onchange="updatePreview()">
                                     <div class="class-info">
                                         <label for="class_cb_${index}" class="class-title" style="cursor:pointer;">${c.courseName}</label>
-                                        <div class="class-code">${c.unit} (${c.unitName})</div>
+                                        <div class="class-code">${c.course}</div>
                                         <div style="margin-top:4px;">
                                             <span class="class-pct-badge ${pctBadgeClass}">Attendance: ${c.percentage}% (${c.present}/${c.total})</span>
                                         </div>
@@ -905,7 +889,7 @@ $current_attendance_threshold = get_setting($pdo, 'attendance_threshold', '75');
                     const c = currentStudentData.classes[index];
                     
                     const label = c.isBelowThreshold ? '🚨 CRITICAL (Low Attendance)' : '⚠️ WARNING';
-                    body += `• ${c.course} - ${c.unitName} (${c.unit})\n`;
+                    body += `• ${c.courseName} (${c.course})\n`;
                     body += `  Attendance: ${c.percentage}% (${c.present}/${c.total} sessions) - ${label}\n`;
                     
                     if (c.absentDates && c.absentDates.length > 0) {
@@ -917,7 +901,7 @@ $current_attendance_threshold = get_setting($pdo, 'attendance_threshold', '75');
 
                 body += `EXAM ELIGIBILITY WARNING:\n`;
                 body += `------------------------\n`;
-                body += `Please be warned that if your attendance in these units remains below the required threshold of ${threshold}%, you will NOT be permitted to sit for the final examinations.\n\n`;
+                body += `Please be warned that if your attendance in these courses remains below the required threshold of ${threshold}%, you will NOT be permitted to sit for the final examinations.\n\n`;
             }
 
             body += `Please prioritize attending all upcoming lectures to resolve these warnings immediately.\n\n`;
@@ -963,7 +947,7 @@ $current_attendance_threshold = get_setting($pdo, 'attendance_threshold', '75');
             document.querySelectorAll('.class-checkbox:checked').forEach(cb => {
                 const index = parseInt(cb.dataset.index);
                 const c = currentStudentData.classes[index];
-                selectedClasses.push(`${c.course}|${c.unit}`);
+                selectedClasses.push(c.course);
             });
 
             const subject = document.getElementById('email_subject').value;

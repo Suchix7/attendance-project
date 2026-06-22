@@ -6,6 +6,23 @@ let recognitionInterval = null;
 let lastRecognitionTime = 0;
 let lastRecognizedStudent = null;
 let userLocation = null;
+window.currentAlgorithm = 'lbph';
+
+// Helper to disable/enable all start buttons
+function setStartButtonsDisabled(disabled) {
+    const startButton = document.getElementById("startButton");
+    const startButtonEigen = document.getElementById("startButtonEigen");
+    if (startButton) {
+        startButton.disabled = disabled;
+        startButton.style.opacity = disabled ? '0.6' : '';
+        startButton.style.cursor = disabled ? 'not-allowed' : '';
+    }
+    if (startButtonEigen) {
+        startButtonEigen.disabled = disabled;
+        startButtonEigen.style.opacity = disabled ? '0.6' : '';
+        startButtonEigen.style.cursor = disabled ? 'not-allowed' : '';
+    }
+}
 
 const RECOGNITION_COOLDOWN = 5000;
 const CONFIDENCE_THRESHOLD = (window.ATTENDANCE_SETTINGS && typeof window.ATTENDANCE_SETTINGS.confidenceThreshold !== 'undefined') ? parseInt(window.ATTENDANCE_SETTINGS.confidenceThreshold) : 65;
@@ -168,7 +185,6 @@ function stopCamera() {
     try {
         const video = document.getElementById("video");
         const videoContainer = document.querySelector(".video-container");
-        const startButton = document.getElementById("startButton");
 
         if (stream) {
             const tracks = stream.getTracks();
@@ -196,9 +212,7 @@ function stopCamera() {
             clearInterval(recognitionInterval);
             recognitionInterval = null;
         }
-        if (startButton) {
-            startButton.disabled = false;
-        }
+        setStartButtonsDisabled(false);
         isProcessing = false;
     } catch (error) {
         console.error("Error in stopCamera:", error);
@@ -326,8 +340,9 @@ async function processFrame() {
 
         const formData = new FormData();
         formData.append("image", blob);
+        formData.append("algorithm", window.currentAlgorithm || 'lbph');
 
-        logWithTime("Sending frame for recognition...");
+        logWithTime(`Sending frame for recognition using ${(window.currentAlgorithm || 'lbph').toUpperCase()}...`);
         const response = await fetch("recognize_face.php", {
             method: "POST",
             body: formData
@@ -358,14 +373,14 @@ async function processFrame() {
             overlayCtx.fillStyle = color;
             overlayCtx.font = "16px Arial";
             overlayCtx.fillText(
-                `${result.predicted_student_id} (${result.confidence.toFixed(1)}%)`,
+                `${result.predicted_student_id} (${result.confidence.toFixed(1)}%) [${(window.currentAlgorithm || 'lbph').toUpperCase()}]`,
                 face.x,
                 face.y - 10
             );
 
             const statusMessage = isRecognized ?
-                `Student ${result.predicted_student_id} recognized with ${result.confidence.toFixed(1)}% confidence` :
-                `Unknown face detected (${result.confidence.toFixed(1)}% confidence)`;
+                `Student ${result.predicted_student_id} recognized using ${(window.currentAlgorithm || 'lbph').toUpperCase()} with ${result.confidence.toFixed(1)}% confidence` :
+                `Unknown face detected using ${(window.currentAlgorithm || 'lbph').toUpperCase()} (${result.confidence.toFixed(1)}% confidence)`;
             logWithTime(statusMessage);
             recognitionStatus.innerHTML = `<div class="${isRecognized ? "success" : "info"}">${statusMessage}</div>`;
 
@@ -409,6 +424,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const canvas = document.getElementById("canvas");
     const overlay = document.getElementById("overlay");
     const startButton = document.getElementById("startButton");
+    const startButtonEigen = document.getElementById("startButtonEigen");
     const endButton = document.getElementById("endAttendance");
     const videoContainer = document.querySelector(".video-container");
     const courseSelect = document.getElementById("courseSelect");
@@ -430,12 +446,22 @@ document.addEventListener("DOMContentLoaded", () => {
             startButton.disabled = true;
             startButton.style.backgroundColor = '#ccc';
             startButton.style.cursor = 'not-allowed';
+            if (startButtonEigen) {
+                startButtonEigen.disabled = true;
+                startButtonEigen.style.backgroundColor = '#ccc';
+                startButtonEigen.style.cursor = 'not-allowed';
+            }
             statusMessage.style.display = 'block';
             statusMessage.textContent = `Cannot launch facial recognition - You are ${distanceInfo.distanceText} away from the venue (Maximum allowed: 100m)`;
         } else {
             startButton.disabled = false;
             startButton.style.backgroundColor = '';
             startButton.style.cursor = 'pointer';
+            if (startButtonEigen) {
+                startButtonEigen.disabled = false;
+                startButtonEigen.style.backgroundColor = '';
+                startButtonEigen.style.cursor = 'pointer';
+            }
             statusMessage.style.display = 'none';
         }
     }
@@ -505,6 +531,11 @@ document.addEventListener("DOMContentLoaded", () => {
                     startButton.disabled = true;
                     startButton.style.backgroundColor = '#ccc';
                     startButton.style.cursor = 'not-allowed';
+                    if (startButtonEigen) {
+                        startButtonEigen.disabled = true;
+                        startButtonEigen.style.backgroundColor = '#ccc';
+                        startButtonEigen.style.cursor = 'not-allowed';
+                    }
                     const statusMessage = document.getElementById('status-message');
                     if (statusMessage) {
                         statusMessage.style.display = 'block';
@@ -517,6 +548,11 @@ document.addEventListener("DOMContentLoaded", () => {
             startButton.disabled = true;
             startButton.style.backgroundColor = '#ccc';
             startButton.style.cursor = 'not-allowed';
+            if (startButtonEigen) {
+                startButtonEigen.disabled = true;
+                startButtonEigen.style.backgroundColor = '#ccc';
+                startButtonEigen.style.cursor = 'not-allowed';
+            }
             const statusMessage = document.getElementById('status-message');
             if (statusMessage) {
                 statusMessage.style.display = 'block';
@@ -534,8 +570,8 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Start recognition trigger
-    startButton.addEventListener("click", async () => {
+    // Helper function to commonise launching logic
+    async function launchFacialRecognition() {
         if (!courseSelect.value || !unitSelect.value || !venueSelect.value) {
             const statusMessage = document.getElementById('status-message');
             if (statusMessage) {
@@ -566,7 +602,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         try {
             stopCamera();
-            logWithTime("Starting camera...");
+            logWithTime(`Starting camera for recognition (${window.currentAlgorithm.toUpperCase()})...`);
             stream = await navigator.mediaDevices.getUserMedia({
                 video: {
                     width: { ideal: 640 },
@@ -581,7 +617,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (videoContainer) {
                 videoContainer.style.display = "block";
             }
-            
+
             // Adjust overlay dimensions to match video stream
             video.onloadedmetadata = () => {
                 canvas.width = video.videoWidth;
@@ -589,14 +625,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 overlay.width = video.videoWidth;
                 overlay.height = video.videoHeight;
             };
-            
-            startButton.disabled = true;
+
+            setStartButtonsDisabled(true);
             startFaceRecognition();
             const statusMessage = document.getElementById('status-message');
             if (statusMessage) {
                 statusMessage.style.display = 'none';
             }
-            logWithTime("Camera started successfully");
+            logWithTime(`Camera started successfully with ${window.currentAlgorithm.toUpperCase()}`);
         } catch (error) {
             stopCamera();
             logWithTime("Error: " + error.message, "error");
@@ -606,7 +642,20 @@ document.addEventListener("DOMContentLoaded", () => {
                 statusMessage.textContent = "Error accessing camera: " + error.message;
             }
         }
+    }
+
+    // Start recognition triggers
+    startButton.addEventListener("click", async () => {
+        window.currentAlgorithm = 'lbph';
+        await launchFacialRecognition();
     });
+
+    if (startButtonEigen) {
+        startButtonEigen.addEventListener("click", async () => {
+            window.currentAlgorithm = 'eigen';
+            await launchFacialRecognition();
+        });
+    }
 
     // End attendance taking
     endButton.addEventListener("click", () => {

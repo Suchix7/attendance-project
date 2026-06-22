@@ -39,7 +39,7 @@
                         </div>
 
                     </div>
-                    <div class="card card-1">
+                    <!-- <div class="card card-1">
 
                         <div class="card--data">
                             <div class="card--content">
@@ -49,7 +49,7 @@
                             <i class="ri-file-text-line card--icon--lg"></i>
                         </div>
 
-                    </div>
+                    </div> -->
 
                     <div class="card card-1">
 
@@ -80,7 +80,7 @@
                                 <th>Email Address</th>
                                 <th>Phone No</th>
                                 <th>Faculty</th>
-                                
+
                             </tr>
                         </thead>
                         <tbody>
@@ -213,7 +213,7 @@
                                 <th>Faculty</th>
                                 <th>Total Units</th>
                                 <th>Total Students</th>
-                                
+
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -240,7 +240,7 @@
                                     echo "<td>" . $row["faculty_name"] . "</td>";
                                     echo "<td>" . $row["total_units"] . "</td>";
                                     echo "<td>" . $row["total_students"] . "</td>";
-                                   
+
                                     echo "</tr>";
                                 }
                             } else {

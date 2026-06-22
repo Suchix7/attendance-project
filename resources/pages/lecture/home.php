@@ -7,8 +7,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         try {
             // --- Calendar validation: check the first record's course ---
             $firstRecord = reset($attendanceData);
-            $checkCourse  = $firstRecord['course'] ?? '';
-            $checkDate    = date('Y-m-d');
+            $checkCourse = $firstRecord['course'] ?? '';
+            $checkDate = date('Y-m-d');
             if ($checkCourse && !is_scheduled_class_day($pdo, $checkCourse, $checkDate)) {
                 echo json_encode([
                     'success' => false,
@@ -191,7 +191,7 @@ function getVenueCoordinates($venue)
         <?php include 'includes/sidebar.php'; ?>
         <div class="main--content">
             <div id="messageDiv" class="messageDiv" style="display:none;"></div>
-            
+
             <div class="cards" style="margin-bottom: 24px; display: flex; gap: 20px;">
                 <div class="card card-1" style="flex: 1; padding: 15px; text-align: center;">
                     <strong>Venue Coordinates</strong>
@@ -212,21 +212,25 @@ function getVenueCoordinates($venue)
                 </div>
                 <div class="card card-1" style="flex: 1; padding: 15px; text-align: center;">
                     <strong>Your Location</strong>
-                    <p id="user-coordinates" style="color: var(--text-muted); margin-top: 5px;">Fetching your location...</p>
+                    <p id="user-coordinates" style="color: var(--text-muted); margin-top: 5px;">Fetching your
+                        location...</p>
                 </div>
                 <div class="card card-1" style="flex: 1; padding: 15px; text-align: center;">
                     <strong>Distance to Venue</strong>
-                    <p id="distance-display" style="color: var(--text-muted); margin-top: 5px;">Calculating distance...</p>
+                    <p id="distance-display" style="color: var(--text-muted); margin-top: 5px;">Calculating distance...
+                    </p>
                 </div>
             </div>
 
             <div id="status-message" class="error-main" style="display: none;"></div>
-            
-            <p style="text-align: center; color: var(--accent); font-weight: 500; font-size: 1.1rem; margin-bottom: 1.5rem;">
+
+            <p
+                style="text-align: center; color: var(--accent); font-weight: 500; font-size: 1.1rem; margin-bottom: 1.5rem;">
                 Select course, unit, and venue before launching Facial Recognition
             </p>
-            
-            <form class="lecture-options" id="selectForm" style="display: flex; gap: 1rem; justify-content: center; max-width: 800px; margin: 0 auto 2rem;">
+
+            <form class="lecture-options" id="selectForm"
+                style="display: flex; gap: 1rem; justify-content: center; max-width: 800px; margin: 0 auto 2rem;">
                 <select required name="venue" id="venueSelect" onchange="this.form.submit()" style="max-width: 30%;">
                     <option value="" <?php echo !isset($_GET['venue']) ? 'selected' : ''; ?>>Select Venue</option>
                     <?php
@@ -262,8 +266,14 @@ function getVenueCoordinates($venue)
             </form>
 
             <div class="attendance-button">
-                <button id="startButton" class="add">Launch Facial Recognition</button>
-                <button id="endAttendance" class="add">END Attendance Taking</button>
+                <button id="startButton" class="add"><i class="ri-vidicon-line"></i>Launch Facial Recognition
+                    (LBPH)</button>
+                <button id="startButtonEigen" class="add"
+                    style="background-color: #4b5563; box-shadow: 0 4px 10px rgba(75, 85, 99, 0.2);"><i
+                        class="ri-vidicon-line"></i>Launch Facial Recognition (Eigenfaces)</button>
+                <button id="endAttendance" class="add"
+                    style="background-color: #dc2626; box-shadow: 0 4px 10px rgba(220, 38, 38, 0.2);"><i
+                        class="ri-stop-circle-line"></i>END Attendance Taking</button>
             </div>
 
             <div class="video-container" style="display:none;">

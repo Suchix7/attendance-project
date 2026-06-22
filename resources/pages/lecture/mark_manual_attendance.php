@@ -29,7 +29,8 @@ try {
         // --- Calendar validation: check once using the first record's course ---
         $firstCourse = $records[0]['course'] ?? '';
         if ($firstCourse && !is_scheduled_class_day($pdo, $firstCourse, $today)) {
-            while (ob_get_level()) ob_end_clean();
+            while (ob_get_level())
+                ob_end_clean();
             echo json_encode([
                 'success' => false,
                 'message' => "Today ($today) is not a scheduled class day for this faculty. Attendance marking is not allowed on unscheduled days.",
@@ -102,7 +103,8 @@ try {
 
     // --- Calendar validation: block if today is not a scheduled class day ---
     if (!is_scheduled_class_day($pdo, $course, $today)) {
-        while (ob_get_level()) ob_end_clean();
+        while (ob_get_level())
+            ob_end_clean();
         echo json_encode([
             'success' => false,
             'message' => "Today ($today) is not a scheduled class day for this faculty. Attendance marking is not allowed on unscheduled days.",
