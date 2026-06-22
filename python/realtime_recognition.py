@@ -85,7 +85,15 @@ def train_models():
                         face_labels.append(label)
         
         if not face_images:
-            return False, "No valid face images found for training"
+            # Clean up existing model files if they exist to avoid stale recognitions
+            for model_file_path in [lbph_path, eigen_path, fisher_path, labels_path]:
+                if model_file_path.exists():
+                    try:
+                        model_file_path.unlink()
+                        logging.info(f"Deleted stale model file: {model_file_path}")
+                    except Exception as ex:
+                        logging.error(f"Failed to delete {model_file_path}: {str(ex)}")
+            return True, "No valid face images found. Models successfully reset."
         
         gc.collect()
         
@@ -105,7 +113,13 @@ def train_models():
             recognizer_fisher.train(face_images, np.array(face_labels))
             recognizer_fisher.save(str(fisher_path))
         else:
-            logging.warn("Fisherfaces skipped: need at least 2 students")
+            logging.warning("Fisherfaces skipped: need at least 2 students")
+            if fisher_path.exists():
+                try:
+                    fisher_path.unlink()
+                    logging.info(f"Deleted stale Fisherfaces model file: {fisher_path}")
+                except Exception as ex:
+                    logging.error(f"Failed to delete {fisher_path}: {str(ex)}")
             
         with open(str(labels_path), 'wb') as f:
             pickle.dump(labels, f)
