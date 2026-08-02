@@ -24371,3 +24371,2697 @@ ModuleNotFoundError: No module named 'cv2'
     [0] => {"success": true, "student_id": "123", "confidence": 75.53014804903675, "algorithm": "eigen", "raw_distance": 2529.37, "face_location": {"x": 323, "y": 8, "width": 141, "height": 141}}
 )
 
+[2026-08-02 09:08:07] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6eecd7393c7.jpg" --algorithm "lbph"
+[2026-08-02 09:08:07] Python output: Array
+(
+    [0] => {"success": false, "message": "Required model files not found"}
+)
+
+[2026-08-02 09:08:07] Error: Required model files not found
+[2026-08-02 09:08:08] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6eecd82173f.jpg" --algorithm "lbph"
+[2026-08-02 09:08:08] Python output: Array
+(
+    [0] => {"success": false, "message": "Required model files not found"}
+)
+
+[2026-08-02 09:08:08] Error: Required model files not found
+[2026-08-02 09:08:09] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6eecd922a5b.jpg" --algorithm "lbph"
+[2026-08-02 09:08:09] Python output: Array
+(
+    [0] => {"success": false, "message": "Required model files not found"}
+)
+
+[2026-08-02 09:08:09] Error: Required model files not found
+[2026-08-02 09:08:09] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6eecd99a53a.jpg" --algorithm "lbph"
+[2026-08-02 09:08:10] Python output: Array
+(
+    [0] => {"success": false, "message": "Required model files not found"}
+)
+
+[2026-08-02 09:08:10] Error: Required model files not found
+[2026-08-02 09:08:10] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6eecda24432.jpg" --algorithm "lbph"
+[2026-08-02 09:08:10] Python output: Array
+(
+    [0] => {"success": false, "message": "Required model files not found"}
+)
+
+[2026-08-02 09:08:10] Error: Required model files not found
+[2026-08-02 09:08:10] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6eecda9b1dc.jpg" --algorithm "lbph"
+[2026-08-02 09:08:11] Python output: Array
+(
+    [0] => {"success": false, "message": "Required model files not found"}
+)
+
+[2026-08-02 09:08:11] Error: Required model files not found
+[2026-08-02 09:08:11] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6eecdb2459e.jpg" --algorithm "lbph"
+[2026-08-02 09:08:11] Python output: Array
+(
+    [0] => {"success": false, "message": "Required model files not found"}
+)
+
+[2026-08-02 09:08:11] Error: Required model files not found
+[2026-08-02 09:08:11] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6eecdb9c39f.jpg" --algorithm "lbph"
+[2026-08-02 09:08:12] Python output: Array
+(
+    [0] => {"success": false, "message": "Required model files not found"}
+)
+
+[2026-08-02 09:08:12] Error: Required model files not found
+[2026-08-02 09:08:12] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6eecdc9e259.jpg" --algorithm "lbph"
+[2026-08-02 09:08:13] Python output: Array
+(
+    [0] => {"success": false, "message": "Required model files not found"}
+)
+
+[2026-08-02 09:08:13] Error: Required model files not found
+[2026-08-02 09:08:13] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6eecdd9db7b.jpg" --algorithm "lbph"
+[2026-08-02 09:08:14] Python output: Array
+(
+    [0] => {"success": false, "message": "Required model files not found"}
+)
+
+[2026-08-02 09:08:14] Error: Required model files not found
+[2026-08-02 09:08:14] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6eecde1fed6.jpg" --algorithm "lbph"
+[2026-08-02 09:08:14] Python output: Array
+(
+    [0] => {"success": false, "message": "Required model files not found"}
+)
+
+[2026-08-02 09:08:14] Error: Required model files not found
+[2026-08-02 09:08:14] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6eecde9c532.jpg" --algorithm "lbph"
+[2026-08-02 09:08:15] Python output: Array
+(
+    [0] => {"success": false, "message": "Required model files not found"}
+)
+
+[2026-08-02 09:08:15] Error: Required model files not found
+[2026-08-02 09:08:15] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6eecdf21575.jpg" --algorithm "lbph"
+[2026-08-02 09:08:15] Python output: Array
+(
+    [0] => {"success": false, "message": "Required model files not found"}
+)
+
+[2026-08-02 09:08:15] Error: Required model files not found
+[2026-08-02 09:08:15] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6eecdf9c120.jpg" --algorithm "lbph"
+[2026-08-02 09:08:16] Python output: Array
+(
+    [0] => {"success": false, "message": "Required model files not found"}
+)
+
+[2026-08-02 09:08:16] Error: Required model files not found
+[2026-08-02 09:08:18] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6eece209b1f.jpg" --algorithm "lbph"
+[2026-08-02 09:08:18] Python output: Array
+(
+    [0] => {"success": false, "message": "Required model files not found"}
+)
+
+[2026-08-02 09:08:18] Error: Required model files not found
+[2026-08-02 09:08:19] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6eece3077d8.jpg" --algorithm "lbph"
+[2026-08-02 09:08:19] Python output: Array
+(
+    [0] => {"success": false, "message": "Required model files not found"}
+)
+
+[2026-08-02 09:08:19] Error: Required model files not found
+[2026-08-02 09:08:20] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6eece40703a.jpg" --algorithm "lbph"
+[2026-08-02 09:08:20] Python output: Array
+(
+    [0] => {"success": false, "message": "Required model files not found"}
+)
+
+[2026-08-02 09:08:20] Error: Required model files not found
+[2026-08-02 09:08:21] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6eece506d69.jpg" --algorithm "lbph"
+[2026-08-02 09:08:21] Python output: Array
+(
+    [0] => {"success": false, "message": "Required model files not found"}
+)
+
+[2026-08-02 09:08:21] Error: Required model files not found
+[2026-08-02 09:08:22] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6eece60711b.jpg" --algorithm "lbph"
+[2026-08-02 09:08:22] Python output: Array
+(
+    [0] => {"success": false, "message": "Required model files not found"}
+)
+
+[2026-08-02 09:08:22] Error: Required model files not found
+[2026-08-02 09:08:47] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6eecff259ac.jpg" --algorithm "lbph"
+[2026-08-02 09:08:47] Python output: Array
+(
+    [0] => {"success": false, "message": "Required model files not found"}
+)
+
+[2026-08-02 09:08:47] Error: Required model files not found
+[2026-08-02 09:08:48] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6eed00265bd.jpg" --algorithm "lbph"
+[2026-08-02 09:08:48] Python output: Array
+(
+    [0] => {"success": false, "message": "Required model files not found"}
+)
+
+[2026-08-02 09:08:48] Error: Required model files not found
+[2026-08-02 09:08:48] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6eed009dd66.jpg" --algorithm "lbph"
+[2026-08-02 09:08:49] Python output: Array
+(
+    [0] => {"success": false, "message": "Required model files not found"}
+)
+
+[2026-08-02 09:08:49] Error: Required model files not found
+[2026-08-02 09:08:49] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6eed019fba6.jpg" --algorithm "lbph"
+[2026-08-02 09:08:50] Python output: Array
+(
+    [0] => {"success": false, "message": "Required model files not found"}
+)
+
+[2026-08-02 09:08:50] Error: Required model files not found
+[2026-08-02 09:08:50] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6eed029ee19.jpg" --algorithm "lbph"
+[2026-08-02 09:08:51] Python output: Array
+(
+    [0] => {"success": false, "message": "Required model files not found"}
+)
+
+[2026-08-02 09:08:51] Error: Required model files not found
+[2026-08-02 09:08:51] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6eed0323a8b.jpg" --algorithm "lbph"
+[2026-08-02 09:08:51] Python output: Array
+(
+    [0] => {"success": false, "message": "Required model files not found"}
+)
+
+[2026-08-02 09:08:51] Error: Required model files not found
+[2026-08-02 09:08:52] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6eed0425b9d.jpg" --algorithm "lbph"
+[2026-08-02 09:08:52] Python output: Array
+(
+    [0] => {"success": false, "message": "Required model files not found"}
+)
+
+[2026-08-02 09:08:52] Error: Required model files not found
+[2026-08-02 09:08:52] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6eed049e9e3.jpg" --algorithm "lbph"
+[2026-08-02 09:08:53] Python output: Array
+(
+    [0] => {"success": false, "message": "Required model files not found"}
+)
+
+[2026-08-02 09:08:53] Error: Required model files not found
+[2026-08-02 09:08:53] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6eed0527963.jpg" --algorithm "lbph"
+[2026-08-02 09:08:53] Python output: Array
+(
+    [0] => {"success": false, "message": "Required model files not found"}
+)
+
+[2026-08-02 09:08:53] Error: Required model files not found
+[2026-08-02 09:08:53] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6eed059f2d0.jpg" --algorithm "lbph"
+[2026-08-02 09:08:54] Python output: Array
+(
+    [0] => {"success": false, "message": "Required model files not found"}
+)
+
+[2026-08-02 09:08:54] Error: Required model files not found
+[2026-08-02 09:08:54] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6eed06253e6.jpg" --algorithm "lbph"
+[2026-08-02 09:08:54] Python output: Array
+(
+    [0] => {"success": false, "message": "Required model files not found"}
+)
+
+[2026-08-02 09:08:54] Error: Required model files not found
+[2026-08-02 09:08:54] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6eed069de20.jpg" --algorithm "lbph"
+[2026-08-02 09:08:55] Python output: Array
+(
+    [0] => {"success": false, "message": "Required model files not found"}
+)
+
+[2026-08-02 09:08:55] Error: Required model files not found
+[2026-08-02 09:08:55] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6eed072512b.jpg" --algorithm "lbph"
+[2026-08-02 09:08:55] Python output: Array
+(
+    [0] => {"success": false, "message": "Required model files not found"}
+)
+
+[2026-08-02 09:08:55] Error: Required model files not found
+[2026-08-02 09:08:55] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6eed079d2dc.jpg" --algorithm "lbph"
+[2026-08-02 09:08:56] Python output: Array
+(
+    [0] => {"success": false, "message": "Required model files not found"}
+)
+
+[2026-08-02 09:08:56] Error: Required model files not found
+[2026-08-02 09:08:56] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6eed0825ff1.jpg" --algorithm "lbph"
+[2026-08-02 09:08:56] Python output: Array
+(
+    [0] => {"success": false, "message": "Required model files not found"}
+)
+
+[2026-08-02 09:08:56] Error: Required model files not found
+[2026-08-02 09:08:56] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6eed089e431.jpg" --algorithm "lbph"
+[2026-08-02 09:08:57] Python output: Array
+(
+    [0] => {"success": false, "message": "Required model files not found"}
+)
+
+[2026-08-02 09:08:57] Error: Required model files not found
+[2026-08-02 09:08:57] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6eed0925a54.jpg" --algorithm "lbph"
+[2026-08-02 09:08:57] Python output: Array
+(
+    [0] => {"success": false, "message": "Required model files not found"}
+)
+
+[2026-08-02 09:08:57] Error: Required model files not found
+[2026-08-02 09:08:57] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6eed09a02b1.jpg" --algorithm "lbph"
+[2026-08-02 09:08:58] Python output: Array
+(
+    [0] => {"success": false, "message": "Required model files not found"}
+)
+
+[2026-08-02 09:08:58] Error: Required model files not found
+[2026-08-02 09:13:30] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6eee1a21829.jpg" --algorithm "lbph"
+[2026-08-02 09:13:31] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 100.05, "face_location": {"x": 280, "y": 171, "width": 179, "height": 179}}
+)
+
+[2026-08-02 09:13:31] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6eee1b99c87.jpg" --algorithm "lbph"
+[2026-08-02 09:13:32] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 98.1, "face_location": {"x": 275, "y": 164, "width": 187, "height": 187}}
+)
+
+[2026-08-02 09:13:33] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6eee1d1f1ec.jpg" --algorithm "lbph"
+[2026-08-02 09:13:34] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 97.17, "face_location": {"x": 252, "y": 164, "width": 200, "height": 200}}
+)
+
+[2026-08-02 09:13:34] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6eee1e98f91.jpg" --algorithm "lbph"
+[2026-08-02 09:13:35] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 97.3, "face_location": {"x": 250, "y": 159, "width": 206, "height": 206}}
+)
+
+[2026-08-02 09:13:36] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6eee201f391.jpg" --algorithm "lbph"
+[2026-08-02 09:13:37] Python output: Array
+(
+    [0] => {"success": false, "message": "No face detected"}
+)
+
+[2026-08-02 09:13:37] Error: No face detected
+[2026-08-02 09:13:37] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6eee219ca41.jpg" --algorithm "lbph"
+[2026-08-02 09:13:38] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 60.98909556184454, "algorithm": "lbph", "raw_distance": 88.76, "face_location": {"x": 394, "y": 297, "width": 167, "height": 167}}
+)
+
+[2026-08-02 09:13:53] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6eee31cda65.jpg" --algorithm "lbph"
+[2026-08-02 09:13:55] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 105.34, "face_location": {"x": 185, "y": 187, "width": 192, "height": 192}}
+)
+
+[2026-08-02 09:13:55] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6eee3346447.jpg" --algorithm "lbph"
+[2026-08-02 09:13:56] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 99.06, "face_location": {"x": 326, "y": 271, "width": 195, "height": 195}}
+)
+
+[2026-08-02 09:13:56] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6eee34be68e.jpg" --algorithm "lbph"
+[2026-08-02 09:13:57] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 115.5, "face_location": {"x": 268, "y": 324, "width": 144, "height": 144}}
+)
+
+[2026-08-02 09:13:58] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6eee364850c.jpg" --algorithm "lbph"
+[2026-08-02 09:13:59] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 131.57, "face_location": {"x": 297, "y": 318, "width": 84, "height": 84}}
+)
+
+[2026-08-02 09:13:59] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6eee37bec12.jpg" --algorithm "lbph"
+[2026-08-02 09:14:00] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 108.05, "face_location": {"x": 207, "y": 164, "width": 218, "height": 218}}
+)
+
+[2026-08-02 09:17:53] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6eef216e46e.jpg" --algorithm "lbph"
+[2026-08-02 09:17:54] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 100.02, "face_location": {"x": 264, "y": 174, "width": 183, "height": 183}}
+)
+
+[2026-08-02 09:17:54] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6eef22e4dd3.jpg" --algorithm "lbph"
+[2026-08-02 09:17:56] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 103.58, "face_location": {"x": 257, "y": 172, "width": 186, "height": 186}}
+)
+
+[2026-08-02 09:28:11] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef18b473ba.jpg" --algorithm "eigen"
+[2026-08-02 09:28:12] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 60.577860865664995, "algorithm": "eigen", "raw_distance": 3463.88, "face_location": {"x": 262, "y": 187, "width": 168, "height": 168}}
+)
+
+[2026-08-02 09:28:16] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef19045a37.jpg" --algorithm "eigen"
+[2026-08-02 09:28:17] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "eigen", "raw_distance": 3588.0, "face_location": {"x": 255, "y": 188, "width": 176, "height": 176}}
+)
+
+[2026-08-02 09:28:17] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef191c9158.jpg" --algorithm "eigen"
+[2026-08-02 09:28:19] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "eigen", "raw_distance": 3620.61, "face_location": {"x": 251, "y": 188, "width": 178, "height": 178}}
+)
+
+[2026-08-02 09:28:19] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef19348304.jpg" --algorithm "eigen"
+[2026-08-02 09:28:20] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "eigen", "raw_distance": 3613.71, "face_location": {"x": 252, "y": 188, "width": 178, "height": 178}}
+)
+
+[2026-08-02 09:28:20] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef194c508e.jpg" --algorithm "eigen"
+[2026-08-02 09:28:22] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "eigen", "raw_distance": 3635.27, "face_location": {"x": 252, "y": 188, "width": 175, "height": 175}}
+)
+
+[2026-08-02 09:28:22] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef1964ac14.jpg" --algorithm "eigen"
+[2026-08-02 09:28:23] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "eigen", "raw_distance": 3667.1, "face_location": {"x": 251, "y": 189, "width": 176, "height": 176}}
+)
+
+[2026-08-02 09:28:23] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef197c5d73.jpg" --algorithm "eigen"
+[2026-08-02 09:28:25] Python output: Array
+(
+    [0] => {"success": false, "message": "No face detected"}
+)
+
+[2026-08-02 09:28:25] Error: No face detected
+[2026-08-02 09:28:25] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef1994a169.jpg" --algorithm "eigen"
+[2026-08-02 09:28:26] Python output: Array
+(
+    [0] => {"success": false, "message": "No face detected"}
+)
+
+[2026-08-02 09:28:26] Error: No face detected
+[2026-08-02 09:28:26] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef19ac57f6.jpg" --algorithm "eigen"
+[2026-08-02 09:28:28] Python output: Array
+(
+    [0] => {"success": false, "message": "No face detected"}
+)
+
+[2026-08-02 09:28:28] Error: No face detected
+[2026-08-02 09:28:28] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef19c4b4a6.jpg" --algorithm "eigen"
+[2026-08-02 09:28:29] Python output: Array
+(
+    [0] => {"success": false, "message": "No face detected"}
+)
+
+[2026-08-02 09:28:29] Error: No face detected
+[2026-08-02 09:28:29] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef19dc12b2.jpg" --algorithm "eigen"
+[2026-08-02 09:28:31] Python output: Array
+(
+    [0] => {"success": false, "message": "No face detected"}
+)
+
+[2026-08-02 09:28:31] Error: No face detected
+[2026-08-02 09:28:31] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef19f46e1d.jpg" --algorithm "eigen"
+[2026-08-02 09:28:32] Python output: Array
+(
+    [0] => {"success": false, "message": "No face detected"}
+)
+
+[2026-08-02 09:28:32] Error: No face detected
+[2026-08-02 09:28:32] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef1a0c8a4e.jpg" --algorithm "eigen"
+[2026-08-02 09:28:34] Python output: Array
+(
+    [0] => {"success": false, "message": "No face detected"}
+)
+
+[2026-08-02 09:28:34] Error: No face detected
+[2026-08-02 09:28:34] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef1a24684c.jpg" --algorithm "eigen"
+[2026-08-02 09:28:35] Python output: Array
+(
+    [0] => {"success": false, "message": "No face detected"}
+)
+
+[2026-08-02 09:28:35] Error: No face detected
+[2026-08-02 09:28:35] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef1a3bd047.jpg" --algorithm "eigen"
+[2026-08-02 09:28:37] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 61.62261491420023, "algorithm": "eigen", "raw_distance": 3398.59, "face_location": {"x": 257, "y": 196, "width": 176, "height": 176}}
+)
+
+[2026-08-02 09:28:37] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef1a542287.jpg" --algorithm "eigen"
+[2026-08-02 09:28:38] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 60.1899335179398, "algorithm": "eigen", "raw_distance": 3488.13, "face_location": {"x": 254, "y": 194, "width": 177, "height": 177}}
+)
+
+[2026-08-02 09:28:38] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef1a6bc2f4.jpg" --algorithm "eigen"
+[2026-08-02 09:28:40] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 60.25126414546831, "algorithm": "eigen", "raw_distance": 3484.3, "face_location": {"x": 255, "y": 193, "width": 178, "height": 178}}
+)
+
+[2026-08-02 09:28:40] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef1a84196e.jpg" --algorithm "eigen"
+[2026-08-02 09:28:41] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "eigen", "raw_distance": 3744.67, "face_location": {"x": 233, "y": 210, "width": 226, "height": 226}}
+)
+
+[2026-08-02 09:28:41] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef1a9bf240.jpg" --algorithm "eigen"
+[2026-08-02 09:28:43] Python output: Array
+(
+    [0] => {"success": false, "message": "No face detected"}
+)
+
+[2026-08-02 09:28:43] Error: No face detected
+[2026-08-02 09:28:43] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef1ab43104.jpg" --algorithm "eigen"
+[2026-08-02 09:28:44] Python output: Array
+(
+    [0] => {"success": false, "message": "No face detected"}
+)
+
+[2026-08-02 09:28:44] Error: No face detected
+[2026-08-02 09:28:44] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef1acc0a7d.jpg" --algorithm "eigen"
+[2026-08-02 09:28:46] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 63.185195021507596, "algorithm": "eigen", "raw_distance": 3300.93, "face_location": {"x": 439, "y": 148, "width": 103, "height": 103}}
+)
+
+[2026-08-02 09:28:46] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef1ae4353d.jpg" --algorithm "eigen"
+[2026-08-02 09:28:47] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 63.11370694675251, "algorithm": "eigen", "raw_distance": 3305.39, "face_location": {"x": 440, "y": 153, "width": 94, "height": 94}}
+)
+
+[2026-08-02 09:28:47] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef1afb9cbb.jpg" --algorithm "eigen"
+[2026-08-02 09:28:48] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 62.77688007134663, "algorithm": "eigen", "raw_distance": 3326.44, "face_location": {"x": 442, "y": 155, "width": 90, "height": 90}}
+)
+
+[2026-08-02 09:28:49] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef1b141a84.jpg" --algorithm "eigen"
+[2026-08-02 09:28:50] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 62.14721772424957, "algorithm": "eigen", "raw_distance": 3365.8, "face_location": {"x": 442, "y": 155, "width": 92, "height": 92}}
+)
+
+[2026-08-02 09:28:50] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef1b2c0c69.jpg" --algorithm "eigen"
+[2026-08-02 09:28:52] Python output: Array
+(
+    [0] => {"success": false, "message": "No face detected"}
+)
+
+[2026-08-02 09:28:52] Error: No face detected
+[2026-08-02 09:28:52] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef1b4bbb94.jpg" --algorithm "eigen"
+[2026-08-02 09:28:54] Python output: Array
+(
+    [0] => {"success": false, "message": "No face detected"}
+)
+
+[2026-08-02 09:28:54] Error: No face detected
+[2026-08-02 09:28:54] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef1b641578.jpg" --algorithm "eigen"
+[2026-08-02 09:28:55] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 61.86122742640993, "algorithm": "eigen", "raw_distance": 3383.67, "face_location": {"x": 439, "y": 151, "width": 100, "height": 100}}
+)
+
+[2026-08-02 09:28:55] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef1b7bca9b.jpg" --algorithm "eigen"
+[2026-08-02 09:28:57] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 60.51157634477405, "algorithm": "eigen", "raw_distance": 3468.03, "face_location": {"x": 357, "y": 394, "width": 70, "height": 70}}
+)
+
+[2026-08-02 09:28:57] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef1b941787.jpg" --algorithm "eigen"
+[2026-08-02 09:28:58] Python output: Array
+(
+    [0] => {"success": false, "message": "No face detected"}
+)
+
+[2026-08-02 09:28:58] Error: No face detected
+[2026-08-02 09:28:58] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef1babab6f.jpg" --algorithm "eigen"
+[2026-08-02 09:28:59] Python output: Array
+(
+    [0] => {"success": false, "message": "No face detected"}
+)
+
+[2026-08-02 09:28:59] Error: No face detected
+[2026-08-02 09:29:00] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef1bc43e96.jpg" --algorithm "eigen"
+[2026-08-02 09:29:01] Python output: Array
+(
+    [0] => {"success": false, "message": "No face detected"}
+)
+
+[2026-08-02 09:29:01] Error: No face detected
+[2026-08-02 09:29:01] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef1bdbccf8.jpg" --algorithm "eigen"
+[2026-08-02 09:29:03] Python output: Array
+(
+    [0] => {"success": false, "message": "No face detected"}
+)
+
+[2026-08-02 09:29:03] Error: No face detected
+[2026-08-02 09:29:03] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef1bf4226b.jpg" --algorithm "eigen"
+[2026-08-02 09:29:04] Python output: Array
+(
+    [0] => {"success": false, "message": "No face detected"}
+)
+
+[2026-08-02 09:29:04] Error: No face detected
+[2026-08-02 09:29:04] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef1c0bc45c.jpg" --algorithm "eigen"
+[2026-08-02 09:29:06] Python output: Array
+(
+    [0] => {"success": false, "message": "No face detected"}
+)
+
+[2026-08-02 09:29:06] Error: No face detected
+[2026-08-02 09:29:06] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef1c244a5d.jpg" --algorithm "eigen"
+[2026-08-02 09:29:07] Python output: Array
+(
+    [0] => {"success": false, "message": "No face detected"}
+)
+
+[2026-08-02 09:29:07] Error: No face detected
+[2026-08-02 09:29:07] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef1c3bc5a6.jpg" --algorithm "eigen"
+[2026-08-02 09:29:08] Python output: Array
+(
+    [0] => {"success": false, "message": "No face detected"}
+)
+
+[2026-08-02 09:29:08] Error: No face detected
+[2026-08-02 09:29:09] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef1c543fa1.jpg" --algorithm "eigen"
+[2026-08-02 09:29:10] Python output: Array
+(
+    [0] => {"success": false, "message": "No face detected"}
+)
+
+[2026-08-02 09:29:10] Error: No face detected
+[2026-08-02 09:29:10] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef1c6be0d3.jpg" --algorithm "eigen"
+[2026-08-02 09:29:11] Python output: Array
+(
+    [0] => {"success": false, "message": "No face detected"}
+)
+
+[2026-08-02 09:29:11] Error: No face detected
+[2026-08-02 09:29:12] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef1c8487db.jpg" --algorithm "eigen"
+[2026-08-02 09:29:13] Python output: Array
+(
+    [0] => {"success": false, "message": "No face detected"}
+)
+
+[2026-08-02 09:29:13] Error: No face detected
+[2026-08-02 09:29:13] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef1c9bab70.jpg" --algorithm "eigen"
+[2026-08-02 09:29:14] Python output: Array
+(
+    [0] => {"success": false, "message": "No face detected"}
+)
+
+[2026-08-02 09:29:14] Error: No face detected
+[2026-08-02 09:29:15] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef1cb42eeb.jpg" --algorithm "eigen"
+[2026-08-02 09:29:16] Python output: Array
+(
+    [0] => {"success": false, "message": "No face detected"}
+)
+
+[2026-08-02 09:29:16] Error: No face detected
+[2026-08-02 09:29:16] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef1ccbf2eb.jpg" --algorithm "eigen"
+[2026-08-02 09:29:17] Python output: Array
+(
+    [0] => {"success": false, "message": "No face detected"}
+)
+
+[2026-08-02 09:29:17] Error: No face detected
+[2026-08-02 09:29:18] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef1ce44611.jpg" --algorithm "eigen"
+[2026-08-02 09:29:19] Python output: Array
+(
+    [0] => {"success": false, "message": "No face detected"}
+)
+
+[2026-08-02 09:29:19] Error: No face detected
+[2026-08-02 09:29:19] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef1cfbd7fb.jpg" --algorithm "eigen"
+[2026-08-02 09:29:20] Python output: Array
+(
+    [0] => {"success": false, "message": "No face detected"}
+)
+
+[2026-08-02 09:29:20] Error: No face detected
+[2026-08-02 09:29:21] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef1d143269.jpg" --algorithm "eigen"
+[2026-08-02 09:29:22] Python output: Array
+(
+    [0] => {"success": false, "message": "No face detected"}
+)
+
+[2026-08-02 09:29:22] Error: No face detected
+[2026-08-02 09:29:22] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef1d2c0f78.jpg" --algorithm "eigen"
+[2026-08-02 09:29:24] Python output: Array
+(
+    [0] => {"success": false, "message": "No face detected"}
+)
+
+[2026-08-02 09:29:24] Error: No face detected
+[2026-08-02 09:29:24] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef1d442fab.jpg" --algorithm "eigen"
+[2026-08-02 09:29:25] Python output: Array
+(
+    [0] => {"success": false, "message": "No face detected"}
+)
+
+[2026-08-02 09:29:25] Error: No face detected
+[2026-08-02 09:29:25] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef1d5bd466.jpg" --algorithm "eigen"
+[2026-08-02 09:29:27] Python output: Array
+(
+    [0] => {"success": false, "message": "No face detected"}
+)
+
+[2026-08-02 09:29:27] Error: No face detected
+[2026-08-02 09:29:27] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef1d743f7b.jpg" --algorithm "eigen"
+[2026-08-02 09:29:28] Python output: Array
+(
+    [0] => {"success": false, "message": "No face detected"}
+)
+
+[2026-08-02 09:29:28] Error: No face detected
+[2026-08-02 09:29:28] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef1d8bd8d8.jpg" --algorithm "eigen"
+[2026-08-02 09:29:29] Python output: Array
+(
+    [0] => {"success": false, "message": "No face detected"}
+)
+
+[2026-08-02 09:29:29] Error: No face detected
+[2026-08-02 09:29:30] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef1da44b0a.jpg" --algorithm "eigen"
+[2026-08-02 09:29:31] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "eigen", "raw_distance": 3737.31, "face_location": {"x": 436, "y": 212, "width": 110, "height": 110}}
+)
+
+[2026-08-02 09:29:31] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef1dbbc3b7.jpg" --algorithm "eigen"
+[2026-08-02 09:29:32] Python output: Array
+(
+    [0] => {"success": false, "message": "No face detected"}
+)
+
+[2026-08-02 09:29:33] Error: No face detected
+[2026-08-02 09:29:33] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef1dd4398c.jpg" --algorithm "eigen"
+[2026-08-02 09:29:34] Python output: Array
+(
+    [0] => {"success": false, "message": "No face detected"}
+)
+
+[2026-08-02 09:29:34] Error: No face detected
+[2026-08-02 09:29:34] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef1debd052.jpg" --algorithm "eigen"
+[2026-08-02 09:29:36] Python output: Array
+(
+    [0] => {"success": false, "message": "No face detected"}
+)
+
+[2026-08-02 09:29:36] Error: No face detected
+[2026-08-02 09:29:36] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef1e0442f8.jpg" --algorithm "eigen"
+[2026-08-02 09:29:37] Python output: Array
+(
+    [0] => {"success": false, "message": "No face detected"}
+)
+
+[2026-08-02 09:29:37] Error: No face detected
+[2026-08-02 09:29:37] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef1e1bc5a9.jpg" --algorithm "eigen"
+[2026-08-02 09:29:39] Python output: Array
+(
+    [0] => {"success": false, "message": "No face detected"}
+)
+
+[2026-08-02 09:29:39] Error: No face detected
+[2026-08-02 09:29:39] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef1e34362e.jpg" --algorithm "eigen"
+[2026-08-02 09:29:40] Python output: Array
+(
+    [0] => {"success": false, "message": "No face detected"}
+)
+
+[2026-08-02 09:29:40] Error: No face detected
+[2026-08-02 09:29:40] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef1e4be901.jpg" --algorithm "eigen"
+[2026-08-02 09:29:41] Python output: Array
+(
+    [0] => {"success": false, "message": "No face detected"}
+)
+
+[2026-08-02 09:29:41] Error: No face detected
+[2026-08-02 09:29:42] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef1e6416df.jpg" --algorithm "eigen"
+[2026-08-02 09:29:43] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 62.929667934642055, "algorithm": "eigen", "raw_distance": 3316.9, "face_location": {"x": 443, "y": 154, "width": 94, "height": 94}}
+)
+
+[2026-08-02 09:29:43] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef1e7bb367.jpg" --algorithm "eigen"
+[2026-08-02 09:29:44] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 64.44888590237966, "algorithm": "eigen", "raw_distance": 3221.94, "face_location": {"x": 444, "y": 155, "width": 92, "height": 92}}
+)
+
+[2026-08-02 09:29:45] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef1e942b49.jpg" --algorithm "eigen"
+[2026-08-02 09:29:46] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 65.79427241398088, "algorithm": "eigen", "raw_distance": 3137.86, "face_location": {"x": 446, "y": 157, "width": 89, "height": 89}}
+)
+
+[2026-08-02 09:29:46] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef1eabd66f.jpg" --algorithm "eigen"
+[2026-08-02 09:29:48] Python output: Array
+(
+    [0] => {"success": false, "message": "No face detected"}
+)
+
+[2026-08-02 09:29:48] Error: No face detected
+[2026-08-02 09:29:48] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef1ec43958.jpg" --algorithm "eigen"
+[2026-08-02 09:29:49] Python output: Array
+(
+    [0] => {"success": false, "message": "No face detected"}
+)
+
+[2026-08-02 09:29:49] Error: No face detected
+[2026-08-02 09:29:49] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef1edbb672.jpg" --algorithm "eigen"
+[2026-08-02 09:29:50] Python output: Array
+(
+    [0] => {"success": false, "message": "No face detected"}
+)
+
+[2026-08-02 09:29:50] Error: No face detected
+[2026-08-02 09:29:51] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef1ef4152c.jpg" --algorithm "eigen"
+[2026-08-02 09:29:52] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 62.283638399540706, "algorithm": "eigen", "raw_distance": 3357.27, "face_location": {"x": 248, "y": 171, "width": 181, "height": 181}}
+)
+
+[2026-08-02 09:29:52] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef1f0bffcf.jpg" --algorithm "eigen"
+[2026-08-02 09:29:54] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 61.657146806065555, "algorithm": "eigen", "raw_distance": 3396.43, "face_location": {"x": 243, "y": 174, "width": 180, "height": 180}}
+)
+
+[2026-08-02 09:29:54] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef1f2443a2.jpg" --algorithm "eigen"
+[2026-08-02 09:29:55] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 61.32517266642891, "algorithm": "eigen", "raw_distance": 3417.18, "face_location": {"x": 239, "y": 173, "width": 182, "height": 182}}
+)
+
+[2026-08-02 09:29:55] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef1f3be345.jpg" --algorithm "eigen"
+[2026-08-02 09:29:56] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 61.92919191636306, "algorithm": "eigen", "raw_distance": 3379.43, "face_location": {"x": 243, "y": 174, "width": 180, "height": 180}}
+)
+
+[2026-08-02 09:29:57] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef1f543612.jpg" --algorithm "eigen"
+[2026-08-02 09:29:58] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 61.67490041781231, "algorithm": "eigen", "raw_distance": 3395.32, "face_location": {"x": 254, "y": 157, "width": 202, "height": 202}}
+)
+
+[2026-08-02 09:29:58] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef1f6bed03.jpg" --algorithm "eigen"
+[2026-08-02 09:30:00] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 62.568092164817145, "algorithm": "eigen", "raw_distance": 3339.49, "face_location": {"x": 237, "y": 162, "width": 231, "height": 231}}
+)
+
+[2026-08-02 09:30:00] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef1f8492d0.jpg" --algorithm "eigen"
+[2026-08-02 09:30:01] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 60.90678022670992, "algorithm": "eigen", "raw_distance": 3443.33, "face_location": {"x": 232, "y": 161, "width": 223, "height": 223}}
+)
+
+[2026-08-02 09:30:01] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef1f9bd075.jpg" --algorithm "eigen"
+[2026-08-02 09:30:03] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 61.45442175752316, "algorithm": "eigen", "raw_distance": 3409.1, "face_location": {"x": 226, "y": 160, "width": 219, "height": 219}}
+)
+
+[2026-08-02 09:30:03] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef1fb43480.jpg" --algorithm "eigen"
+[2026-08-02 09:30:04] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 63.33861096461969, "algorithm": "eigen", "raw_distance": 3291.34, "face_location": {"x": 231, "y": 158, "width": 213, "height": 213}}
+)
+
+[2026-08-02 09:30:07] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef1ffec5b7.jpg" --algorithm "eigen"
+[2026-08-02 09:30:09] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 62.260621459350794, "algorithm": "eigen", "raw_distance": 3358.71, "face_location": {"x": 230, "y": 156, "width": 217, "height": 217}}
+)
+
+[2026-08-02 09:30:09] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef2016e187.jpg" --algorithm "eigen"
+[2026-08-02 09:30:10] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 60.59821291796284, "algorithm": "eigen", "raw_distance": 3462.61, "face_location": {"x": 231, "y": 159, "width": 215, "height": 215}}
+)
+
+[2026-08-02 09:30:10] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef202e9d81.jpg" --algorithm "eigen"
+[2026-08-02 09:30:12] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 61.263967714407144, "algorithm": "eigen", "raw_distance": 3421.0, "face_location": {"x": 236, "y": 157, "width": 209, "height": 209}}
+)
+
+[2026-08-02 09:30:12] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef20470745.jpg" --algorithm "eigen"
+[2026-08-02 09:30:13] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 69.49163140649893, "algorithm": "eigen", "raw_distance": 2906.77, "face_location": {"x": 453, "y": 278, "width": 164, "height": 164}}
+)
+
+[2026-08-02 09:30:13] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef205eda59.jpg" --algorithm "eigen"
+[2026-08-02 09:30:15] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "eigen", "raw_distance": 3632.07, "face_location": {"x": 181, "y": 178, "width": 149, "height": 149}}
+)
+
+[2026-08-02 09:30:15] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef207718ce.jpg" --algorithm "eigen"
+[2026-08-02 09:30:16] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 69.50899080595222, "algorithm": "eigen", "raw_distance": 2905.69, "face_location": {"x": 463, "y": 264, "width": 175, "height": 175}}
+)
+
+[2026-08-02 09:30:16] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef208e7b39.jpg" --algorithm "eigen"
+[2026-08-02 09:30:18] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "eigen", "raw_distance": 3756.45, "face_location": {"x": 33, "y": 207, "width": 139, "height": 139}}
+)
+
+[2026-08-02 09:30:18] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef20a6faea.jpg" --algorithm "eigen"
+[2026-08-02 09:30:19] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 62.304839844193715, "algorithm": "eigen", "raw_distance": 3355.95, "face_location": {"x": 141, "y": 149, "width": 193, "height": 193}}
+)
+
+[2026-08-02 09:30:19] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef20be8d58.jpg" --algorithm "eigen"
+[2026-08-02 09:30:21] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 63.82228720333256, "algorithm": "eigen", "raw_distance": 3261.11, "face_location": {"x": 206, "y": 157, "width": 230, "height": 230}}
+)
+
+[2026-08-02 09:30:22] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef20e6af57.jpg" --algorithm "lbph"
+[2026-08-02 09:30:23] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 91.12, "face_location": {"x": 216, "y": 158, "width": 182, "height": 182}}
+)
+
+[2026-08-02 09:30:23] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef20fe3f4e.jpg" --algorithm "lbph"
+[2026-08-02 09:30:25] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 91.39, "face_location": {"x": 214, "y": 160, "width": 185, "height": 185}}
+)
+
+[2026-08-02 09:30:25] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef21165d9f.jpg" --algorithm "lbph"
+[2026-08-02 09:30:26] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 91.07, "face_location": {"x": 214, "y": 162, "width": 186, "height": 186}}
+)
+
+[2026-08-02 09:35:02] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef326e3340.jpg" --algorithm "eigen"
+[2026-08-02 09:35:04] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "eigen", "raw_distance": 3308.14, "face_location": {"x": 237, "y": 170, "width": 184, "height": 184}}
+)
+
+[2026-08-02 09:35:04] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef32866203.jpg" --algorithm "eigen"
+[2026-08-02 09:35:05] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "eigen", "raw_distance": 3353.02, "face_location": {"x": 236, "y": 170, "width": 187, "height": 187}}
+)
+
+[2026-08-02 09:35:05] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef329dee07.jpg" --algorithm "eigen"
+[2026-08-02 09:35:07] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "eigen", "raw_distance": 3438.49, "face_location": {"x": 235, "y": 169, "width": 188, "height": 188}}
+)
+
+[2026-08-02 09:35:07] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef32b6616d.jpg" --algorithm "eigen"
+[2026-08-02 09:35:08] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "eigen", "raw_distance": 3478.35, "face_location": {"x": 435, "y": 212, "width": 110, "height": 110}}
+)
+
+[2026-08-02 09:35:08] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef32ce018c.jpg" --algorithm "eigen"
+[2026-08-02 09:35:09] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "eigen", "raw_distance": 3559.86, "face_location": {"x": 133, "y": 176, "width": 215, "height": 215}}
+)
+
+[2026-08-02 09:35:10] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef32e6516d.jpg" --algorithm "eigen"
+[2026-08-02 09:35:11] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "eigen", "raw_distance": 3447.71, "face_location": {"x": 170, "y": 172, "width": 192, "height": 192}}
+)
+
+[2026-08-02 09:35:11] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef32fde5b3.jpg" --algorithm "eigen"
+[2026-08-02 09:35:12] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "eigen", "raw_distance": 2962.66, "face_location": {"x": 375, "y": 223, "width": 226, "height": 226}}
+)
+
+[2026-08-02 09:35:13] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef33165979.jpg" --algorithm "eigen"
+[2026-08-02 09:35:14] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "eigen", "raw_distance": 2742.72, "face_location": {"x": 365, "y": 231, "width": 219, "height": 219}}
+)
+
+[2026-08-02 09:35:14] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef332df875.jpg" --algorithm "eigen"
+[2026-08-02 09:35:15] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "eigen", "raw_distance": 3430.85, "face_location": {"x": 377, "y": 238, "width": 231, "height": 231}}
+)
+
+[2026-08-02 09:35:16] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef334672bc.jpg" --algorithm "eigen"
+[2026-08-02 09:35:17] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "eigen", "raw_distance": 2716.22, "face_location": {"x": 391, "y": 92, "width": 233, "height": 233}}
+)
+
+[2026-08-02 09:35:17] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef335e008b.jpg" --algorithm "eigen"
+[2026-08-02 09:35:19] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "eigen", "raw_distance": 3501.81, "face_location": {"x": 320, "y": 141, "width": 47, "height": 47}}
+)
+
+[2026-08-02 09:35:19] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef33764c43.jpg" --algorithm "eigen"
+[2026-08-02 09:35:20] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "eigen", "raw_distance": 2436.17, "face_location": {"x": 257, "y": 157, "width": 242, "height": 242}}
+)
+
+[2026-08-02 09:35:20] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef338dea12.jpg" --algorithm "eigen"
+[2026-08-02 09:35:21] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "eigen", "raw_distance": 2377.65, "face_location": {"x": 276, "y": 149, "width": 242, "height": 242}}
+)
+
+[2026-08-02 09:35:22] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef33a66d2c.jpg" --algorithm "eigen"
+[2026-08-02 09:35:23] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "eigen", "raw_distance": 2583.73, "face_location": {"x": 301, "y": 135, "width": 255, "height": 255}}
+)
+
+[2026-08-02 09:35:23] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef33bdfc3f.jpg" --algorithm "eigen"
+[2026-08-02 09:35:25] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "eigen", "raw_distance": 2525.2, "face_location": {"x": 299, "y": 145, "width": 257, "height": 257}}
+)
+
+[2026-08-02 09:35:27] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef33f1f679.jpg" --algorithm "lbph"
+[2026-08-02 09:35:28] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 70.17065799431904, "algorithm": "lbph", "raw_distance": 77.29, "face_location": {"x": 284, "y": 168, "width": 258, "height": 258}}
+)
+
+[2026-08-02 09:35:32] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef344e4cd6.jpg" --algorithm "lbph"
+[2026-08-02 09:35:33] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 97.8, "face_location": {"x": 172, "y": 36, "width": 213, "height": 213}}
+)
+
+[2026-08-02 09:35:34] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef3461eb2f.jpg" --algorithm "lbph"
+[2026-08-02 09:35:35] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 100.07, "face_location": {"x": 200, "y": 36, "width": 237, "height": 237}}
+)
+
+[2026-08-02 09:35:35] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef347991c8.jpg" --algorithm "lbph"
+[2026-08-02 09:35:36] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 95.51, "face_location": {"x": 198, "y": 87, "width": 209, "height": 209}}
+)
+
+[2026-08-02 09:37:35] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef3bfb6878.jpg" --algorithm "eigen"
+[2026-08-02 09:37:36] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 75.5754295034283, "algorithm": "eigen", "raw_distance": 2331.84, "face_location": {"x": 351, "y": 144, "width": 206, "height": 206}}
+)
+
+[2026-08-02 09:37:37] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef3c135fe7.jpg" --algorithm "eigen"
+[2026-08-02 09:37:38] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 64.29884961838263, "algorithm": "eigen", "raw_distance": 3177.59, "face_location": {"x": 270, "y": 173, "width": 187, "height": 187}}
+)
+
+[2026-08-02 09:37:38] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef3c2b03e2.jpg" --algorithm "eigen"
+[2026-08-02 09:37:39] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 72.37069257046446, "algorithm": "eigen", "raw_distance": 2572.2, "face_location": {"x": 336, "y": 141, "width": 226, "height": 226}}
+)
+
+[2026-08-02 09:37:40] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef3c435d3f.jpg" --algorithm "eigen"
+[2026-08-02 09:37:41] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 63.15641594679302, "algorithm": "eigen", "raw_distance": 3263.27, "face_location": {"x": 400, "y": 158, "width": 225, "height": 225}}
+)
+
+[2026-08-02 09:37:41] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef3c5b0b8d.jpg" --algorithm "eigen"
+[2026-08-02 09:37:42] Python output: Array
+(
+    [0] => {"success": false, "message": "No face detected"}
+)
+
+[2026-08-02 09:37:42] Error: No face detected
+[2026-08-02 09:37:43] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef3c738a2a.jpg" --algorithm "eigen"
+[2026-08-02 09:37:44] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "eigen", "raw_distance": 3754.1, "face_location": {"x": 165, "y": 127, "width": 135, "height": 135}}
+)
+
+[2026-08-02 09:37:44] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef3c8b391d.jpg" --algorithm "eigen"
+[2026-08-02 09:37:45] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 72.49631816643955, "algorithm": "eigen", "raw_distance": 2562.78, "face_location": {"x": 330, "y": 209, "width": 157, "height": 157}}
+)
+
+[2026-08-02 09:37:46] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef3ca38e74.jpg" --algorithm "eigen"
+[2026-08-02 09:37:47] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 64.81595302954048, "algorithm": "eigen", "raw_distance": 3138.8, "face_location": {"x": 317, "y": 189, "width": 160, "height": 160}}
+)
+
+[2026-08-02 09:37:47] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef3cbb1447.jpg" --algorithm "eigen"
+[2026-08-02 09:37:48] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "eigen", "raw_distance": 3656.55, "face_location": {"x": 175, "y": 127, "width": 175, "height": 175}}
+)
+
+[2026-08-02 09:37:49] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef3cd38782.jpg" --algorithm "eigen"
+[2026-08-02 09:37:50] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 80.77136169830251, "algorithm": "eigen", "raw_distance": 1942.15, "face_location": {"x": 397, "y": 178, "width": 210, "height": 210}}
+)
+
+[2026-08-02 09:37:50] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef3ceb25f6.jpg" --algorithm "eigen"
+[2026-08-02 09:37:51] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "eigen", "raw_distance": 3508.55, "face_location": {"x": 195, "y": 131, "width": 210, "height": 210}}
+)
+
+[2026-08-02 09:37:52] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef3d036f49.jpg" --algorithm "eigen"
+[2026-08-02 09:37:53] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 79.47211888070447, "algorithm": "eigen", "raw_distance": 2039.59, "face_location": {"x": 383, "y": 170, "width": 197, "height": 197}}
+)
+
+[2026-08-02 09:38:00] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef3d885381.jpg" --algorithm "eigen"
+[2026-08-02 09:38:01] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 64.6701724371629, "algorithm": "eigen", "raw_distance": 3149.74, "face_location": {"x": 376, "y": 172, "width": 191, "height": 191}}
+)
+
+[2026-08-02 09:38:02] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef3da06c79.jpg" --algorithm "eigen"
+[2026-08-02 09:38:03] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 60.38559509970828, "algorithm": "eigen", "raw_distance": 3471.08, "face_location": {"x": 424, "y": 178, "width": 103, "height": 103}}
+)
+
+[2026-08-02 09:38:03] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef3db82053.jpg" --algorithm "eigen"
+[2026-08-02 09:38:04] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 83.2107602734219, "algorithm": "eigen", "raw_distance": 1759.19, "face_location": {"x": 389, "y": 183, "width": 215, "height": 215}}
+)
+
+[2026-08-02 09:38:05] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef3dd076fa.jpg" --algorithm "eigen"
+[2026-08-02 09:38:06] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 76.25564495479544, "algorithm": "eigen", "raw_distance": 2280.83, "face_location": {"x": 385, "y": 175, "width": 211, "height": 211}}
+)
+
+[2026-08-02 09:38:06] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef3de80886.jpg" --algorithm "eigen"
+[2026-08-02 09:38:07] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 60.516883928907276, "algorithm": "eigen", "raw_distance": 3461.23, "face_location": {"x": 192, "y": 130, "width": 205, "height": 205}}
+)
+
+[2026-08-02 09:38:08] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef3e007b3f.jpg" --algorithm "eigen"
+[2026-08-02 09:38:09] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 80.48739068674529, "algorithm": "eigen", "raw_distance": 1963.45, "face_location": {"x": 374, "y": 184, "width": 208, "height": 208}}
+)
+
+[2026-08-02 09:38:09] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef3e182296.jpg" --algorithm "eigen"
+[2026-08-02 09:38:10] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 80.38124708854177, "algorithm": "eigen", "raw_distance": 1971.41, "face_location": {"x": 374, "y": 187, "width": 202, "height": 202}}
+)
+
+[2026-08-02 09:38:11] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef3e3046ab.jpg" --algorithm "eigen"
+[2026-08-02 09:38:12] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 81.57230869681399, "algorithm": "eigen", "raw_distance": 1882.08, "face_location": {"x": 374, "y": 184, "width": 207, "height": 207}}
+)
+
+[2026-08-02 09:38:12] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef3e480802.jpg" --algorithm "eigen"
+[2026-08-02 09:38:13] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 79.58269317638414, "algorithm": "eigen", "raw_distance": 2031.3, "face_location": {"x": 372, "y": 187, "width": 204, "height": 204}}
+)
+
+[2026-08-02 09:38:15] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef3e785382.jpg" --algorithm "lbph"
+[2026-08-02 09:38:16] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 77.91099875072182, "algorithm": "lbph", "raw_distance": 67.61, "face_location": {"x": 373, "y": 191, "width": 202, "height": 202}}
+)
+
+[2026-08-02 09:38:17] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef3e907a12.jpg" --algorithm "lbph"
+[2026-08-02 09:38:18] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 73.55161951895107, "algorithm": "lbph", "raw_distance": 73.06, "face_location": {"x": 376, "y": 188, "width": 206, "height": 206}}
+)
+
+[2026-08-02 09:38:18] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef3ea815c8.jpg" --algorithm "lbph"
+[2026-08-02 09:38:19] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 71.09386739427079, "algorithm": "lbph", "raw_distance": 76.13, "face_location": {"x": 390, "y": 189, "width": 207, "height": 207}}
+)
+
+[2026-08-02 09:38:20] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef3ec0aa74.jpg" --algorithm "lbph"
+[2026-08-02 09:38:20] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 105.16, "face_location": {"x": 157, "y": 137, "width": 215, "height": 215}}
+)
+
+[2026-08-02 09:38:21] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef3ed83068.jpg" --algorithm "lbph"
+[2026-08-02 09:38:22] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 97.03, "face_location": {"x": 179, "y": 103, "width": 186, "height": 186}}
+)
+
+[2026-08-02 09:38:23] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef3ef06e23.jpg" --algorithm "lbph"
+[2026-08-02 09:38:23] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 95.11, "face_location": {"x": 240, "y": 99, "width": 196, "height": 196}}
+)
+
+[2026-08-02 09:38:24] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef3f08226c.jpg" --algorithm "lbph"
+[2026-08-02 09:38:25] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 94.7, "face_location": {"x": 254, "y": 103, "width": 198, "height": 198}}
+)
+
+[2026-08-02 09:38:26] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef3f207e36.jpg" --algorithm "lbph"
+[2026-08-02 09:38:27] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 97.52, "face_location": {"x": 248, "y": 109, "width": 193, "height": 193}}
+)
+
+[2026-08-02 09:38:27] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef3f38242d.jpg" --algorithm "lbph"
+[2026-08-02 09:38:28] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 97.75, "face_location": {"x": 242, "y": 106, "width": 195, "height": 195}}
+)
+
+[2026-08-02 09:38:29] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef3f508042.jpg" --algorithm "lbph"
+[2026-08-02 09:38:30] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 96.01, "face_location": {"x": 240, "y": 107, "width": 197, "height": 197}}
+)
+
+[2026-08-02 09:38:30] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef3f680460.jpg" --algorithm "lbph"
+[2026-08-02 09:38:31] Python output: Array
+(
+    [0] => {"success": false, "message": "No face detected"}
+)
+
+[2026-08-02 09:38:31] Error: No face detected
+[2026-08-02 09:38:32] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef3f807bb4.jpg" --algorithm "lbph"
+[2026-08-02 09:38:33] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 98.85, "face_location": {"x": 246, "y": 108, "width": 195, "height": 195}}
+)
+
+[2026-08-02 09:38:33] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef3f9830c1.jpg" --algorithm "lbph"
+[2026-08-02 09:38:34] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 100.76, "face_location": {"x": 242, "y": 105, "width": 201, "height": 201}}
+)
+
+[2026-08-02 09:38:35] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef3fb06531.jpg" --algorithm "lbph"
+[2026-08-02 09:38:36] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 139.85, "face_location": {"x": 501, "y": 244, "width": 63, "height": 63}}
+)
+
+[2026-08-02 09:38:36] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef3fc80f07.jpg" --algorithm "lbph"
+[2026-08-02 09:38:37] Python output: Array
+(
+    [0] => {"success": false, "message": "No face detected"}
+)
+
+[2026-08-02 09:38:37] Error: No face detected
+[2026-08-02 09:38:37] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef3fd80e53.jpg" --algorithm "lbph"
+[2026-08-02 09:38:38] Python output: Array
+(
+    [0] => {"success": false, "message": "No face detected"}
+)
+
+[2026-08-02 09:38:38] Error: No face detected
+[2026-08-02 09:38:38] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef3fe7f349.jpg" --algorithm "lbph"
+[2026-08-02 09:38:39] Python output: Array
+(
+    [0] => {"success": false, "message": "No face detected"}
+)
+
+[2026-08-02 09:38:39] Error: No face detected
+[2026-08-02 09:38:39] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef3ff83b3a.jpg" --algorithm "lbph"
+[2026-08-02 09:38:40] Python output: Array
+(
+    [0] => {"success": false, "message": "No face detected"}
+)
+
+[2026-08-02 09:38:40] Error: No face detected
+[2026-08-02 09:38:40] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef40080a6f.jpg" --algorithm "lbph"
+[2026-08-02 09:38:41] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 145.66, "face_location": {"x": 247, "y": 248, "width": 118, "height": 118}}
+)
+
+[2026-08-02 09:38:42] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4020894e.jpg" --algorithm "lbph"
+[2026-08-02 09:38:42] Python output: Array
+(
+    [0] => {"success": false, "message": "No face detected"}
+)
+
+[2026-08-02 09:38:42] Error: No face detected
+[2026-08-02 09:38:43] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4030655a.jpg" --algorithm "lbph"
+[2026-08-02 09:38:43] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 126.71, "face_location": {"x": 433, "y": 77, "width": 98, "height": 98}}
+)
+
+[2026-08-02 09:38:44] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef40405f7d.jpg" --algorithm "lbph"
+[2026-08-02 09:38:44] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 125.03, "face_location": {"x": 442, "y": 85, "width": 87, "height": 87}}
+)
+
+[2026-08-02 09:38:45] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef405835c8.jpg" --algorithm "lbph"
+[2026-08-02 09:38:46] Python output: Array
+(
+    [0] => {"success": false, "message": "No face detected"}
+)
+
+[2026-08-02 09:38:46] Error: No face detected
+[2026-08-02 09:38:47] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef40707ba6.jpg" --algorithm "lbph"
+[2026-08-02 09:38:48] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 113.28, "face_location": {"x": 405, "y": 232, "width": 140, "height": 140}}
+)
+
+[2026-08-02 09:38:48] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef40881336.jpg" --algorithm "lbph"
+[2026-08-02 09:38:49] Python output: Array
+(
+    [0] => {"success": false, "message": "No face detected"}
+)
+
+[2026-08-02 09:38:49] Error: No face detected
+[2026-08-02 09:38:49] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef40982758.jpg" --algorithm "lbph"
+[2026-08-02 09:38:50] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 102.07, "face_location": {"x": 447, "y": 230, "width": 139, "height": 139}}
+)
+
+[2026-08-02 09:38:50] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef40a80e1f.jpg" --algorithm "lbph"
+[2026-08-02 09:38:51] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 98.42, "face_location": {"x": 458, "y": 240, "width": 134, "height": 134}}
+)
+
+[2026-08-02 09:38:51] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef40b7f8cf.jpg" --algorithm "lbph"
+[2026-08-02 09:38:52] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 96.8, "face_location": {"x": 460, "y": 241, "width": 133, "height": 133}}
+)
+
+[2026-08-02 09:38:52] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef40c801ac.jpg" --algorithm "lbph"
+[2026-08-02 09:38:53] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 96.43, "face_location": {"x": 459, "y": 245, "width": 130, "height": 130}}
+)
+
+[2026-08-02 09:38:53] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef40d81708.jpg" --algorithm "lbph"
+[2026-08-02 09:38:54] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 94.87, "face_location": {"x": 457, "y": 243, "width": 130, "height": 130}}
+)
+
+[2026-08-02 09:38:55] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef40f084cd.jpg" --algorithm "lbph"
+[2026-08-02 09:38:56] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 66.36427915036634, "algorithm": "lbph", "raw_distance": 82.04, "face_location": {"x": 477, "y": 233, "width": 143, "height": 143}}
+)
+
+[2026-08-02 09:38:56] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef41080abf.jpg" --algorithm "lbph"
+[2026-08-02 09:38:57] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 131.6, "face_location": {"x": 464, "y": 315, "width": 139, "height": 139}}
+)
+
+[2026-08-02 09:38:58] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4120681f.jpg" --algorithm "lbph"
+[2026-08-02 09:38:59] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 60.68549969794513, "algorithm": "lbph", "raw_distance": 89.14, "face_location": {"x": 481, "y": 247, "width": 138, "height": 138}}
+)
+
+[2026-08-02 09:38:59] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef41382a07.jpg" --algorithm "lbph"
+[2026-08-02 09:39:00] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 67.25262702967015, "algorithm": "lbph", "raw_distance": 80.93, "face_location": {"x": 449, "y": 240, "width": 146, "height": 146}}
+)
+
+[2026-08-02 09:39:00] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef41482dc9.jpg" --algorithm "lbph"
+[2026-08-02 09:39:01] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 66.12095875150584, "algorithm": "lbph", "raw_distance": 82.35, "face_location": {"x": 454, "y": 244, "width": 143, "height": 143}}
+)
+
+[2026-08-02 09:39:02] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef416064d9.jpg" --algorithm "lbph"
+[2026-08-02 09:39:03] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 109.94, "face_location": {"x": 458, "y": 247, "width": 142, "height": 142}}
+)
+
+[2026-08-02 09:39:03] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef41780294.jpg" --algorithm "lbph"
+[2026-08-02 09:39:04] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 92.19, "face_location": {"x": 452, "y": 238, "width": 147, "height": 147}}
+)
+
+[2026-08-02 09:39:04] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef41881b62.jpg" --algorithm "lbph"
+[2026-08-02 09:39:05] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 110.55, "face_location": {"x": 438, "y": 222, "width": 155, "height": 155}}
+)
+
+[2026-08-02 09:39:05] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4197f7bc.jpg" --algorithm "lbph"
+[2026-08-02 09:39:06] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 98.3, "face_location": {"x": 440, "y": 231, "width": 149, "height": 149}}
+)
+
+[2026-08-02 09:39:06] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef41a7f506.jpg" --algorithm "lbph"
+[2026-08-02 09:39:07] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 60.21534709219941, "algorithm": "lbph", "raw_distance": 89.73, "face_location": {"x": 445, "y": 236, "width": 138, "height": 138}}
+)
+
+[2026-08-02 09:39:08] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef41c03a28.jpg" --algorithm "lbph"
+[2026-08-02 09:39:09] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 63.67573013662694, "algorithm": "lbph", "raw_distance": 85.41, "face_location": {"x": 445, "y": 239, "width": 140, "height": 140}}
+)
+
+[2026-08-02 09:39:09] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef41d8204c.jpg" --algorithm "lbph"
+[2026-08-02 09:39:10] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 106.67, "face_location": {"x": 428, "y": 223, "width": 147, "height": 147}}
+)
+
+[2026-08-02 09:39:11] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef41f084d7.jpg" --algorithm "lbph"
+[2026-08-02 09:39:12] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 101.49, "face_location": {"x": 435, "y": 215, "width": 152, "height": 152}}
+)
+
+[2026-08-02 09:39:12] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4207fb56.jpg" --algorithm "lbph"
+[2026-08-02 09:39:13] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 101.43, "face_location": {"x": 439, "y": 236, "width": 139, "height": 139}}
+)
+
+[2026-08-02 09:39:13] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef42182cb2.jpg" --algorithm "lbph"
+[2026-08-02 09:39:14] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 101.35, "face_location": {"x": 439, "y": 237, "width": 140, "height": 140}}
+)
+
+[2026-08-02 09:39:15] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef42307c58.jpg" --algorithm "lbph"
+[2026-08-02 09:39:16] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 95.54, "face_location": {"x": 443, "y": 237, "width": 140, "height": 140}}
+)
+
+[2026-08-02 09:39:16] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef424801f9.jpg" --algorithm "lbph"
+[2026-08-02 09:39:17] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 101.39, "face_location": {"x": 440, "y": 240, "width": 137, "height": 137}}
+)
+
+[2026-08-02 09:39:18] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef42605f54.jpg" --algorithm "lbph"
+[2026-08-02 09:39:19] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 108.02, "face_location": {"x": 441, "y": 224, "width": 151, "height": 151}}
+)
+
+[2026-08-02 09:39:19] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef42780b79.jpg" --algorithm "lbph"
+[2026-08-02 09:39:20] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 90.81, "face_location": {"x": 464, "y": 214, "width": 136, "height": 136}}
+)
+
+[2026-08-02 09:39:21] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4290610c.jpg" --algorithm "lbph"
+[2026-08-02 09:39:22] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 96.13, "face_location": {"x": 463, "y": 227, "width": 129, "height": 129}}
+)
+
+[2026-08-02 09:39:22] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef42a83971.jpg" --algorithm "lbph"
+[2026-08-02 09:39:23] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 62.60189056882475, "algorithm": "lbph", "raw_distance": 86.75, "face_location": {"x": 466, "y": 229, "width": 142, "height": 142}}
+)
+
+[2026-08-02 09:39:24] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef42c06bc1.jpg" --algorithm "lbph"
+[2026-08-02 09:39:25] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 93.72, "face_location": {"x": 481, "y": 239, "width": 143, "height": 143}}
+)
+
+[2026-08-02 09:39:25] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef42d81de0.jpg" --algorithm "lbph"
+[2026-08-02 09:39:26] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 92.81, "face_location": {"x": 496, "y": 241, "width": 133, "height": 133}}
+)
+
+[2026-08-02 09:39:27] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef42f06878.jpg" --algorithm "lbph"
+[2026-08-02 09:39:28] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 65.26355639485357, "algorithm": "lbph", "raw_distance": 83.42, "face_location": {"x": 468, "y": 227, "width": 143, "height": 143}}
+)
+
+[2026-08-02 09:39:28] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef43082f06.jpg" --algorithm "lbph"
+[2026-08-02 09:39:29] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 113.65, "face_location": {"x": 432, "y": 228, "width": 133, "height": 133}}
+)
+
+[2026-08-02 09:39:30] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4320672e.jpg" --algorithm "lbph"
+[2026-08-02 09:39:30] Python output: Array
+(
+    [0] => {"success": false, "message": "No face detected"}
+)
+
+[2026-08-02 09:39:30] Error: No face detected
+[2026-08-02 09:39:31] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4330552e.jpg" --algorithm "lbph"
+[2026-08-02 09:39:31] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 90.1, "face_location": {"x": 441, "y": 218, "width": 145, "height": 145}}
+)
+
+[2026-08-02 09:39:32] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4347fa08.jpg" --algorithm "lbph"
+[2026-08-02 09:39:33] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 97.5, "face_location": {"x": 454, "y": 225, "width": 142, "height": 142}}
+)
+
+[2026-08-02 09:39:34] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef43606059.jpg" --algorithm "lbph"
+[2026-08-02 09:39:35] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 132.46, "face_location": {"x": 423, "y": 138, "width": 114, "height": 114}}
+)
+
+[2026-08-02 09:39:35] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef43780891.jpg" --algorithm "lbph"
+[2026-08-02 09:39:36] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 114.67, "face_location": {"x": 441, "y": 198, "width": 150, "height": 150}}
+)
+
+[2026-08-02 09:39:37] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef43909047.jpg" --algorithm "lbph"
+[2026-08-02 09:39:38] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 136.11, "face_location": {"x": 467, "y": 219, "width": 68, "height": 68}}
+)
+
+[2026-08-02 09:39:38] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef43a7f88b.jpg" --algorithm "lbph"
+[2026-08-02 09:39:39] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 124.9, "face_location": {"x": 422, "y": 204, "width": 140, "height": 140}}
+)
+
+[2026-08-02 09:39:40] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef43c09acb.jpg" --algorithm "lbph"
+[2026-08-02 09:39:41] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 63.66649516780769, "algorithm": "lbph", "raw_distance": 85.42, "face_location": {"x": 449, "y": 237, "width": 142, "height": 142}}
+)
+
+[2026-08-02 09:39:41] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef43d81302.jpg" --algorithm "lbph"
+[2026-08-02 09:39:42] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 99.79, "face_location": {"x": 449, "y": 239, "width": 142, "height": 142}}
+)
+
+[2026-08-02 09:39:43] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef43f084aa.jpg" --algorithm "lbph"
+[2026-08-02 09:39:44] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 114.75, "face_location": {"x": 432, "y": 214, "width": 144, "height": 144}}
+)
+
+[2026-08-02 09:39:44] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef440825bc.jpg" --algorithm "lbph"
+[2026-08-02 09:39:45] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 101.52, "face_location": {"x": 189, "y": 113, "width": 211, "height": 211}}
+)
+
+[2026-08-02 09:39:46] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef44207491.jpg" --algorithm "lbph"
+[2026-08-02 09:39:47] Python output: Array
+(
+    [0] => {"success": false, "message": "No face detected"}
+)
+
+[2026-08-02 09:39:47] Error: No face detected
+[2026-08-02 09:39:47] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef44382080.jpg" --algorithm "lbph"
+[2026-08-02 09:39:48] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 133.05, "face_location": {"x": 108, "y": 168, "width": 228, "height": 228}}
+)
+
+[2026-08-02 09:39:49] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef44508f8f.jpg" --algorithm "lbph"
+[2026-08-02 09:39:50] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 107.36, "face_location": {"x": 163, "y": 141, "width": 215, "height": 215}}
+)
+
+[2026-08-02 09:39:50] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef44680c4c.jpg" --algorithm "lbph"
+[2026-08-02 09:39:51] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 104.89, "face_location": {"x": 136, "y": 130, "width": 211, "height": 211}}
+)
+
+[2026-08-02 09:39:52] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef44808c40.jpg" --algorithm "lbph"
+[2026-08-02 09:39:53] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 106.11, "face_location": {"x": 133, "y": 125, "width": 221, "height": 221}}
+)
+
+[2026-08-02 09:39:53] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef449803c8.jpg" --algorithm "lbph"
+[2026-08-02 09:39:54] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 104.35, "face_location": {"x": 145, "y": 118, "width": 219, "height": 219}}
+)
+
+[2026-08-02 09:39:55] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef44b09747.jpg" --algorithm "lbph"
+[2026-08-02 09:39:56] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 108.58, "face_location": {"x": 135, "y": 118, "width": 217, "height": 217}}
+)
+
+[2026-08-02 09:39:56] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef44c813d9.jpg" --algorithm "lbph"
+[2026-08-02 09:39:57] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 135.28, "face_location": {"x": 434, "y": 141, "width": 106, "height": 106}}
+)
+
+[2026-08-02 09:39:58] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef44e06fd4.jpg" --algorithm "lbph"
+[2026-08-02 09:39:58] Python output: Array
+(
+    [0] => {"success": false, "message": "No face detected"}
+)
+
+[2026-08-02 09:39:58] Error: No face detected
+[2026-08-02 09:39:59] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef44f0729c.jpg" --algorithm "lbph"
+[2026-08-02 09:40:00] Python output: Array
+(
+    [0] => {"success": false, "message": "No face detected"}
+)
+
+[2026-08-02 09:40:00] Error: No face detected
+[2026-08-02 09:40:00] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4508061a.jpg" --algorithm "lbph"
+[2026-08-02 09:40:01] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 131.23, "face_location": {"x": 392, "y": 188, "width": 67, "height": 67}}
+)
+
+[2026-08-02 09:40:02] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef45206a94.jpg" --algorithm "lbph"
+[2026-08-02 09:40:03] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 130.72, "face_location": {"x": 430, "y": 140, "width": 110, "height": 110}}
+)
+
+[2026-08-02 09:40:03] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4537fb40.jpg" --algorithm "lbph"
+[2026-08-02 09:40:04] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 65.08244915157455, "algorithm": "lbph", "raw_distance": 83.65, "face_location": {"x": 311, "y": 172, "width": 179, "height": 179}}
+)
+
+[2026-08-02 09:40:05] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef455079a4.jpg" --algorithm "lbph"
+[2026-08-02 09:40:05] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 61.04311677286455, "algorithm": "lbph", "raw_distance": 88.7, "face_location": {"x": 396, "y": 159, "width": 179, "height": 179}}
+)
+
+[2026-08-02 09:40:06] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef45681019.jpg" --algorithm "lbph"
+[2026-08-02 09:40:07] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 97.4, "face_location": {"x": 260, "y": 179, "width": 182, "height": 182}}
+)
+
+[2026-08-02 09:40:07] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef45781186.jpg" --algorithm "lbph"
+[2026-08-02 09:40:08] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 116.5, "face_location": {"x": 112, "y": 118, "width": 194, "height": 194}}
+)
+
+[2026-08-02 09:40:09] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef45907dbf.jpg" --algorithm "lbph"
+[2026-08-02 09:40:10] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 96.11, "face_location": {"x": 294, "y": 182, "width": 168, "height": 168}}
+)
+
+[2026-08-02 09:40:10] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef45a816d8.jpg" --algorithm "lbph"
+[2026-08-02 09:40:11] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 118.62, "face_location": {"x": 171, "y": 118, "width": 185, "height": 185}}
+)
+
+[2026-08-02 09:40:12] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef45c05ba5.jpg" --algorithm "lbph"
+[2026-08-02 09:40:13] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 110.24, "face_location": {"x": 177, "y": 113, "width": 188, "height": 188}}
+)
+
+[2026-08-02 09:40:13] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef45d81bd6.jpg" --algorithm "lbph"
+[2026-08-02 09:40:14] Python output: Array
+(
+    [0] => {"success": false, "message": "No face detected"}
+)
+
+[2026-08-02 09:40:14] Error: No face detected
+[2026-08-02 09:40:14] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef45e80dc9.jpg" --algorithm "lbph"
+[2026-08-02 09:40:15] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 131.49, "face_location": {"x": 463, "y": 170, "width": 89, "height": 89}}
+)
+
+[2026-08-02 09:40:15] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef45f8041f.jpg" --algorithm "lbph"
+[2026-08-02 09:40:16] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 124.84, "face_location": {"x": 470, "y": 174, "width": 96, "height": 96}}
+)
+
+[2026-08-02 09:40:17] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4610509e.jpg" --algorithm "lbph"
+[2026-08-02 09:40:17] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 127.01, "face_location": {"x": 463, "y": 178, "width": 96, "height": 96}}
+)
+
+[2026-08-02 09:40:18] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef46206136.jpg" --algorithm "lbph"
+[2026-08-02 09:40:19] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 127.98, "face_location": {"x": 463, "y": 180, "width": 95, "height": 95}}
+)
+
+[2026-08-02 09:40:19] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4638195d.jpg" --algorithm "lbph"
+[2026-08-02 09:40:20] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 127.38, "face_location": {"x": 468, "y": 183, "width": 101, "height": 101}}
+)
+
+[2026-08-02 09:40:21] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef46505652.jpg" --algorithm "lbph"
+[2026-08-02 09:40:22] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 128.92, "face_location": {"x": 466, "y": 176, "width": 91, "height": 91}}
+)
+
+[2026-08-02 09:40:22] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef46680295.jpg" --algorithm "lbph"
+[2026-08-02 09:40:23] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 130.84, "face_location": {"x": 466, "y": 173, "width": 86, "height": 86}}
+)
+
+[2026-08-02 09:40:24] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef46807c95.jpg" --algorithm "lbph"
+[2026-08-02 09:40:25] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 126.2, "face_location": {"x": 462, "y": 174, "width": 98, "height": 98}}
+)
+
+[2026-08-02 09:40:25] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef46981a58.jpg" --algorithm "lbph"
+[2026-08-02 09:40:26] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 126.71, "face_location": {"x": 445, "y": 179, "width": 87, "height": 87}}
+)
+
+[2026-08-02 09:40:27] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef46b055b4.jpg" --algorithm "lbph"
+[2026-08-02 09:40:27] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 122.65, "face_location": {"x": 444, "y": 191, "width": 94, "height": 94}}
+)
+
+[2026-08-02 09:40:28] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef46c071e2.jpg" --algorithm "lbph"
+[2026-08-02 09:40:29] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 129.67, "face_location": {"x": 431, "y": 187, "width": 69, "height": 69}}
+)
+
+[2026-08-02 09:40:29] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef46d80bad.jpg" --algorithm "lbph"
+[2026-08-02 09:40:30] Python output: Array
+(
+    [0] => {"success": false, "message": "No face detected"}
+)
+
+[2026-08-02 09:40:30] Error: No face detected
+[2026-08-02 09:40:31] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef46f07c35.jpg" --algorithm "lbph"
+[2026-08-02 09:40:32] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 115.28, "face_location": {"x": 211, "y": 113, "width": 243, "height": 243}}
+)
+
+[2026-08-02 09:40:32] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef47080053.jpg" --algorithm "lbph"
+[2026-08-02 09:40:33] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 107.86, "face_location": {"x": 402, "y": 184, "width": 176, "height": 176}}
+)
+
+[2026-08-02 09:40:33] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef47183fb7.jpg" --algorithm "lbph"
+[2026-08-02 09:40:34] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 72.08723136875875, "algorithm": "lbph", "raw_distance": 74.89, "face_location": {"x": 345, "y": 205, "width": 156, "height": 156}}
+)
+
+[2026-08-02 09:40:35] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef473075cb.jpg" --algorithm "lbph"
+[2026-08-02 09:40:36] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 71.52984480052696, "algorithm": "lbph", "raw_distance": 75.59, "face_location": {"x": 345, "y": 218, "width": 158, "height": 158}}
+)
+
+[2026-08-02 09:40:36] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef47480633.jpg" --algorithm "lbph"
+[2026-08-02 09:40:37] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 68.54140596210334, "algorithm": "lbph", "raw_distance": 79.32, "face_location": {"x": 352, "y": 230, "width": 153, "height": 153}}
+)
+
+[2026-08-02 09:40:38] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef47606dc9.jpg" --algorithm "lbph"
+[2026-08-02 09:40:39] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 66.93930180778978, "algorithm": "lbph", "raw_distance": 81.33, "face_location": {"x": 353, "y": 234, "width": 153, "height": 153}}
+)
+
+[2026-08-02 09:40:39] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef47781f97.jpg" --algorithm "lbph"
+[2026-08-02 09:40:40] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 71.21530485047931, "algorithm": "lbph", "raw_distance": 75.98, "face_location": {"x": 377, "y": 229, "width": 154, "height": 154}}
+)
+
+[2026-08-02 09:40:41] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef47908a1f.jpg" --algorithm "lbph"
+[2026-08-02 09:40:42] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 114.27, "face_location": {"x": 304, "y": 194, "width": 173, "height": 173}}
+)
+
+[2026-08-02 09:40:42] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef47a822c9.jpg" --algorithm "lbph"
+[2026-08-02 09:40:43] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 109.62, "face_location": {"x": 334, "y": 215, "width": 148, "height": 148}}
+)
+
+[2026-08-02 09:40:44] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef47c07cb5.jpg" --algorithm "lbph"
+[2026-08-02 09:40:45] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 71.2617919812131, "algorithm": "lbph", "raw_distance": 75.92, "face_location": {"x": 383, "y": 204, "width": 151, "height": 151}}
+)
+
+[2026-08-02 09:40:45] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef47d80d22.jpg" --algorithm "lbph"
+[2026-08-02 09:40:46] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 98.74, "face_location": {"x": 216, "y": 147, "width": 148, "height": 148}}
+)
+
+[2026-08-02 09:40:47] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef47f06ca9.jpg" --algorithm "lbph"
+[2026-08-02 09:40:48] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 64.89284827441884, "algorithm": "lbph", "raw_distance": 83.88, "face_location": {"x": 371, "y": 213, "width": 149, "height": 149}}
+)
+
+[2026-08-02 09:40:48] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef480817bf.jpg" --algorithm "lbph"
+[2026-08-02 09:40:49] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 105.39, "face_location": {"x": 227, "y": 156, "width": 151, "height": 151}}
+)
+
+[2026-08-02 09:40:50] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef48206568.jpg" --algorithm "lbph"
+[2026-08-02 09:40:51] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 75.40974807987652, "algorithm": "lbph", "raw_distance": 70.74, "face_location": {"x": 329, "y": 224, "width": 153, "height": 153}}
+)
+
+[2026-08-02 09:40:51] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef48380a9d.jpg" --algorithm "lbph"
+[2026-08-02 09:40:52] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 68.46846463902162, "algorithm": "lbph", "raw_distance": 79.41, "face_location": {"x": 344, "y": 223, "width": 150, "height": 150}}
+)
+
+[2026-08-02 09:40:53] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef485098c4.jpg" --algorithm "lbph"
+[2026-08-02 09:40:53] Python output: Array
+(
+    [0] => {"success": false, "message": "No face detected"}
+)
+
+[2026-08-02 09:40:53] Error: No face detected
+[2026-08-02 09:40:54] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef48606054.jpg" --algorithm "lbph"
+[2026-08-02 09:40:54] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 134.28, "face_location": {"x": 430, "y": 141, "width": 109, "height": 109}}
+)
+
+[2026-08-02 09:40:55] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4870276a.jpg" --algorithm "lbph"
+[2026-08-02 09:40:55] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 133.03, "face_location": {"x": 429, "y": 139, "width": 112, "height": 112}}
+)
+
+[2026-08-02 09:40:56] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef48807730.jpg" --algorithm "lbph"
+[2026-08-02 09:40:56] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 131.99, "face_location": {"x": 431, "y": 179, "width": 79, "height": 79}}
+)
+
+[2026-08-02 09:40:57] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef48906f7d.jpg" --algorithm "lbph"
+[2026-08-02 09:40:57] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 106.36, "face_location": {"x": 216, "y": 145, "width": 149, "height": 149}}
+)
+
+[2026-08-02 09:40:58] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef48a058a3.jpg" --algorithm "lbph"
+[2026-08-02 09:40:58] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 110.05, "face_location": {"x": 213, "y": 146, "width": 152, "height": 152}}
+)
+
+[2026-08-02 09:40:59] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef48b06c1d.jpg" --algorithm "lbph"
+[2026-08-02 09:40:59] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 130.24, "face_location": {"x": 419, "y": 162, "width": 168, "height": 168}}
+)
+
+[2026-08-02 09:41:00] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef48c071bf.jpg" --algorithm "lbph"
+[2026-08-02 09:41:00] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 116.31, "face_location": {"x": 202, "y": 136, "width": 146, "height": 146}}
+)
+
+[2026-08-02 09:41:01] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef48d065e7.jpg" --algorithm "lbph"
+[2026-08-02 09:41:01] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 125.08, "face_location": {"x": 238, "y": 146, "width": 78, "height": 78}}
+)
+
+[2026-08-02 09:41:02] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef48e0709c.jpg" --algorithm "lbph"
+[2026-08-02 09:41:02] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 96.95, "face_location": {"x": 359, "y": 184, "width": 166, "height": 166}}
+)
+
+[2026-08-02 09:41:03] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef48f063e3.jpg" --algorithm "lbph"
+[2026-08-02 09:41:03] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 69.44574817418618, "algorithm": "lbph", "raw_distance": 78.19, "face_location": {"x": 363, "y": 200, "width": 154, "height": 154}}
+)
+
+[2026-08-02 09:41:04] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef49007369.jpg" --algorithm "lbph"
+[2026-08-02 09:41:04] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 72.59523361006572, "algorithm": "lbph", "raw_distance": 74.26, "face_location": {"x": 361, "y": 206, "width": 157, "height": 157}}
+)
+
+[2026-08-02 09:41:05] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef49107620.jpg" --algorithm "lbph"
+[2026-08-02 09:41:05] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 73.77691119242098, "algorithm": "lbph", "raw_distance": 72.78, "face_location": {"x": 363, "y": 206, "width": 159, "height": 159}}
+)
+
+[2026-08-02 09:41:06] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef49206e47.jpg" --algorithm "lbph"
+[2026-08-02 09:41:06] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 99.13, "face_location": {"x": 320, "y": 249, "width": 163, "height": 163}}
+)
+
+[2026-08-02 09:41:07] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef49309e4a.jpg" --algorithm "lbph"
+[2026-08-02 09:41:07] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 91.02, "face_location": {"x": 330, "y": 225, "width": 159, "height": 159}}
+)
+
+[2026-08-02 09:41:08] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef49408c03.jpg" --algorithm "lbph"
+[2026-08-02 09:41:08] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 97.76, "face_location": {"x": 341, "y": 199, "width": 159, "height": 159}}
+)
+
+[2026-08-02 09:41:09] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef49508a11.jpg" --algorithm "lbph"
+[2026-08-02 09:41:09] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 97.42, "face_location": {"x": 344, "y": 205, "width": 155, "height": 155}}
+)
+
+[2026-08-02 09:41:10] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef49606906.jpg" --algorithm "lbph"
+[2026-08-02 09:41:10] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 93.79, "face_location": {"x": 341, "y": 213, "width": 150, "height": 150}}
+)
+
+[2026-08-02 09:41:11] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef49706217.jpg" --algorithm "lbph"
+[2026-08-02 09:41:11] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 106.95, "face_location": {"x": 314, "y": 256, "width": 155, "height": 155}}
+)
+
+[2026-08-02 09:41:12] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef498071ca.jpg" --algorithm "lbph"
+[2026-08-02 09:41:12] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 91.8, "face_location": {"x": 332, "y": 225, "width": 162, "height": 162}}
+)
+
+[2026-08-02 09:41:13] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef49909238.jpg" --algorithm "lbph"
+[2026-08-02 09:41:13] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 71.09177602848521, "algorithm": "lbph", "raw_distance": 76.14, "face_location": {"x": 375, "y": 207, "width": 158, "height": 158}}
+)
+
+[2026-08-02 09:41:14] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef49a0a749.jpg" --algorithm "lbph"
+[2026-08-02 09:41:14] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 69.29191133815615, "algorithm": "lbph", "raw_distance": 78.39, "face_location": {"x": 381, "y": 206, "width": 157, "height": 157}}
+)
+
+[2026-08-02 09:41:15] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef49b08ad8.jpg" --algorithm "lbph"
+[2026-08-02 09:41:15] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 103.87, "face_location": {"x": 222, "y": 130, "width": 122, "height": 122}}
+)
+
+[2026-08-02 09:41:16] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef49c06f05.jpg" --algorithm "lbph"
+[2026-08-02 09:41:17] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 117.61, "face_location": {"x": 355, "y": 190, "width": 160, "height": 160}}
+)
+
+[2026-08-02 09:41:17] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef49d84246.jpg" --algorithm "lbph"
+[2026-08-02 09:41:18] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 111.52, "face_location": {"x": 362, "y": 197, "width": 162, "height": 162}}
+)
+
+[2026-08-02 09:41:18] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef49e84582.jpg" --algorithm "lbph"
+[2026-08-02 09:41:19] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 112.12, "face_location": {"x": 241, "y": 151, "width": 141, "height": 141}}
+)
+
+[2026-08-02 09:41:19] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef49f84ab0.jpg" --algorithm "lbph"
+[2026-08-02 09:41:20] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 116.22, "face_location": {"x": 381, "y": 185, "width": 167, "height": 167}}
+)
+
+[2026-08-02 09:41:20] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4a0816fa.jpg" --algorithm "lbph"
+[2026-08-02 09:41:21] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 114.49, "face_location": {"x": 377, "y": 183, "width": 172, "height": 172}}
+)
+
+[2026-08-02 09:41:21] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4a18287a.jpg" --algorithm "lbph"
+[2026-08-02 09:41:22] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 100.14, "face_location": {"x": 390, "y": 191, "width": 159, "height": 159}}
+)
+
+[2026-08-02 09:41:22] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4a282619.jpg" --algorithm "lbph"
+[2026-08-02 09:41:23] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 70.36015713444553, "algorithm": "lbph", "raw_distance": 77.05, "face_location": {"x": 413, "y": 204, "width": 161, "height": 161}}
+)
+
+[2026-08-02 09:41:23] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4a3850d4.jpg" --algorithm "lbph"
+[2026-08-02 09:41:24] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 104.79, "face_location": {"x": 306, "y": 237, "width": 172, "height": 172}}
+)
+
+[2026-08-02 09:41:24] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4a4833e8.jpg" --algorithm "lbph"
+[2026-08-02 09:41:25] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 116.38, "face_location": {"x": 249, "y": 146, "width": 113, "height": 113}}
+)
+
+[2026-08-02 09:41:25] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4a58500d.jpg" --algorithm "lbph"
+[2026-08-02 09:41:26] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 108.24, "face_location": {"x": 301, "y": 233, "width": 172, "height": 172}}
+)
+
+[2026-08-02 09:41:26] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4a680f15.jpg" --algorithm "lbph"
+[2026-08-02 09:41:27] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 61.926924756143045, "algorithm": "lbph", "raw_distance": 87.59, "face_location": {"x": 322, "y": 214, "width": 162, "height": 162}}
+)
+
+[2026-08-02 09:41:27] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4a7828b0.jpg" --algorithm "lbph"
+[2026-08-02 09:41:28] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 114.28, "face_location": {"x": 208, "y": 176, "width": 162, "height": 162}}
+)
+
+[2026-08-02 09:41:28] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4a882c32.jpg" --algorithm "lbph"
+[2026-08-02 09:41:29] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 75.75427266546248, "algorithm": "lbph", "raw_distance": 70.31, "face_location": {"x": 374, "y": 207, "width": 167, "height": 167}}
+)
+
+[2026-08-02 09:41:29] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4a98048e.jpg" --algorithm "lbph"
+[2026-08-02 09:41:30] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 73.78398577159876, "algorithm": "lbph", "raw_distance": 72.77, "face_location": {"x": 370, "y": 210, "width": 163, "height": 163}}
+)
+
+[2026-08-02 09:41:30] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4aa7fa51.jpg" --algorithm "lbph"
+[2026-08-02 09:41:31] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 74.0158866941359, "algorithm": "lbph", "raw_distance": 72.48, "face_location": {"x": 373, "y": 206, "width": 162, "height": 162}}
+)
+
+[2026-08-02 09:41:31] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4ab82a4b.jpg" --algorithm "lbph"
+[2026-08-02 09:41:32] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 92.17, "face_location": {"x": 348, "y": 201, "width": 164, "height": 164}}
+)
+
+[2026-08-02 09:41:32] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4ac7faf5.jpg" --algorithm "lbph"
+[2026-08-02 09:41:33] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 102.59, "face_location": {"x": 233, "y": 190, "width": 135, "height": 135}}
+)
+
+[2026-08-02 09:41:33] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4ad81988.jpg" --algorithm "lbph"
+[2026-08-02 09:41:34] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 100.42, "face_location": {"x": 337, "y": 211, "width": 155, "height": 155}}
+)
+
+[2026-08-02 09:41:34] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4ae84397.jpg" --algorithm "lbph"
+[2026-08-02 09:41:35] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 93.03, "face_location": {"x": 347, "y": 211, "width": 152, "height": 152}}
+)
+
+[2026-08-02 09:41:35] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4af7ff13.jpg" --algorithm "lbph"
+[2026-08-02 09:41:36] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 102.04, "face_location": {"x": 325, "y": 211, "width": 167, "height": 167}}
+)
+
+[2026-08-02 09:41:36] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4b07f9a5.jpg" --algorithm "lbph"
+[2026-08-02 09:41:37] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 111.13, "face_location": {"x": 321, "y": 219, "width": 171, "height": 171}}
+)
+
+[2026-08-02 09:41:37] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4b183c80.jpg" --algorithm "lbph"
+[2026-08-02 09:41:38] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 72.50324764004199, "algorithm": "lbph", "raw_distance": 74.37, "face_location": {"x": 362, "y": 219, "width": 161, "height": 161}}
+)
+
+[2026-08-02 09:41:38] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4b2802e9.jpg" --algorithm "lbph"
+[2026-08-02 09:41:39] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 75.02976979785653, "algorithm": "lbph", "raw_distance": 71.21, "face_location": {"x": 375, "y": 215, "width": 165, "height": 165}}
+)
+
+[2026-08-02 09:41:39] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4b3860c6.jpg" --algorithm "lbph"
+[2026-08-02 09:41:40] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 69.52446722205076, "algorithm": "lbph", "raw_distance": 78.09, "face_location": {"x": 396, "y": 200, "width": 159, "height": 159}}
+)
+
+[2026-08-02 09:41:40] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4b4825d8.jpg" --algorithm "lbph"
+[2026-08-02 09:41:41] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 102.98, "face_location": {"x": 230, "y": 148, "width": 137, "height": 137}}
+)
+
+[2026-08-02 09:41:41] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4b581952.jpg" --algorithm "lbph"
+[2026-08-02 09:41:42] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 104.76, "face_location": {"x": 226, "y": 144, "width": 145, "height": 145}}
+)
+
+[2026-08-02 09:41:42] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4b681740.jpg" --algorithm "lbph"
+[2026-08-02 09:41:43] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 104.46, "face_location": {"x": 228, "y": 144, "width": 140, "height": 140}}
+)
+
+[2026-08-02 09:41:43] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4b7813ed.jpg" --algorithm "lbph"
+[2026-08-02 09:41:44] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 129.46, "face_location": {"x": 259, "y": 149, "width": 133, "height": 133}}
+)
+
+[2026-08-02 09:41:44] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4b88536c.jpg" --algorithm "lbph"
+[2026-08-02 09:41:45] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 98.03, "face_location": {"x": 382, "y": 205, "width": 141, "height": 141}}
+)
+
+[2026-08-02 09:41:45] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4b983cf6.jpg" --algorithm "lbph"
+[2026-08-02 09:41:46] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 64.21944987523295, "algorithm": "lbph", "raw_distance": 84.73, "face_location": {"x": 383, "y": 205, "width": 153, "height": 153}}
+)
+
+[2026-08-02 09:41:46] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4ba8461c.jpg" --algorithm "lbph"
+[2026-08-02 09:41:47] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 97.32, "face_location": {"x": 372, "y": 204, "width": 147, "height": 147}}
+)
+
+[2026-08-02 09:41:47] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4bb81318.jpg" --algorithm "lbph"
+[2026-08-02 09:41:48] Python output: Array
+(
+    [0] => {"success": false, "message": "No face detected"}
+)
+
+[2026-08-02 09:41:48] Error: No face detected
+[2026-08-02 09:41:48] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4bc84abe.jpg" --algorithm "lbph"
+[2026-08-02 09:41:49] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 98.02, "face_location": {"x": 407, "y": 197, "width": 151, "height": 151}}
+)
+
+[2026-08-02 09:41:49] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4bd841ea.jpg" --algorithm "lbph"
+[2026-08-02 09:41:50] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 92.7, "face_location": {"x": 407, "y": 210, "width": 175, "height": 175}}
+)
+
+[2026-08-02 09:41:50] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4be86df1.jpg" --algorithm "lbph"
+[2026-08-02 09:41:51] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 106.44, "face_location": {"x": 383, "y": 197, "width": 154, "height": 154}}
+)
+
+[2026-08-02 09:41:51] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4bf84aac.jpg" --algorithm "lbph"
+[2026-08-02 09:41:52] Python output: Array
+(
+    [0] => {"success": false, "message": "No face detected"}
+)
+
+[2026-08-02 09:41:52] Error: No face detected
+[2026-08-02 09:41:52] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4c0802c5.jpg" --algorithm "lbph"
+[2026-08-02 09:41:53] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 144.16, "face_location": {"x": 274, "y": 166, "width": 157, "height": 157}}
+)
+
+[2026-08-02 09:41:53] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4c17fbbb.jpg" --algorithm "lbph"
+[2026-08-02 09:41:54] Python output: Array
+(
+    [0] => {"success": true, "student_id": "1122", "confidence": 60.153242116477315, "algorithm": "lbph", "raw_distance": 89.81, "face_location": {"x": 390, "y": 201, "width": 218, "height": 218}}
+)
+
+[2026-08-02 09:41:54] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4c285269.jpg" --algorithm "lbph"
+[2026-08-02 09:41:55] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 105.41, "face_location": {"x": 227, "y": 86, "width": 173, "height": 173}}
+)
+
+[2026-08-02 09:41:55] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4c38475c.jpg" --algorithm "lbph"
+[2026-08-02 09:41:56] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 103.02, "face_location": {"x": 243, "y": 96, "width": 176, "height": 176}}
+)
+
+[2026-08-02 09:41:56] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4c488811.jpg" --algorithm "lbph"
+[2026-08-02 09:41:57] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 90.01, "face_location": {"x": 229, "y": 100, "width": 172, "height": 172}}
+)
+
+[2026-08-02 09:41:57] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4c5818f0.jpg" --algorithm "lbph"
+[2026-08-02 09:41:58] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 95.0, "face_location": {"x": 231, "y": 107, "width": 178, "height": 178}}
+)
+
+[2026-08-02 09:41:58] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4c6805d8.jpg" --algorithm "lbph"
+[2026-08-02 09:41:59] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 97.25, "face_location": {"x": 220, "y": 98, "width": 180, "height": 180}}
+)
+
+[2026-08-02 09:41:59] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4c7829bd.jpg" --algorithm "lbph"
+[2026-08-02 09:42:00] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 129.57, "face_location": {"x": 262, "y": 106, "width": 178, "height": 178}}
+)
+
+[2026-08-02 09:42:00] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4c884830.jpg" --algorithm "lbph"
+[2026-08-02 09:42:01] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 101.58, "face_location": {"x": 226, "y": 105, "width": 191, "height": 191}}
+)
+
+[2026-08-02 09:42:01] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4c980db4.jpg" --algorithm "lbph"
+[2026-08-02 09:42:02] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 124.2, "face_location": {"x": 263, "y": 108, "width": 185, "height": 185}}
+)
+
+[2026-08-02 09:42:02] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4ca844b0.jpg" --algorithm "lbph"
+[2026-08-02 09:42:03] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 107.76, "face_location": {"x": 178, "y": 96, "width": 218, "height": 218}}
+)
+
+[2026-08-02 09:42:03] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4cb80bda.jpg" --algorithm "lbph"
+[2026-08-02 09:42:04] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 106.28, "face_location": {"x": 203, "y": 105, "width": 204, "height": 204}}
+)
+
+[2026-08-02 09:42:04] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4cc83f22.jpg" --algorithm "lbph"
+[2026-08-02 09:42:05] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 97.93, "face_location": {"x": 206, "y": 106, "width": 203, "height": 203}}
+)
+
+[2026-08-02 09:42:05] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4cd81544.jpg" --algorithm "lbph"
+[2026-08-02 09:42:06] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 103.13, "face_location": {"x": 200, "y": 106, "width": 206, "height": 206}}
+)
+
+[2026-08-02 09:42:06] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4ce84669.jpg" --algorithm "lbph"
+[2026-08-02 09:42:07] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 99.28, "face_location": {"x": 202, "y": 108, "width": 199, "height": 199}}
+)
+
+[2026-08-02 09:42:07] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4cf8214d.jpg" --algorithm "lbph"
+[2026-08-02 09:42:08] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 101.36, "face_location": {"x": 200, "y": 107, "width": 202, "height": 202}}
+)
+
+[2026-08-02 09:42:08] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4d080a30.jpg" --algorithm "lbph"
+[2026-08-02 09:42:09] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 104.02, "face_location": {"x": 201, "y": 96, "width": 214, "height": 214}}
+)
+
+[2026-08-02 09:42:09] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4d180f10.jpg" --algorithm "lbph"
+[2026-08-02 09:42:10] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 103.47, "face_location": {"x": 177, "y": 108, "width": 201, "height": 201}}
+)
+
+[2026-08-02 09:42:10] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4d28469d.jpg" --algorithm "lbph"
+[2026-08-02 09:42:11] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 109.02, "face_location": {"x": 149, "y": 107, "width": 205, "height": 205}}
+)
+
+[2026-08-02 09:42:11] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4d3810bb.jpg" --algorithm "lbph"
+[2026-08-02 09:42:12] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 115.32, "face_location": {"x": 125, "y": 114, "width": 221, "height": 221}}
+)
+
+[2026-08-02 09:42:12] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4d483f63.jpg" --algorithm "lbph"
+[2026-08-02 09:42:13] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 92.37, "face_location": {"x": 321, "y": 168, "width": 216, "height": 216}}
+)
+
+[2026-08-02 09:42:13] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4d580a8f.jpg" --algorithm "lbph"
+[2026-08-02 09:42:14] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 108.34, "face_location": {"x": 267, "y": 209, "width": 192, "height": 192}}
+)
+
+[2026-08-02 09:42:14] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4d681ccf.jpg" --algorithm "lbph"
+[2026-08-02 09:42:15] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 129.35, "face_location": {"x": 332, "y": 210, "width": 116, "height": 116}}
+)
+
+[2026-08-02 09:42:15] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4d780d2e.jpg" --algorithm "lbph"
+[2026-08-02 09:42:16] Python output: Array
+(
+    [0] => {"success": false, "message": "No face detected"}
+)
+
+[2026-08-02 09:42:16] Error: No face detected
+[2026-08-02 09:42:16] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4d880b1a.jpg" --algorithm "lbph"
+[2026-08-02 09:42:17] Python output: Array
+(
+    [0] => {"success": false, "message": "No face detected"}
+)
+
+[2026-08-02 09:42:17] Error: No face detected
+[2026-08-02 09:42:17] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4d983528.jpg" --algorithm "lbph"
+[2026-08-02 09:42:18] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 128.97, "face_location": {"x": 266, "y": 214, "width": 59, "height": 59}}
+)
+
+[2026-08-02 09:42:18] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4da811fa.jpg" --algorithm "lbph"
+[2026-08-02 09:42:19] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 123.09, "face_location": {"x": 507, "y": 223, "width": 96, "height": 96}}
+)
+
+[2026-08-02 09:42:19] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4db8224d.jpg" --algorithm "lbph"
+[2026-08-02 09:42:20] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 122.19, "face_location": {"x": 395, "y": 129, "width": 234, "height": 234}}
+)
+
+[2026-08-02 09:42:20] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4dc8029c.jpg" --algorithm "lbph"
+[2026-08-02 09:42:21] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 104.62, "face_location": {"x": 355, "y": 142, "width": 225, "height": 225}}
+)
+
+[2026-08-02 09:42:21] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4dd833e5.jpg" --algorithm "lbph"
+[2026-08-02 09:42:22] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 92.11, "face_location": {"x": 355, "y": 157, "width": 218, "height": 218}}
+)
+
+[2026-08-02 09:42:22] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4de80b3c.jpg" --algorithm "lbph"
+[2026-08-02 09:42:23] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 102.04, "face_location": {"x": 192, "y": 118, "width": 203, "height": 203}}
+)
+
+[2026-08-02 09:42:23] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4df8873b.jpg" --algorithm "lbph"
+[2026-08-02 09:42:24] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 110.01, "face_location": {"x": 342, "y": 157, "width": 223, "height": 223}}
+)
+
+[2026-08-02 09:42:24] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4e080365.jpg" --algorithm "lbph"
+[2026-08-02 09:42:25] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 116.36, "face_location": {"x": 342, "y": 145, "width": 240, "height": 240}}
+)
+
+[2026-08-02 09:42:25] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4e183985.jpg" --algorithm "lbph"
+[2026-08-02 09:42:26] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 102.45, "face_location": {"x": 176, "y": 113, "width": 200, "height": 200}}
+)
+
+[2026-08-02 09:42:26] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4e28010f.jpg" --algorithm "lbph"
+[2026-08-02 09:42:27] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 104.9, "face_location": {"x": 176, "y": 120, "width": 203, "height": 203}}
+)
+
+[2026-08-02 09:42:27] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4e38350f.jpg" --algorithm "lbph"
+[2026-08-02 09:42:28] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 113.07, "face_location": {"x": 341, "y": 150, "width": 237, "height": 237}}
+)
+
+[2026-08-02 09:42:28] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4e4811d4.jpg" --algorithm "lbph"
+[2026-08-02 09:42:29] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 100.66, "face_location": {"x": 182, "y": 124, "width": 197, "height": 197}}
+)
+
+[2026-08-02 09:42:29] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4e582983.jpg" --algorithm "lbph"
+[2026-08-02 09:42:30] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 104.17, "face_location": {"x": 175, "y": 120, "width": 202, "height": 202}}
+)
+
+[2026-08-02 09:42:30] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4e687066.jpg" --algorithm "lbph"
+[2026-08-02 09:42:31] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 104.59, "face_location": {"x": 180, "y": 124, "width": 196, "height": 196}}
+)
+
+[2026-08-02 09:42:31] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4e7816bf.jpg" --algorithm "lbph"
+[2026-08-02 09:42:32] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 102.97, "face_location": {"x": 183, "y": 118, "width": 200, "height": 200}}
+)
+
+[2026-08-02 09:42:32] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4e882e60.jpg" --algorithm "lbph"
+[2026-08-02 09:42:33] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 98.7, "face_location": {"x": 193, "y": 114, "width": 190, "height": 190}}
+)
+
+[2026-08-02 09:42:33] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4e982cf0.jpg" --algorithm "lbph"
+[2026-08-02 09:42:34] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 96.37, "face_location": {"x": 207, "y": 121, "width": 179, "height": 179}}
+)
+
+[2026-08-02 09:42:34] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4ea869bd.jpg" --algorithm "lbph"
+[2026-08-02 09:42:35] Python output: Array
+(
+    [0] => {"success": false, "message": "No face detected"}
+)
+
+[2026-08-02 09:42:35] Error: No face detected
+[2026-08-02 09:42:35] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4eb82b5a.jpg" --algorithm "lbph"
+[2026-08-02 09:42:36] Python output: Array
+(
+    [0] => {"success": false, "message": "No face detected"}
+)
+
+[2026-08-02 09:42:36] Error: No face detected
+[2026-08-02 09:42:36] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4ec81036.jpg" --algorithm "lbph"
+[2026-08-02 09:42:37] Python output: Array
+(
+    [0] => {"success": false, "message": "No face detected"}
+)
+
+[2026-08-02 09:42:37] Error: No face detected
+[2026-08-02 09:42:37] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4ed81e99.jpg" --algorithm "lbph"
+[2026-08-02 09:42:38] Python output: Array
+(
+    [0] => {"success": false, "message": "No face detected"}
+)
+
+[2026-08-02 09:42:38] Error: No face detected
+[2026-08-02 09:42:38] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4ee8126b.jpg" --algorithm "lbph"
+[2026-08-02 09:42:39] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 118.57, "face_location": {"x": 119, "y": 137, "width": 226, "height": 226}}
+)
+
+[2026-08-02 09:42:39] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4ef82712.jpg" --algorithm "lbph"
+[2026-08-02 09:42:40] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 115.15, "face_location": {"x": 135, "y": 131, "width": 218, "height": 218}}
+)
+
+[2026-08-02 09:42:40] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4f082e32.jpg" --algorithm "lbph"
+[2026-08-02 09:42:41] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 106.6, "face_location": {"x": 191, "y": 145, "width": 200, "height": 200}}
+)
+
+[2026-08-02 09:42:41] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4f182a1e.jpg" --algorithm "lbph"
+[2026-08-02 09:42:42] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 103.11, "face_location": {"x": 183, "y": 135, "width": 203, "height": 203}}
+)
+
+[2026-08-02 09:42:42] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4f282771.jpg" --algorithm "lbph"
+[2026-08-02 09:42:43] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 105.16, "face_location": {"x": 192, "y": 131, "width": 206, "height": 206}}
+)
+
+[2026-08-02 09:42:43] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4f382664.jpg" --algorithm "lbph"
+[2026-08-02 09:42:44] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 102.69, "face_location": {"x": 194, "y": 130, "width": 204, "height": 204}}
+)
+
+[2026-08-02 09:42:44] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4f481f16.jpg" --algorithm "lbph"
+[2026-08-02 09:42:45] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 93.69, "face_location": {"x": 225, "y": 126, "width": 194, "height": 194}}
+)
+
+[2026-08-02 09:42:45] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4f586ed8.jpg" --algorithm "lbph"
+[2026-08-02 09:42:46] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 99.61, "face_location": {"x": 188, "y": 118, "width": 185, "height": 185}}
+)
+
+[2026-08-02 09:42:46] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4f680d9f.jpg" --algorithm "lbph"
+[2026-08-02 09:42:47] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 100.77, "face_location": {"x": 176, "y": 119, "width": 192, "height": 192}}
+)
+
+[2026-08-02 09:42:47] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4f781412.jpg" --algorithm "lbph"
+[2026-08-02 09:42:48] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 102.14, "face_location": {"x": 169, "y": 120, "width": 194, "height": 194}}
+)
+
+[2026-08-02 09:42:48] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4f8800d2.jpg" --algorithm "lbph"
+[2026-08-02 09:42:49] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 104.73, "face_location": {"x": 169, "y": 123, "width": 195, "height": 195}}
+)
+
+[2026-08-02 09:42:50] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4fa0772e.jpg" --algorithm "lbph"
+[2026-08-02 09:42:50] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 98.98, "face_location": {"x": 344, "y": 187, "width": 210, "height": 210}}
+)
+
+[2026-08-02 09:42:51] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4fb08533.jpg" --algorithm "lbph"
+[2026-08-02 09:42:51] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 96.55, "face_location": {"x": 335, "y": 180, "width": 205, "height": 205}}
+)
+
+[2026-08-02 09:42:52] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4fc805db.jpg" --algorithm "lbph"
+[2026-08-02 09:42:53] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 100.41, "face_location": {"x": 352, "y": 180, "width": 222, "height": 222}}
+)
+
+[2026-08-02 09:42:53] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4fd823aa.jpg" --algorithm "lbph"
+[2026-08-02 09:42:54] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 98.85, "face_location": {"x": 352, "y": 190, "width": 208, "height": 208}}
+)
+
+[2026-08-02 09:42:54] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4fe818c3.jpg" --algorithm "lbph"
+[2026-08-02 09:42:55] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 98.72, "face_location": {"x": 352, "y": 184, "width": 215, "height": 215}}
+)
+
+[2026-08-02 09:42:55] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef4ff85e0e.jpg" --algorithm "lbph"
+[2026-08-02 09:42:56] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 97.58, "face_location": {"x": 359, "y": 187, "width": 212, "height": 212}}
+)
+
+[2026-08-02 09:42:57] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef5010842c.jpg" --algorithm "lbph"
+[2026-08-02 09:42:57] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 101.46, "face_location": {"x": 370, "y": 188, "width": 203, "height": 203}}
+)
+
+[2026-08-02 09:42:58] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef50285f68.jpg" --algorithm "lbph"
+[2026-08-02 09:42:59] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 100.31, "face_location": {"x": 397, "y": 172, "width": 209, "height": 209}}
+)
+
+[2026-08-02 09:42:59] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef50380d71.jpg" --algorithm "lbph"
+[2026-08-02 09:43:00] Python output: Array
+(
+    [0] => {"success": false, "message": "No face detected"}
+)
+
+[2026-08-02 09:43:00] Error: No face detected
+[2026-08-02 09:43:00] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef50480be2.jpg" --algorithm "lbph"
+[2026-08-02 09:43:01] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 96.51, "face_location": {"x": 264, "y": 89, "width": 208, "height": 208}}
+)
+
+[2026-08-02 09:43:02] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef50606794.jpg" --algorithm "lbph"
+[2026-08-02 09:43:02] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 100.09, "face_location": {"x": 231, "y": 92, "width": 214, "height": 214}}
+)
+
+[2026-08-02 09:43:03] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef50706728.jpg" --algorithm "lbph"
+[2026-08-02 09:43:03] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 96.49, "face_location": {"x": 230, "y": 101, "width": 205, "height": 205}}
+)
+
+[2026-08-02 09:43:04] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef50806b21.jpg" --algorithm "lbph"
+[2026-08-02 09:43:05] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 97.27, "face_location": {"x": 244, "y": 105, "width": 210, "height": 210}}
+)
+
+[2026-08-02 09:43:05] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef509824bf.jpg" --algorithm "lbph"
+[2026-08-02 09:43:06] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 105.24, "face_location": {"x": 225, "y": 89, "width": 201, "height": 201}}
+)
+
+[2026-08-02 09:43:06] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef50a85124.jpg" --algorithm "lbph"
+[2026-08-02 09:43:07] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 106.67, "face_location": {"x": 211, "y": 86, "width": 194, "height": 194}}
+)
+
+[2026-08-02 09:43:07] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef50b81a93.jpg" --algorithm "lbph"
+[2026-08-02 09:43:08] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 93.21, "face_location": {"x": 216, "y": 91, "width": 205, "height": 205}}
+)
+
+[2026-08-02 09:43:08] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef50c80f8a.jpg" --algorithm "lbph"
+[2026-08-02 09:43:09] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 93.41, "face_location": {"x": 219, "y": 96, "width": 202, "height": 202}}
+)
+
+[2026-08-02 09:43:09] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef50d8289c.jpg" --algorithm "lbph"
+[2026-08-02 09:43:10] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 91.86, "face_location": {"x": 219, "y": 96, "width": 203, "height": 203}}
+)
+
+[2026-08-02 09:43:10] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef50e84e6f.jpg" --algorithm "lbph"
+[2026-08-02 09:43:11] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 93.01, "face_location": {"x": 222, "y": 100, "width": 204, "height": 204}}
+)
+
+[2026-08-02 09:43:11] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef50f85a43.jpg" --algorithm "lbph"
+[2026-08-02 09:43:12] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 92.56, "face_location": {"x": 227, "y": 102, "width": 198, "height": 198}}
+)
+
+[2026-08-02 09:43:12] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef510878d2.jpg" --algorithm "lbph"
+[2026-08-02 09:43:13] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 93.91, "face_location": {"x": 222, "y": 101, "width": 206, "height": 206}}
+)
+
+[2026-08-02 09:43:13] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef51182431.jpg" --algorithm "lbph"
+[2026-08-02 09:43:14] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 104.64, "face_location": {"x": 235, "y": 119, "width": 208, "height": 208}}
+)
+
+[2026-08-02 09:43:14] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef51280885.jpg" --algorithm "lbph"
+[2026-08-02 09:43:15] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 109.04, "face_location": {"x": 229, "y": 119, "width": 222, "height": 222}}
+)
+
+[2026-08-02 09:43:15] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef513821fa.jpg" --algorithm "lbph"
+[2026-08-02 09:43:16] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 108.05, "face_location": {"x": 230, "y": 119, "width": 221, "height": 221}}
+)
+
+[2026-08-02 09:43:16] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef5148469e.jpg" --algorithm "lbph"
+[2026-08-02 09:43:17] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 106.83, "face_location": {"x": 231, "y": 118, "width": 217, "height": 217}}
+)
+
+[2026-08-02 09:43:17] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef51580055.jpg" --algorithm "lbph"
+[2026-08-02 09:43:18] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 107.61, "face_location": {"x": 228, "y": 116, "width": 219, "height": 219}}
+)
+
+[2026-08-02 09:43:18] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef51680a28.jpg" --algorithm "lbph"
+[2026-08-02 09:43:19] Python output: Array
+(
+    [0] => {"success": true, "student_id": "Unknown", "confidence": 0, "algorithm": "lbph", "raw_distance": 105.85, "face_location": {"x": 232, "y": 119, "width": 210, "height": 210}}
+)
+
+[2026-08-02 09:43:19] Executing command: python "C:\xampp\htdocs\new attendance\attendance-project2/python/realtime_recognition.py" "C:\xampp\htdocs\new attendance\attendance-project2/temp/temp_6a6ef51784966.jpg" --algorithm "lbph"

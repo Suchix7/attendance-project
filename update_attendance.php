@@ -20,17 +20,14 @@ try {
     // Extract data
     $studentID = $data['studentID'];
     $course = $data['course'];
+    $unit = isset($data['unit']) ? $data['unit'] : '';
     $attendanceStatus = $data['attendanceStatus'];
     $date = isset($data['date']) ? $data['date'] : date('Y-m-d');
 
-    // --- Calendar validation: block marking on non-scheduled days ---
+    // --- Calendar validation: warn if not a scheduled day, but still record ---
+    $calendarWarning = null;
     if (!is_scheduled_class_day($pdo, $course, $date)) {
-        echo json_encode([
-            'success' => false,
-            'message' => "Today ($date) is not a scheduled class day for this faculty. Attendance has not been recorded.",
-            'blocked_reason' => 'unscheduled_day'
-        ]);
-        exit;
+        $calendarWarning = "Note: Today ($date) is not in the configured schedule for this faculty, but attendance has been recorded.";
     }
 
     // First check if there's an existing attendance record
@@ -38,13 +35,21 @@ try {
                  WHERE studentRegistrationNumber = :studentID 
                  AND course = :course 
                  AND DATE(dateMarked) = :date";
+    if (!empty($unit)) {
+        $checkSql .= " AND unit = :unit";
+    }
 
-    $checkStmt = $pdo->prepare($checkSql);
-    $checkStmt->execute([
+    $checkParams = [
         ':studentID' => $studentID,
         ':course' => $course,
         ':date' => $date
-    ]);
+    ];
+    if (!empty($unit)) {
+        $checkParams[':unit'] = $unit;
+    }
+
+    $checkStmt = $pdo->prepare($checkSql);
+    $checkStmt->execute($checkParams);
 
     $existingRecord = $checkStmt->fetch(PDO::FETCH_ASSOC);
 
@@ -62,40 +67,44 @@ try {
                 ':attendanceID' => $existingRecord['attendanceID']
             ]);
 
-            evaluate_and_send_alerts($pdo, $studentID, $course, $attendanceStatus);
+            evaluate_and_send_alerts($pdo, $studentID, $course, $unit, $attendanceStatus);
 
             echo json_encode([
                 'success' => true,
                 'message' => 'Attendance updated successfully',
-                'updated' => true
+                'updated' => true,
+                'calendar_warning' => $calendarWarning
             ]);
         } else {
             // Record exists but is already marked as Present
             echo json_encode([
                 'success' => true,
                 'message' => 'Attendance already marked as Present',
-                'updated' => false
+                'updated' => false,
+                'calendar_warning' => $calendarWarning
             ]);
         }
     } else {
         // No existing record, insert new one
         $insertSql = "INSERT INTO tblattendance 
-                      (studentRegistrationNumber, course, attendanceStatus, dateMarked) 
-                      VALUES (:studentID, :course, :status, NOW())";
+                      (studentRegistrationNumber, course, unit, attendanceStatus, dateMarked) 
+                      VALUES (:studentID, :course, :unit, :status, NOW())";
 
         $insertStmt = $pdo->prepare($insertSql);
         $insertStmt->execute([
             ':studentID' => $studentID,
             ':course' => $course,
+            ':unit' => $unit,
             ':status' => $attendanceStatus
         ]);
 
-        evaluate_and_send_alerts($pdo, $studentID, $course, $attendanceStatus);
+        evaluate_and_send_alerts($pdo, $studentID, $course, $unit, $attendanceStatus);
 
         echo json_encode([
             'success' => true,
             'message' => 'New attendance record created successfully',
-            'updated' => true
+            'updated' => true,
+            'calendar_warning' => $calendarWarning
         ]);
     }
 

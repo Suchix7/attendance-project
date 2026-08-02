@@ -13,14 +13,10 @@ if ($data) {
             $data['date'] = date('Y-m-d');
         }
 
-        // --- Calendar validation: block marking on non-scheduled days ---
+        // --- Calendar validation: warn if not a scheduled day, but still record ---
+        $calendarWarning = null;
         if (!is_scheduled_class_day($pdo, $data['course'], $data['date'])) {
-            echo json_encode([
-                'success' => false,
-                'message' => "Today ({$data['date']}) is not a scheduled class day for this faculty. Attendance has not been recorded.",
-                'blocked_reason' => 'unscheduled_day'
-            ]);
-            exit;
+            $calendarWarning = "Note: Today ({$data['date']}) is not in the configured schedule for this faculty, but attendance has been recorded.";
         }
 
         // Check if an attendance record already exists for this student, course, unit, and date
@@ -66,7 +62,8 @@ if ($data) {
             evaluate_and_send_alerts($pdo, $data['studentID'], $data['course'], $data['unit'], $data['attendanceStatus']);
             echo json_encode([
                 'success' => true,
-                'message' => 'Attendance updated successfully'
+                'message' => 'Attendance updated successfully',
+                'calendar_warning' => $calendarWarning
             ]);
         } else {
             echo json_encode([

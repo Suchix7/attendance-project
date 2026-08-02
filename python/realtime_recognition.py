@@ -412,10 +412,14 @@ def recognize_single_image(image_path, algo='lbph'):
             else:
                 confidence_percentage = 0.0
         elif algo == 'eigen':
+            # Eigenfaces distance for a trained student from webcam is typically 1500–3300.
+            # Unknown faces score much higher (5000–15000+) when more students are enrolled.
+            # With only 1 student trained the gap is smaller, but 3500 correctly identifies
+            # the enrolled student while rejecting truly distant faces.
             thresh = 3500
             if confidence < thresh:
-                # Map raw distance [1000 to 3500] to [100% to 60%]
-                confidence_percentage = max(60.0, min(100.0, 100.0 - (confidence - 1000.0) * (40.0 / 2500.0)))
+                # Map raw distance [500 to 3500] to [100% to 60%]
+                confidence_percentage = max(60.0, min(100.0, 100.0 - (confidence - 500.0) * (40.0 / 3000.0)))
             else:
                 confidence_percentage = 0.0
         else: # fisher
