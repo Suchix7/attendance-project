@@ -212,6 +212,9 @@ function stopCamera() {
             clearInterval(recognitionInterval);
             recognitionInterval = null;
         }
+        // Reset recognition state so re-launching works correctly
+        lastRecognizedStudent = null;
+        lastRecognitionTime = 0;
         setStartButtonsDisabled(false);
         isProcessing = false;
     } catch (error) {
@@ -294,6 +297,7 @@ async function updateAttendanceStatus(studentId, course, unit) {
         const result = await response.json();
         if (result.success) {
             logWithTime(`Attendance updated for Student ${studentId}: Present`);
+            // Immediately update DOM for instant feedback
             const row = document.querySelector(`tr[data-student-id="${studentId}"]`);
             if (row) {
                 const statusCell = row.querySelector('.attendance-status');
@@ -302,6 +306,12 @@ async function updateAttendanceStatus(studentId, course, unit) {
                     statusCell.className = 'attendance-status present';
                 }
             }
+            // Refresh the full table from server to reflect actual DB state
+            setTimeout(() => {
+                if (typeof updateTable === 'function') {
+                    updateTable();
+                }
+            }, 500);
             return true;
         } else {
             throw new Error(result.message || 'Failed to update attendance');
@@ -384,19 +394,23 @@ async function processFrame() {
             logWithTime(statusMessage);
             recognitionStatus.innerHTML = `<div class="${isRecognized ? "success" : "info"}">${statusMessage}</div>`;
 
-            if (isRecognized && lastRecognizedStudent !== result.predicted_student_id) {
-                lastRecognitionTime = now;
-                lastRecognizedStudent = result.predicted_student_id;
-                logWithTime(`Updating attendance for Student ${result.predicted_student_id}`);
+            if (isRecognized) {
+                const cooldownExpired = (now - lastRecognitionTime) >= RECOGNITION_COOLDOWN;
+                const newStudent = lastRecognizedStudent !== result.predicted_student_id;
+                if (newStudent || cooldownExpired) {
+                    lastRecognitionTime = now;
+                    lastRecognizedStudent = result.predicted_student_id;
+                    logWithTime(`Updating attendance for Student ${result.predicted_student_id}`);
 
-                const success = await updateAttendanceStatus(
-                    result.predicted_student_id,
-                    courseSelect.value,
-                    unitSelect.value
-                );
+                    const success = await updateAttendanceStatus(
+                        result.predicted_student_id,
+                        courseSelect.value,
+                        unitSelect.value
+                    );
 
-                if (success) {
-                    showMessage(`Attendance marked for Student ${result.predicted_student_id}!`, "success");
+                    if (success) {
+                        showMessage(`Attendance marked for Student ${result.predicted_student_id}!`, "success");
+                    }
                 }
             }
         } else if (result.message !== "No face detected") {

@@ -35,28 +35,37 @@ if ($data) {
         ]);
 
         if ($checkStmt->rowCount() > 0) {
-            // Update existing record
+            // Update existing record (use DATE() to match DATETIME column against plain date)
             $sql = "UPDATE tblattendance SET 
-                attendanceStatus = :attendanceStatus 
+                attendanceStatus = :attendanceStatus,
+                dateMarked = NOW()
                 WHERE studentRegistrationNumber = :studentID 
                 AND course = :course 
                 AND unit = :unit 
-                AND dateMarked = :date";
+                AND DATE(dateMarked) = :date";
+
+            $stmt = $pdo->prepare($sql);
+            $result = $stmt->execute([
+                ':studentID' => $data['studentID'],
+                ':course' => $data['course'],
+                ':unit' => $data['unit'],
+                ':attendanceStatus' => $data['attendanceStatus'],
+                ':date' => $data['date']
+            ]);
         } else {
             // Insert new record
             $sql = "INSERT INTO tblattendance 
                 (studentRegistrationNumber, course, unit, attendanceStatus, dateMarked) 
-                VALUES (:studentID, :course, :unit, :attendanceStatus, :date)";
-        }
+                VALUES (:studentID, :course, :unit, :attendanceStatus, NOW())";
 
-        $stmt = $pdo->prepare($sql);
-        $result = $stmt->execute([
-            ':studentID' => $data['studentID'],
-            ':course' => $data['course'],
-            ':unit' => $data['unit'],
-            ':attendanceStatus' => $data['attendanceStatus'],
-            ':date' => $data['date']
-        ]);
+            $stmt = $pdo->prepare($sql);
+            $result = $stmt->execute([
+                ':studentID' => $data['studentID'],
+                ':course' => $data['course'],
+                ':unit' => $data['unit'],
+                ':attendanceStatus' => $data['attendanceStatus']
+            ]);
+        }
 
         if ($result) {
             evaluate_and_send_alerts($pdo, $data['studentID'], $data['course'], $data['unit'], $data['attendanceStatus']);

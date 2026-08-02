@@ -36,7 +36,7 @@
                         LEFT JOIN tblattendance a ON s.registrationNumber = a.studentRegistrationNumber 
                         AND a.course = :courseID 
                         AND a.unit = :unitID 
-                        AND a.dateMarked = CURDATE()
+                        AND DATE(a.dateMarked) = CURDATE()
                         WHERE s.courseCode = :courseID2";
                 if ($semesterId) {
                     $sql .= " AND s.semesterID = :semesterID";
