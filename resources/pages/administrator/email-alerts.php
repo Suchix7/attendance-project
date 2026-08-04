@@ -609,7 +609,7 @@ $current_attendance_threshold = get_setting($pdo, 'attendance_threshold', '75');
                         </select>
                     </div>
                     <?php if ($selectedFaculty || $selectedSemesterId): ?>
-                        <a href="email-alerts.php" style="font-size: 0.88rem; color: #ef4444; text-decoration: none; display: inline-flex; align-items: center; gap: 4px; font-weight: 600;"><i class="ri-refresh-line"></i> Clear Filters</a>
+                        <a href="email-alerts" style="font-size: 0.88rem; color: #ef4444; text-decoration: none; display: inline-flex; align-items: center; gap: 4px; font-weight: 600;"><i class="ri-refresh-line"></i> Clear Filters</a>
                     <?php endif; ?>
                 </form>
 
