@@ -244,6 +244,25 @@ try {
             $row['total'] = $risk['total'];
             $row['level'] = $risk['level'];
             $row['color'] = $risk['color'];
+
+            // Fetch the most recent manual dispatch timestamp for this student
+            $stmtAlert = $pdo->prepare(
+                "SELECT GREATEST(
+                    COALESCE(lastThresholdAlertSent, '1970-01-01'),
+                    COALESCE(lastAbsentAlertSent,   '1970-01-01'),
+                    COALESCE(lastMomentumAlertSent,  '1970-01-01')
+                ) as lastSent
+                FROM tblalertstate
+                WHERE studentRegistrationNumber = ?
+                ORDER BY lastSent DESC
+                LIMIT 1"
+            );
+            $stmtAlert->execute([$row['registrationNumber']]);
+            $alertRow = $stmtAlert->fetch(PDO::FETCH_ASSOC);
+            $lastSent = ($alertRow && $alertRow['lastSent'] && $alertRow['lastSent'] !== '1970-01-01 00:00:00')
+                ? $alertRow['lastSent'] : null;
+            $row['last_email_sent'] = $lastSent;
+
             $students[] = $row;
         }
     }
@@ -604,13 +623,14 @@ $current_attendance_threshold = get_setting($pdo, 'attendance_threshold', '75');
                                     <th>Course</th>
                                     <th>Overall Attendance</th>
                                     <th>Risk Status</th>
+                                    <th>Email Status</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php if (!$filterApplied): ?>
                                     <tr>
-                                        <td colspan="6" style="text-align: center; padding: 40px 20px;">
+                                        <td colspan="7" style="text-align: center; padding: 40px 20px;">
                                             <div style="display: flex; flex-direction: column; align-items: center; gap: 12px; color: #94a3b8;">
                                                 <i class="ri-filter-3-line" style="font-size: 2.5rem; color: #cbd5e1;"></i>
                                                 <div style="font-size: 1rem; font-weight: 600; color: #64748b;">Select a Faculty or Semester to load students</div>
@@ -632,10 +652,10 @@ $current_attendance_threshold = get_setting($pdo, 'attendance_threshold', '75');
                                                 }
                                             }
                                             if (!$facName) $facName = $currentFaculty;
-                                            echo "<tr style='background-color: #f8fafc; font-weight: 700; color: #475569;'><td colspan='6' style='padding: 12px 20px; font-size: 0.95rem; border-bottom: 2px solid #cbd5e1;'><i class='ri-graduation-cap-line'></i> Faculty of " . htmlspecialchars($facName) . "</td></tr>";
+                                            echo "<tr style='background-color: #f8fafc; font-weight: 700; color: #475569;'><td colspan='7' style='padding: 12px 20px; font-size: 0.95rem; border-bottom: 2px solid #cbd5e1;'><i class='ri-graduation-cap-line'></i> Faculty of " . htmlspecialchars($facName) . "</td></tr>";
                                         }
                                     ?>
-                                        <tr>
+                                        <tr data-reg="<?php echo htmlspecialchars($row['registrationNumber']); ?>">
                                             <td>
                                                 <div style="font-weight: 600;"><?php echo htmlspecialchars($row['firstName'] . ' ' . $row['lastName']); ?></div>
                                                 <div style="font-size: 0.8rem; color: #909399;"><?php echo htmlspecialchars($row['email']); ?></div>
@@ -653,6 +673,25 @@ $current_attendance_threshold = get_setting($pdo, 'attendance_threshold', '75');
                                                     <?php echo $row['level']; ?>
                                                 </span>
                                             </td>
+                                            <td class="email-status-cell">
+                                                <?php if ($row['last_email_sent']): ?>
+                                                    <div style="display:flex; flex-direction:column; gap:3px;">
+                                                        <span style="display:inline-flex; align-items:center; gap:5px; background:#f0fdf4; color:#16a34a; border:1px solid #bbf7d0; border-radius:5px; padding:3px 8px; font-size:0.78rem; font-weight:600; width:fit-content;">
+                                                            <i class="ri-mail-check-line"></i> Dispatched
+                                                        </span>
+                                                        <span style="font-size:0.75rem; color:#64748b;">
+                                                            <?php
+                                                                $dt = new DateTime($row['last_email_sent']);
+                                                                echo $dt->format('M j, Y g:i A');
+                                                            ?>
+                                                        </span>
+                                                    </div>
+                                                <?php else: ?>
+                                                    <span style="display:inline-flex; align-items:center; gap:5px; background:#f8fafc; color:#94a3b8; border:1px solid #e2e8f0; border-radius:5px; padding:3px 8px; font-size:0.78rem; font-weight:600;">
+                                                        <i class="ri-mail-line"></i> Never Sent
+                                                    </span>
+                                                <?php endif; ?>
+                                            </td>
                                             <td>
                                               <button class="btn-dispatch" 
                                         onclick="openAlertModal('<?php echo $row['registrationNumber']; ?>')" 
@@ -664,7 +703,7 @@ $current_attendance_threshold = get_setting($pdo, 'attendance_threshold', '75');
                                     <?php endforeach; ?>
                                 <?php else: ?>
                                     <tr>
-                                        <td colspan="6" style="text-align: center; color: #909399; padding: 20px;">No students found matching the selected filters.</td>
+                                        <td colspan="7" style="text-align: center; color: #909399; padding: 20px;">No students found matching the selected filters.</td>
                                     </tr>
                                 <?php endif; ?>
                             </tbody>
@@ -985,7 +1024,28 @@ $current_attendance_threshold = get_setting($pdo, 'attendance_threshold', '75');
             .then(res => res.json())
             .then(data => {
                 if (data.success) {
-                    alert('Warning email dispatched successfully!');
+                    // Format the dispatch date for display
+                    const now = new Date(data.date ? data.date.replace(' ', 'T') : Date.now());
+                    const formatted = now.toLocaleString('en-US', {
+                        month: 'short', day: 'numeric', year: 'numeric',
+                        hour: 'numeric', minute: '2-digit', hour12: true
+                    });
+
+                    // Live-update the Email Status cell in the table row
+                    const row = document.querySelector(`tr[data-reg="${currentStudentId}"]`);
+                    if (row) {
+                        const statusCell = row.querySelector('.email-status-cell');
+                        if (statusCell) {
+                            statusCell.innerHTML = `
+                                <div style="display:flex; flex-direction:column; gap:3px;">
+                                    <span style="display:inline-flex; align-items:center; gap:5px; background:#f0fdf4; color:#16a34a; border:1px solid #bbf7d0; border-radius:5px; padding:3px 8px; font-size:0.78rem; font-weight:600; width:fit-content;">
+                                        <i class="ri-mail-check-line"></i> Dispatched
+                                    </span>
+                                    <span style="font-size:0.75rem; color:#64748b;">${formatted}</span>
+                                </div>`;
+                        }
+                    }
+
                     closeAlertModal();
                 } else {
                     alert('Error: ' + data.message);
