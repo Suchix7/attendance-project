@@ -205,42 +205,47 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
 $selectedFaculty = isset($_GET['faculty']) ? htmlspecialchars(trim($_GET['faculty'])) : '';
 $selectedSemesterId = isset($_GET['semester']) ? (int)$_GET['semester'] : 0;
 
+// Only query if GET was explicitly submitted (filter applied)
+$filterApplied = isset($_GET['faculty']) || isset($_GET['semester']);
+
 $students = [];
 $faculties = [];
 try {
     $faculties = $pdo->query("SELECT * FROM tblfaculty ORDER BY facultyName")->fetchAll(PDO::FETCH_ASSOC);
 
-    $sql = "SELECT s.registrationNumber, s.firstName, s.lastName, s.email, s.faculty, s.courseCode, c.name as courseName 
-            FROM tblstudents s
-            LEFT JOIN tblcourse c ON s.courseCode = c.courseCode";
-    
-    $where = [];
-    $params = [];
-    if ($selectedFaculty) {
-        $where[] = "s.faculty = ?";
-        $params[] = $selectedFaculty;
-    }
-    if ($selectedSemesterId) {
-        $where[] = "s.semesterID = ?";
-        $params[] = $selectedSemesterId;
-    }
-    if ($where) {
-        $sql .= " WHERE " . implode(" AND ", $where);
-    }
-    $sql .= " ORDER BY s.faculty, s.firstName, s.lastName";
-    
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute($params);
-    $rawStudents = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    if ($filterApplied) {
+        $sql = "SELECT s.registrationNumber, s.firstName, s.lastName, s.email, s.faculty, s.courseCode, c.name as courseName 
+                FROM tblstudents s
+                LEFT JOIN tblcourse c ON s.courseCode = c.courseCode";
+        
+        $where = [];
+        $params = [];
+        if ($selectedFaculty) {
+            $where[] = "s.faculty = ?";
+            $params[] = $selectedFaculty;
+        }
+        if ($selectedSemesterId) {
+            $where[] = "s.semesterID = ?";
+            $params[] = $selectedSemesterId;
+        }
+        if ($where) {
+            $sql .= " WHERE " . implode(" AND ", $where);
+        }
+        $sql .= " ORDER BY s.faculty, s.firstName, s.lastName";
+        
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute($params);
+        $rawStudents = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    foreach ($rawStudents as $row) {
-        $risk = calculateAttendanceRisk($row['registrationNumber'], null, $selectedSemesterId);
-        $row['overall_pct'] = $risk['percentage'];
-        $row['present'] = $risk['present'];
-        $row['total'] = $risk['total'];
-        $row['level'] = $risk['level'];
-        $row['color'] = $risk['color'];
-        $students[] = $row;
+        foreach ($rawStudents as $row) {
+            $risk = calculateAttendanceRisk($row['registrationNumber'], null, $selectedSemesterId);
+            $row['overall_pct'] = $risk['percentage'];
+            $row['present'] = $risk['present'];
+            $row['total'] = $risk['total'];
+            $row['level'] = $risk['level'];
+            $row['color'] = $risk['color'];
+            $students[] = $row;
+        }
     }
 } catch (PDOException $e) {
     $error = "Error fetching student directory: " . $e->getMessage();
@@ -603,7 +608,17 @@ $current_attendance_threshold = get_setting($pdo, 'attendance_threshold', '75');
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php if (!empty($students)): ?>
+                                <?php if (!$filterApplied): ?>
+                                    <tr>
+                                        <td colspan="6" style="text-align: center; padding: 40px 20px;">
+                                            <div style="display: flex; flex-direction: column; align-items: center; gap: 12px; color: #94a3b8;">
+                                                <i class="ri-filter-3-line" style="font-size: 2.5rem; color: #cbd5e1;"></i>
+                                                <div style="font-size: 1rem; font-weight: 600; color: #64748b;">Select a Faculty or Semester to load students</div>
+                                                <div style="font-size: 0.85rem;">Use the filters above to search for students and review their attendance.</div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                <?php elseif (!empty($students)): ?>
                                     <?php 
                                     $currentFaculty = null;
                                     foreach ($students as $row): 
@@ -649,7 +664,7 @@ $current_attendance_threshold = get_setting($pdo, 'attendance_threshold', '75');
                                     <?php endforeach; ?>
                                 <?php else: ?>
                                     <tr>
-                                        <td colspan="6" style="text-align: center; color: #909399; padding: 20px;">No students registered in the database.</td>
+                                        <td colspan="6" style="text-align: center; color: #909399; padding: 20px;">No students found matching the selected filters.</td>
                                     </tr>
                                 <?php endif; ?>
                             </tbody>
