@@ -76,7 +76,7 @@ function display_error($error, $is_main = false)
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign in to SAS Dashboard</title>
+    <title>Sign in to CMS Dashboard</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="resources/assets/css/login_styles.css?v=<?php echo time(); ?>">
     <link rel="icon" href="resources/images/logo/face logo.png" />
@@ -90,7 +90,7 @@ function display_error($error, $is_main = false)
             <div class="panel-left">
                 <div class="branding">
                     <i class="fas fa-graduation-cap brand-icon"></i>
-                    <h1>SAS College</h1>
+                    <h1>CMS College</h1>
                     <p>Advanced Attendance Platform</p>
                 </div>
             </div>
@@ -129,8 +129,7 @@ function display_error($error, $is_main = false)
                             <?php display_error('password'); ?>
                         </div>
 
-                       <button type="submit" class="btn" name="login"
-style="background: linear-gradient(135deg,#1e90ff,#0066ff);
+                        <button type="submit" class="btn" name="login" style="background: linear-gradient(135deg,#1e90ff,#0066ff);
 color:white;
 padding:12px 22px;
 border:none;
@@ -145,9 +144,9 @@ justify-content:center;
 margin:0 auto;
 box-shadow:0 6px 15px rgba(30,144,255,0.3);
 transition:0.2s ease;">
-  Sign In
-  <i class="fas fa-sign-in-alt" style="margin-left:10px;"></i>
-</button>
+                            Sign In
+                            <i class="fas fa-sign-in-alt" style="margin-left:10px;"></i>
+                        </button>
                     </form>
                 </div>
             </div>

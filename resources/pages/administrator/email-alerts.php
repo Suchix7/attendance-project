@@ -760,7 +760,7 @@ $current_attendance_threshold = get_setting($pdo, 'attendance_threshold', '75');
                     <div class="preview-pane">
                         <div>
                             <label for="email_subject">Email Subject</label>
-                            <input type="text" id="email_subject" value="SAS Portal: CRITICAL Attendance Warning">
+                            <input type="text" id="email_subject" value="CMS Portal: CRITICAL Attendance Warning">
                         </div>
                         <div>
                             <label for="email_body_preview">Email Warning Content</label>
@@ -961,16 +961,16 @@ $current_attendance_threshold = get_setting($pdo, 'attendance_threshold', '75');
             body += `Please prioritize attending all upcoming lectures to resolve these warnings immediately.\n\n`;
             body += `Best regards,\n`;
             body += `Academic Registry office\n`;
-            body += `SAS Portal Attendance System`;
+            body += `CMS Portal Attendance System`;
 
             document.getElementById('email_body_preview').value = body;
 
             // Set subject dynamically
             const subjectInput = document.getElementById('email_subject');
             if (selectedCheckboxes.length > 0) {
-                subjectInput.value = `SAS Portal: CRITICAL Attendance Warning - ${name}`;
+                subjectInput.value = `CMS Portal: CRITICAL Attendance Warning - ${name}`;
             } else {
-                subjectInput.value = `SAS Portal: Class Attendance Summary - ${name}`;
+                subjectInput.value = `CMS  Portal: Class Attendance Summary - ${name}`;
             }
 
             // Disable send button if no class selected and overall is not critical

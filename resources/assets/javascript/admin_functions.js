@@ -1,265 +1,225 @@
-//add capture student image
-async function captureImage(video) {
-  const canvas = document.createElement("canvas");
-  canvas.width = video.videoWidth;
-  canvas.height = video.videoHeight;
-  const context = canvas.getContext("2d");
+/**
+ * Opens a full-screen camera overlay, shows a live feed,
+ * auto-detects a face, and saves it into slot `slotIndex`.
+ * Used for both initial capture and retake (click on photo).
+ */
+async function captureWithLivePreview(slotIndex, imageBox) {
+  // Prevent double-open for the same slot
+  if (imageBox.dataset.capturing === 'true') return;
+  imageBox.dataset.capturing = 'true';
 
-  // Draw current frame to canvas
-  context.drawImage(video, 0, 0, canvas.width, canvas.height);
+  const statusEl = document.getElementById('status_' + slotIndex);
 
-  // Convert canvas to blob for face detection
-  const blob = await new Promise((resolve) =>
-    canvas.toBlob(resolve, "image/jpeg", 0.8)
-  );
-  const formData = new FormData();
-  formData.append("image", blob);
+  // ── Build overlay UI ───────────────────────────────────────────────────────
+  const overlay = document.createElement('div');
+  overlay.style.cssText = [
+    'position:fixed;top:0;left:0;width:100%;height:100%;',
+    'background:rgba(0,0,0,0.88);z-index:99999;',
+    'display:flex;flex-direction:column;align-items:center;',
+    'justify-content:center;gap:16px;'
+  ].join('');
+
+  const title = document.createElement('p');
+  title.textContent = 'Photo ' + slotIndex + ' of 10 — Look straight at the camera';
+  title.style.cssText = 'color:#fff;font-size:1.15rem;margin:0;font-weight:600;';
+
+  const video = document.createElement('video');
+  video.autoplay   = true;
+  video.playsInline = true;
+  video.muted      = true;
+  video.style.cssText = [
+    'width:420px;max-width:90vw;border-radius:14px;',
+    'background:#111;object-fit:cover;',
+    'box-shadow:0 8px 32px rgba(0,0,0,.6);',
+    'transform:scaleX(-1);'
+  ].join('');
+
+  const statusMsg = document.createElement('p');
+  statusMsg.textContent = 'Looking for face…';
+  statusMsg.style.cssText = 'color:#e2e8f0;font-size:.95rem;margin:0;';
+
+  const cancelBtn = document.createElement('button');
+  cancelBtn.textContent = 'Cancel';
+  cancelBtn.style.cssText = [
+    'padding:8px 28px;border-radius:8px;border:none;',
+    'background:#ef4444;color:#fff;cursor:pointer;',
+    'font-size:.95rem;font-weight:600;'
+  ].join('');
+
+  overlay.appendChild(title);
+  overlay.appendChild(video);
+  overlay.appendChild(statusMsg);
+  overlay.appendChild(cancelBtn);
+  document.body.appendChild(overlay);
+
+  // ── Camera + face detection ────────────────────────────────────────────────
+  let camStream = null;
+  let cancelled = false;
+
+  function cleanup() {
+    if (camStream) camStream.getTracks().forEach(function(t) { t.stop(); });
+    if (document.body.contains(overlay)) document.body.removeChild(overlay);
+    imageBox.dataset.capturing = 'false';
+  }
+
+  cancelBtn.addEventListener('click', function() {
+    cancelled = true;
+    cleanup();
+    if (statusEl) statusEl.textContent = 'Cancelled — click photo to retry';
+  });
 
   try {
-    // Send to server for face detection
-    const response = await fetch("detect_face.php", {
-      method: "POST",
-      body: formData,
-    });
-
-    const result = await response.json();
-
-    if (result.success && result.faces && result.faces.length > 0) {
-      // Get the largest face
-      const largestFace = result.faces.reduce((largest, current) => {
-        const currentArea = current.width * current.height;
-        const largestArea = largest.width * largest.height;
-        return currentArea > largestArea ? current : largest;
-      }, result.faces[0]);
-
-      // Check face quality
-      const faceSize = Math.min(largestFace.width, largestFace.height);
-      const frameSize = Math.min(canvas.width, canvas.height);
-      const faceSizeRatio = faceSize / frameSize;
-
-      if (faceSizeRatio >= 0.2) {
-        // Face must be at least 20% of frame
-        const cleanImage = canvas.toDataURL("image/png");
-
-        // Draw face rectangle for display
-        context.strokeStyle = "#00ff00";
-        context.lineWidth = 2;
-        context.strokeRect(
-          largestFace.x,
-          largestFace.y,
-          largestFace.width,
-          largestFace.height
-        );
-
-        const displayImage = canvas.toDataURL("image/png");
-
-        // Return both clean and display images
-        return { cleanImage, displayImage };
-      } else {
-        throw new Error("Face too small - Please move closer");
-      }
-    } else {
-      throw new Error("No face detected - Please look at the camera");
-    }
-  } catch (error) {
-    console.error("Face detection error:", error);
-    throw error;
-  }
-}
-
-function openCamera(buttonId) {
-  navigator.mediaDevices
-    .getUserMedia({ video: true })
-    .then((stream) => {
-      const video = document.createElement("video");
-      video.srcObject = stream;
-      document.body.appendChild(video);
-
-      video.play();
-
-      setTimeout(async () => {
-        try {
-          const { cleanImage, displayImage } = await captureImage(video);
-          const imgElement = document.getElementById(
-            buttonId + "-captured-image"
-          );
-          imgElement.src = displayImage;
-          const hiddenInput = document.getElementById(
-            buttonId + "-captured-image-input"
-          );
-          hiddenInput.value = cleanImage;
-          document.getElementById(
-            buttonId.replace("image_", "status_")
-          ).textContent = "Face captured successfully!";
-        } catch (error) {
-          document.getElementById(
-            buttonId.replace("image_", "status_")
-          ).textContent = error.message;
-        } finally {
-          stream.getTracks().forEach((track) => track.stop());
-          document.body.removeChild(video);
-        }
-      }, 500);
-    })
-    .catch((error) => {
-      console.error("Error accessing webcam:", error);
-      document.getElementById(
-        buttonId.replace("image_", "status_")
-      ).textContent = "Camera error - Please try again";
-    });
-}
-
-const takeMultipleImages = async () => {
-  document.getElementById("open_camera").style.display = "none";
-
-  const images = document.getElementById("multiple-images");
-
-  for (let i = 1; i <= 10; i++) {
-    // Create the image box element
-    const imageBox = document.createElement("div");
-    imageBox.classList.add("image-box");
-
-    const imgElement = document.createElement("img");
-    imgElement.id = `image_${i}-captured-image`;
-
-    const editIcon = document.createElement("div");
-    editIcon.classList.add("edit-icon");
-
-    const icon = document.createElement("i");
-    icon.classList.add("fas", "fa-camera");
-    icon.setAttribute("onclick", `openCamera("image_"+${i})`);
-
-    const hiddenInput = document.createElement("input");
-    hiddenInput.type = "hidden";
-    hiddenInput.id = `image_${i}-captured-image-input`;
-    hiddenInput.name = `capturedImage${i}`;
-
-    const statusText = document.createElement("div");
-    statusText.id = `status_${i}`;
-    statusText.classList.add("capture-status");
-    statusText.textContent = "Waiting for face...";
-
-    editIcon.appendChild(icon);
-    imageBox.appendChild(imgElement);
-    imageBox.appendChild(editIcon);
-    imageBox.appendChild(hiddenInput);
-    imageBox.appendChild(statusText);
-    images.appendChild(imageBox);
-    await captureImageWithDelay(i);
-  }
-};
-
-const captureImageWithDelay = async (i) => {
-  try {
-    // Get camera stream
-    const stream = await navigator.mediaDevices.getUserMedia({ video: true });
-    const video = document.createElement("video");
-    video.srcObject = stream;
-    document.body.appendChild(video);
+    camStream = await navigator.mediaDevices.getUserMedia({ video: true });
+    video.srcObject = camStream;
     await video.play();
 
-    // Create canvas for face detection
-    const canvas = document.createElement("canvas");
-    canvas.width = video.videoWidth || 640;
-    canvas.height = video.videoHeight || 480;
-    const context = canvas.getContext("2d");
+    const canvas = document.createElement('canvas');
+    const ctx    = canvas.getContext('2d');
 
-    // Wait for face detection
     let faceDetected = false;
-    let attempts = 0;
-    const maxAttempts = 30; // 15 seconds (500ms * 30)
+    let attempts     = 0;
+    const maxAttempts = 40; // 20 seconds max
 
-    while (!faceDetected && attempts < maxAttempts) {
-      context.drawImage(video, 0, 0, canvas.width, canvas.height);
+    while (!faceDetected && !cancelled && attempts < maxAttempts) {
+      await new Promise(function(r) { setTimeout(r, 500); });
+      if (cancelled) break;
 
-      // Convert canvas to blob and check for face
-      const blob = await new Promise((resolve) =>
-        canvas.toBlob(resolve, "image/jpeg", 0.8)
-      );
-      const formData = new FormData();
-      formData.append("image", blob);
+      canvas.width  = video.videoWidth  || 640;
+      canvas.height = video.videoHeight || 480;
+
+      // Draw mirrored so face coords match what user sees
+      ctx.save();
+      ctx.translate(canvas.width, 0);
+      ctx.scale(-1, 1);
+      ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+      ctx.restore();
+
+      var blob = await new Promise(function(r) { canvas.toBlob(r, 'image/jpeg', 0.85); });
+      var fd   = new FormData();
+      fd.append('image', blob);
 
       try {
-        const response = await fetch("detect_face.php", {
-          method: "POST",
-          body: formData,
-        });
-        const result = await response.json();
+        var resp   = await fetch('detect_face.php', { method: 'POST', body: fd });
+        var result = await resp.json();
 
         if (result.success && result.faces && result.faces.length > 0) {
-          // Get the largest face
-          const largestFace = result.faces.reduce((largest, current) => {
-            const currentArea = current.width * current.height;
-            const largestArea = largest.width * largest.height;
-            return currentArea > largestArea ? current : largest;
-          }, result.faces[0]);
+          var face = result.faces.reduce(function(a, b) {
+            return (a.width * a.height > b.width * b.height) ? a : b;
+          });
+          var ratio = Math.min(face.width, face.height) / Math.min(canvas.width, canvas.height);
 
-          // Check face quality
-          const faceSize = Math.min(largestFace.width, largestFace.height);
-          const frameSize = Math.min(canvas.width, canvas.height);
-          const faceSizeRatio = faceSize / frameSize;
-
-          if (faceSizeRatio >= 0.2) {
-            // Face must be at least 20% of frame
+          if (ratio >= 0.2) {
             faceDetected = true;
-            document.getElementById(`status_${i}`).textContent =
-              "Face detected!";
+            statusMsg.textContent = '✓ Face captured!';
+            statusMsg.style.color = '#4ade80';
 
-            // Capture clean image
-            const cleanImage = canvas.toDataURL("image/png");
+            // Save clean image before drawing rectangle
+            var cleanImage = canvas.toDataURL('image/png');
 
-            // Draw face rectangle
-            context.strokeStyle = "#00ff00";
-            context.lineWidth = 2;
-            context.strokeRect(
-              largestFace.x,
-              largestFace.y,
-              largestFace.width,
-              largestFace.height
-            );
+            // Draw green rectangle for display
+            ctx.strokeStyle = '#00ff00';
+            ctx.lineWidth   = 3;
+            ctx.strokeRect(face.x, face.y, face.width, face.height);
+            var displayImage = canvas.toDataURL('image/png');
 
-            // Capture display image with rectangle
-            const displayImage = canvas.toDataURL("image/png");
-            
-            const imgElement = document.getElementById(
-              `image_${i}-captured-image`
-            );
-            imgElement.src = displayImage;
-            const hiddenInput = document.getElementById(
-              `image_${i}-captured-image-input`
-            );
-            hiddenInput.value = cleanImage;
+            var imgEl   = document.getElementById('image_' + slotIndex + '-captured-image');
+            var inputEl = document.getElementById('image_' + slotIndex + '-captured-image-input');
+            if (imgEl)   imgEl.src   = displayImage;
+            if (inputEl) inputEl.value = cleanImage;
+            if (statusEl) statusEl.textContent = 'Captured ✓ — click to retake';
+
+            // Brief pause so user sees the green box
+            await new Promise(function(r) { setTimeout(r, 700); });
+
           } else {
-            document.getElementById(`status_${i}`).textContent =
-              "Face too small - move closer";
+            statusMsg.textContent = 'Move closer to the camera…';
           }
         } else {
-          document.getElementById(`status_${i}`).textContent =
-            "Looking for face...";
+          statusMsg.textContent = 'Looking for face… (' + (attempts + 1) + '/' + maxAttempts + ')';
         }
-      } catch (error) {
-        console.error("Face detection error:", error);
+      } catch (e) {
+        console.error('Face detection error:', e);
       }
 
-      if (!faceDetected) {
-        await new Promise((resolve) => setTimeout(resolve, 500));
-        attempts++;
-      }
+      attempts++;
     }
 
-    // Stop the video stream and remove the video element
-    stream.getTracks().forEach((track) => track.stop());
-    document.body.removeChild(video);
-
-    if (!faceDetected) {
-      document.getElementById(`status_${i}`).textContent =
-        "No face detected - Click to retry";
+    if (!faceDetected && !cancelled) {
+      if (statusEl) statusEl.textContent = 'No face detected — click photo to retry';
     }
+
   } catch (err) {
-    console.error("Error accessing camera: ", err);
-    document.getElementById(`status_${i}`).textContent =
-      "Camera error - Click to retry";
+    console.error('Camera error:', err);
+    if (statusEl) statusEl.textContent = 'Camera error — click photo to retry';
+  } finally {
+    cleanup();
+  }
+}
+
+/**
+ * Creates all 10 image boxes immediately (so click handlers exist right away),
+ * then auto-captures each one sequentially via the live camera overlay.
+ */
+const takeMultipleImages = async function() {
+  document.getElementById('open_camera').style.display = 'none';
+
+  var container = document.getElementById('multiple-images');
+  container.innerHTML = ''; // reset on re-open
+
+  // Step 1: Create all 10 boxes NOW so clicks work immediately
+  for (var i = 1; i <= 10; i++) {
+    var imageBox = document.createElement('div');
+    imageBox.classList.add('image-box');
+    imageBox.id           = 'imagebox_' + i;
+    imageBox.style.cursor = 'pointer';
+    imageBox.title        = 'Click to retake this photo';
+
+    var img   = document.createElement('img');
+    img.id    = 'image_' + i + '-captured-image';
+    img.src   = 'resources/images/default.png';
+    img.alt   = 'Photo ' + i;
+    img.style = 'width:100%;height:100%;object-fit:cover;';
+
+    var editIcon = document.createElement('div');
+    editIcon.classList.add('edit-icon');
+    editIcon.innerHTML = '<i class="fas fa-redo"></i><span class="retake-label">Retake</span>';
+
+    var input  = document.createElement('input');
+    input.type = 'hidden';
+    input.id   = 'image_' + i + '-captured-image-input';
+    input.name = 'capturedImage' + i;
+
+    var status = document.createElement('div');
+    status.id  = 'status_' + i;
+    status.classList.add('capture-status');
+    status.textContent = 'Waiting…';
+
+    imageBox.appendChild(img);
+    imageBox.appendChild(editIcon);
+    imageBox.appendChild(input);
+    imageBox.appendChild(status);
+    container.appendChild(imageBox);
+
+    // ← THIS is the retake handler: click any photo → retake it
+    (function(idx, box) {
+      box.addEventListener('click', function() {
+        captureWithLivePreview(idx, box);
+      });
+    })(i, imageBox);
+  }
+
+  // Step 2: Auto-capture each slot sequentially
+  for (var j = 1; j <= 10; j++) {
+    var box = document.getElementById('imagebox_' + j);
+    await captureWithLivePreview(j, box);
   }
 };
 
-//hide and display form
+// Backwards-compat shim (not used by new flow but kept for safety)
+function openCamera(buttonId) {
+  var idx = parseInt(buttonId.replace('image_', ''), 10);
+  var box = document.getElementById('imagebox_' + idx);
+  if (box) captureWithLivePreview(idx, box);
+}
+
+// hide and display form

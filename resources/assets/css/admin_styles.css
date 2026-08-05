@@ -540,7 +540,6 @@ form select:focus, form input:focus {
     margin-top: 5px;
 }
 
-/* Image Utilities */
 .image-box {
     position: relative;
     border-radius: var(--radius-md);
@@ -550,6 +549,7 @@ form select:focus, form input:focus {
     width: 240px;
     height: 240px;
     background: #f1f5f9;
+    cursor: pointer;
 }
 .image-box img {
     width: 100%;
@@ -558,7 +558,7 @@ form select:focus, form input:focus {
     transition: var(--transition);
 }
 .image-box:hover img {
-    filter: blur(2px) brightness(0.8);
+    filter: blur(2px) brightness(0.7);
     transform: scale(1.05);
 }
 .edit-icon {
@@ -567,13 +567,43 @@ form select:focus, form input:focus {
     left: 50%;
     transform: translate(-50%, -50%);
     display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
     color: #fff;
-    font-size: 3rem;
+    font-size: 2rem;
     pointer-events: none;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+    text-align: center;
+    white-space: nowrap;
+}
+.retake-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    background: rgba(255,255,255,0.2);
+    padding: 3px 10px;
+    border-radius: 12px;
+    backdrop-filter: blur(4px);
+    pointer-events: none;
 }
 .image-box:hover .edit-icon {
-    display: block;
+    display: flex;
+}
+/* Pulse ring on hover to hint retake is available */
+.image-box:hover::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 3px solid rgba(255,255,255,0.4);
+    border-radius: var(--radius-md);
+    pointer-events: none;
+    animation: retakePulse 1.2s ease-in-out infinite;
+}
+@keyframes retakePulse {
+    0%, 100% { border-color: rgba(255,255,255,0.4); }
+    50%       { border-color: rgba(255,255,255,0.85); }
 }
 
 .messageDiv {

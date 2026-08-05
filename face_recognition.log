@@ -27203,3 +27203,21 @@ ModuleNotFoundError: No module named 'cv2'
     [0] => {"success": true, "student_id": "2323", "confidence": 73.2715594715578, "algorithm": "eigen", "raw_distance": 2504.63, "face_location": {"x": 243, "y": 129, "width": 150, "height": 150}}
 )
 
+[2026-08-05 09:28:04] Executing command: python "C:\xampp\htdocs\new\Face-Recognition-Attendance-System/python/realtime_recognition.py" "C:\xampp\htdocs\new\Face-Recognition-Attendance-System/temp/temp_6a72e604d3324.jpg" --algorithm "eigen"
+[2026-08-05 09:28:08] Python output: Array
+(
+    [0] => {"success": true, "student_id": "2323", "confidence": 67.98234094867469, "algorithm": "eigen", "raw_distance": 2901.32, "face_location": {"x": 285, "y": 56, "width": 186, "height": 186}}
+)
+
+[2026-08-05 09:28:09] Executing command: python "C:\xampp\htdocs\new\Face-Recognition-Attendance-System/python/realtime_recognition.py" "C:\xampp\htdocs\new\Face-Recognition-Attendance-System/temp/temp_6a72e609df2a0.jpg" --algorithm "eigen"
+[2026-08-05 09:28:10] Python output: Array
+(
+    [0] => {"success": true, "student_id": "2323", "confidence": 79.47870122435951, "algorithm": "eigen", "raw_distance": 2039.1, "face_location": {"x": 262, "y": 71, "width": 185, "height": 185}}
+)
+
+[2026-08-05 09:28:13] Executing command: python "C:\xampp\htdocs\new\Face-Recognition-Attendance-System/python/realtime_recognition.py" "C:\xampp\htdocs\new\Face-Recognition-Attendance-System/temp/temp_6a72e60d2a635.jpg" --algorithm "lbph"
+[2026-08-05 09:28:14] Python output: Array
+(
+    [0] => {"success": true, "student_id": "2323", "confidence": 72.3517092423816, "algorithm": "lbph", "raw_distance": 74.56, "face_location": {"x": 268, "y": 69, "width": 183, "height": 183}}
+)
+

@@ -4,10 +4,12 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SAS College | Attendance System</title>
+    <title>CMS College | Attendance System</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="resources/assets/css/landing_styles.css?v=<?php echo time(); ?>" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <link rel="icon" href="resources/images/logo/face logo.png" />
@@ -18,7 +20,7 @@
         <div class="container header-flex">
             <div class="logo-area">
                 <img src="resources/images/logo/attnlg.png" alt="College Logo" class="logo-img" />
-                <span class="site-title">SAS College</span>
+                <span class="site-title">CMS College</span>
             </div>
             <nav>
                 <a href="#about">About</a>
@@ -36,9 +38,11 @@
             <div class="hero-text">
                 <h1>The Future of <span>Attendance</span> is Here</h1>
                 <p>
-                    Empowering students and staff with technology. Modern, secure, and smart attendance management for a seamless educational experience.
+                    Empowering students and staff with technology. Modern, secure, and smart attendance management for a
+                    seamless educational experience.
                 </p>
-                <a href="login" class="cta-btn">Access Dashboard <i class="fas fa-arrow-right" style="margin-left: 10px;"></i></a>
+                <a href="login" class="cta-btn">Access Dashboard <i class="fas fa-arrow-right"
+                        style="margin-left: 10px;"></i></a>
             </div>
             <div class="hero-img">
                 <div class="carousel" id="heroCarousel">
@@ -71,7 +75,8 @@
         <div class="container">
             <div class="features-header">
                 <h2 class="section-title">Why Choose Us?</h2>
-                <p class="section-subtitle">Experience the perfect blend of innovation and seamless management with our cutting-edge attendance system.</p>
+                <p class="section-subtitle">Experience the perfect blend of innovation and seamless management with our
+                    cutting-edge attendance system.</p>
             </div>
             <div class="features-grid">
                 <div class="feature-card">
@@ -82,7 +87,8 @@
                 <div class="feature-card">
                     <i class="fas fa-shield-alt"></i>
                     <h3>Data Security</h3>
-                    <p>Protected by top-tier encryption standards ensuring absolute privacy compliance and safe data handling.</p>
+                    <p>Protected by top-tier encryption standards ensuring absolute privacy compliance and safe data
+                        handling.</p>
                 </div>
                 <div class="feature-card">
                     <i class="fas fa-chart-line"></i>
@@ -92,7 +98,8 @@
                 <div class="feature-card">
                     <i class="fas fa-laptop"></i>
                     <h3>Easy Accessibility</h3>
-                    <p>Cloud-hosted infrastructure allowing instant access across all form factors and mobile devices.</p>
+                    <p>Cloud-hosted infrastructure allowing instant access across all form factors and mobile devices.
+                    </p>
                 </div>
             </div>
         </div>
@@ -104,9 +111,10 @@
                 <img src="resources/images/class.jpeg" alt="Classroom" />
             </div>
             <div class="about-text">
-                <h2 class="section-title">About SAS College</h2>
+                <h2 class="section-title">About CMS College</h2>
                 <p class="section-subtitle" style="margin-bottom: 1.5em;">
-                    SAS College is dedicated to providing world-class education while fostering digital innovation. We leverage modern web technologies to ensure a holistic, frictionless learning ecosystem.
+                    CMS College is dedicated to providing world-class education while fostering digital innovation. We
+                    leverage modern web technologies to ensure a holistic, frictionless learning ecosystem.
                 </p>
                 <ul class="about-list">
                     <li><i class="fas fa-check"></i> Fully Accredited Global Programs</li>
@@ -121,24 +129,28 @@
         <div class="container">
             <div class="news-header" style="text-align: center;">
                 <h2 class="section-title">Latest & Greatest</h2>
-                <p class="section-subtitle" style="margin: 0 auto;">Stay updated with the latest technological and academic milestones at our campus.</p>
+                <p class="section-subtitle" style="margin: 0 auto;">Stay updated with the latest technological and
+                    academic milestones at our campus.</p>
             </div>
             <div class="news-grid">
                 <article class="news-card">
                     <h3>Admissions Open 2024</h3>
-                    <p>Applications are now being accepted for undergraduate and postgraduate future-ready degree programs.</p>
+                    <p>Applications are now being accepted for undergraduate and postgraduate future-ready degree
+                        programs.</p>
                     <a href="#">Learn more</a>
                     <span class="news-date">May 2024</span>
                 </article>
                 <article class="news-card">
                     <h3>Innovation Fair 2024</h3>
-                    <p>Join us for the annual tech fair showcasing robust student prototypes and AI-driven innovations.</p>
+                    <p>Join us for the annual tech fair showcasing robust student prototypes and AI-driven innovations.
+                    </p>
                     <a href="#">Event details</a>
                     <span class="news-date">June 2024</span>
                 </article>
                 <article class="news-card">
                     <h3>New Tech Wing Open</h3>
-                    <p>Our brand new state-of-the-art computer science and artificial intelligence lab is now operational.</p>
+                    <p>Our brand new state-of-the-art computer science and artificial intelligence lab is now
+                        operational.</p>
                     <a href="#">See photos</a>
                     <span class="news-date">April 2024</span>
                 </article>
@@ -150,7 +162,8 @@
         <div class="container">
             <div class="gallery-header" style="text-align: center;">
                 <h2 class="section-title">Campus Gallery</h2>
-                <p class="section-subtitle" style="margin: 0 auto;">A glimpse into our immersive learning environments.</p>
+                <p class="section-subtitle" style="margin: 0 auto;">A glimpse into our immersive learning environments.
+                </p>
             </div>
             <div class="gallery-grid">
                 <img src="resources/images/laboratory.jpeg" alt="Laboratory" loading="lazy" />
@@ -194,7 +207,7 @@
         <div class="container footer-flex">
             <div class="footer-logo">
                 <img src="resources/images/logo/attnlg.png" alt="Logo" />
-                <span>SAS College</span>
+                <span>CMS College</span>
             </div>
             <div class="footer-links">
                 <a href="#about">About</a>
@@ -243,7 +256,7 @@
             currentSlide = (currentSlide + 1) % slides.length;
             showSlide(currentSlide);
         }, 6000);
-        
+
         // Navbar blur effect on scroll
         const header = document.querySelector('.landing-header');
         window.addEventListener('scroll', () => {
