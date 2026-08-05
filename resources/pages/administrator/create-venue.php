@@ -122,7 +122,7 @@ if (isset($_POST["editVenue"])) {
 
             <div id="overlay"></div>
 
-            <div class="rooms">
+            <!-- <div class="rooms">
                 <div class="title">
                     <h2 class="section--title">Rooms</h2>
                     <div class="rooms--right--btns">
@@ -179,7 +179,7 @@ if (isset($_POST["editVenue"])) {
                         <p class="free">Science Lab</p>
                     </a>
                 </div>
-            </div>
+            </div> -->
             <?php showMessage() ?>
             <div class="table-container">
                 <div class="title" id="addClass2">
@@ -258,7 +258,7 @@ if (isset($_POST["editVenue"])) {
                         <i class="ri-building-line"></i>
                         <input type="text" name="className" placeholder="Class Name" required>
                     </div>
-                    
+
                     <div class="form-row">
                         <div class="input-with-icon">
                             <i class="ri-checkbox-circle-line"></i>
@@ -455,10 +455,10 @@ if (isset($_POST["editVenue"])) {
 
             if ("geolocation" in navigator) {
                 navigator.geolocation.getCurrentPosition(
-                    function(position) {
+                    function (position) {
                         const lat = position.coords.latitude.toFixed(8);
                         const lng = position.coords.longitude.toFixed(8);
-                        
+
                         if (formId === 'addClassForm') {
                             document.getElementById('addLatitude').value = lat;
                             document.getElementById('addLongitude').value = lng;
@@ -466,12 +466,12 @@ if (isset($_POST["editVenue"])) {
                             document.getElementById('editLatitude').value = lat;
                             document.getElementById('editLongitude').value = lng;
                         }
-                        
+
                         btn.innerHTML = '<i class="ri-checkbox-circle-line"></i> Location Captured!';
                         btn.style.backgroundColor = '#dcfce7';
                         btn.style.color = '#166534';
                         btn.style.borderColor = '#22c55e';
-                        
+
                         setTimeout(() => {
                             btn.innerHTML = originalText;
                             btn.style.backgroundColor = '';
@@ -480,7 +480,7 @@ if (isset($_POST["editVenue"])) {
                             btn.disabled = false;
                         }, 3000);
                     },
-                    function(error) {
+                    function (error) {
                         alert("Error getting location: " + error.message);
                         btn.innerHTML = originalText;
                         btn.disabled = false;
