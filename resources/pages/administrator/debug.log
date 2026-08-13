@@ -1609,3 +1609,1557 @@
 
 2026-08-05 09:39:52 - Return code: 0
 2026-08-05 09:39:52 - Student registration completed successfully
+2026-08-07 08:58:02 - Starting student registration process
+2026-08-07 08:58:02 - Student details: {"name":"me me","reg":"2323"}
+2026-08-07 08:58:02 - Base directory: C:\xampp\htdocs\new\Face-Recognition-Attendance-System
+2026-08-07 08:58:02 - Python script path: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/python/realtime_recognition.py
+2026-08-07 08:58:02 - Processing image 1 for student 2323
+2026-08-07 08:58:02 - Failed to decode image 1
+2026-08-07 08:58:02 - Processing image 2 for student 2323
+2026-08-07 08:58:02 - Failed to decode image 2
+2026-08-07 08:58:02 - Processing image 3 for student 2323
+2026-08-07 08:58:02 - Failed to decode image 3
+2026-08-07 08:58:02 - Processing image 4 for student 2323
+2026-08-07 08:58:02 - Failed to decode image 4
+2026-08-07 08:58:02 - Processing image 5 for student 2323
+2026-08-07 08:58:02 - Failed to decode image 5
+2026-08-07 08:58:02 - Processing image 6 for student 2323
+2026-08-07 08:58:02 - Failed to decode image 6
+2026-08-07 08:58:02 - Processing image 7 for student 2323
+2026-08-07 08:58:02 - Failed to decode image 7
+2026-08-07 08:58:02 - Processing image 8 for student 2323
+2026-08-07 08:58:02 - Failed to decode image 8
+2026-08-07 08:58:02 - Processing image 9 for student 2323
+2026-08-07 08:58:02 - Failed to decode image 9
+2026-08-07 08:58:02 - Processing image 10 for student 2323
+2026-08-07 08:58:02 - Failed to decode image 10
+2026-08-07 08:58:02 - Error: No valid images were captured
+2026-08-07 09:00:19 - Starting student registration process
+2026-08-07 09:00:19 - Student details: {"name":"me me","reg":"2323"}
+2026-08-07 09:00:19 - Base directory: C:\xampp\htdocs\new\Face-Recognition-Attendance-System
+2026-08-07 09:00:19 - Python script path: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/python/realtime_recognition.py
+2026-08-07 09:00:19 - Creating student directory: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student2323
+2026-08-07 09:00:19 - Processing image 1 for student 2323
+2026-08-07 09:00:19 - Failed to decode image 1
+2026-08-07 09:00:19 - Processing image 2 for student 2323
+2026-08-07 09:00:19 - Failed to decode image 2
+2026-08-07 09:00:19 - Processing image 3 for student 2323
+2026-08-07 09:00:19 - Failed to decode image 3
+2026-08-07 09:00:19 - Processing image 4 for student 2323
+2026-08-07 09:00:19 - Failed to decode image 4
+2026-08-07 09:00:19 - Processing image 5 for student 2323
+2026-08-07 09:00:19 - Failed to decode image 5
+2026-08-07 09:00:19 - Processing image 6 for student 2323
+2026-08-07 09:00:19 - Failed to decode image 6
+2026-08-07 09:00:19 - Processing image 7 for student 2323
+2026-08-07 09:00:19 - Failed to decode image 7
+2026-08-07 09:00:19 - Processing image 8 for student 2323
+2026-08-07 09:00:19 - Failed to decode image 8
+2026-08-07 09:00:19 - Processing image 9 for student 2323
+2026-08-07 09:00:19 - Failed to decode image 9
+2026-08-07 09:00:19 - Processing image 10 for student 2323
+2026-08-07 09:00:19 - Failed to decode image 10
+2026-08-07 09:00:19 - Error: No valid images were captured
+2026-08-07 09:02:00 - Starting student registration process
+2026-08-07 09:02:00 - Student details: {"name":"me me","reg":"2323"}
+2026-08-07 09:02:00 - Base directory: C:\xampp\htdocs\new\Face-Recognition-Attendance-System
+2026-08-07 09:02:00 - Python script path: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/python/realtime_recognition.py
+2026-08-07 09:02:00 - Creating student directory: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student2323
+2026-08-07 09:02:00 - Processing image 1 for student 2323
+2026-08-07 09:02:00 - Failed to decode image 1
+2026-08-07 09:02:00 - Processing image 2 for student 2323
+2026-08-07 09:02:00 - Failed to decode image 2
+2026-08-07 09:02:00 - Processing image 3 for student 2323
+2026-08-07 09:02:00 - Failed to decode image 3
+2026-08-07 09:02:00 - Processing image 4 for student 2323
+2026-08-07 09:02:00 - Failed to decode image 4
+2026-08-07 09:02:00 - Processing image 5 for student 2323
+2026-08-07 09:02:00 - Failed to decode image 5
+2026-08-07 09:02:00 - Processing image 6 for student 2323
+2026-08-07 09:02:00 - Failed to decode image 6
+2026-08-07 09:02:00 - Processing image 7 for student 2323
+2026-08-07 09:02:00 - Failed to decode image 7
+2026-08-07 09:02:00 - Processing image 8 for student 2323
+2026-08-07 09:02:00 - Failed to decode image 8
+2026-08-07 09:02:00 - Processing image 9 for student 2323
+2026-08-07 09:02:00 - Failed to decode image 9
+2026-08-07 09:02:00 - Processing image 10 for student 2323
+2026-08-07 09:02:00 - Failed to decode image 10
+2026-08-07 09:02:00 - Error: No valid images were captured
+2026-08-07 09:02:20 - Starting student registration process
+2026-08-07 09:02:20 - Student details: {"name":"me me","reg":"2323"}
+2026-08-07 09:02:20 - Base directory: C:\xampp\htdocs\new\Face-Recognition-Attendance-System
+2026-08-07 09:02:20 - Python script path: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/python/realtime_recognition.py
+2026-08-07 09:02:20 - Creating student directory: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student2323
+2026-08-07 09:02:20 - Processing image 1 for student 2323
+2026-08-07 09:02:20 - Failed to decode image 1
+2026-08-07 09:02:20 - Processing image 2 for student 2323
+2026-08-07 09:02:20 - Failed to decode image 2
+2026-08-07 09:02:20 - Processing image 3 for student 2323
+2026-08-07 09:02:20 - Failed to decode image 3
+2026-08-07 09:02:20 - Processing image 4 for student 2323
+2026-08-07 09:02:20 - Failed to decode image 4
+2026-08-07 09:02:20 - Processing image 5 for student 2323
+2026-08-07 09:02:20 - Failed to decode image 5
+2026-08-07 09:02:20 - Processing image 6 for student 2323
+2026-08-07 09:02:20 - Failed to decode image 6
+2026-08-07 09:02:20 - Processing image 7 for student 2323
+2026-08-07 09:02:20 - Failed to decode image 7
+2026-08-07 09:02:20 - Processing image 8 for student 2323
+2026-08-07 09:02:20 - Failed to decode image 8
+2026-08-07 09:02:20 - Processing image 9 for student 2323
+2026-08-07 09:02:20 - Failed to decode image 9
+2026-08-07 09:02:20 - Processing image 10 for student 2323
+2026-08-07 09:02:20 - Failed to decode image 10
+2026-08-07 09:02:20 - Error: No valid images were captured
+2026-08-07 09:02:29 - Starting student registration process
+2026-08-07 09:02:29 - Student details: {"name":"me me","reg":"2323"}
+2026-08-07 09:02:29 - Base directory: C:\xampp\htdocs\new\Face-Recognition-Attendance-System
+2026-08-07 09:02:29 - Python script path: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/python/realtime_recognition.py
+2026-08-07 09:02:29 - Creating student directory: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student2323
+2026-08-07 09:02:29 - Processing image 1 for student 2323
+2026-08-07 09:02:29 - Failed to decode image 1
+2026-08-07 09:02:29 - Processing image 2 for student 2323
+2026-08-07 09:02:29 - Failed to decode image 2
+2026-08-07 09:02:29 - Processing image 3 for student 2323
+2026-08-07 09:02:29 - Failed to decode image 3
+2026-08-07 09:02:29 - Processing image 4 for student 2323
+2026-08-07 09:02:29 - Failed to decode image 4
+2026-08-07 09:02:29 - Processing image 5 for student 2323
+2026-08-07 09:02:29 - Failed to decode image 5
+2026-08-07 09:02:29 - Processing image 6 for student 2323
+2026-08-07 09:02:29 - Failed to decode image 6
+2026-08-07 09:02:29 - Processing image 7 for student 2323
+2026-08-07 09:02:29 - Failed to decode image 7
+2026-08-07 09:02:29 - Processing image 8 for student 2323
+2026-08-07 09:02:29 - Failed to decode image 8
+2026-08-07 09:02:29 - Processing image 9 for student 2323
+2026-08-07 09:02:29 - Failed to decode image 9
+2026-08-07 09:02:29 - Processing image 10 for student 2323
+2026-08-07 09:02:29 - Failed to decode image 10
+2026-08-07 09:02:29 - Error: No valid images were captured
+2026-08-07 09:02:46 - Starting student registration process
+2026-08-07 09:02:46 - Student details: {"name":"me me","reg":"2323"}
+2026-08-07 09:02:46 - Base directory: C:\xampp\htdocs\new\Face-Recognition-Attendance-System
+2026-08-07 09:02:46 - Python script path: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/python/realtime_recognition.py
+2026-08-07 09:02:46 - Creating student directory: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student2323
+2026-08-07 09:02:46 - Processing image 1 for student 2323
+2026-08-07 09:02:46 - Failed to decode image 1
+2026-08-07 09:02:46 - Processing image 2 for student 2323
+2026-08-07 09:02:46 - Failed to decode image 2
+2026-08-07 09:02:46 - Processing image 3 for student 2323
+2026-08-07 09:02:46 - Failed to decode image 3
+2026-08-07 09:02:46 - Processing image 4 for student 2323
+2026-08-07 09:02:46 - Failed to decode image 4
+2026-08-07 09:02:46 - Processing image 5 for student 2323
+2026-08-07 09:02:46 - Failed to decode image 5
+2026-08-07 09:02:46 - Processing image 6 for student 2323
+2026-08-07 09:02:46 - Failed to decode image 6
+2026-08-07 09:02:46 - Processing image 7 for student 2323
+2026-08-07 09:02:46 - Failed to decode image 7
+2026-08-07 09:02:46 - Processing image 8 for student 2323
+2026-08-07 09:02:46 - Failed to decode image 8
+2026-08-07 09:02:46 - Processing image 9 for student 2323
+2026-08-07 09:02:46 - Failed to decode image 9
+2026-08-07 09:02:46 - Processing image 10 for student 2323
+2026-08-07 09:02:46 - Failed to decode image 10
+2026-08-07 09:02:46 - Error: No valid images were captured
+2026-08-07 09:02:51 - Starting student registration process
+2026-08-07 09:02:51 - Student details: {"name":"me me","reg":"2323"}
+2026-08-07 09:02:51 - Base directory: C:\xampp\htdocs\new\Face-Recognition-Attendance-System
+2026-08-07 09:02:51 - Python script path: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/python/realtime_recognition.py
+2026-08-07 09:02:51 - Creating student directory: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student2323
+2026-08-07 09:02:51 - Processing image 1 for student 2323
+2026-08-07 09:02:51 - Failed to decode image 1
+2026-08-07 09:02:51 - Processing image 2 for student 2323
+2026-08-07 09:02:51 - Failed to decode image 2
+2026-08-07 09:02:51 - Processing image 3 for student 2323
+2026-08-07 09:02:51 - Failed to decode image 3
+2026-08-07 09:02:51 - Processing image 4 for student 2323
+2026-08-07 09:02:51 - Failed to decode image 4
+2026-08-07 09:02:51 - Processing image 5 for student 2323
+2026-08-07 09:02:51 - Failed to decode image 5
+2026-08-07 09:02:51 - Processing image 6 for student 2323
+2026-08-07 09:02:51 - Failed to decode image 6
+2026-08-07 09:02:51 - Processing image 7 for student 2323
+2026-08-07 09:02:51 - Failed to decode image 7
+2026-08-07 09:02:51 - Processing image 8 for student 2323
+2026-08-07 09:02:51 - Failed to decode image 8
+2026-08-07 09:02:51 - Processing image 9 for student 2323
+2026-08-07 09:02:51 - Failed to decode image 9
+2026-08-07 09:02:51 - Processing image 10 for student 2323
+2026-08-07 09:02:51 - Failed to decode image 10
+2026-08-07 09:02:51 - Error: No valid images were captured
+2026-08-07 12:38:02 - Starting student registration process
+2026-08-07 12:38:02 - Student details: {"name":"asdf asdf","reg":"asdf"}
+2026-08-07 12:38:02 - Base directory: C:\xampp\htdocs\new\Face-Recognition-Attendance-System
+2026-08-07 12:38:02 - Python script path: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/python/realtime_recognition.py
+2026-08-07 12:38:02 - Creating student directory: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/asdf
+2026-08-07 12:38:02 - Creating student directory: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/studentasdf
+2026-08-07 12:38:02 - Creating student directory: resources/labels/asdf
+2026-08-07 12:38:02 - Processing image 1 for student asdf
+2026-08-07 12:38:02 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/asdf/face_1.jpg
+2026-08-07 12:38:02 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/studentasdf/face_1.jpg
+2026-08-07 12:38:02 - Saved image to: resources/labels/asdf/face_1.jpg
+2026-08-07 12:38:02 - Processing image 2 for student asdf
+2026-08-07 12:38:02 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/asdf/face_2.jpg
+2026-08-07 12:38:02 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/studentasdf/face_2.jpg
+2026-08-07 12:38:02 - Saved image to: resources/labels/asdf/face_2.jpg
+2026-08-07 12:38:02 - Processing image 3 for student asdf
+2026-08-07 12:38:02 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/asdf/face_3.jpg
+2026-08-07 12:38:02 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/studentasdf/face_3.jpg
+2026-08-07 12:38:02 - Saved image to: resources/labels/asdf/face_3.jpg
+2026-08-07 12:38:02 - Processing image 4 for student asdf
+2026-08-07 12:38:02 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/asdf/face_4.jpg
+2026-08-07 12:38:02 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/studentasdf/face_4.jpg
+2026-08-07 12:38:02 - Saved image to: resources/labels/asdf/face_4.jpg
+2026-08-07 12:38:02 - Processing image 5 for student asdf
+2026-08-07 12:38:02 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/asdf/face_5.jpg
+2026-08-07 12:38:02 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/studentasdf/face_5.jpg
+2026-08-07 12:38:02 - Saved image to: resources/labels/asdf/face_5.jpg
+2026-08-07 12:38:02 - Processing image 6 for student asdf
+2026-08-07 12:38:02 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/asdf/face_6.jpg
+2026-08-07 12:38:02 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/studentasdf/face_6.jpg
+2026-08-07 12:38:02 - Saved image to: resources/labels/asdf/face_6.jpg
+2026-08-07 12:38:02 - Processing image 7 for student asdf
+2026-08-07 12:38:02 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/asdf/face_7.jpg
+2026-08-07 12:38:02 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/studentasdf/face_7.jpg
+2026-08-07 12:38:02 - Saved image to: resources/labels/asdf/face_7.jpg
+2026-08-07 12:38:02 - Processing image 8 for student asdf
+2026-08-07 12:38:02 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/asdf/face_8.jpg
+2026-08-07 12:38:02 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/studentasdf/face_8.jpg
+2026-08-07 12:38:02 - Saved image to: resources/labels/asdf/face_8.jpg
+2026-08-07 12:38:02 - Processing image 9 for student asdf
+2026-08-07 12:38:02 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/asdf/face_9.jpg
+2026-08-07 12:38:02 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/studentasdf/face_9.jpg
+2026-08-07 12:38:02 - Saved image to: resources/labels/asdf/face_9.jpg
+2026-08-07 12:38:02 - Processing image 10 for student asdf
+2026-08-07 12:38:02 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/asdf/face_10.jpg
+2026-08-07 12:38:02 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/studentasdf/face_10.jpg
+2026-08-07 12:38:02 - Saved image to: resources/labels/asdf/face_10.jpg
+2026-08-07 12:38:02 - Saved student info files
+2026-08-07 12:38:02 - Executing command: python "C:\xampp\htdocs\new\Face-Recognition-Attendance-System/python/realtime_recognition.py" --train
+2026-08-07 12:38:08 - Command output: Array
+(
+    [0] => 2026-08-07 16:23:03,050 - INFO - Processing student 1122 with label 0
+    [1] => 2026-08-07 16:23:04,365 - INFO - Processing student 232 with label 1
+    [2] => 2026-08-07 16:23:04,695 - INFO - Processing student 2323 with label 2
+    [3] => 2026-08-07 16:23:04,898 - INFO - Processing student 67 with label 3
+    [4] => 2026-08-07 16:23:05,229 - INFO - Processing student asdf with label 4
+    [5] => 2026-08-07 16:23:05,448 - INFO - Training LBPH...
+    [6] => 2026-08-07 16:23:06,102 - INFO - Training Eigenfaces...
+    [7] => 2026-08-07 16:23:07,931 - INFO - Training Fisherfaces...
+    [8] => {"success": true, "message": "Trained 5 students with 196 images using multiple algorithms"}
+)
+
+2026-08-07 12:38:08 - Return code: 0
+2026-08-07 12:38:08 - Student registration completed successfully
+2026-08-07 12:38:08 - Starting student registration process
+2026-08-07 12:38:08 - Student details: {"name":"asdf asdf","reg":"asdf"}
+2026-08-07 12:38:08 - Base directory: C:\xampp\htdocs\new\Face-Recognition-Attendance-System
+2026-08-07 12:38:08 - Python script path: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/python/realtime_recognition.py
+2026-08-07 12:38:08 - Processing image 1 for student asdf
+2026-08-07 12:38:08 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/asdf/face_1.jpg
+2026-08-07 12:38:08 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/studentasdf/face_1.jpg
+2026-08-07 12:38:08 - Saved image to: resources/labels/asdf/face_1.jpg
+2026-08-07 12:38:08 - Processing image 2 for student asdf
+2026-08-07 12:38:08 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/asdf/face_2.jpg
+2026-08-07 12:38:08 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/studentasdf/face_2.jpg
+2026-08-07 12:38:08 - Saved image to: resources/labels/asdf/face_2.jpg
+2026-08-07 12:38:08 - Processing image 3 for student asdf
+2026-08-07 12:38:08 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/asdf/face_3.jpg
+2026-08-07 12:38:08 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/studentasdf/face_3.jpg
+2026-08-07 12:38:08 - Saved image to: resources/labels/asdf/face_3.jpg
+2026-08-07 12:38:08 - Processing image 4 for student asdf
+2026-08-07 12:38:08 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/asdf/face_4.jpg
+2026-08-07 12:38:08 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/studentasdf/face_4.jpg
+2026-08-07 12:38:08 - Saved image to: resources/labels/asdf/face_4.jpg
+2026-08-07 12:38:08 - Processing image 5 for student asdf
+2026-08-07 12:38:08 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/asdf/face_5.jpg
+2026-08-07 12:38:08 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/studentasdf/face_5.jpg
+2026-08-07 12:38:08 - Saved image to: resources/labels/asdf/face_5.jpg
+2026-08-07 12:38:08 - Processing image 6 for student asdf
+2026-08-07 12:38:08 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/asdf/face_6.jpg
+2026-08-07 12:38:08 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/studentasdf/face_6.jpg
+2026-08-07 12:38:08 - Saved image to: resources/labels/asdf/face_6.jpg
+2026-08-07 12:38:08 - Processing image 7 for student asdf
+2026-08-07 12:38:08 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/asdf/face_7.jpg
+2026-08-07 12:38:08 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/studentasdf/face_7.jpg
+2026-08-07 12:38:08 - Saved image to: resources/labels/asdf/face_7.jpg
+2026-08-07 12:38:08 - Processing image 8 for student asdf
+2026-08-07 12:38:08 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/asdf/face_8.jpg
+2026-08-07 12:38:08 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/studentasdf/face_8.jpg
+2026-08-07 12:38:08 - Saved image to: resources/labels/asdf/face_8.jpg
+2026-08-07 12:38:08 - Processing image 9 for student asdf
+2026-08-07 12:38:08 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/asdf/face_9.jpg
+2026-08-07 12:38:08 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/studentasdf/face_9.jpg
+2026-08-07 12:38:08 - Saved image to: resources/labels/asdf/face_9.jpg
+2026-08-07 12:38:08 - Processing image 10 for student asdf
+2026-08-07 12:38:08 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/asdf/face_10.jpg
+2026-08-07 12:38:08 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/studentasdf/face_10.jpg
+2026-08-07 12:38:08 - Saved image to: resources/labels/asdf/face_10.jpg
+2026-08-07 12:38:08 - Saved student info files
+2026-08-07 12:38:08 - Executing command: python "C:\xampp\htdocs\new\Face-Recognition-Attendance-System/python/realtime_recognition.py" --train
+2026-08-07 12:38:14 - Command output: Array
+(
+    [0] => 2026-08-07 16:23:09,055 - INFO - Processing student 1122 with label 0
+    [1] => 2026-08-07 16:23:10,201 - INFO - Processing student 232 with label 1
+    [2] => 2026-08-07 16:23:10,417 - INFO - Processing student 2323 with label 2
+    [3] => 2026-08-07 16:23:10,630 - INFO - Processing student 67 with label 3
+    [4] => 2026-08-07 16:23:10,886 - INFO - Processing student asdf with label 4
+    [5] => 2026-08-07 16:23:11,123 - INFO - Training LBPH...
+    [6] => 2026-08-07 16:23:11,874 - INFO - Training Eigenfaces...
+    [7] => 2026-08-07 16:23:14,075 - INFO - Training Fisherfaces...
+    [8] => {"success": true, "message": "Trained 5 students with 196 images using multiple algorithms"}
+)
+
+2026-08-07 12:38:14 - Return code: 0
+2026-08-07 12:38:14 - Error: Student with the given Registration No: asdf already exists!
+2026-08-07 12:38:29 - Starting student registration process
+2026-08-07 12:38:29 - Student details: {"name":"asdf asdf","reg":"asdf"}
+2026-08-07 12:38:29 - Base directory: C:\xampp\htdocs\new\Face-Recognition-Attendance-System
+2026-08-07 12:38:29 - Python script path: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/python/realtime_recognition.py
+2026-08-07 12:38:29 - Creating student directory: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/asdf
+2026-08-07 12:38:29 - Creating student directory: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/studentasdf
+2026-08-07 12:38:29 - Creating student directory: resources/labels/asdf
+2026-08-07 12:38:29 - Processing image 1 for student asdf
+2026-08-07 12:38:29 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/asdf/face_1.jpg
+2026-08-07 12:38:29 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/studentasdf/face_1.jpg
+2026-08-07 12:38:29 - Saved image to: resources/labels/asdf/face_1.jpg
+2026-08-07 12:38:29 - Processing image 2 for student asdf
+2026-08-07 12:38:29 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/asdf/face_2.jpg
+2026-08-07 12:38:29 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/studentasdf/face_2.jpg
+2026-08-07 12:38:29 - Saved image to: resources/labels/asdf/face_2.jpg
+2026-08-07 12:38:29 - Processing image 3 for student asdf
+2026-08-07 12:38:29 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/asdf/face_3.jpg
+2026-08-07 12:38:29 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/studentasdf/face_3.jpg
+2026-08-07 12:38:29 - Saved image to: resources/labels/asdf/face_3.jpg
+2026-08-07 12:38:29 - Processing image 4 for student asdf
+2026-08-07 12:38:29 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/asdf/face_4.jpg
+2026-08-07 12:38:29 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/studentasdf/face_4.jpg
+2026-08-07 12:38:29 - Saved image to: resources/labels/asdf/face_4.jpg
+2026-08-07 12:38:29 - Processing image 5 for student asdf
+2026-08-07 12:38:29 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/asdf/face_5.jpg
+2026-08-07 12:38:29 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/studentasdf/face_5.jpg
+2026-08-07 12:38:29 - Saved image to: resources/labels/asdf/face_5.jpg
+2026-08-07 12:38:29 - Processing image 6 for student asdf
+2026-08-07 12:38:29 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/asdf/face_6.jpg
+2026-08-07 12:38:29 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/studentasdf/face_6.jpg
+2026-08-07 12:38:29 - Saved image to: resources/labels/asdf/face_6.jpg
+2026-08-07 12:38:29 - Processing image 7 for student asdf
+2026-08-07 12:38:29 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/asdf/face_7.jpg
+2026-08-07 12:38:29 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/studentasdf/face_7.jpg
+2026-08-07 12:38:29 - Saved image to: resources/labels/asdf/face_7.jpg
+2026-08-07 12:38:29 - Processing image 8 for student asdf
+2026-08-07 12:38:29 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/asdf/face_8.jpg
+2026-08-07 12:38:29 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/studentasdf/face_8.jpg
+2026-08-07 12:38:29 - Saved image to: resources/labels/asdf/face_8.jpg
+2026-08-07 12:38:29 - Processing image 9 for student asdf
+2026-08-07 12:38:29 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/asdf/face_9.jpg
+2026-08-07 12:38:29 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/studentasdf/face_9.jpg
+2026-08-07 12:38:29 - Saved image to: resources/labels/asdf/face_9.jpg
+2026-08-07 12:38:29 - Processing image 10 for student asdf
+2026-08-07 12:38:29 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/asdf/face_10.jpg
+2026-08-07 12:38:29 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/studentasdf/face_10.jpg
+2026-08-07 12:38:29 - Saved image to: resources/labels/asdf/face_10.jpg
+2026-08-07 12:38:29 - Saved student info files
+2026-08-07 12:38:29 - Executing command: python "C:\xampp\htdocs\new\Face-Recognition-Attendance-System/python/realtime_recognition.py" --train
+2026-08-07 12:38:35 - Command output: Array
+(
+    [0] => 2026-08-07 16:23:30,251 - INFO - Processing student 1122 with label 0
+    [1] => 2026-08-07 16:23:31,461 - INFO - Processing student 232 with label 1
+    [2] => 2026-08-07 16:23:31,699 - INFO - Processing student 2323 with label 2
+    [3] => 2026-08-07 16:23:31,899 - INFO - Processing student 67 with label 3
+    [4] => 2026-08-07 16:23:32,155 - INFO - Processing student asdf with label 4
+    [5] => 2026-08-07 16:23:32,381 - INFO - Training LBPH...
+    [6] => 2026-08-07 16:23:33,004 - INFO - Training Eigenfaces...
+    [7] => 2026-08-07 16:23:34,753 - INFO - Training Fisherfaces...
+    [8] => {"success": true, "message": "Trained 5 students with 196 images using multiple algorithms"}
+)
+
+2026-08-07 12:38:35 - Return code: 0
+2026-08-07 12:38:35 - Student registration completed successfully
+2026-08-07 12:40:38 - Starting student registration process
+2026-08-07 12:40:38 - Error: Last name must contain letters only
+2026-08-07 12:41:38 - Starting student registration process
+2026-08-07 12:41:38 - Student details: {"name":"asddsfdf asddfdf","reg":"1010"}
+2026-08-07 12:41:38 - Base directory: C:\xampp\htdocs\new\Face-Recognition-Attendance-System
+2026-08-07 12:41:38 - Python script path: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/python/realtime_recognition.py
+2026-08-07 12:41:38 - Creating student directory: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/1010
+2026-08-07 12:41:38 - Creating student directory: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student1010
+2026-08-07 12:41:38 - Creating student directory: resources/labels/1010
+2026-08-07 12:41:38 - Processing image 1 for student 1010
+2026-08-07 12:41:38 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/1010/face_1.jpg
+2026-08-07 12:41:38 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student1010/face_1.jpg
+2026-08-07 12:41:38 - Saved image to: resources/labels/1010/face_1.jpg
+2026-08-07 12:41:38 - Processing image 2 for student 1010
+2026-08-07 12:41:38 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/1010/face_2.jpg
+2026-08-07 12:41:38 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student1010/face_2.jpg
+2026-08-07 12:41:38 - Saved image to: resources/labels/1010/face_2.jpg
+2026-08-07 12:41:38 - Processing image 3 for student 1010
+2026-08-07 12:41:38 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/1010/face_3.jpg
+2026-08-07 12:41:38 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student1010/face_3.jpg
+2026-08-07 12:41:38 - Saved image to: resources/labels/1010/face_3.jpg
+2026-08-07 12:41:38 - Processing image 4 for student 1010
+2026-08-07 12:41:38 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/1010/face_4.jpg
+2026-08-07 12:41:38 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student1010/face_4.jpg
+2026-08-07 12:41:38 - Saved image to: resources/labels/1010/face_4.jpg
+2026-08-07 12:41:38 - Processing image 5 for student 1010
+2026-08-07 12:41:38 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/1010/face_5.jpg
+2026-08-07 12:41:38 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student1010/face_5.jpg
+2026-08-07 12:41:38 - Saved image to: resources/labels/1010/face_5.jpg
+2026-08-07 12:41:38 - Processing image 6 for student 1010
+2026-08-07 12:41:38 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/1010/face_6.jpg
+2026-08-07 12:41:38 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student1010/face_6.jpg
+2026-08-07 12:41:38 - Saved image to: resources/labels/1010/face_6.jpg
+2026-08-07 12:41:38 - Processing image 7 for student 1010
+2026-08-07 12:41:38 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/1010/face_7.jpg
+2026-08-07 12:41:38 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student1010/face_7.jpg
+2026-08-07 12:41:38 - Saved image to: resources/labels/1010/face_7.jpg
+2026-08-07 12:41:38 - Processing image 8 for student 1010
+2026-08-07 12:41:38 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/1010/face_8.jpg
+2026-08-07 12:41:38 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student1010/face_8.jpg
+2026-08-07 12:41:38 - Saved image to: resources/labels/1010/face_8.jpg
+2026-08-07 12:41:38 - Processing image 9 for student 1010
+2026-08-07 12:41:38 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/1010/face_9.jpg
+2026-08-07 12:41:38 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student1010/face_9.jpg
+2026-08-07 12:41:38 - Saved image to: resources/labels/1010/face_9.jpg
+2026-08-07 12:41:38 - Processing image 10 for student 1010
+2026-08-07 12:41:38 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/1010/face_10.jpg
+2026-08-07 12:41:38 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student1010/face_10.jpg
+2026-08-07 12:41:38 - Saved image to: resources/labels/1010/face_10.jpg
+2026-08-07 12:41:38 - Saved student info files
+2026-08-07 12:41:38 - Executing command: python "C:\xampp\htdocs\new\Face-Recognition-Attendance-System/python/realtime_recognition.py" --train
+2026-08-07 12:41:44 - Command output: Array
+(
+    [0] => 2026-08-07 16:26:38,405 - INFO - Processing student 1010 with label 0
+    [1] => 2026-08-07 16:26:39,522 - INFO - Processing student 1122 with label 1
+    [2] => 2026-08-07 16:26:39,826 - INFO - Processing student 232 with label 2
+    [3] => 2026-08-07 16:26:40,098 - INFO - Processing student 2323 with label 3
+    [4] => 2026-08-07 16:26:40,302 - INFO - Processing student 67 with label 4
+    [5] => 2026-08-07 16:26:40,551 - INFO - Processing student asdf with label 5
+    [6] => 2026-08-07 16:26:40,790 - INFO - Training LBPH...
+    [7] => 2026-08-07 16:26:41,524 - INFO - Training Eigenfaces...
+    [8] => 2026-08-07 16:26:43,418 - INFO - Training Fisherfaces...
+    [9] => {"success": true, "message": "Trained 6 students with 232 images using multiple algorithms"}
+)
+
+2026-08-07 12:41:44 - Return code: 0
+2026-08-07 12:41:44 - Student registration completed successfully
+2026-08-07 12:46:54 - Starting student registration process
+2026-08-07 12:46:54 - Student details: {"name":"asddsfdf asddfdf","reg":"1010"}
+2026-08-07 12:46:54 - Base directory: C:\xampp\htdocs\new\Face-Recognition-Attendance-System
+2026-08-07 12:46:54 - Python script path: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/python/realtime_recognition.py
+2026-08-07 12:46:54 - Processing image 1 for student 1010
+2026-08-07 12:46:54 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/1010/face_1.jpg
+2026-08-07 12:46:54 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student1010/face_1.jpg
+2026-08-07 12:46:54 - Saved image to: resources/labels/1010/face_1.jpg
+2026-08-07 12:46:54 - Processing image 2 for student 1010
+2026-08-07 12:46:54 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/1010/face_2.jpg
+2026-08-07 12:46:54 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student1010/face_2.jpg
+2026-08-07 12:46:54 - Saved image to: resources/labels/1010/face_2.jpg
+2026-08-07 12:46:54 - Processing image 3 for student 1010
+2026-08-07 12:46:54 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/1010/face_3.jpg
+2026-08-07 12:46:54 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student1010/face_3.jpg
+2026-08-07 12:46:54 - Saved image to: resources/labels/1010/face_3.jpg
+2026-08-07 12:46:54 - Processing image 4 for student 1010
+2026-08-07 12:46:54 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/1010/face_4.jpg
+2026-08-07 12:46:54 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student1010/face_4.jpg
+2026-08-07 12:46:54 - Saved image to: resources/labels/1010/face_4.jpg
+2026-08-07 12:46:54 - Processing image 5 for student 1010
+2026-08-07 12:46:54 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/1010/face_5.jpg
+2026-08-07 12:46:54 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student1010/face_5.jpg
+2026-08-07 12:46:54 - Saved image to: resources/labels/1010/face_5.jpg
+2026-08-07 12:46:54 - Processing image 6 for student 1010
+2026-08-07 12:46:54 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/1010/face_6.jpg
+2026-08-07 12:46:54 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student1010/face_6.jpg
+2026-08-07 12:46:54 - Saved image to: resources/labels/1010/face_6.jpg
+2026-08-07 12:46:54 - Processing image 7 for student 1010
+2026-08-07 12:46:54 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/1010/face_7.jpg
+2026-08-07 12:46:54 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student1010/face_7.jpg
+2026-08-07 12:46:54 - Saved image to: resources/labels/1010/face_7.jpg
+2026-08-07 12:46:54 - Processing image 8 for student 1010
+2026-08-07 12:46:54 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/1010/face_8.jpg
+2026-08-07 12:46:54 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student1010/face_8.jpg
+2026-08-07 12:46:54 - Saved image to: resources/labels/1010/face_8.jpg
+2026-08-07 12:46:54 - Processing image 9 for student 1010
+2026-08-07 12:46:54 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/1010/face_9.jpg
+2026-08-07 12:46:54 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student1010/face_9.jpg
+2026-08-07 12:46:54 - Saved image to: resources/labels/1010/face_9.jpg
+2026-08-07 12:46:54 - Processing image 10 for student 1010
+2026-08-07 12:46:54 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/1010/face_10.jpg
+2026-08-07 12:46:54 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student1010/face_10.jpg
+2026-08-07 12:46:54 - Saved image to: resources/labels/1010/face_10.jpg
+2026-08-07 12:46:54 - Saved student info files
+2026-08-07 12:46:54 - Executing command: python "C:\xampp\htdocs\new\Face-Recognition-Attendance-System/python/realtime_recognition.py" --train
+2026-08-07 12:47:01 - Command output: Array
+(
+    [0] => 2026-08-07 16:31:54,674 - INFO - Processing student 1010 with label 0
+    [1] => 2026-08-07 16:31:56,508 - INFO - Processing student 1122 with label 1
+    [2] => 2026-08-07 16:31:56,787 - INFO - Processing student 232 with label 2
+    [3] => 2026-08-07 16:31:57,005 - INFO - Processing student 2323 with label 3
+    [4] => 2026-08-07 16:31:57,209 - INFO - Processing student 67 with label 4
+    [5] => 2026-08-07 16:31:57,464 - INFO - Processing student asdf with label 5
+    [6] => 2026-08-07 16:31:57,689 - INFO - Training LBPH...
+    [7] => 2026-08-07 16:31:58,533 - INFO - Training Eigenfaces...
+    [8] => 2026-08-07 16:32:00,862 - INFO - Training Fisherfaces...
+    [9] => {"success": true, "message": "Trained 6 students with 232 images using multiple algorithms"}
+)
+
+2026-08-07 12:47:01 - Return code: 0
+2026-08-07 12:47:01 - Error: Student with the given Registration No: 1010 already exists!
+2026-08-07 12:48:26 - Starting student registration process
+2026-08-07 12:48:26 - Error: Last name must contain letters only
+2026-08-07 12:49:25 - Starting student registration process
+2026-08-07 12:49:25 - Student details: {"name":"nbanme naem","reg":"09"}
+2026-08-07 12:49:25 - Base directory: C:\xampp\htdocs\new\Face-Recognition-Attendance-System
+2026-08-07 12:49:25 - Python script path: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/python/realtime_recognition.py
+2026-08-07 12:49:25 - Creating student directory: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/09
+2026-08-07 12:49:25 - Creating student directory: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student09
+2026-08-07 12:49:25 - Creating student directory: resources/labels/09
+2026-08-07 12:49:25 - Processing image 1 for student 09
+2026-08-07 12:49:25 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/09/face_1.jpg
+2026-08-07 12:49:25 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student09/face_1.jpg
+2026-08-07 12:49:25 - Saved image to: resources/labels/09/face_1.jpg
+2026-08-07 12:49:25 - Processing image 2 for student 09
+2026-08-07 12:49:25 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/09/face_2.jpg
+2026-08-07 12:49:25 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student09/face_2.jpg
+2026-08-07 12:49:25 - Saved image to: resources/labels/09/face_2.jpg
+2026-08-07 12:49:25 - Processing image 3 for student 09
+2026-08-07 12:49:25 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/09/face_3.jpg
+2026-08-07 12:49:25 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student09/face_3.jpg
+2026-08-07 12:49:25 - Saved image to: resources/labels/09/face_3.jpg
+2026-08-07 12:49:25 - Processing image 4 for student 09
+2026-08-07 12:49:25 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/09/face_4.jpg
+2026-08-07 12:49:25 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student09/face_4.jpg
+2026-08-07 12:49:25 - Saved image to: resources/labels/09/face_4.jpg
+2026-08-07 12:49:25 - Processing image 5 for student 09
+2026-08-07 12:49:25 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/09/face_5.jpg
+2026-08-07 12:49:25 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student09/face_5.jpg
+2026-08-07 12:49:25 - Saved image to: resources/labels/09/face_5.jpg
+2026-08-07 12:49:25 - Processing image 6 for student 09
+2026-08-07 12:49:25 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/09/face_6.jpg
+2026-08-07 12:49:25 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student09/face_6.jpg
+2026-08-07 12:49:25 - Saved image to: resources/labels/09/face_6.jpg
+2026-08-07 12:49:25 - Processing image 7 for student 09
+2026-08-07 12:49:25 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/09/face_7.jpg
+2026-08-07 12:49:25 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student09/face_7.jpg
+2026-08-07 12:49:25 - Saved image to: resources/labels/09/face_7.jpg
+2026-08-07 12:49:25 - Processing image 8 for student 09
+2026-08-07 12:49:25 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/09/face_8.jpg
+2026-08-07 12:49:25 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student09/face_8.jpg
+2026-08-07 12:49:25 - Saved image to: resources/labels/09/face_8.jpg
+2026-08-07 12:49:25 - Processing image 9 for student 09
+2026-08-07 12:49:25 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/09/face_9.jpg
+2026-08-07 12:49:25 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student09/face_9.jpg
+2026-08-07 12:49:25 - Saved image to: resources/labels/09/face_9.jpg
+2026-08-07 12:49:25 - Processing image 10 for student 09
+2026-08-07 12:49:25 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/09/face_10.jpg
+2026-08-07 12:49:25 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student09/face_10.jpg
+2026-08-07 12:49:25 - Saved image to: resources/labels/09/face_10.jpg
+2026-08-07 12:49:25 - Saved student info files
+2026-08-07 12:49:25 - Executing command: python "C:\xampp\htdocs\new\Face-Recognition-Attendance-System/python/realtime_recognition.py" --train
+2026-08-07 12:49:33 - Command output: Array
+(
+    [0] => 2026-08-07 16:34:25,866 - INFO - Processing student 09 with label 0
+    [1] => 2026-08-07 16:34:27,128 - INFO - Processing student 1010 with label 1
+    [2] => 2026-08-07 16:34:27,349 - INFO - Processing student 1122 with label 2
+    [3] => 2026-08-07 16:34:27,645 - INFO - Processing student 232 with label 3
+    [4] => 2026-08-07 16:34:27,892 - INFO - Processing student 2323 with label 4
+    [5] => 2026-08-07 16:34:28,097 - INFO - Processing student 67 with label 5
+    [6] => 2026-08-07 16:34:28,344 - INFO - Processing student asdf with label 6
+    [7] => 2026-08-07 16:34:28,567 - INFO - Training LBPH...
+    [8] => 2026-08-07 16:34:29,495 - INFO - Training Eigenfaces...
+    [9] => 2026-08-07 16:34:32,214 - INFO - Training Fisherfaces...
+    [10] => {"success": true, "message": "Trained 7 students with 272 images using multiple algorithms"}
+)
+
+2026-08-07 12:49:33 - Return code: 0
+2026-08-07 12:49:33 - Student registration completed successfully
+2026-08-07 12:59:02 - Starting student registration process
+2026-08-07 12:59:02 - Error: Last name must contain letters only
+2026-08-07 13:00:06 - Starting student registration process
+2026-08-07 13:00:06 - Student details: {"name":"fafa fafa","reg":"092039209"}
+2026-08-07 13:00:06 - Base directory: C:\xampp\htdocs\new\Face-Recognition-Attendance-System
+2026-08-07 13:00:06 - Python script path: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/python/realtime_recognition.py
+2026-08-07 13:00:06 - Creating student directory: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/092039209
+2026-08-07 13:00:06 - Creating student directory: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student092039209
+2026-08-07 13:00:06 - Creating student directory: resources/labels/092039209
+2026-08-07 13:00:06 - Processing image 1 for student 092039209
+2026-08-07 13:00:06 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/092039209/face_1.jpg
+2026-08-07 13:00:06 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student092039209/face_1.jpg
+2026-08-07 13:00:06 - Saved image to: resources/labels/092039209/face_1.jpg
+2026-08-07 13:00:06 - Processing image 2 for student 092039209
+2026-08-07 13:00:06 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/092039209/face_2.jpg
+2026-08-07 13:00:06 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student092039209/face_2.jpg
+2026-08-07 13:00:06 - Saved image to: resources/labels/092039209/face_2.jpg
+2026-08-07 13:00:06 - Processing image 3 for student 092039209
+2026-08-07 13:00:06 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/092039209/face_3.jpg
+2026-08-07 13:00:06 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student092039209/face_3.jpg
+2026-08-07 13:00:06 - Saved image to: resources/labels/092039209/face_3.jpg
+2026-08-07 13:00:06 - Processing image 4 for student 092039209
+2026-08-07 13:00:06 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/092039209/face_4.jpg
+2026-08-07 13:00:06 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student092039209/face_4.jpg
+2026-08-07 13:00:06 - Saved image to: resources/labels/092039209/face_4.jpg
+2026-08-07 13:00:06 - Processing image 5 for student 092039209
+2026-08-07 13:00:06 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/092039209/face_5.jpg
+2026-08-07 13:00:06 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student092039209/face_5.jpg
+2026-08-07 13:00:06 - Saved image to: resources/labels/092039209/face_5.jpg
+2026-08-07 13:00:06 - Processing image 6 for student 092039209
+2026-08-07 13:00:06 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/092039209/face_6.jpg
+2026-08-07 13:00:06 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student092039209/face_6.jpg
+2026-08-07 13:00:06 - Saved image to: resources/labels/092039209/face_6.jpg
+2026-08-07 13:00:06 - Processing image 7 for student 092039209
+2026-08-07 13:00:06 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/092039209/face_7.jpg
+2026-08-07 13:00:06 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student092039209/face_7.jpg
+2026-08-07 13:00:06 - Saved image to: resources/labels/092039209/face_7.jpg
+2026-08-07 13:00:06 - Processing image 8 for student 092039209
+2026-08-07 13:00:06 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/092039209/face_8.jpg
+2026-08-07 13:00:06 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student092039209/face_8.jpg
+2026-08-07 13:00:06 - Saved image to: resources/labels/092039209/face_8.jpg
+2026-08-07 13:00:06 - Processing image 9 for student 092039209
+2026-08-07 13:00:06 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/092039209/face_9.jpg
+2026-08-07 13:00:06 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student092039209/face_9.jpg
+2026-08-07 13:00:06 - Saved image to: resources/labels/092039209/face_9.jpg
+2026-08-07 13:00:06 - Processing image 10 for student 092039209
+2026-08-07 13:00:06 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/092039209/face_10.jpg
+2026-08-07 13:00:06 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student092039209/face_10.jpg
+2026-08-07 13:00:06 - Saved image to: resources/labels/092039209/face_10.jpg
+2026-08-07 13:00:06 - Saved student info files
+2026-08-07 13:00:06 - Executing duplicate check: python "C:\xampp\htdocs\new\Face-Recognition-Attendance-System/python/realtime_recognition.py" --check-duplicate "C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/092039209"
+2026-08-07 13:00:18 - Duplicate check output: Array
+(
+    [0] => 2026-08-07 16:45:09,034 - INFO - face_1.jpg: -> 1010 (raw_distance=63.77)
+    [1] => 2026-08-07 16:45:09,977 - INFO - face_10.jpg: -> 1010 (raw_distance=55.11)
+    [2] => 2026-08-07 16:45:10,961 - INFO - face_2.jpg: -> 1010 (raw_distance=53.24)
+    [3] => 2026-08-07 16:45:12,011 - INFO - face_3.jpg: -> 09 (raw_distance=54.74)
+    [4] => 2026-08-07 16:45:13,090 - INFO - face_4.jpg: -> 09 (raw_distance=54.06)
+    [5] => 2026-08-07 16:45:14,118 - INFO - face_5.jpg: -> 09 (raw_distance=53.71)
+    [6] => 2026-08-07 16:45:15,066 - INFO - face_6.jpg: -> 09 (raw_distance=64.54)
+    [7] => 2026-08-07 16:45:16,107 - INFO - face_7.jpg: -> 1010 (raw_distance=56.74)
+    [8] => 2026-08-07 16:45:17,073 - INFO - face_8.jpg: -> 09 (raw_distance=56.5)
+    [9] => 2026-08-07 16:45:17,985 - INFO - face_9.jpg: -> 1010 (raw_distance=55.44)
+    [10] => {"success": true, "is_duplicate": true, "matched_student_id": "1010", "votes": 5, "total_checked": 10, "avg_confidence": 86.5, "algorithm": "lbph"}
+)
+
+2026-08-07 13:00:18 - Duplicate face detected. Matches student 1010 (votes: 5/10)
+2026-08-07 13:00:18 - Error: This face is already registered (matches student 1010). The same person cannot be registered again.
+2026-08-13 13:55:30 - Starting student registration process
+2026-08-13 13:55:30 - Student details: {"name":"Sujal Chitrakar","reg":"344234"}
+2026-08-13 13:55:30 - Base directory: C:\xampp\htdocs\new\Face-Recognition-Attendance-System
+2026-08-13 13:55:30 - Python script path: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/python/realtime_recognition.py
+2026-08-13 13:55:30 - Creating student directory: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/344234
+2026-08-13 13:55:30 - Creating student directory: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student344234
+2026-08-13 13:55:30 - Creating student directory: resources/labels/344234
+2026-08-13 13:55:30 - Processing image 1 for student 344234
+2026-08-13 13:55:30 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/344234/face_1.jpg
+2026-08-13 13:55:30 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student344234/face_1.jpg
+2026-08-13 13:55:30 - Saved image to: resources/labels/344234/face_1.jpg
+2026-08-13 13:55:30 - Processing image 2 for student 344234
+2026-08-13 13:55:30 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/344234/face_2.jpg
+2026-08-13 13:55:30 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student344234/face_2.jpg
+2026-08-13 13:55:30 - Saved image to: resources/labels/344234/face_2.jpg
+2026-08-13 13:55:30 - Processing image 3 for student 344234
+2026-08-13 13:55:30 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/344234/face_3.jpg
+2026-08-13 13:55:30 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student344234/face_3.jpg
+2026-08-13 13:55:30 - Saved image to: resources/labels/344234/face_3.jpg
+2026-08-13 13:55:30 - Processing image 4 for student 344234
+2026-08-13 13:55:30 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/344234/face_4.jpg
+2026-08-13 13:55:30 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student344234/face_4.jpg
+2026-08-13 13:55:30 - Saved image to: resources/labels/344234/face_4.jpg
+2026-08-13 13:55:30 - Processing image 5 for student 344234
+2026-08-13 13:55:30 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/344234/face_5.jpg
+2026-08-13 13:55:30 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student344234/face_5.jpg
+2026-08-13 13:55:30 - Saved image to: resources/labels/344234/face_5.jpg
+2026-08-13 13:55:30 - Processing image 6 for student 344234
+2026-08-13 13:55:30 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/344234/face_6.jpg
+2026-08-13 13:55:30 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student344234/face_6.jpg
+2026-08-13 13:55:30 - Saved image to: resources/labels/344234/face_6.jpg
+2026-08-13 13:55:30 - Processing image 7 for student 344234
+2026-08-13 13:55:30 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/344234/face_7.jpg
+2026-08-13 13:55:30 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student344234/face_7.jpg
+2026-08-13 13:55:30 - Saved image to: resources/labels/344234/face_7.jpg
+2026-08-13 13:55:30 - Processing image 8 for student 344234
+2026-08-13 13:55:30 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/344234/face_8.jpg
+2026-08-13 13:55:30 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student344234/face_8.jpg
+2026-08-13 13:55:30 - Saved image to: resources/labels/344234/face_8.jpg
+2026-08-13 13:55:30 - Processing image 9 for student 344234
+2026-08-13 13:55:30 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/344234/face_9.jpg
+2026-08-13 13:55:30 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student344234/face_9.jpg
+2026-08-13 13:55:30 - Saved image to: resources/labels/344234/face_9.jpg
+2026-08-13 13:55:30 - Processing image 10 for student 344234
+2026-08-13 13:55:30 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/344234/face_10.jpg
+2026-08-13 13:55:30 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student344234/face_10.jpg
+2026-08-13 13:55:30 - Saved image to: resources/labels/344234/face_10.jpg
+2026-08-13 13:55:30 - Saved student info files
+2026-08-13 13:55:30 - Executing duplicate check: python "C:\xampp\htdocs\new\Face-Recognition-Attendance-System/python/realtime_recognition.py" --check-duplicate "C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/344234"
+2026-08-13 13:55:42 - Duplicate check output: Array
+(
+    [0] => 2026-08-13 17:40:32,948 - INFO - face_1.jpg: -> Unknown (raw_distance=109.3)
+    [1] => 2026-08-13 17:40:34,043 - INFO - face_10.jpg: -> Unknown (raw_distance=96.67)
+    [2] => 2026-08-13 17:40:35,068 - INFO - face_2.jpg: -> Unknown (raw_distance=95.51)
+    [3] => 2026-08-13 17:40:36,115 - INFO - face_3.jpg: -> Unknown (raw_distance=94.78)
+    [4] => 2026-08-13 17:40:37,022 - INFO - face_4.jpg: -> Unknown (raw_distance=93.54)
+    [5] => 2026-08-13 17:40:37,907 - INFO - face_5.jpg: -> Unknown (raw_distance=90.23)
+    [6] => 2026-08-13 17:40:38,869 - INFO - face_6.jpg: -> Unknown (raw_distance=98.35)
+    [7] => 2026-08-13 17:40:40,191 - INFO - face_7.jpg: -> Unknown (raw_distance=91.64)
+    [8] => 2026-08-13 17:40:41,235 - INFO - face_8.jpg: -> Unknown (raw_distance=93.13)
+    [9] => 2026-08-13 17:40:42,306 - INFO - face_9.jpg: -> 2323 (raw_distance=86.93)
+    [10] => {"success": true, "is_duplicate": false, "matched_student_id": "2323", "votes": 1, "total_checked": 10, "avg_confidence": 62.5, "algorithm": "lbph"}
+)
+
+2026-08-13 13:55:42 - Executing command: python "C:\xampp\htdocs\new\Face-Recognition-Attendance-System/python/realtime_recognition.py" --train
+2026-08-13 13:55:53 - Command output: Array
+(
+    [0] => 2026-08-13 17:40:42,742 - INFO - Processing student 09 with label 0
+    [1] => 2026-08-13 17:40:43,924 - INFO - Processing student 1010 with label 1
+    [2] => 2026-08-13 17:40:44,152 - INFO - Processing student 1122 with label 2
+    [3] => 2026-08-13 17:40:44,471 - INFO - Processing student 232 with label 3
+    [4] => 2026-08-13 17:40:44,717 - INFO - Processing student 2323 with label 4
+    [5] => 2026-08-13 17:40:44,956 - INFO - Processing student 344234 with label 5
+    [6] => 2026-08-13 17:40:45,175 - INFO - Processing student 67 with label 6
+    [7] => 2026-08-13 17:40:45,433 - INFO - Processing student asdf with label 7
+    [8] => 2026-08-13 17:40:45,689 - INFO - Training LBPH...
+    [9] => 2026-08-13 17:40:46,802 - INFO - Training Eigenfaces...
+    [10] => 2026-08-13 17:40:50,602 - INFO - Training Fisherfaces...
+    [11] => {"success": true, "message": "Trained 8 students with 312 images using multiple algorithms"}
+)
+
+2026-08-13 13:55:53 - Return code: 0
+2026-08-13 13:55:53 - Student registration completed successfully
+2026-08-13 13:55:53 - Starting student registration process
+2026-08-13 13:55:53 - Student details: {"name":"Sujal Chitrakar","reg":"344234"}
+2026-08-13 13:55:53 - Base directory: C:\xampp\htdocs\new\Face-Recognition-Attendance-System
+2026-08-13 13:55:53 - Python script path: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/python/realtime_recognition.py
+2026-08-13 13:55:53 - Processing image 1 for student 344234
+2026-08-13 13:55:53 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/344234/face_1.jpg
+2026-08-13 13:55:53 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student344234/face_1.jpg
+2026-08-13 13:55:53 - Saved image to: resources/labels/344234/face_1.jpg
+2026-08-13 13:55:53 - Processing image 2 for student 344234
+2026-08-13 13:55:53 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/344234/face_2.jpg
+2026-08-13 13:55:53 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student344234/face_2.jpg
+2026-08-13 13:55:53 - Saved image to: resources/labels/344234/face_2.jpg
+2026-08-13 13:55:53 - Processing image 3 for student 344234
+2026-08-13 13:55:53 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/344234/face_3.jpg
+2026-08-13 13:55:53 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student344234/face_3.jpg
+2026-08-13 13:55:53 - Saved image to: resources/labels/344234/face_3.jpg
+2026-08-13 13:55:53 - Processing image 4 for student 344234
+2026-08-13 13:55:53 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/344234/face_4.jpg
+2026-08-13 13:55:53 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student344234/face_4.jpg
+2026-08-13 13:55:53 - Saved image to: resources/labels/344234/face_4.jpg
+2026-08-13 13:55:53 - Processing image 5 for student 344234
+2026-08-13 13:55:53 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/344234/face_5.jpg
+2026-08-13 13:55:53 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student344234/face_5.jpg
+2026-08-13 13:55:53 - Saved image to: resources/labels/344234/face_5.jpg
+2026-08-13 13:55:53 - Processing image 6 for student 344234
+2026-08-13 13:55:53 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/344234/face_6.jpg
+2026-08-13 13:55:53 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student344234/face_6.jpg
+2026-08-13 13:55:53 - Saved image to: resources/labels/344234/face_6.jpg
+2026-08-13 13:55:53 - Processing image 7 for student 344234
+2026-08-13 13:55:53 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/344234/face_7.jpg
+2026-08-13 13:55:53 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student344234/face_7.jpg
+2026-08-13 13:55:53 - Saved image to: resources/labels/344234/face_7.jpg
+2026-08-13 13:55:53 - Processing image 8 for student 344234
+2026-08-13 13:55:53 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/344234/face_8.jpg
+2026-08-13 13:55:53 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student344234/face_8.jpg
+2026-08-13 13:55:53 - Saved image to: resources/labels/344234/face_8.jpg
+2026-08-13 13:55:53 - Processing image 9 for student 344234
+2026-08-13 13:55:53 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/344234/face_9.jpg
+2026-08-13 13:55:53 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student344234/face_9.jpg
+2026-08-13 13:55:53 - Saved image to: resources/labels/344234/face_9.jpg
+2026-08-13 13:55:53 - Processing image 10 for student 344234
+2026-08-13 13:55:53 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/344234/face_10.jpg
+2026-08-13 13:55:53 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student344234/face_10.jpg
+2026-08-13 13:55:53 - Saved image to: resources/labels/344234/face_10.jpg
+2026-08-13 13:55:53 - Saved student info files
+2026-08-13 13:55:53 - Executing duplicate check: python "C:\xampp\htdocs\new\Face-Recognition-Attendance-System/python/realtime_recognition.py" --check-duplicate "C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/344234"
+2026-08-13 13:56:06 - Duplicate check output: Array
+(
+    [0] => 2026-08-13 17:40:55,771 - INFO - face_1.jpg: -> 344234 (raw_distance=0.0)
+    [1] => 2026-08-13 17:40:56,932 - INFO - face_10.jpg: -> 344234 (raw_distance=0.0)
+    [2] => 2026-08-13 17:40:58,037 - INFO - face_2.jpg: -> 344234 (raw_distance=0.0)
+    [3] => 2026-08-13 17:40:59,077 - INFO - face_3.jpg: -> 344234 (raw_distance=0.0)
+    [4] => 2026-08-13 17:41:00,169 - INFO - face_4.jpg: -> 344234 (raw_distance=0.0)
+    [5] => 2026-08-13 17:41:01,192 - INFO - face_5.jpg: -> 344234 (raw_distance=0.0)
+    [6] => 2026-08-13 17:41:02,490 - INFO - face_6.jpg: -> 344234 (raw_distance=0.0)
+    [7] => 2026-08-13 17:41:03,651 - INFO - face_7.jpg: -> 344234 (raw_distance=0.0)
+    [8] => 2026-08-13 17:41:04,791 - INFO - face_8.jpg: -> 344234 (raw_distance=0.0)
+    [9] => 2026-08-13 17:41:06,068 - INFO - face_9.jpg: -> 344234 (raw_distance=0.0)
+    [10] => {"success": true, "is_duplicate": true, "matched_student_id": "344234", "votes": 10, "total_checked": 10, "avg_confidence": 100.0, "algorithm": "lbph"}
+)
+
+2026-08-13 13:56:06 - Duplicate face detected. Matches student 344234 (votes: 10/10)
+2026-08-13 13:56:06 - Error: This face is already registered (matches student 344234). The same person cannot be registered again.
+2026-08-13 13:56:06 - Starting student registration process
+2026-08-13 13:56:06 - Student details: {"name":"Sujal Chitrakar","reg":"344234"}
+2026-08-13 13:56:06 - Base directory: C:\xampp\htdocs\new\Face-Recognition-Attendance-System
+2026-08-13 13:56:06 - Python script path: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/python/realtime_recognition.py
+2026-08-13 13:56:06 - Creating student directory: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/344234
+2026-08-13 13:56:06 - Creating student directory: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student344234
+2026-08-13 13:56:06 - Creating student directory: resources/labels/344234
+2026-08-13 13:56:06 - Processing image 1 for student 344234
+2026-08-13 13:56:06 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/344234/face_1.jpg
+2026-08-13 13:56:06 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student344234/face_1.jpg
+2026-08-13 13:56:06 - Saved image to: resources/labels/344234/face_1.jpg
+2026-08-13 13:56:06 - Processing image 2 for student 344234
+2026-08-13 13:56:06 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/344234/face_2.jpg
+2026-08-13 13:56:06 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student344234/face_2.jpg
+2026-08-13 13:56:06 - Saved image to: resources/labels/344234/face_2.jpg
+2026-08-13 13:56:06 - Processing image 3 for student 344234
+2026-08-13 13:56:06 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/344234/face_3.jpg
+2026-08-13 13:56:06 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student344234/face_3.jpg
+2026-08-13 13:56:06 - Saved image to: resources/labels/344234/face_3.jpg
+2026-08-13 13:56:06 - Processing image 4 for student 344234
+2026-08-13 13:56:06 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/344234/face_4.jpg
+2026-08-13 13:56:06 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student344234/face_4.jpg
+2026-08-13 13:56:06 - Saved image to: resources/labels/344234/face_4.jpg
+2026-08-13 13:56:06 - Processing image 5 for student 344234
+2026-08-13 13:56:06 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/344234/face_5.jpg
+2026-08-13 13:56:06 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student344234/face_5.jpg
+2026-08-13 13:56:06 - Saved image to: resources/labels/344234/face_5.jpg
+2026-08-13 13:56:06 - Processing image 6 for student 344234
+2026-08-13 13:56:06 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/344234/face_6.jpg
+2026-08-13 13:56:06 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student344234/face_6.jpg
+2026-08-13 13:56:06 - Saved image to: resources/labels/344234/face_6.jpg
+2026-08-13 13:56:06 - Processing image 7 for student 344234
+2026-08-13 13:56:06 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/344234/face_7.jpg
+2026-08-13 13:56:06 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student344234/face_7.jpg
+2026-08-13 13:56:06 - Saved image to: resources/labels/344234/face_7.jpg
+2026-08-13 13:56:06 - Processing image 8 for student 344234
+2026-08-13 13:56:06 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/344234/face_8.jpg
+2026-08-13 13:56:06 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student344234/face_8.jpg
+2026-08-13 13:56:06 - Saved image to: resources/labels/344234/face_8.jpg
+2026-08-13 13:56:06 - Processing image 9 for student 344234
+2026-08-13 13:56:06 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/344234/face_9.jpg
+2026-08-13 13:56:06 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student344234/face_9.jpg
+2026-08-13 13:56:06 - Saved image to: resources/labels/344234/face_9.jpg
+2026-08-13 13:56:06 - Processing image 10 for student 344234
+2026-08-13 13:56:06 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/344234/face_10.jpg
+2026-08-13 13:56:06 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student344234/face_10.jpg
+2026-08-13 13:56:06 - Saved image to: resources/labels/344234/face_10.jpg
+2026-08-13 13:56:06 - Saved student info files
+2026-08-13 13:56:06 - Executing duplicate check: python "C:\xampp\htdocs\new\Face-Recognition-Attendance-System/python/realtime_recognition.py" --check-duplicate "C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/344234"
+2026-08-13 13:56:19 - Duplicate check output: Array
+(
+    [0] => 2026-08-13 17:41:08,549 - INFO - face_1.jpg: -> 344234 (raw_distance=0.0)
+    [1] => 2026-08-13 17:41:09,654 - INFO - face_10.jpg: -> 344234 (raw_distance=0.0)
+    [2] => 2026-08-13 17:41:10,769 - INFO - face_2.jpg: -> 344234 (raw_distance=0.0)
+    [3] => 2026-08-13 17:41:11,998 - INFO - face_3.jpg: -> 344234 (raw_distance=0.0)
+    [4] => 2026-08-13 17:41:13,082 - INFO - face_4.jpg: -> 344234 (raw_distance=0.0)
+    [5] => 2026-08-13 17:41:14,206 - INFO - face_5.jpg: -> 344234 (raw_distance=0.0)
+    [6] => 2026-08-13 17:41:15,501 - INFO - face_6.jpg: -> 344234 (raw_distance=0.0)
+    [7] => 2026-08-13 17:41:16,639 - INFO - face_7.jpg: -> 344234 (raw_distance=0.0)
+    [8] => 2026-08-13 17:41:17,839 - INFO - face_8.jpg: -> 344234 (raw_distance=0.0)
+    [9] => 2026-08-13 17:41:19,070 - INFO - face_9.jpg: -> 344234 (raw_distance=0.0)
+    [10] => {"success": true, "is_duplicate": true, "matched_student_id": "344234", "votes": 10, "total_checked": 10, "avg_confidence": 100.0, "algorithm": "lbph"}
+)
+
+2026-08-13 13:56:19 - Duplicate face detected. Matches student 344234 (votes: 10/10)
+2026-08-13 13:56:19 - Error: This face is already registered (matches student 344234). The same person cannot be registered again.
+2026-08-13 13:56:19 - Starting student registration process
+2026-08-13 13:56:19 - Student details: {"name":"Sujal Chitrakar","reg":"344234"}
+2026-08-13 13:56:19 - Base directory: C:\xampp\htdocs\new\Face-Recognition-Attendance-System
+2026-08-13 13:56:19 - Python script path: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/python/realtime_recognition.py
+2026-08-13 13:56:19 - Creating student directory: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/344234
+2026-08-13 13:56:19 - Creating student directory: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student344234
+2026-08-13 13:56:19 - Creating student directory: resources/labels/344234
+2026-08-13 13:56:19 - Processing image 1 for student 344234
+2026-08-13 13:56:19 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/344234/face_1.jpg
+2026-08-13 13:56:19 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student344234/face_1.jpg
+2026-08-13 13:56:19 - Saved image to: resources/labels/344234/face_1.jpg
+2026-08-13 13:56:19 - Processing image 2 for student 344234
+2026-08-13 13:56:19 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/344234/face_2.jpg
+2026-08-13 13:56:19 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student344234/face_2.jpg
+2026-08-13 13:56:19 - Saved image to: resources/labels/344234/face_2.jpg
+2026-08-13 13:56:19 - Processing image 3 for student 344234
+2026-08-13 13:56:19 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/344234/face_3.jpg
+2026-08-13 13:56:19 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student344234/face_3.jpg
+2026-08-13 13:56:19 - Saved image to: resources/labels/344234/face_3.jpg
+2026-08-13 13:56:19 - Processing image 4 for student 344234
+2026-08-13 13:56:19 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/344234/face_4.jpg
+2026-08-13 13:56:19 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student344234/face_4.jpg
+2026-08-13 13:56:19 - Saved image to: resources/labels/344234/face_4.jpg
+2026-08-13 13:56:19 - Processing image 5 for student 344234
+2026-08-13 13:56:19 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/344234/face_5.jpg
+2026-08-13 13:56:19 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student344234/face_5.jpg
+2026-08-13 13:56:19 - Saved image to: resources/labels/344234/face_5.jpg
+2026-08-13 13:56:19 - Processing image 6 for student 344234
+2026-08-13 13:56:19 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/344234/face_6.jpg
+2026-08-13 13:56:19 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student344234/face_6.jpg
+2026-08-13 13:56:19 - Saved image to: resources/labels/344234/face_6.jpg
+2026-08-13 13:56:19 - Processing image 7 for student 344234
+2026-08-13 13:56:19 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/344234/face_7.jpg
+2026-08-13 13:56:19 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student344234/face_7.jpg
+2026-08-13 13:56:19 - Saved image to: resources/labels/344234/face_7.jpg
+2026-08-13 13:56:19 - Processing image 8 for student 344234
+2026-08-13 13:56:19 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/344234/face_8.jpg
+2026-08-13 13:56:19 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student344234/face_8.jpg
+2026-08-13 13:56:19 - Saved image to: resources/labels/344234/face_8.jpg
+2026-08-13 13:56:19 - Processing image 9 for student 344234
+2026-08-13 13:56:19 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/344234/face_9.jpg
+2026-08-13 13:56:19 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student344234/face_9.jpg
+2026-08-13 13:56:19 - Saved image to: resources/labels/344234/face_9.jpg
+2026-08-13 13:56:19 - Processing image 10 for student 344234
+2026-08-13 13:56:19 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/344234/face_10.jpg
+2026-08-13 13:56:19 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student344234/face_10.jpg
+2026-08-13 13:56:19 - Saved image to: resources/labels/344234/face_10.jpg
+2026-08-13 13:56:19 - Saved student info files
+2026-08-13 13:56:19 - Executing duplicate check: python "C:\xampp\htdocs\new\Face-Recognition-Attendance-System/python/realtime_recognition.py" --check-duplicate "C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/344234"
+2026-08-13 13:56:33 - Duplicate check output: Array
+(
+    [0] => 2026-08-13 17:41:21,534 - INFO - face_1.jpg: -> 344234 (raw_distance=0.0)
+    [1] => 2026-08-13 17:41:22,694 - INFO - face_10.jpg: -> 344234 (raw_distance=0.0)
+    [2] => 2026-08-13 17:41:23,890 - INFO - face_2.jpg: -> 344234 (raw_distance=0.0)
+    [3] => 2026-08-13 17:41:25,072 - INFO - face_3.jpg: -> 344234 (raw_distance=0.0)
+    [4] => 2026-08-13 17:41:26,335 - INFO - face_4.jpg: -> 344234 (raw_distance=0.0)
+    [5] => 2026-08-13 17:41:27,655 - INFO - face_5.jpg: -> 344234 (raw_distance=0.0)
+    [6] => 2026-08-13 17:41:29,097 - INFO - face_6.jpg: -> 344234 (raw_distance=0.0)
+    [7] => 2026-08-13 17:41:30,654 - INFO - face_7.jpg: -> 344234 (raw_distance=0.0)
+    [8] => 2026-08-13 17:41:31,839 - INFO - face_8.jpg: -> 344234 (raw_distance=0.0)
+    [9] => 2026-08-13 17:41:33,255 - INFO - face_9.jpg: -> 344234 (raw_distance=0.0)
+    [10] => {"success": true, "is_duplicate": true, "matched_student_id": "344234", "votes": 10, "total_checked": 10, "avg_confidence": 100.0, "algorithm": "lbph"}
+)
+
+2026-08-13 13:56:33 - Duplicate face detected. Matches student 344234 (votes: 10/10)
+2026-08-13 13:56:33 - Error: This face is already registered (matches student 344234). The same person cannot be registered again.
+2026-08-13 13:58:37 - Starting student registration process
+2026-08-13 13:58:37 - Student details: {"name":"what kdjaf","reg":"45435"}
+2026-08-13 13:58:37 - Base directory: C:\xampp\htdocs\new\Face-Recognition-Attendance-System
+2026-08-13 13:58:37 - Python script path: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/python/realtime_recognition.py
+2026-08-13 13:58:37 - Creating student directory: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/45435
+2026-08-13 13:58:37 - Creating student directory: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student45435
+2026-08-13 13:58:37 - Creating student directory: resources/labels/45435
+2026-08-13 13:58:37 - Processing image 1 for student 45435
+2026-08-13 13:58:37 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/45435/face_1.jpg
+2026-08-13 13:58:37 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student45435/face_1.jpg
+2026-08-13 13:58:37 - Saved image to: resources/labels/45435/face_1.jpg
+2026-08-13 13:58:37 - Processing image 2 for student 45435
+2026-08-13 13:58:37 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/45435/face_2.jpg
+2026-08-13 13:58:37 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student45435/face_2.jpg
+2026-08-13 13:58:37 - Saved image to: resources/labels/45435/face_2.jpg
+2026-08-13 13:58:37 - Processing image 3 for student 45435
+2026-08-13 13:58:37 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/45435/face_3.jpg
+2026-08-13 13:58:37 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student45435/face_3.jpg
+2026-08-13 13:58:37 - Saved image to: resources/labels/45435/face_3.jpg
+2026-08-13 13:58:37 - Processing image 4 for student 45435
+2026-08-13 13:58:37 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/45435/face_4.jpg
+2026-08-13 13:58:37 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student45435/face_4.jpg
+2026-08-13 13:58:37 - Saved image to: resources/labels/45435/face_4.jpg
+2026-08-13 13:58:37 - Processing image 5 for student 45435
+2026-08-13 13:58:37 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/45435/face_5.jpg
+2026-08-13 13:58:37 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student45435/face_5.jpg
+2026-08-13 13:58:37 - Saved image to: resources/labels/45435/face_5.jpg
+2026-08-13 13:58:37 - Processing image 6 for student 45435
+2026-08-13 13:58:37 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/45435/face_6.jpg
+2026-08-13 13:58:37 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student45435/face_6.jpg
+2026-08-13 13:58:37 - Saved image to: resources/labels/45435/face_6.jpg
+2026-08-13 13:58:37 - Processing image 7 for student 45435
+2026-08-13 13:58:37 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/45435/face_7.jpg
+2026-08-13 13:58:37 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student45435/face_7.jpg
+2026-08-13 13:58:37 - Saved image to: resources/labels/45435/face_7.jpg
+2026-08-13 13:58:37 - Processing image 8 for student 45435
+2026-08-13 13:58:37 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/45435/face_8.jpg
+2026-08-13 13:58:37 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student45435/face_8.jpg
+2026-08-13 13:58:37 - Saved image to: resources/labels/45435/face_8.jpg
+2026-08-13 13:58:37 - Processing image 9 for student 45435
+2026-08-13 13:58:37 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/45435/face_9.jpg
+2026-08-13 13:58:37 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student45435/face_9.jpg
+2026-08-13 13:58:37 - Saved image to: resources/labels/45435/face_9.jpg
+2026-08-13 13:58:37 - Processing image 10 for student 45435
+2026-08-13 13:58:37 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/45435/face_10.jpg
+2026-08-13 13:58:37 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student45435/face_10.jpg
+2026-08-13 13:58:37 - Saved image to: resources/labels/45435/face_10.jpg
+2026-08-13 13:58:37 - Saved student info files
+2026-08-13 13:58:37 - Executing duplicate check: python "C:\xampp\htdocs\new\Face-Recognition-Attendance-System/python/realtime_recognition.py" --check-duplicate "C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/45435"
+2026-08-13 13:58:51 - Duplicate check output: Array
+(
+    [0] => 2026-08-13 17:43:41,311 - INFO - face_10.jpg: -> 344234 (raw_distance=63.17)
+    [1] => 2026-08-13 17:43:43,542 - INFO - face_3.jpg: -> 344234 (raw_distance=66.6)
+    [2] => 2026-08-13 17:43:44,781 - INFO - face_4.jpg: -> 344234 (raw_distance=83.9)
+    [3] => 2026-08-13 17:43:46,042 - INFO - face_5.jpg: -> 344234 (raw_distance=52.27)
+    [4] => 2026-08-13 17:43:47,484 - INFO - face_6.jpg: -> 344234 (raw_distance=60.76)
+    [5] => 2026-08-13 17:43:48,763 - INFO - face_7.jpg: -> 344234 (raw_distance=54.35)
+    [6] => 2026-08-13 17:43:49,991 - INFO - face_8.jpg: -> 344234 (raw_distance=63.05)
+    [7] => 2026-08-13 17:43:51,319 - INFO - face_9.jpg: -> 344234 (raw_distance=63.07)
+    [8] => {"success": true, "is_duplicate": true, "matched_student_id": "344234", "votes": 8, "total_checked": 8, "avg_confidence": 81.3, "algorithm": "lbph"}
+)
+
+2026-08-13 13:58:51 - Duplicate face detected. Matches student 344234 (votes: 8/8)
+2026-08-13 13:58:51 - Error: This face is already registered (matches student 344234). The same person cannot be registered again.
+2026-08-13 13:59:02 - Starting student registration process
+2026-08-13 13:59:02 - Student details: {"name":"what kdjaf","reg":"45435"}
+2026-08-13 13:59:02 - Base directory: C:\xampp\htdocs\new\Face-Recognition-Attendance-System
+2026-08-13 13:59:02 - Python script path: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/python/realtime_recognition.py
+2026-08-13 13:59:02 - Creating student directory: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/45435
+2026-08-13 13:59:02 - Creating student directory: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student45435
+2026-08-13 13:59:02 - Creating student directory: resources/labels/45435
+2026-08-13 13:59:02 - Processing image 1 for student 45435
+2026-08-13 13:59:02 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/45435/face_1.jpg
+2026-08-13 13:59:02 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student45435/face_1.jpg
+2026-08-13 13:59:02 - Saved image to: resources/labels/45435/face_1.jpg
+2026-08-13 13:59:02 - Processing image 2 for student 45435
+2026-08-13 13:59:02 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/45435/face_2.jpg
+2026-08-13 13:59:02 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student45435/face_2.jpg
+2026-08-13 13:59:02 - Saved image to: resources/labels/45435/face_2.jpg
+2026-08-13 13:59:02 - Processing image 3 for student 45435
+2026-08-13 13:59:02 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/45435/face_3.jpg
+2026-08-13 13:59:02 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student45435/face_3.jpg
+2026-08-13 13:59:02 - Saved image to: resources/labels/45435/face_3.jpg
+2026-08-13 13:59:02 - Processing image 4 for student 45435
+2026-08-13 13:59:02 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/45435/face_4.jpg
+2026-08-13 13:59:02 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student45435/face_4.jpg
+2026-08-13 13:59:02 - Saved image to: resources/labels/45435/face_4.jpg
+2026-08-13 13:59:02 - Processing image 5 for student 45435
+2026-08-13 13:59:02 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/45435/face_5.jpg
+2026-08-13 13:59:02 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student45435/face_5.jpg
+2026-08-13 13:59:02 - Saved image to: resources/labels/45435/face_5.jpg
+2026-08-13 13:59:02 - Processing image 6 for student 45435
+2026-08-13 13:59:02 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/45435/face_6.jpg
+2026-08-13 13:59:02 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student45435/face_6.jpg
+2026-08-13 13:59:02 - Saved image to: resources/labels/45435/face_6.jpg
+2026-08-13 13:59:02 - Processing image 7 for student 45435
+2026-08-13 13:59:02 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/45435/face_7.jpg
+2026-08-13 13:59:02 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student45435/face_7.jpg
+2026-08-13 13:59:02 - Saved image to: resources/labels/45435/face_7.jpg
+2026-08-13 13:59:02 - Processing image 8 for student 45435
+2026-08-13 13:59:02 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/45435/face_8.jpg
+2026-08-13 13:59:02 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student45435/face_8.jpg
+2026-08-13 13:59:02 - Saved image to: resources/labels/45435/face_8.jpg
+2026-08-13 13:59:02 - Processing image 9 for student 45435
+2026-08-13 13:59:02 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/45435/face_9.jpg
+2026-08-13 13:59:02 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student45435/face_9.jpg
+2026-08-13 13:59:02 - Saved image to: resources/labels/45435/face_9.jpg
+2026-08-13 13:59:02 - Processing image 10 for student 45435
+2026-08-13 13:59:02 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/45435/face_10.jpg
+2026-08-13 13:59:02 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student45435/face_10.jpg
+2026-08-13 13:59:02 - Saved image to: resources/labels/45435/face_10.jpg
+2026-08-13 13:59:02 - Saved student info files
+2026-08-13 13:59:02 - Executing duplicate check: python "C:\xampp\htdocs\new\Face-Recognition-Attendance-System/python/realtime_recognition.py" --check-duplicate "C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/45435"
+2026-08-13 13:59:14 - Duplicate check output: Array
+(
+    [0] => 2026-08-13 17:44:05,435 - INFO - face_10.jpg: -> 344234 (raw_distance=63.17)
+    [1] => 2026-08-13 17:44:07,639 - INFO - face_3.jpg: -> 344234 (raw_distance=66.6)
+    [2] => 2026-08-13 17:44:08,650 - INFO - face_4.jpg: -> 344234 (raw_distance=83.9)
+    [3] => 2026-08-13 17:44:09,690 - INFO - face_5.jpg: -> 344234 (raw_distance=52.27)
+    [4] => 2026-08-13 17:44:10,733 - INFO - face_6.jpg: -> 344234 (raw_distance=60.76)
+    [5] => 2026-08-13 17:44:11,910 - INFO - face_7.jpg: -> 344234 (raw_distance=54.35)
+    [6] => 2026-08-13 17:44:13,222 - INFO - face_8.jpg: -> 344234 (raw_distance=63.05)
+    [7] => 2026-08-13 17:44:14,566 - INFO - face_9.jpg: -> 344234 (raw_distance=63.07)
+    [8] => {"success": true, "is_duplicate": true, "matched_student_id": "344234", "votes": 8, "total_checked": 8, "avg_confidence": 81.3, "algorithm": "lbph"}
+)
+
+2026-08-13 13:59:14 - Duplicate face detected. Matches student 344234 (votes: 8/8)
+2026-08-13 13:59:14 - Error: This face is already registered (matches student 344234). The same person cannot be registered again.
+2026-08-13 14:01:59 - Starting student registration process
+2026-08-13 14:01:59 - Student details: {"name":"what kdjaf","reg":"45435"}
+2026-08-13 14:01:59 - Base directory: C:\xampp\htdocs\new\Face-Recognition-Attendance-System
+2026-08-13 14:01:59 - Python script path: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/python/realtime_recognition.py
+2026-08-13 14:01:59 - Creating student directory: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/45435
+2026-08-13 14:01:59 - Creating student directory: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student45435
+2026-08-13 14:01:59 - Creating student directory: resources/labels/45435
+2026-08-13 14:01:59 - Processing image 1 for student 45435
+2026-08-13 14:01:59 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/45435/face_1.jpg
+2026-08-13 14:01:59 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student45435/face_1.jpg
+2026-08-13 14:01:59 - Saved image to: resources/labels/45435/face_1.jpg
+2026-08-13 14:01:59 - Processing image 2 for student 45435
+2026-08-13 14:01:59 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/45435/face_2.jpg
+2026-08-13 14:01:59 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student45435/face_2.jpg
+2026-08-13 14:01:59 - Saved image to: resources/labels/45435/face_2.jpg
+2026-08-13 14:01:59 - Processing image 3 for student 45435
+2026-08-13 14:01:59 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/45435/face_3.jpg
+2026-08-13 14:01:59 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student45435/face_3.jpg
+2026-08-13 14:01:59 - Saved image to: resources/labels/45435/face_3.jpg
+2026-08-13 14:01:59 - Processing image 4 for student 45435
+2026-08-13 14:01:59 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/45435/face_4.jpg
+2026-08-13 14:01:59 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student45435/face_4.jpg
+2026-08-13 14:01:59 - Saved image to: resources/labels/45435/face_4.jpg
+2026-08-13 14:01:59 - Processing image 5 for student 45435
+2026-08-13 14:01:59 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/45435/face_5.jpg
+2026-08-13 14:01:59 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student45435/face_5.jpg
+2026-08-13 14:01:59 - Saved image to: resources/labels/45435/face_5.jpg
+2026-08-13 14:01:59 - Processing image 6 for student 45435
+2026-08-13 14:01:59 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/45435/face_6.jpg
+2026-08-13 14:01:59 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student45435/face_6.jpg
+2026-08-13 14:01:59 - Saved image to: resources/labels/45435/face_6.jpg
+2026-08-13 14:01:59 - Processing image 7 for student 45435
+2026-08-13 14:01:59 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/45435/face_7.jpg
+2026-08-13 14:01:59 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student45435/face_7.jpg
+2026-08-13 14:01:59 - Saved image to: resources/labels/45435/face_7.jpg
+2026-08-13 14:01:59 - Processing image 8 for student 45435
+2026-08-13 14:01:59 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/45435/face_8.jpg
+2026-08-13 14:01:59 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student45435/face_8.jpg
+2026-08-13 14:01:59 - Saved image to: resources/labels/45435/face_8.jpg
+2026-08-13 14:01:59 - Processing image 9 for student 45435
+2026-08-13 14:01:59 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/45435/face_9.jpg
+2026-08-13 14:01:59 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student45435/face_9.jpg
+2026-08-13 14:01:59 - Saved image to: resources/labels/45435/face_9.jpg
+2026-08-13 14:01:59 - Processing image 10 for student 45435
+2026-08-13 14:01:59 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/45435/face_10.jpg
+2026-08-13 14:01:59 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student45435/face_10.jpg
+2026-08-13 14:01:59 - Saved image to: resources/labels/45435/face_10.jpg
+2026-08-13 14:01:59 - Saved student info files
+2026-08-13 14:01:59 - Executing duplicate check: python "C:\xampp\htdocs\new\Face-Recognition-Attendance-System/python/realtime_recognition.py" --check-duplicate "C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/45435"
+2026-08-13 14:02:11 - Duplicate check output: Array
+(
+    [0] => 2026-08-13 17:47:03,055 - INFO - face_10.jpg: -> 344234 (raw_distance=63.17)
+    [1] => 2026-08-13 17:47:05,109 - INFO - face_3.jpg: -> 344234 (raw_distance=66.6)
+    [2] => 2026-08-13 17:47:06,302 - INFO - face_4.jpg: -> 344234 (raw_distance=83.9)
+    [3] => 2026-08-13 17:47:07,445 - INFO - face_5.jpg: -> 344234 (raw_distance=52.27)
+    [4] => 2026-08-13 17:47:08,447 - INFO - face_6.jpg: -> 344234 (raw_distance=60.76)
+    [5] => 2026-08-13 17:47:09,604 - INFO - face_7.jpg: -> 344234 (raw_distance=54.35)
+    [6] => 2026-08-13 17:47:10,655 - INFO - face_8.jpg: -> 344234 (raw_distance=63.05)
+    [7] => 2026-08-13 17:47:11,655 - INFO - face_9.jpg: -> 344234 (raw_distance=63.07)
+    [8] => {"success": true, "is_duplicate": true, "matched_student_id": "344234", "votes": 8, "total_checked": 8, "avg_confidence": 81.3, "algorithm": "lbph"}
+)
+
+2026-08-13 14:02:11 - Duplicate face detected. Matches student 344234 (votes: 8/8)
+2026-08-13 14:02:11 - Error: This face is already registered (matches student 344234). The same person cannot be registered again.
+2026-08-13 14:02:36 - Starting student registration process
+2026-08-13 14:02:36 - Student details: {"name":"what kdjaf","reg":"45435"}
+2026-08-13 14:02:36 - Base directory: C:\xampp\htdocs\new\Face-Recognition-Attendance-System
+2026-08-13 14:02:36 - Python script path: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/python/realtime_recognition.py
+2026-08-13 14:02:36 - Creating student directory: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/45435
+2026-08-13 14:02:36 - Creating student directory: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student45435
+2026-08-13 14:02:36 - Creating student directory: resources/labels/45435
+2026-08-13 14:02:36 - Processing image 1 for student 45435
+2026-08-13 14:02:36 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/45435/face_1.jpg
+2026-08-13 14:02:36 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student45435/face_1.jpg
+2026-08-13 14:02:36 - Saved image to: resources/labels/45435/face_1.jpg
+2026-08-13 14:02:36 - Processing image 2 for student 45435
+2026-08-13 14:02:36 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/45435/face_2.jpg
+2026-08-13 14:02:36 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student45435/face_2.jpg
+2026-08-13 14:02:36 - Saved image to: resources/labels/45435/face_2.jpg
+2026-08-13 14:02:36 - Processing image 3 for student 45435
+2026-08-13 14:02:36 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/45435/face_3.jpg
+2026-08-13 14:02:36 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student45435/face_3.jpg
+2026-08-13 14:02:36 - Saved image to: resources/labels/45435/face_3.jpg
+2026-08-13 14:02:36 - Processing image 4 for student 45435
+2026-08-13 14:02:36 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/45435/face_4.jpg
+2026-08-13 14:02:36 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student45435/face_4.jpg
+2026-08-13 14:02:36 - Saved image to: resources/labels/45435/face_4.jpg
+2026-08-13 14:02:36 - Processing image 5 for student 45435
+2026-08-13 14:02:36 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/45435/face_5.jpg
+2026-08-13 14:02:36 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student45435/face_5.jpg
+2026-08-13 14:02:36 - Saved image to: resources/labels/45435/face_5.jpg
+2026-08-13 14:02:36 - Processing image 6 for student 45435
+2026-08-13 14:02:36 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/45435/face_6.jpg
+2026-08-13 14:02:36 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student45435/face_6.jpg
+2026-08-13 14:02:36 - Saved image to: resources/labels/45435/face_6.jpg
+2026-08-13 14:02:36 - Processing image 7 for student 45435
+2026-08-13 14:02:36 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/45435/face_7.jpg
+2026-08-13 14:02:36 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student45435/face_7.jpg
+2026-08-13 14:02:36 - Saved image to: resources/labels/45435/face_7.jpg
+2026-08-13 14:02:36 - Processing image 8 for student 45435
+2026-08-13 14:02:36 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/45435/face_8.jpg
+2026-08-13 14:02:36 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student45435/face_8.jpg
+2026-08-13 14:02:36 - Saved image to: resources/labels/45435/face_8.jpg
+2026-08-13 14:02:36 - Processing image 9 for student 45435
+2026-08-13 14:02:36 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/45435/face_9.jpg
+2026-08-13 14:02:36 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student45435/face_9.jpg
+2026-08-13 14:02:36 - Saved image to: resources/labels/45435/face_9.jpg
+2026-08-13 14:02:36 - Processing image 10 for student 45435
+2026-08-13 14:02:36 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/45435/face_10.jpg
+2026-08-13 14:02:36 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student45435/face_10.jpg
+2026-08-13 14:02:36 - Saved image to: resources/labels/45435/face_10.jpg
+2026-08-13 14:02:36 - Saved student info files
+2026-08-13 14:02:36 - Executing duplicate check: python "C:\xampp\htdocs\new\Face-Recognition-Attendance-System/python/realtime_recognition.py" --check-duplicate "C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/45435"
+2026-08-13 14:02:48 - Duplicate check output: Array
+(
+    [0] => 2026-08-13 17:47:39,983 - INFO - face_10.jpg: -> Unknown (raw_distance=101.51)
+    [1] => 2026-08-13 17:47:42,099 - INFO - face_3.jpg: -> Unknown (raw_distance=99.68)
+    [2] => 2026-08-13 17:47:43,093 - INFO - face_4.jpg: -> Unknown (raw_distance=105.53)
+    [3] => 2026-08-13 17:47:44,212 - INFO - face_5.jpg: -> Unknown (raw_distance=104.81)
+    [4] => 2026-08-13 17:47:45,289 - INFO - face_6.jpg: -> Unknown (raw_distance=101.45)
+    [5] => 2026-08-13 17:47:46,337 - INFO - face_7.jpg: -> Unknown (raw_distance=103.62)
+    [6] => 2026-08-13 17:47:47,556 - INFO - face_8.jpg: -> Unknown (raw_distance=103.28)
+    [7] => 2026-08-13 17:47:48,611 - INFO - face_9.jpg: -> Unknown (raw_distance=100.1)
+    [8] => {"success": true, "is_duplicate": false, "total_checked": 8}
+)
+
+2026-08-13 14:02:48 - Executing command: python "C:\xampp\htdocs\new\Face-Recognition-Attendance-System/python/realtime_recognition.py" --train
+2026-08-13 14:02:58 - Command output: Array
+(
+    [0] => 2026-08-13 17:47:48,988 - INFO - Processing student 09 with label 0
+    [1] => 2026-08-13 17:47:50,208 - INFO - Processing student 1010 with label 1
+    [2] => 2026-08-13 17:47:50,425 - INFO - Processing student 1122 with label 2
+    [3] => 2026-08-13 17:47:50,716 - INFO - Processing student 232 with label 3
+    [4] => 2026-08-13 17:47:50,949 - INFO - Processing student 2323 with label 4
+    [5] => 2026-08-13 17:47:51,153 - INFO - Processing student 45435 with label 5
+    [6] => 2026-08-13 17:47:51,363 - INFO - Processing student 67 with label 6
+    [7] => 2026-08-13 17:47:51,612 - INFO - Processing student asdf with label 7
+    [8] => 2026-08-13 17:47:51,850 - INFO - Training LBPH...
+    [9] => 2026-08-13 17:47:52,985 - INFO - Training Eigenfaces...
+    [10] => 2026-08-13 17:47:56,789 - INFO - Training Fisherfaces...
+    [11] => {"success": true, "message": "Trained 8 students with 304 images using multiple algorithms"}
+)
+
+2026-08-13 14:02:58 - Return code: 0
+2026-08-13 14:02:58 - Student registration completed successfully
+2026-08-13 14:04:22 - Starting student registration process
+2026-08-13 14:04:22 - Student details: {"name":"what kdjaf","reg":"45435"}
+2026-08-13 14:04:22 - Base directory: C:\xampp\htdocs\new\Face-Recognition-Attendance-System
+2026-08-13 14:04:22 - Python script path: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/python/realtime_recognition.py
+2026-08-13 14:04:22 - Creating student directory: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/45435
+2026-08-13 14:04:22 - Creating student directory: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student45435
+2026-08-13 14:04:22 - Creating student directory: resources/labels/45435
+2026-08-13 14:04:22 - Processing image 1 for student 45435
+2026-08-13 14:04:22 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/45435/face_1.jpg
+2026-08-13 14:04:22 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student45435/face_1.jpg
+2026-08-13 14:04:22 - Saved image to: resources/labels/45435/face_1.jpg
+2026-08-13 14:04:22 - Processing image 2 for student 45435
+2026-08-13 14:04:22 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/45435/face_2.jpg
+2026-08-13 14:04:22 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student45435/face_2.jpg
+2026-08-13 14:04:22 - Saved image to: resources/labels/45435/face_2.jpg
+2026-08-13 14:04:22 - Processing image 3 for student 45435
+2026-08-13 14:04:22 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/45435/face_3.jpg
+2026-08-13 14:04:22 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student45435/face_3.jpg
+2026-08-13 14:04:22 - Saved image to: resources/labels/45435/face_3.jpg
+2026-08-13 14:04:22 - Processing image 4 for student 45435
+2026-08-13 14:04:22 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/45435/face_4.jpg
+2026-08-13 14:04:22 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student45435/face_4.jpg
+2026-08-13 14:04:22 - Saved image to: resources/labels/45435/face_4.jpg
+2026-08-13 14:04:22 - Processing image 5 for student 45435
+2026-08-13 14:04:22 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/45435/face_5.jpg
+2026-08-13 14:04:22 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student45435/face_5.jpg
+2026-08-13 14:04:22 - Saved image to: resources/labels/45435/face_5.jpg
+2026-08-13 14:04:22 - Processing image 6 for student 45435
+2026-08-13 14:04:22 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/45435/face_6.jpg
+2026-08-13 14:04:22 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student45435/face_6.jpg
+2026-08-13 14:04:22 - Saved image to: resources/labels/45435/face_6.jpg
+2026-08-13 14:04:22 - Processing image 7 for student 45435
+2026-08-13 14:04:22 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/45435/face_7.jpg
+2026-08-13 14:04:22 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student45435/face_7.jpg
+2026-08-13 14:04:22 - Saved image to: resources/labels/45435/face_7.jpg
+2026-08-13 14:04:22 - Processing image 8 for student 45435
+2026-08-13 14:04:22 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/45435/face_8.jpg
+2026-08-13 14:04:22 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student45435/face_8.jpg
+2026-08-13 14:04:22 - Saved image to: resources/labels/45435/face_8.jpg
+2026-08-13 14:04:22 - Processing image 9 for student 45435
+2026-08-13 14:04:22 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/45435/face_9.jpg
+2026-08-13 14:04:22 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student45435/face_9.jpg
+2026-08-13 14:04:22 - Saved image to: resources/labels/45435/face_9.jpg
+2026-08-13 14:04:22 - Processing image 10 for student 45435
+2026-08-13 14:04:22 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/45435/face_10.jpg
+2026-08-13 14:04:22 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student45435/face_10.jpg
+2026-08-13 14:04:22 - Saved image to: resources/labels/45435/face_10.jpg
+2026-08-13 14:04:22 - Saved student info files
+2026-08-13 14:04:22 - Executing duplicate check: python "C:\xampp\htdocs\new\Face-Recognition-Attendance-System/python/realtime_recognition.py" --check-duplicate "C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/45435"
+2026-08-13 14:04:26 - Duplicate check output: Array
+(
+    [0] => 2026-08-13 17:49:24,617 - INFO - face_10.jpg: -> Unknown (raw_distance=115.37)
+    [1] => 2026-08-13 17:49:24,953 - INFO - face_3.jpg: -> Unknown (raw_distance=115.97)
+    [2] => 2026-08-13 17:49:25,127 - INFO - face_4.jpg: -> Unknown (raw_distance=117.79)
+    [3] => 2026-08-13 17:49:25,308 - INFO - face_5.jpg: -> Unknown (raw_distance=117.04)
+    [4] => 2026-08-13 17:49:25,495 - INFO - face_6.jpg: -> Unknown (raw_distance=114.65)
+    [5] => 2026-08-13 17:49:25,679 - INFO - face_7.jpg: -> Unknown (raw_distance=119.36)
+    [6] => 2026-08-13 17:49:25,854 - INFO - face_8.jpg: -> Unknown (raw_distance=113.22)
+    [7] => 2026-08-13 17:49:26,032 - INFO - face_9.jpg: -> Unknown (raw_distance=112.61)
+    [8] => {"success": true, "is_duplicate": false, "total_checked": 8}
+)
+
+2026-08-13 14:04:26 - Executing command: python "C:\xampp\htdocs\new\Face-Recognition-Attendance-System/python/realtime_recognition.py" --train
+2026-08-13 14:04:28 - Command output: Array
+(
+    [0] => 2026-08-13 17:49:26,399 - INFO - Processing student 1122 with label 0
+    [1] => 2026-08-13 17:49:27,634 - INFO - Processing student 45435 with label 1
+    [2] => 2026-08-13 17:49:27,845 - INFO - Training LBPH...
+    [3] => 2026-08-13 17:49:28,093 - INFO - Training Eigenfaces...
+    [4] => 2026-08-13 17:49:28,658 - INFO - Training Fisherfaces...
+    [5] => {"success": true, "message": "Trained 2 students with 72 images using multiple algorithms"}
+)
+
+2026-08-13 14:04:28 - Return code: 0
+2026-08-13 14:04:28 - Student registration completed successfully
+2026-08-13 14:29:36 - Starting student registration process
+2026-08-13 14:29:36 - Error: A student with this email address already exists!
+2026-08-13 14:30:20 - Starting student registration process
+2026-08-13 14:30:20 - Error: A student with this email address already exists!
+2026-08-13 14:32:19 - Starting student registration process
+2026-08-13 14:32:19 - Error: A student with this email address already exists!
+2026-08-13 14:34:22 - Starting student registration process
+2026-08-13 14:34:22 - Student details: {"name":"Sujal Chitrakar","reg":"123"}
+2026-08-13 14:34:22 - Base directory: C:\xampp\htdocs\new\Face-Recognition-Attendance-System
+2026-08-13 14:34:22 - Python script path: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/python/realtime_recognition.py
+2026-08-13 14:34:22 - Creating student directory: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/123
+2026-08-13 14:34:22 - Creating student directory: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student123
+2026-08-13 14:34:22 - Creating student directory: resources/labels/123
+2026-08-13 14:34:22 - Processing image 1 for student 123
+2026-08-13 14:34:22 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/123/face_1.jpg
+2026-08-13 14:34:22 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student123/face_1.jpg
+2026-08-13 14:34:22 - Saved image to: resources/labels/123/face_1.jpg
+2026-08-13 14:34:22 - Processing image 2 for student 123
+2026-08-13 14:34:22 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/123/face_2.jpg
+2026-08-13 14:34:22 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student123/face_2.jpg
+2026-08-13 14:34:22 - Saved image to: resources/labels/123/face_2.jpg
+2026-08-13 14:34:22 - Processing image 3 for student 123
+2026-08-13 14:34:22 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/123/face_3.jpg
+2026-08-13 14:34:22 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student123/face_3.jpg
+2026-08-13 14:34:23 - Saved image to: resources/labels/123/face_3.jpg
+2026-08-13 14:34:23 - Processing image 4 for student 123
+2026-08-13 14:34:23 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/123/face_4.jpg
+2026-08-13 14:34:23 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student123/face_4.jpg
+2026-08-13 14:34:23 - Saved image to: resources/labels/123/face_4.jpg
+2026-08-13 14:34:23 - Processing image 5 for student 123
+2026-08-13 14:34:23 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/123/face_5.jpg
+2026-08-13 14:34:23 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student123/face_5.jpg
+2026-08-13 14:34:23 - Saved image to: resources/labels/123/face_5.jpg
+2026-08-13 14:34:23 - Processing image 6 for student 123
+2026-08-13 14:34:23 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/123/face_6.jpg
+2026-08-13 14:34:23 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student123/face_6.jpg
+2026-08-13 14:34:23 - Saved image to: resources/labels/123/face_6.jpg
+2026-08-13 14:34:23 - Processing image 7 for student 123
+2026-08-13 14:34:23 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/123/face_7.jpg
+2026-08-13 14:34:23 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student123/face_7.jpg
+2026-08-13 14:34:23 - Saved image to: resources/labels/123/face_7.jpg
+2026-08-13 14:34:23 - Processing image 8 for student 123
+2026-08-13 14:34:23 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/123/face_8.jpg
+2026-08-13 14:34:23 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student123/face_8.jpg
+2026-08-13 14:34:23 - Saved image to: resources/labels/123/face_8.jpg
+2026-08-13 14:34:23 - Processing image 9 for student 123
+2026-08-13 14:34:23 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/123/face_9.jpg
+2026-08-13 14:34:23 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student123/face_9.jpg
+2026-08-13 14:34:23 - Saved image to: resources/labels/123/face_9.jpg
+2026-08-13 14:34:23 - Processing image 10 for student 123
+2026-08-13 14:34:23 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/123/face_10.jpg
+2026-08-13 14:34:23 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student123/face_10.jpg
+2026-08-13 14:34:23 - Saved image to: resources/labels/123/face_10.jpg
+2026-08-13 14:34:23 - Saved student info files
+2026-08-13 14:34:23 - Executing duplicate check: python "C:\xampp\htdocs\new\Face-Recognition-Attendance-System/python/realtime_recognition.py" --check-duplicate "C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/123"
+2026-08-13 14:34:26 - Duplicate check output: Array
+(
+    [0] => 2026-08-13 18:19:24,725 - INFO - face_1.jpg: -> Unknown (raw_distance=108.41)
+    [1] => 2026-08-13 18:19:24,920 - INFO - face_10.jpg: -> Unknown (raw_distance=108.06)
+    [2] => 2026-08-13 18:19:25,122 - INFO - face_2.jpg: -> Unknown (raw_distance=104.56)
+    [3] => 2026-08-13 18:19:25,318 - INFO - face_3.jpg: -> Unknown (raw_distance=107.34)
+    [4] => 2026-08-13 18:19:25,517 - INFO - face_4.jpg: -> Unknown (raw_distance=109.19)
+    [5] => 2026-08-13 18:19:25,738 - INFO - face_5.jpg: -> Unknown (raw_distance=110.67)
+    [6] => 2026-08-13 18:19:25,952 - INFO - face_6.jpg: -> Unknown (raw_distance=118.13)
+    [7] => 2026-08-13 18:19:26,172 - INFO - face_7.jpg: -> Unknown (raw_distance=114.62)
+    [8] => 2026-08-13 18:19:26,394 - INFO - face_8.jpg: -> Unknown (raw_distance=108.49)
+    [9] => 2026-08-13 18:19:26,590 - INFO - face_9.jpg: -> Unknown (raw_distance=107.59)
+    [10] => {"success": true, "is_duplicate": false, "total_checked": 10}
+)
+
+2026-08-13 14:34:26 - Executing command: python "C:\xampp\htdocs\new\Face-Recognition-Attendance-System/python/realtime_recognition.py" --train
+2026-08-13 14:34:28 - Command output: Array
+(
+    [0] => 2026-08-13 18:19:27,062 - INFO - Processing student 123 with label 0
+    [1] => 2026-08-13 18:19:28,345 - INFO - Training LBPH...
+    [2] => 2026-08-13 18:19:28,517 - INFO - Training Eigenfaces...
+    [3] => 2026-08-13 18:19:28,825 - WARNING - Fisherfaces skipped: need at least 2 students
+    [4] => {"success": true, "message": "Trained 1 students with 40 images using multiple algorithms"}
+)
+
+2026-08-13 14:34:28 - Return code: 0
+2026-08-13 14:34:28 - Student registration completed successfully
+2026-08-13 14:35:24 - Starting student registration process
+2026-08-13 14:35:24 - Error: A student with this email address already exists!
+2026-08-13 14:36:28 - Starting student registration process
+2026-08-13 14:36:28 - Student details: {"name":"Sujal Chitrakar","reg":"5405"}
+2026-08-13 14:36:28 - Base directory: C:\xampp\htdocs\new\Face-Recognition-Attendance-System
+2026-08-13 14:36:28 - Python script path: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/python/realtime_recognition.py
+2026-08-13 14:36:28 - Creating student directory: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/5405
+2026-08-13 14:36:28 - Creating student directory: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student5405
+2026-08-13 14:36:28 - Creating student directory: resources/labels/5405
+2026-08-13 14:36:28 - Processing image 1 for student 5405
+2026-08-13 14:36:28 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/5405/face_1.jpg
+2026-08-13 14:36:28 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student5405/face_1.jpg
+2026-08-13 14:36:28 - Saved image to: resources/labels/5405/face_1.jpg
+2026-08-13 14:36:28 - Processing image 2 for student 5405
+2026-08-13 14:36:28 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/5405/face_2.jpg
+2026-08-13 14:36:28 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student5405/face_2.jpg
+2026-08-13 14:36:28 - Saved image to: resources/labels/5405/face_2.jpg
+2026-08-13 14:36:28 - Processing image 3 for student 5405
+2026-08-13 14:36:28 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/5405/face_3.jpg
+2026-08-13 14:36:28 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student5405/face_3.jpg
+2026-08-13 14:36:28 - Saved image to: resources/labels/5405/face_3.jpg
+2026-08-13 14:36:28 - Processing image 4 for student 5405
+2026-08-13 14:36:28 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/5405/face_4.jpg
+2026-08-13 14:36:28 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student5405/face_4.jpg
+2026-08-13 14:36:28 - Saved image to: resources/labels/5405/face_4.jpg
+2026-08-13 14:36:28 - Processing image 5 for student 5405
+2026-08-13 14:36:28 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/5405/face_5.jpg
+2026-08-13 14:36:28 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student5405/face_5.jpg
+2026-08-13 14:36:28 - Saved image to: resources/labels/5405/face_5.jpg
+2026-08-13 14:36:28 - Processing image 6 for student 5405
+2026-08-13 14:36:28 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/5405/face_6.jpg
+2026-08-13 14:36:28 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student5405/face_6.jpg
+2026-08-13 14:36:28 - Saved image to: resources/labels/5405/face_6.jpg
+2026-08-13 14:36:28 - Processing image 7 for student 5405
+2026-08-13 14:36:28 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/5405/face_7.jpg
+2026-08-13 14:36:28 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student5405/face_7.jpg
+2026-08-13 14:36:28 - Saved image to: resources/labels/5405/face_7.jpg
+2026-08-13 14:36:28 - Processing image 8 for student 5405
+2026-08-13 14:36:28 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/5405/face_8.jpg
+2026-08-13 14:36:28 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student5405/face_8.jpg
+2026-08-13 14:36:28 - Saved image to: resources/labels/5405/face_8.jpg
+2026-08-13 14:36:28 - Processing image 9 for student 5405
+2026-08-13 14:36:28 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/5405/face_9.jpg
+2026-08-13 14:36:28 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student5405/face_9.jpg
+2026-08-13 14:36:28 - Saved image to: resources/labels/5405/face_9.jpg
+2026-08-13 14:36:28 - Processing image 10 for student 5405
+2026-08-13 14:36:28 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/5405/face_10.jpg
+2026-08-13 14:36:28 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student5405/face_10.jpg
+2026-08-13 14:36:28 - Saved image to: resources/labels/5405/face_10.jpg
+2026-08-13 14:36:28 - Saved student info files
+2026-08-13 14:36:28 - Executing duplicate check: python "C:\xampp\htdocs\new\Face-Recognition-Attendance-System/python/realtime_recognition.py" --check-duplicate "C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/5405"
+2026-08-13 14:36:32 - Duplicate check output: Array
+(
+    [0] => 2026-08-13 18:21:30,134 - INFO - face_1.jpg: -> 123 (raw_distance=47.99)
+    [1] => 2026-08-13 18:21:30,379 - INFO - face_10.jpg: -> 123 (raw_distance=71.4)
+    [2] => 2026-08-13 18:21:30,622 - INFO - face_2.jpg: -> 123 (raw_distance=50.81)
+    [3] => 2026-08-13 18:21:30,859 - INFO - face_3.jpg: -> 123 (raw_distance=43.65)
+    [4] => 2026-08-13 18:21:31,092 - INFO - face_4.jpg: -> 123 (raw_distance=50.79)
+    [5] => 2026-08-13 18:21:31,323 - INFO - face_5.jpg: -> 123 (raw_distance=63.17)
+    [6] => 2026-08-13 18:21:31,564 - INFO - face_6.jpg: -> 123 (raw_distance=49.59)
+    [7] => 2026-08-13 18:21:31,796 - INFO - face_7.jpg: -> 123 (raw_distance=43.98)
+    [8] => 2026-08-13 18:21:32,026 - INFO - face_8.jpg: -> 123 (raw_distance=47.01)
+    [9] => 2026-08-13 18:21:32,266 - INFO - face_9.jpg: -> 123 (raw_distance=53.78)
+    [10] => {"success": true, "is_duplicate": true, "matched_student_id": "123", "votes": 10, "total_checked": 10, "avg_confidence": 90.2, "algorithm": "lbph"}
+)
+
+2026-08-13 14:36:32 - Duplicate face detected. Matches student 123 (votes: 10/10)
+2026-08-13 14:36:32 - Error: This face is already registered (matches student 123). The same person cannot be registered again.
+2026-08-13 14:38:44 - Starting student registration process
+2026-08-13 14:38:44 - Student details: {"name":"Saman Saman","reg":"23"}
+2026-08-13 14:38:44 - Base directory: C:\xampp\htdocs\new\Face-Recognition-Attendance-System
+2026-08-13 14:38:44 - Python script path: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/python/realtime_recognition.py
+2026-08-13 14:38:44 - Creating student directory: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/23
+2026-08-13 14:38:44 - Creating student directory: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student23
+2026-08-13 14:38:44 - Creating student directory: resources/labels/23
+2026-08-13 14:38:44 - Processing image 1 for student 23
+2026-08-13 14:38:44 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/23/face_1.jpg
+2026-08-13 14:38:44 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student23/face_1.jpg
+2026-08-13 14:38:44 - Saved image to: resources/labels/23/face_1.jpg
+2026-08-13 14:38:44 - Processing image 2 for student 23
+2026-08-13 14:38:44 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/23/face_2.jpg
+2026-08-13 14:38:44 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student23/face_2.jpg
+2026-08-13 14:38:44 - Saved image to: resources/labels/23/face_2.jpg
+2026-08-13 14:38:44 - Processing image 3 for student 23
+2026-08-13 14:38:44 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/23/face_3.jpg
+2026-08-13 14:38:44 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student23/face_3.jpg
+2026-08-13 14:38:44 - Saved image to: resources/labels/23/face_3.jpg
+2026-08-13 14:38:44 - Processing image 4 for student 23
+2026-08-13 14:38:44 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/23/face_4.jpg
+2026-08-13 14:38:44 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student23/face_4.jpg
+2026-08-13 14:38:44 - Saved image to: resources/labels/23/face_4.jpg
+2026-08-13 14:38:44 - Processing image 5 for student 23
+2026-08-13 14:38:44 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/23/face_5.jpg
+2026-08-13 14:38:44 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student23/face_5.jpg
+2026-08-13 14:38:44 - Saved image to: resources/labels/23/face_5.jpg
+2026-08-13 14:38:44 - Processing image 6 for student 23
+2026-08-13 14:38:44 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/23/face_6.jpg
+2026-08-13 14:38:44 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student23/face_6.jpg
+2026-08-13 14:38:44 - Saved image to: resources/labels/23/face_6.jpg
+2026-08-13 14:38:44 - Processing image 7 for student 23
+2026-08-13 14:38:44 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/23/face_7.jpg
+2026-08-13 14:38:44 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student23/face_7.jpg
+2026-08-13 14:38:44 - Saved image to: resources/labels/23/face_7.jpg
+2026-08-13 14:38:44 - Processing image 8 for student 23
+2026-08-13 14:38:44 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/23/face_8.jpg
+2026-08-13 14:38:44 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student23/face_8.jpg
+2026-08-13 14:38:44 - Saved image to: resources/labels/23/face_8.jpg
+2026-08-13 14:38:44 - Processing image 9 for student 23
+2026-08-13 14:38:44 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/23/face_9.jpg
+2026-08-13 14:38:44 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student23/face_9.jpg
+2026-08-13 14:38:44 - Saved image to: resources/labels/23/face_9.jpg
+2026-08-13 14:38:44 - Processing image 10 for student 23
+2026-08-13 14:38:44 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/23/face_10.jpg
+2026-08-13 14:38:44 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student23/face_10.jpg
+2026-08-13 14:38:44 - Saved image to: resources/labels/23/face_10.jpg
+2026-08-13 14:38:44 - Saved student info files
+2026-08-13 14:38:44 - Executing duplicate check: python "C:\xampp\htdocs\new\Face-Recognition-Attendance-System/python/realtime_recognition.py" --check-duplicate "C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/23"
+2026-08-13 14:38:48 - Duplicate check output: Array
+(
+    [0] => 2026-08-13 18:23:46,479 - INFO - face_1.jpg: -> Unknown (raw_distance=94.75)
+    [1] => 2026-08-13 18:23:46,700 - INFO - face_10.jpg: -> Unknown (raw_distance=99.12)
+    [2] => 2026-08-13 18:23:46,939 - INFO - face_2.jpg: -> 123 (raw_distance=87.33)
+    [3] => 2026-08-13 18:23:47,167 - INFO - face_3.jpg: -> Unknown (raw_distance=93.0)
+    [4] => 2026-08-13 18:23:47,419 - INFO - face_4.jpg: -> Unknown (raw_distance=94.93)
+    [5] => 2026-08-13 18:23:47,719 - INFO - face_5.jpg: -> Unknown (raw_distance=90.48)
+    [6] => 2026-08-13 18:23:47,940 - INFO - face_6.jpg: -> Unknown (raw_distance=94.38)
+    [7] => 2026-08-13 18:23:48,178 - INFO - face_7.jpg: -> Unknown (raw_distance=92.01)
+    [8] => 2026-08-13 18:23:48,428 - INFO - face_8.jpg: -> Unknown (raw_distance=123.69)
+    [9] => 2026-08-13 18:23:48,675 - INFO - face_9.jpg: -> Unknown (raw_distance=122.05)
+    [10] => {"success": true, "is_duplicate": false, "matched_student_id": "123", "votes": 1, "total_checked": 10, "avg_confidence": 62.1, "algorithm": "lbph"}
+)
+
+2026-08-13 14:38:48 - Executing command: python "C:\xampp\htdocs\new\Face-Recognition-Attendance-System/python/realtime_recognition.py" --train
+2026-08-13 14:38:51 - Command output: Array
+(
+    [0] => 2026-08-13 18:23:49,191 - INFO - Processing student 123 with label 0
+    [1] => 2026-08-13 18:23:50,404 - INFO - Processing student 23 with label 1
+    [2] => 2026-08-13 18:23:50,659 - INFO - Training LBPH...
+    [3] => 2026-08-13 18:23:50,987 - INFO - Training Eigenfaces...
+    [4] => 2026-08-13 18:23:51,687 - INFO - Training Fisherfaces...
+    [5] => {"success": true, "message": "Trained 2 students with 80 images using multiple algorithms"}
+)
+
+2026-08-13 14:38:51 - Return code: 0
+2026-08-13 14:38:51 - Student registration completed successfully
+2026-08-13 16:08:44 - Starting student registration process
+2026-08-13 16:08:44 - Student details: {"name":"Sujal Chitrakar","reg":"1"}
+2026-08-13 16:08:44 - Base directory: C:\xampp\htdocs\new\Face-Recognition-Attendance-System
+2026-08-13 16:08:44 - Python script path: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/python/realtime_recognition.py
+2026-08-13 16:08:44 - Creating student directory: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/1
+2026-08-13 16:08:44 - Creating student directory: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student1
+2026-08-13 16:08:44 - Creating student directory: resources/labels/1
+2026-08-13 16:08:44 - Processing image 1 for student 1
+2026-08-13 16:08:44 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/1/face_1.jpg
+2026-08-13 16:08:44 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student1/face_1.jpg
+2026-08-13 16:08:44 - Saved image to: resources/labels/1/face_1.jpg
+2026-08-13 16:08:44 - Processing image 2 for student 1
+2026-08-13 16:08:44 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/1/face_2.jpg
+2026-08-13 16:08:44 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student1/face_2.jpg
+2026-08-13 16:08:44 - Saved image to: resources/labels/1/face_2.jpg
+2026-08-13 16:08:44 - Processing image 3 for student 1
+2026-08-13 16:08:44 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/1/face_3.jpg
+2026-08-13 16:08:44 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student1/face_3.jpg
+2026-08-13 16:08:44 - Saved image to: resources/labels/1/face_3.jpg
+2026-08-13 16:08:44 - Processing image 4 for student 1
+2026-08-13 16:08:44 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/1/face_4.jpg
+2026-08-13 16:08:44 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student1/face_4.jpg
+2026-08-13 16:08:44 - Saved image to: resources/labels/1/face_4.jpg
+2026-08-13 16:08:44 - Processing image 5 for student 1
+2026-08-13 16:08:44 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/1/face_5.jpg
+2026-08-13 16:08:44 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student1/face_5.jpg
+2026-08-13 16:08:44 - Saved image to: resources/labels/1/face_5.jpg
+2026-08-13 16:08:44 - Processing image 6 for student 1
+2026-08-13 16:08:44 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/1/face_6.jpg
+2026-08-13 16:08:44 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student1/face_6.jpg
+2026-08-13 16:08:44 - Saved image to: resources/labels/1/face_6.jpg
+2026-08-13 16:08:44 - Processing image 7 for student 1
+2026-08-13 16:08:44 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/1/face_7.jpg
+2026-08-13 16:08:44 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student1/face_7.jpg
+2026-08-13 16:08:44 - Saved image to: resources/labels/1/face_7.jpg
+2026-08-13 16:08:44 - Processing image 8 for student 1
+2026-08-13 16:08:44 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/1/face_8.jpg
+2026-08-13 16:08:44 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student1/face_8.jpg
+2026-08-13 16:08:44 - Saved image to: resources/labels/1/face_8.jpg
+2026-08-13 16:08:44 - Processing image 9 for student 1
+2026-08-13 16:08:44 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/1/face_9.jpg
+2026-08-13 16:08:44 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student1/face_9.jpg
+2026-08-13 16:08:44 - Saved image to: resources/labels/1/face_9.jpg
+2026-08-13 16:08:44 - Processing image 10 for student 1
+2026-08-13 16:08:44 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/1/face_10.jpg
+2026-08-13 16:08:44 - Saved image to: C:\xampp\htdocs\new\Face-Recognition-Attendance-System/validated_faces/student1/face_10.jpg
+2026-08-13 16:08:44 - Saved image to: resources/labels/1/face_10.jpg
+2026-08-13 16:08:44 - Saved student info files
+2026-08-13 16:08:44 - Executing duplicate check: python "C:\xampp\htdocs\new\Face-Recognition-Attendance-System/python/realtime_recognition.py" --check-duplicate "C:\xampp\htdocs\new\Face-Recognition-Attendance-System/students/1"
+2026-08-13 16:08:45 - Duplicate check output: Array
+(
+    [0] => {"success": true, "is_duplicate": false, "reason": "no_model", "total_checked": 0}
+)
+
+2026-08-13 16:08:45 - Executing command: python "C:\xampp\htdocs\new\Face-Recognition-Attendance-System/python/realtime_recognition.py" --train
+2026-08-13 16:08:47 - Command output: Array
+(
+    [0] => 2026-08-13 19:53:45,966 - INFO - Processing student 1 with label 0
+    [1] => 2026-08-13 19:53:47,322 - INFO - Training LBPH...
+    [2] => 2026-08-13 19:53:47,459 - INFO - Training Eigenfaces...
+    [3] => 2026-08-13 19:53:47,749 - WARNING - Fisherfaces skipped: need at least 2 students
+    [4] => {"success": true, "message": "Trained 1 students with 40 images using multiple algorithms"}
+)
+
+2026-08-13 16:08:47 - Return code: 0
+2026-08-13 16:08:47 - Student registration completed successfully

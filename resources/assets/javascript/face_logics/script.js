@@ -2,9 +2,18 @@
 
 let stream = null;
 let isProcessing = false;
+let isVerifying = false;            // true while a blink-liveness burst is running
 let recognitionInterval = null;
 let lastRecognitionTime = 0;
 let lastRecognizedStudent = null;
+let livenessFailStreak = 0;         // consecutive failed liveness checks
+let livenessLockedUntil = 0;        // recognition paused until this timestamp
+
+// Active-liveness (blink) capture settings
+const LIVENESS_DURATION_MS = 4000;  // length of the blink-capture burst (blink twice)
+const LIVENESS_INTERVAL_MS = 130;   // gap between captured frames (~30 frames)
+const MAX_LIVENESS_FAILS = 3;       // consecutive failures before a lockout
+const LIVENESS_LOCKOUT_MS = 12000;  // pause after repeated spoof failures (anti brute-force)
 let userLocation = null;
 window.currentAlgorithm = 'lbph';
 
@@ -48,18 +57,20 @@ window.updateTable = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
             try {
                 const response = JSON.parse(xhr.responseText);
-                if (response.status === "success") {
-                    const container = document.getElementById("studentTableContainer");
-                    if (container) {
-                        container.innerHTML = response.html;
-                    }
+                const container = document.getElementById("studentTableContainer");
+                // Always render the table when the server returned markup — even a
+                // "No records found" result comes back as valid table HTML. The old
+                // code only rendered on status==="success", so an empty result (e.g.
+                // no students in the active semester) showed nothing at all.
+                if (container && typeof response.html === "string" && response.html.trim() !== "") {
+                    container.innerHTML = response.html;
                     // Start face recognition if video stream is already running
                     if (stream) {
                         startFaceRecognition();
                     }
-                } else {
+                } else if (response.status !== "success") {
                     console.error("Error:", response.message);
-                    showMessage("Error updating table: " + response.message, "error");
+                    showMessage("Error updating table: " + (response.message || "Unknown error"), "error");
                 }
             } catch (e) {
                 console.error("Failed to parse response:", e);
@@ -217,6 +228,9 @@ function stopCamera() {
         lastRecognitionTime = 0;
         setStartButtonsDisabled(false);
         isProcessing = false;
+        isVerifying = false;
+        livenessFailStreak = 0;
+        livenessLockedUntil = 0;
     } catch (error) {
         console.error("Error in stopCamera:", error);
     }
@@ -322,6 +336,94 @@ async function updateAttendanceStatus(studentId, course, unit) {
     }
 }
 
+// Capture a short burst of frames from the live video for the blink check
+async function captureLivenessBurst(video, canvas, onTick) {
+    const ctx = canvas.getContext("2d");
+    const frames = [];
+    const start = Date.now();
+    let lastSec = -1;
+    while (Date.now() - start < LIVENESS_DURATION_MS) {
+        if (!stream) break;
+        ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+        const blob = await new Promise(r => canvas.toBlob(r, "image/jpeg", 0.8));
+        if (blob) frames.push(blob);
+        const secLeft = Math.ceil((LIVENESS_DURATION_MS - (Date.now() - start)) / 1000);
+        if (onTick && secLeft !== lastSec) { onTick(secLeft); lastSec = secLeft; }
+        await new Promise(r => setTimeout(r, LIVENESS_INTERVAL_MS));
+    }
+    return frames;
+}
+
+// Verify the person is live (blinks) before marking attendance. A photo or a
+// still image on a phone screen cannot blink, so it never gets marked.
+async function verifyLivenessThenMark(studentId, course, unit) {
+    if (isVerifying) return;
+    isVerifying = true;
+    const video = document.getElementById("video");
+    const canvas = document.getElementById("canvas");
+    const recognitionStatus = document.getElementById("recognitionStatus");
+    // Keep the green recognition box on screen during the blink challenge so the
+    // user can see their face is still being tracked while marking. (It was drawn
+    // in processFrame just before this runs.) The "Please BLINK…" status below
+    // makes it clear the box is intentionally held while verifying.
+    try {
+        const frames = await captureLivenessBurst(video, canvas, (secLeft) => {
+            if (recognitionStatus) {
+                recognitionStatus.innerHTML =
+                    `<div class="info">Please BLINK to confirm attendance for Student ${studentId}... (${secLeft}s)</div>`;
+            }
+        });
+        if (!stream) return;
+        if (!frames.length) throw new Error("No frames captured");
+
+        const fd = new FormData();
+        frames.forEach((b, i) => fd.append("frames[]", b, `frame_${i}.jpg`));
+        fd.append("algorithm", window.currentAlgorithm || 'lbph');
+
+        logWithTime(`Sending ${frames.length} frames for blink-liveness check...`);
+        const resp = await fetch("liveness_check.php", { method: "POST", body: fd });
+        const res = await resp.json();
+        logWithTime("Liveness result: " + JSON.stringify(res));
+        if (!stream) return;
+
+        if (res.success && res.live && res.predicted_student_id !== "Unknown") {
+            livenessFailStreak = 0;
+            lastRecognizedStudent = res.predicted_student_id;
+            lastRecognitionTime = Date.now();
+            const ok = await updateAttendanceStatus(res.predicted_student_id, course, unit);
+            if (ok) {
+                showMessage(`Attendance marked for Student ${res.predicted_student_id} (liveness verified)`, "success");
+            }
+        } else {
+            // Not live / not recognised -> do NOT mark.
+            lastRecognizedStudent = null;
+            livenessFailStreak++;
+            const baseMsg = !res.success ? (res.message || "Liveness check error")
+                : (res.live ? "Face not recognised during live check — please try again"
+                    : "Liveness check failed: please blink naturally (a photo/phone can't be used)");
+            if (livenessFailStreak >= MAX_LIVENESS_FAILS) {
+                // Too many failures in a row -> lock out briefly so a photo can't
+                // be brute-forced by holding it up until a stray blink registers.
+                livenessLockedUntil = Date.now() + LIVENESS_LOCKOUT_MS;
+                livenessFailStreak = 0;
+                const lockMsg = "Repeated liveness failures — a photo or phone cannot be used. Paused briefly.";
+                if (recognitionStatus) recognitionStatus.innerHTML = `<div class="error">${lockMsg}</div>`;
+                showMessage(lockMsg, "error");
+            } else {
+                lastRecognitionTime = Date.now() - (RECOGNITION_COOLDOWN - 1500);
+                if (recognitionStatus) recognitionStatus.innerHTML = `<div class="error">${baseMsg}</div>`;
+                showMessage(baseMsg, "error");
+            }
+        }
+    } catch (error) {
+        logWithTime("Liveness error: " + error.message, "error");
+        lastRecognizedStudent = null;
+        lastRecognitionTime = Date.now() - (RECOGNITION_COOLDOWN - 1500);
+    } finally {
+        isVerifying = false;
+    }
+}
+
 // Process frame from camera stream
 async function processFrame() {
     const video = document.getElementById("video");
@@ -332,9 +434,10 @@ async function processFrame() {
     const unitSelect = document.getElementById("unitSelect");
 
     if (!video || !canvas || !overlay || !recognitionStatus || !courseSelect || !unitSelect) return false;
-    if (isProcessing || !stream) return false;
+    if (isProcessing || isVerifying || !stream) return false;
 
     const now = Date.now();
+    if (now < livenessLockedUntil) return false;   // brief pause after repeated spoof failures
     if (now - lastRecognitionTime < RECOGNITION_COOLDOWN) return false;
 
     isProcessing = true;
@@ -397,20 +500,16 @@ async function processFrame() {
             if (isRecognized) {
                 const cooldownExpired = (now - lastRecognitionTime) >= RECOGNITION_COOLDOWN;
                 const newStudent = lastRecognizedStudent !== result.predicted_student_id;
-                if (newStudent || cooldownExpired) {
+                if (!isVerifying && (newStudent || cooldownExpired)) {
+                    // Throttle re-entry, then run the blink-liveness challenge.
+                    // Attendance is marked only if a real blink is detected.
                     lastRecognitionTime = now;
-                    lastRecognizedStudent = result.predicted_student_id;
-                    logWithTime(`Updating attendance for Student ${result.predicted_student_id}`);
-
-                    const success = await updateAttendanceStatus(
+                    logWithTime(`Face recognised (${result.predicted_student_id}) — running blink-liveness check`);
+                    await verifyLivenessThenMark(
                         result.predicted_student_id,
                         courseSelect.value,
                         unitSelect.value
                     );
-
-                    if (success) {
-                        showMessage(`Attendance marked for Student ${result.predicted_student_id}!`, "success");
-                    }
                 }
             }
         } else if (result.message !== "No face detected") {

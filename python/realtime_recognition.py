@@ -9,6 +9,8 @@ import logging
 import argparse
 import gc
 
+import spoof_check  # hardcoded anti-spoofing (passive screen check + active blink liveness)
+
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
@@ -263,7 +265,11 @@ def start_recognition():
     except Exception as e:
         logging.error(f"Error during recognition: {str(e)}")
 
-def recognize_single_image(image_path, algo='lbph'):
+# NOTE: the passive anti-spoof checks (detect_spoof / liveness_report) now live
+# in python/spoof_check.py and are used via the `spoof_check` module below.
+
+
+def recognize_single_image(image_path, algo='lbph', check_liveness=True):
     """Recognize a single image using the specified algorithm and return the result"""
     try:
         # Get paths
@@ -319,7 +325,22 @@ def recognize_single_image(image_path, algo='lbph'):
             minSize=(40, 40),
             maxSize=(600, 600)
         )
-        
+
+        if len(faces) == 0:
+            # Fallback for dim / uneven lighting: the raw pass misses faces in low
+            # light. Retry on a histogram-equalized copy with slightly relaxed
+            # neighbours. This is DETECTION ONLY — the face box found here is still
+            # cropped from the raw `gray` below, so recognition preprocessing stays
+            # aligned with how the model was trained.
+            eq = cv2.equalizeHist(gray)
+            faces = face_cascade.detectMultiScale(
+                eq,
+                scaleFactor=1.1,
+                minNeighbors=4,
+                minSize=(40, 40),
+                maxSize=(600, 600)
+            )
+
         if len(faces) == 0:
             return {
                 'success': False,
@@ -338,7 +359,25 @@ def recognize_single_image(image_path, algo='lbph'):
             'width': int(w),
             'height': int(h)
         }
-        
+
+        # --- Passive liveness / anti-spoof gate (recognition path only) ---
+        # Reject faces coming from a phone/monitor screen or a printed photo.
+        # Skipped when check_liveness is False (e.g. the registration
+        # duplicate-check, which uses live-captured images already).
+        if check_liveness and spoof_check.ANTISPOOF_ENABLED:
+            is_spoof, spoof_reason, live_metrics = spoof_check.detect_spoof(
+                gray[y:y + h, x:x + w], img[y:y + h, x:x + w])
+            logging.info(f"LIVENESS {os.path.basename(str(image_path))}: {live_metrics} "
+                         f"spoof={is_spoof} ({spoof_reason})")
+            if is_spoof:
+                return {
+                    'success': False,
+                    'message': 'Spoof detected: please use your real face, not a photo or phone screen',
+                    'liveness': 'fake',
+                    'spoof_reason': spoof_reason,
+                    'face_location': face_location
+                }
+
         # Extract and preprocess: Consistent texture preservation (crop from raw gray)
         # We want to crop a 96x96 face ROI.
         # To generate translations, we crop various offsets of the face ROI
@@ -457,10 +496,180 @@ def recognize_single_image(image_path, algo='lbph'):
             'message': str(e)
         }
 
+# -- Consensus recognition ----------------------------------------------------
+# A single algorithm (LBPH) will occasionally match a stranger — e.g. a face on
+# a phone screen — to an enrolled student. Requiring agreement across the three
+# independently-trained models removes almost all of those false accepts, since
+# a wrong match rarely fools more than one algorithm.
+CONSENSUS_MIN_AGREE = 2   # how many of the 3 algorithms must agree on the same id
+
+
+def recognize_consensus_image(image_path):
+    """Recognise a face only if at least CONSENSUS_MIN_AGREE of the available
+    algorithms (lbph/eigen/fisher) agree on the same student. The single-frame
+    phone-screen (anti-spoof) gate is applied once, via the LBPH pass."""
+    try:
+        # LBPH pass carries the passive phone-screen / liveness gate.
+        base = recognize_single_image(image_path, 'lbph', check_liveness=True)
+        if not base.get('success'):
+            # No face, blurry, or flagged as a phone/photo screen -> not recognised.
+            return base
+
+        votes = {}
+        for algo in ('lbph', 'eigen', 'fisher'):
+            r = base if algo == 'lbph' else recognize_single_image(image_path, algo, check_liveness=False)
+            if r.get('success') and r.get('student_id', 'Unknown') != 'Unknown':
+                votes[r['student_id']] = votes.get(r['student_id'], 0) + 1
+
+        face_location = base.get('face_location')
+        if votes:
+            best_id = max(votes, key=lambda s: votes[s])
+            if votes[best_id] >= CONSENSUS_MIN_AGREE:
+                return {
+                    'success': True,
+                    'student_id': best_id,
+                    'confidence': base.get('confidence', 0) if base.get('student_id') == best_id else 70,
+                    'algorithm': 'consensus',
+                    'agree': votes[best_id],
+                    'face_location': face_location
+                }
+
+        logging.info(f"CONSENSUS rejected {os.path.basename(str(image_path))}: votes={votes}")
+        return {
+            'success': True,
+            'student_id': 'Unknown',
+            'confidence': 0,
+            'algorithm': 'consensus',
+            'agree': max(votes.values()) if votes else 0,
+            'face_location': face_location
+        }
+    except Exception as e:
+        logging.error(f"Consensus recognition error: {str(e)}")
+        return {'success': False, 'message': str(e)}
+
+
+# -- Duplicate-face detection --------------------------------------------------
+# Minimum number of freshly-captured images that must be recognised as the SAME
+# already-registered student before we treat the new sign-up as a duplicate.
+DUP_MIN_VOTES = 3
+
+
+def check_duplicate_face(images_dir, algo='lbph'):
+    """Compare a folder of freshly-captured faces against the EXISTING trained
+    model to decide whether this person is already registered.
+
+    Reuses recognize_single_image() so the exact same preprocessing and
+    per-algorithm distance thresholds are applied. Each captured image that is
+    recognised as an existing student casts one vote for that student. If a
+    single student collects at least DUP_MIN_VOTES votes, the registration is a
+    duplicate.
+
+    Returns a dict: {success, is_duplicate, matched_student_id, votes,
+    total_checked, ...}. When no model exists yet (first ever student),
+    is_duplicate is False so the first registration is always allowed.
+    """
+    try:
+        base_dir = Path(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+        model_path = base_dir / 'models' / f'{algo}_model.yml'
+        labels_path = base_dir / 'models' / 'labels.pkl'
+
+        images_dir = Path(images_dir)
+        if not images_dir.is_dir():
+            return {'success': False, 'message': f'Images directory not found: {images_dir}'}
+
+        # No model yet -> nobody registered -> allow this registration.
+        if not model_path.exists() or not labels_path.exists():
+            return {'success': True, 'is_duplicate': False, 'reason': 'no_model', 'total_checked': 0}
+
+        votes = {}          # student_id -> matching-image count
+        confidences = {}    # student_id -> list of display confidences
+        total_checked = 0   # images where a face was detected & predicted
+
+        for img_path in sorted(images_dir.glob('face_*.jpg')):
+            if 'debug' in img_path.name:
+                continue
+
+            res = recognize_single_image(str(img_path), algo, check_liveness=False)
+            if not res.get('success'):
+                continue  # e.g. no face / blurry — doesn't count for or against
+
+            total_checked += 1
+            sid = res.get('student_id', 'Unknown')
+            logging.info(f"{img_path.name}: -> {sid} (raw_distance={res.get('raw_distance')})")
+
+            if sid != 'Unknown':
+                votes[sid] = votes.get(sid, 0) + 1
+                confidences.setdefault(sid, []).append(res.get('confidence', 0))
+
+        if not votes:
+            return {'success': True, 'is_duplicate': False, 'total_checked': total_checked}
+
+        best_id = max(votes.keys(), key=lambda s: votes[s])
+        best_votes = votes[best_id]
+        avg_conf = round(sum(confidences[best_id]) / len(confidences[best_id]), 1)
+
+        return {
+            'success': True,
+            'is_duplicate': best_votes >= DUP_MIN_VOTES,
+            'matched_student_id': best_id,
+            'votes': best_votes,
+            'total_checked': total_checked,
+            'avg_confidence': avg_conf,
+            'algorithm': algo
+        }
+
+    except Exception as e:
+        logging.error(f"Duplicate check error: {str(e)}")
+        return {'success': False, 'message': str(e)}
+
+
+# -- Active liveness: blink challenge -----------------------------------------
+# The blink detection itself lives in spoof_check.detect_blink(); here we wrap
+# it so that, once a person is confirmed live, they are identified with the
+# 2-of-3 consensus recogniser.
+def verify_liveness(frames_dir, algo='lbph'):
+    """Confirm a real blink across a burst of frames, then recognise the person
+    with consensus. Returns {success, live, blinks, student_id, confidence, ...}."""
+    blink = spoof_check.detect_blink(frames_dir)
+    if not blink.get('success'):
+        return blink
+
+    result = {
+        'success': True,
+        'live': blink.get('live', False),
+        'blinks': blink.get('blinks', 0),
+        'frames_total': blink.get('frames_total', 0),
+        'frames_face': blink.get('frames_face', 0),
+        'frames_open': blink.get('frames_open', 0),
+        'frames_closed': blink.get('frames_closed', 0),
+        'student_id': 'Unknown',
+        'confidence': 0
+    }
+
+    # Identify the person on the clearest eyes-open frame using consensus.
+    if result['live'] and blink.get('best_open_path'):
+        rec = recognize_consensus_image(blink['best_open_path'])
+        if rec.get('success'):
+            result['student_id'] = rec.get('student_id', 'Unknown')
+            result['confidence'] = rec.get('confidence', 0)
+            result['raw_distance'] = rec.get('raw_distance')
+
+    logging.info(f"LIVENESS-VERIFY live={result['live']} blinks={result['blinks']} "
+                 f"student={result['student_id']}")
+    return result
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Face Recognition System')
     parser.add_argument('--train', action='store_true', help='Train the models')
+    parser.add_argument('--check-duplicate', dest='check_duplicate', metavar='DIR',
+                        help='Check a folder of captured faces against the existing model')
+    parser.add_argument('--liveness-check', dest='liveness_check', metavar='IMG',
+                        help='Diagnostic: print anti-spoof metrics for one image')
+    parser.add_argument('--verify-liveness', dest='verify_liveness', metavar='DIR',
+                        help='Check a burst of frames (frame_*.jpg) for a real blink and recognise')
     parser.add_argument('--algorithm', default='lbph', choices=['lbph', 'eigen', 'fisher'], help='Algorithm to use')
+    parser.add_argument('--consensus', action='store_true', help='Require 2-of-3 algorithm agreement (anti-spoof)')
     parser.add_argument('image_path', nargs='?', help='Path to image for recognition')
     args = parser.parse_args()
 
@@ -471,8 +680,23 @@ if __name__ == "__main__":
         if not success:
             sys.exit(1)
         sys.exit(0)
+    elif args.check_duplicate:
+        result = check_duplicate_face(args.check_duplicate, args.algorithm)
+        print(json.dumps(result))
+        sys.exit(0)
+    elif args.liveness_check:
+        result = spoof_check.liveness_report(args.liveness_check)
+        print(json.dumps(result))
+        sys.exit(0)
+    elif args.verify_liveness:
+        result = verify_liveness(args.verify_liveness, args.algorithm)
+        print(json.dumps(result))
+        sys.exit(0)
     elif args.image_path:
-        result = recognize_single_image(args.image_path, args.algorithm)
+        if args.consensus:
+            result = recognize_consensus_image(args.image_path)
+        else:
+            result = recognize_single_image(args.image_path, args.algorithm)
         print(json.dumps(result))
     else:
-        start_recognition() 
+        start_recognition()

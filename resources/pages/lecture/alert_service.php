@@ -192,14 +192,14 @@ if (!function_exists('evaluate_and_send_alerts')) {
                 }
 
                 if ($shouldSend) {
-                    $subject = "SAS Portal: Student Absence Notice";
+                    $subject = "CMS Portal: Student Absence Notice";
                     $todayNepali = formatNepaliDate(date('Y-m-d'));
                     $semStr = $semesterName ? " for " . $semesterName : "";
                     $body = "Dear Parent/Guardian,\n\n" .
                         "We are writing to inform you that the student $studentName (Registration No: $studentID) was marked Absent on $todayNepali (BS) for the course $course (Unit: $unit)$semStr.\n\n" .
                         "To prevent notification fatigue, absence email alerts are rate-limited to once every 3 days. Please follow up with the student accordingly.\n\n" .
                         "Best regards,\n" .
-                        "SAS Portal Attendance System";
+                        "CMS Portal Attendance System";
 
                     if (trigger_alert_emailer($studentEmail, $subject, $body)) {
                         $updateSentStmt = $pdo->prepare("UPDATE tblalertstate SET lastAbsentAlertSent = :today WHERE studentRegistrationNumber = :studentID AND courseCode = :course AND unitCode = :unit");
@@ -230,7 +230,7 @@ if (!function_exists('evaluate_and_send_alerts')) {
                         "Congratulations! You have successfully attended $newStreak consecutive sessions of $course (Unit: $unit)!\n\n" .
                         "We are thrilled to see your commitment and positive momentum. Keep up the excellent work!\n\n" .
                         "Best regards,\n" .
-                        "SAS Portal Attendance System";
+                        "CMS Portal Attendance System";
 
                     if (trigger_alert_emailer($studentEmail, $subject, $body)) {
                         $updateMomentumStmt = $pdo->prepare("UPDATE tblalertstate SET lastMomentumAlertSent = :today WHERE studentRegistrationNumber = :studentID AND courseCode = :course AND unitCode = :unit");
@@ -322,7 +322,7 @@ if (!function_exists('evaluate_and_send_alerts')) {
                 }
 
                 if ($shouldSendThreshold) {
-                    $subject = "SAS Portal: CRITICAL Attendance Warning";
+                    $subject = "CMS Portal: CRITICAL Attendance Warning";
                     $percentFormatted = round($percentage, 1);
                     $semStr = $semesterName ? " for " . $semesterName : "";
                     $body = "Dear $studentName,\n\n" .
@@ -331,7 +331,7 @@ if (!function_exists('evaluate_and_send_alerts')) {
                         "Please be warned that if your attendance remains below this threshold, you will NOT be eligible to sit for exams for this unit.\n\n" .
                         "Please make sure to attend all upcoming classes to improve your attendance percentage.\n\n" .
                         "Best regards,\n" .
-                        "SAS Portal Attendance System";
+                        "CMS Portal Attendance System";
 
                     if (trigger_alert_emailer($studentEmail, $subject, $body)) {
                         $updateThresholdStmt = $pdo->prepare("UPDATE tblalertstate SET lastThresholdAlertSent = :today WHERE studentRegistrationNumber = :studentID AND courseCode = :course AND unitCode = :unit");

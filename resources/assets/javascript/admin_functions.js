@@ -154,6 +154,10 @@ async function captureWithLivePreview(slotIndex, imageBox) {
   } finally {
     cleanup();
   }
+
+  // Report back to the sequential capture loop whether the user cancelled, so
+  // it can stop instead of immediately opening the camera for the next slot.
+  return cancelled;
 }
 
 /**
@@ -208,10 +212,12 @@ const takeMultipleImages = async function() {
     })(i, imageBox);
   }
 
-  // Step 2: Auto-capture each slot sequentially
+  // Step 2: Auto-capture each slot sequentially. If the user cancels, stop the
+  // whole sequence instead of opening the camera again for the next slot.
   for (var j = 1; j <= 10; j++) {
     var box = document.getElementById('imagebox_' + j);
-    await captureWithLivePreview(j, box);
+    var wasCancelled = await captureWithLivePreview(j, box);
+    if (wasCancelled) break;
   }
 };
 

@@ -29,9 +29,11 @@ try {
         $algo = 'lbph';
     }
 
-    // Call Python script for face recognition
+    // Call Python script for face recognition.
+    // Use consensus (2-of-3 algorithms) + the passive phone-screen gate so a
+    // face shown from a phone/photo is rejected instead of matched to a student.
     $pythonScript = __DIR__ . '/python/realtime_recognition.py';
-    $command = "python \"$pythonScript\" \"$tempImage\" --algorithm " . escapeshellarg($algo);
+    $command = "python \"$pythonScript\" \"$tempImage\" --consensus --algorithm " . escapeshellarg($algo);
 
     logMessage("Executing command: $command");
     $output = [];

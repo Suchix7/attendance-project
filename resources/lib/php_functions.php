@@ -84,19 +84,47 @@ function getUnitNames()
 
 function showMessage(): void
 {
-    if (isset($_SESSION['message'])) {
-        echo " <div id='messageDiv' class='messageDiv' >{$_SESSION['message']}</div>";
-        echo `<script>
-        
-         var messageDiv = document.getElementById('messageDiv');
-    messageDiv.style.opacity = 1;
-    setTimeout(function() {
-      messageDiv.style.opacity = 0;
-    }, 5000);
-        </script>`;
-
-        unset($_SESSION['message']);
+    if (!isset($_SESSION['message'])) {
+        return;
     }
+
+    $rawMessage = $_SESSION['message'];
+    unset($_SESSION['message']);
+
+    // Classify the message so the popup can style itself and pick a title.
+    // Error messages are stored as "Error: <detail>"; anything else is a success.
+    $isError = stripos($rawMessage, 'Error:') === 0;
+    $isDuplicateFace = stripos($rawMessage, 'already registered') !== false;
+
+    // Clean display text (drop the leading "Error:" prefix for a nicer headline).
+    $text = preg_replace('/^\s*Error:\s*/i', '', $rawMessage);
+    $text = htmlspecialchars($text, ENT_QUOTES, 'UTF-8');
+
+    if ($isDuplicateFace) {
+        $variant = 'error';
+        $icon    = 'fa-triangle-exclamation';
+        $title   = 'Duplicate Face Detected';
+    } elseif ($isError) {
+        $variant = 'error';
+        $icon    = 'fa-circle-exclamation';
+        $title   = "Couldn't Save";
+    } else {
+        $variant = 'success';
+        $icon    = 'fa-circle-check';
+        $title   = 'Success';
+    }
+
+    // Every outcome is shown as a large centered popup so it can't be missed
+    // (the old small bottom-right toast was easy to overlook after a save).
+    echo "
+    <div id='msgOverlay' class='dupFaceOverlay'>
+        <div class='dupFacePopup {$variant}' role='alertdialog' aria-modal='true' aria-labelledby='msgTitle'>
+            <div class='dupFaceIcon'><i class='fa-solid {$icon}'></i></div>
+            <h2 id='msgTitle' class='dupFaceTitle'>{$title}</h2>
+            <p class='dupFaceText'>{$text}</p>
+            <button type='button' class='dupFaceBtn' onclick=\"var o=document.getElementById('msgOverlay'); if (o) o.remove();\">OK</button>
+        </div>
+    </div>";
 }
 
 

@@ -2,6 +2,13 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
+// Never let the browser serve a stale cached copy of this page — otherwise old
+// inline JS/markup can keep running after the page has been updated.
+if (!headers_sent()) {
+    header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
+    header('Pragma: no-cache');
+}
+
 function debug_log($message)
 {
     error_log(date('Y-m-d H:i:s') . " - " . $message . "\n", 3, __DIR__ . '/debug.log');
@@ -31,6 +38,21 @@ if (isset($_POST['addStudent'])) {
         // ✅ Validate email
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             throw new Exception("Invalid email address");
+        }
+
+        // Fail fast on a duplicate registration number or email BEFORE saving
+        // any images or running the (slow) face training, so obvious duplicates
+        // are rejected instantly instead of after a long wait.
+        $regCheck = $pdo->prepare("SELECT COUNT(*) FROM tblstudents WHERE registrationNumber = :registrationNumber");
+        $regCheck->execute([':registrationNumber' => $registrationNumber]);
+        if ($regCheck->fetchColumn() > 0) {
+            throw new Exception("Student with the given Registration No: $registrationNumber already exists!");
+        }
+
+        $emailCheck = $pdo->prepare("SELECT COUNT(*) FROM tblstudents WHERE email = :email");
+        $emailCheck->execute([':email' => $email]);
+        if ($emailCheck->fetchColumn() > 0) {
+            throw new Exception("A student with this email address already exists!");
         }
 
 
@@ -169,6 +191,31 @@ if (isset($_POST['addStudent'])) {
             throw new Exception("Python script not found at: $pythonScript");
         }
 
+        // ---------------------------------------------------------------
+        // Duplicate-face check. MUST run BEFORE --train, because training
+        // reads from the students/ folder and would otherwise fold this
+        // person's just-saved faces into the model and match them against
+        // themselves. Here we compare the captured faces against the
+        // EXISTING model; if they already belong to a registered student we
+        // block the sign-up so the same face cannot be registered twice.
+        // ---------------------------------------------------------------
+        $dupCommand = "python \"{$pythonScript}\" --check-duplicate \"{$studentDir}\"";
+        debug_log("Executing duplicate check: $dupCommand");
+
+        $dupOutput = [];
+        $dupReturn = 0;
+        exec($dupCommand . " 2>&1", $dupOutput, $dupReturn);
+        debug_log("Duplicate check output: " . print_r($dupOutput, true));
+
+        $dupResult = json_decode(end($dupOutput), true);
+        if (is_array($dupResult) && !empty($dupResult['success']) && !empty($dupResult['is_duplicate'])) {
+            $matchedId = isset($dupResult['matched_student_id']) ? $dupResult['matched_student_id'] : 'unknown';
+            debug_log("Duplicate face detected. Matches student $matchedId "
+                . "(votes: " . ($dupResult['votes'] ?? '?') . "/" . ($dupResult['total_checked'] ?? '?') . ")");
+            throw new Exception("This face is already registered (matches student $matchedId). "
+                . "The same person cannot be registered again.");
+        }
+
         // Call the script with the train argument
         $command = "python \"{$pythonScript}\" --train";
         debug_log("Executing command: $command");
@@ -183,14 +230,7 @@ if (isset($_POST['addStudent'])) {
             throw new Exception("Face recognition training failed. Output: " . implode("\n", $output));
         }
 
-        // Check for duplicate registration number
-        $checkQuery = $pdo->prepare("SELECT COUNT(*) FROM tblstudents WHERE registrationNumber = :registrationNumber");
-        $checkQuery->execute([':registrationNumber' => $registrationNumber]);
-        $count = $checkQuery->fetchColumn();
-
-        if ($count > 0) {
-            throw new Exception("Student with the given Registration No: $registrationNumber already exists!");
-        }
+        // (Registration number / email uniqueness already verified above.)
 
         // Insert new student
         $insertQuery = $pdo->prepare("
@@ -219,10 +259,15 @@ if (isset($_POST['addStudent'])) {
         debug_log("Error: " . $e->getMessage());
         $_SESSION['message'] = "Error: " . $e->getMessage();
 
-        // Clean up files if there was an error
-        if (isset($validatedDir) && file_exists($validatedDir)) {
-            array_map('unlink', glob("{$validatedDir}/*.*"));
-            rmdir($validatedDir);
+        // Clean up any files/directories created for this student so a
+        // rejected registration (e.g. duplicate face) leaves nothing behind.
+        // Removing students/{reg} also keeps the rejected face out of the
+        // next training run.
+        foreach ([$validatedDir ?? null, $studentDir ?? null, $labelDir ?? null] as $dir) {
+            if ($dir && file_exists($dir)) {
+                array_map('unlink', glob("{$dir}/*.*"));
+                @rmdir($dir);
+            }
         }
     }
 }
@@ -269,6 +314,17 @@ if (isset($_POST['editStudent'])) {
 
         if ($checkQuery->fetchColumn() > 0) {
             throw new Exception("Another student with this registration number already exists!");
+        }
+
+        // Check if email is already used by another student
+        $emailCheck = $pdo->prepare("SELECT COUNT(*) FROM tblstudents WHERE email = :email AND Id != :id");
+        $emailCheck->execute([
+            ':email' => $email,
+            ':id' => $studentId
+        ]);
+
+        if ($emailCheck->fetchColumn() > 0) {
+            throw new Exception("Another student with this email address already exists!");
         }
 
         // Update student information
@@ -353,6 +409,16 @@ if (isset($_POST['editStudent'])) {
 
         <div class="main--content">
             <div id="overlay"></div>
+
+            <!-- Full-screen loader shown while a student is being saved/verified -->
+            <div id="saveLoader" class="saveLoaderOverlay" style="display:none;">
+                <div class="saveLoaderBox">
+                    <div class="saveLoaderSpinner"></div>
+                    <p class="saveLoaderText">Saving student &amp; verifying face…</p>
+                    <p class="saveLoaderSub">This can take a few seconds. Please don't close this window.</p>
+                </div>
+            </div>
+
             <?php showMessage(); ?>
             <div class="table-container">
 
@@ -428,7 +494,7 @@ if (isset($_POST['editStudent'])) {
                         <div>
                             <input type="text" name="firstName" placeholder="First Name" required>
                             <input type="text" name="lastName" " placeholder=" Last Name"required>
-                            <input type="email" name="email" placeholder="Email Address">
+                            <input type="email" name="email" placeholder="Email Address" required>
                             <input type="text" required id="registrationNumber" name="registrationNumber"
                                 placeholder="Registration Number"> <br>
                             <p id="error" style="color: red; display: none;">Invalid characters in registration number.
@@ -484,7 +550,11 @@ if (isset($_POST['editStudent'])) {
                         </div>
                     </div>
 
-                    <input type="submit" class="btn-submit" value="Save Student" name="addStudent" />
+                    <!-- Hidden guarantee: keeps addStudent in the POST even if the
+                         submit button is ever disabled by JS (a disabled button is
+                         dropped from the form data), so the server always runs. -->
+                    <input type="hidden" name="addStudent" value="1">
+                    <input type="submit" class="btn-submit" value="Save Student" />
 
 
                 </form>
@@ -542,7 +612,8 @@ if (isset($_POST['editStudent'])) {
                             ?>
                         </select>
                     </div>
-                    <input type="submit" class="btn-submit" value="Update Student" name="editStudent">
+                    <input type="hidden" name="editStudent" value="1">
+                    <input type="submit" class="btn-submit" value="Update Student">
                 </form>
             </div>
 
@@ -658,6 +729,47 @@ if (isset($_POST['editStudent'])) {
 
                 editRegistrationNumberInput.value = sanitizedValue;
             });
+
+            // ── Save loader + guard against submitting with no photos ──────────
+            // IMPORTANT: never disable the submit <input> here. A disabled submit
+            // button is omitted from the POST body, so $_POST['addStudent'] would
+            // be missing and PHP would silently skip the whole save handler (no
+            // log, no save, no error). We block double-submits with a flag and the
+            // full-screen loader overlay (which covers the button) instead.
+            const saveLoader = document.getElementById('saveLoader');
+
+            const addForm = document.querySelector('#form form');
+            if (addForm) {
+                let addSubmitting = false;
+                addForm.addEventListener('submit', function (e) {
+                    if (addSubmitting) { e.preventDefault(); return; }
+
+                    // Require at least one captured photo before the slow save.
+                    let hasPhoto = false;
+                    for (let i = 1; i <= 10; i++) {
+                        const inp = document.getElementById('image_' + i + '-captured-image-input');
+                        if (inp && inp.value && inp.value.length > 0) { hasPhoto = true; break; }
+                    }
+                    if (!hasPhoto) {
+                        e.preventDefault();
+                        alert('Please capture at least one photo before saving.');
+                        return;
+                    }
+                    addSubmitting = true;
+                    if (saveLoader) saveLoader.style.display = 'flex';
+                });
+            }
+
+            // Edit form: show the loader on submit too, for consistency.
+            const editFormEl = document.querySelector('#editForm form');
+            if (editFormEl) {
+                let editSubmitting = false;
+                editFormEl.addEventListener('submit', function (e) {
+                    if (editSubmitting) { e.preventDefault(); return; }
+                    editSubmitting = true;
+                    if (saveLoader) saveLoader.style.display = 'flex';
+                });
+            }
         });
     </script>
 </body>
